@@ -30,7 +30,12 @@
 ---
 
 ## 🛠️ 技術スタック
-- **執筆LLM**: http://192.168.128.62:11434/（構成作家: qwen3.5:9b, 執筆作家: shosetsu:latest）
-- **画像生成**: Draw Things http://192.168.128.59:7860/ (lux_2_klein_base_9b_i8x.ckpt / 768x1024, 20 steps)
-- **図版生成**: LuaLaTeX + TikZ + pdftoppm (High Resolution Rendering)
-- **公開形式**: Markdown / HTML
+- **執筆LLM**:
+  - 構成作家: Qwen 3.5 (9B)
+  - 執筆作家: Shosetsu (latest)
+- **画像生成**:
+  - 画像生成モデル: FLUX.2 [klein] Base (9B i8x)
+- **図版生成**:
+  - LuaLaTeX + TikZ (高精細ベクター・ラスターレンダリング)
+- **公開形式**:
+  - Markdown / HTML
