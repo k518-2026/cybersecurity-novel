@@ -1,0 +1,46 @@
+\documentclass[tikz,border=18pt]{standalone}
+\usepackage{luatexja}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric,arrows.meta,positioning,calc}
+
+\definecolor{goodblue}{RGB}{20, 80, 140}
+\definecolor{badred}{RGB}{190, 30, 30}
+\definecolor{bgblue}{RGB}{236, 246, 255}
+\definecolor{bgred}{RGB}{255, 238, 238}
+
+\begin{document}
+\begin{tikzpicture}[>=Stealth, font=\small]
+
+  % 正規URLの解剖
+  \node[draw=goodblue, fill=bgblue, rounded corners=8pt, line width=1.5pt, minimum width=18.5cm, minimum height=2.8cm, align=left] (real) at (0, 4.0) {
+    \textbf{\Large 【正規のURL構造とSSL/TLS証明書】}\\[4pt]
+    \large \texttt{https://\textbf{\textcolor{goodblue}{bank.example.co.jp}}/login/}\\[5pt]
+    \footnotesize
+    \begin{tabular}{lll}
+      \textbf{プロトコル:} \texttt{https://} (暗号化通信) & \textbf{組織名:} \texttt{bank.example} & \textbf{国・属性ドメイン:} \texttt{.co.jp} (日本法人厳格審査)
+    \end{tabular}\\[3pt]
+    \footnotesize \textbf{\textcolor{goodblue}{鍵マークの真実:}} 通信は暗号化されているが、「サイト運営者が本物か」はドメイン名（FQDN）で確認！
+  };
+
+  % 偽URL（フィッシング）の罠
+  \node[draw=badred, fill=bgred, rounded corners=8pt, line width=1.5pt, minimum width=18.5cm, minimum height=2.8cm, align=left] (fake) at (0, 0.4) {
+    \textbf{\Large 【フィッシング詐欺サイトの巧妙な偽装URL】}\\[4pt]
+    \large \texttt{https://\textbf{\textcolor{badred}{bank.example.co.jp.sec-update.xyz}}/login/}\\[5pt]
+    \footnotesize
+    \begin{tabular}{lll}
+      \textbf{プロトコル:} \texttt{https://} (無料証明書で偽装) & \textbf{騙しのサブドメイン:} \texttt{bank.example.co.jp.} & \textbf{真のドメイン:} \texttt{\textbf{\textcolor{badred}{sec-update.xyz}}}
+    \end{tabular}\\[3pt]
+    \footnotesize \textbf{\textcolor{badred}{危険な誤認:}} 「httpsや鍵マークがあるから安全」は大間違い！ 攻撃者も証明書を取得して罠を張る！
+  };
+
+  % チェックポイント
+  \node[draw=black!70, fill=yellow!15, rounded corners=6pt, line width=1.2pt, minimum width=18.5cm, minimum height=1.8cm, align=center] (point) at (0, -2.6) {
+    \textbf{\large ★ フィッシング詐欺を見抜く3原則（IPA デジタルスキル標準）}\\[3pt]
+    \small 1. メールのリンクではなく\textbf{公式ブックマークや公式アプリ}からアクセスする\\[2pt]
+    \small 2. 末尾のドメイン（トップレベル〜セカンドレベル）が本物の企業と一致しているか確認する
+  };
+
+  \draw[->, very thick, red] (real.south) -- (fake.north);
+
+\end{tikzpicture}
+\end{document}
