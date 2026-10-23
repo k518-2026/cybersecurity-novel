@@ -1,0 +1,74 @@
+\documentclass[tikz,border=18pt]{standalone}
+\usepackage{luatexja}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric,arrows.meta,positioning,calc}
+
+\definecolor{keyblue}{RGB}{20, 80, 150}
+\definecolor{hashpurple}{RGB}{120, 40, 140}
+\definecolor{siggreen}{RGB}{30, 135, 55}
+
+\begin{document}
+\begin{tikzpicture}[>=Stealth, font=\small]
+
+  % -------------------------------------------------------------
+  % 送信側（葵）：元文書からハッシュ計算 ＆ 秘密鍵で署名作成
+  % -------------------------------------------------------------
+  \node[draw=keyblue, fill=blue!6, rounded corners=8pt, line width=1.5pt, minimum width=18.5cm, minimum height=3.6cm, align=left] (sender_box) at (0, 3.8) {};
+  
+  \node[above right, font=\large\bfseries, text=keyblue] at (-9.0, 5.0) {【送信者側】メッセージのハッシュ化 ＆ 送信者の「秘密鍵」によるデジタル署名};
+
+  \node[draw=black!70, fill=white, rounded corners=4pt, thick, align=center, minimum width=3.4cm, minimum height=1.4cm] (doc1) at (-6.8, 3.4) {
+    \textbf{送信メッセージ}\\[2pt]
+    \footnotesize (元の電子文書)
+  };
+
+  \node[draw=hashpurple, fill=purple!10, rounded corners=4pt, thick, align=center, minimum width=3.8cm, minimum height=1.4cm] (hash1) at (-1.4, 3.4) {
+    \textbf{一方向ハッシュ関数}\\[2pt]
+    \footnotesize (SHA-256で要約生成)
+  };
+
+  \node[draw=siggreen, fill=green!15, rounded corners=6pt, very thick, align=center, minimum width=5.6cm, minimum height=1.6cm] (sign) at (5.2, 3.4) {
+    \textbf{\textcolor{siggreen}{送信者の「秘密鍵」で暗号化}}\\[2pt]
+    \footnotesize $\Rightarrow$ \textbf{\large デジタル署名（電子署名）}の完成！\\[1pt]
+    \tiny ※送信者本人しか持たない鍵で署名するため偽造不可能
+  };
+
+  \draw[->, very thick] (doc1.east) -- (hash1.west);
+  \draw[->, very thick] (hash1.east) -- (sign.west);
+
+  % -------------------------------------------------------------
+  % 受信側（悠真）：公開鍵で検証 ＆ 本人証明と非改ざん証明
+  % -------------------------------------------------------------
+  \node[draw=siggreen, fill=green!6, rounded corners=8pt, line width=1.5pt, minimum width=18.5cm, minimum height=3.8cm, align=left] (recv_box) at (0, -1.2) {};
+  
+  \node[above right, font=\large\bfseries, text=siggreen] at (-9.0, 0.1) {【受信者側】送信者の「公開鍵」による署名検証 ＆ 改ざん・なりすまし検知};
+
+  \node[draw=siggreen, fill=white, rounded corners=4pt, thick, align=center, minimum width=4.0cm, minimum height=1.4cm] (sig_recv) at (-6.5, -1.6) {
+    \textbf{届いたデジタル署名}
+  };
+
+  \node[draw=keyblue, fill=blue!15, rounded corners=4pt, very thick, align=center, minimum width=4.4cm, minimum height=1.6cm] (verify) at (-0.8, -1.6) {
+    \textbf{送信者の「公開鍵」で復号}\\[2pt]
+    \footnotesize (世界中に公開されている鍵)\\[2pt]
+    \scriptsize $\Rightarrow$ 復元されたハッシュ値 A
+  };
+
+  \node[draw=hashpurple, fill=purple!15, rounded corners=4pt, thick, align=center, minimum width=4.4cm, minimum height=1.6cm] (rehash) at (4.8, -1.6) {
+    \textbf{届いた文書から再計算}\\[2pt]
+    \footnotesize (SHA-256で再ハッシュ)\\[2pt]
+    \scriptsize $\Rightarrow$ 計算されたハッシュ値 B
+  };
+
+  \draw[->, very thick] (sig_recv.east) -- (verify.west);
+
+  % 比較判定
+  \node[draw=siggreen, fill=green!25, rounded corners=6pt, line width=1.5pt, align=center, minimum width=18.5cm, inner sep=6pt] (verdict) at (0, -3.8) {
+    \textbf{\Large ハッシュ値 A ＝ ハッシュ値 B が一致した場合}\\[3pt]
+    \small \textbf{① 真正性（送信者本人が書いたこと）} ＆ \textbf{② 完全性（途中で1文字も改ざんされていないこと）} を数学的に完全証明！
+  };
+
+  \draw[->, thick, dashed] (verify.south) -- ++(0, -0.4) -| ($(verdict.north) + (-2.8, 0)$);
+  \draw[->, thick, dashed] (rehash.south) -- ++(0, -0.4) -| ($(verdict.north) + (2.8, 0)$);
+
+\end{tikzpicture}
+\end{document}

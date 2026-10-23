@@ -1,0 +1,65 @@
+\documentclass[tikz,border=18pt]{standalone}
+\usepackage{luatexja}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric,arrows.meta,positioning,calc}
+
+\definecolor{inputred}{RGB}{200, 30, 30}
+\definecolor{safegreen}{RGB}{30, 135, 55}
+\definecolor{dbblue}{RGB}{20, 80, 150}
+
+\begin{document}
+\begin{tikzpicture}[>=Stealth, font=\small]
+
+  % -------------------------------------------------------------
+  % 上段：SQLインジェクションの脆弱性（未サニタイズによる命令混入）
+  % -------------------------------------------------------------
+  \node[draw=inputred, fill=red!6, rounded corners=8pt, line width=1.5pt, minimum width=18.5cm, minimum height=3.6cm, align=left] (vuln_box) at (0, 3.6) {};
+  
+  \node[above right, font=\large\bfseries, text=inputred] at (-9.0, 4.8) {【脆弱】SQLインジェクション：入力データが「命令（コード）」として解釈される危険};
+
+  \node[draw=inputred, fill=white, rounded corners=4pt, thick, align=center, minimum width=4.8cm, minimum height=1.4cm] (atk_in) at (-6.2, 3.2) {
+    \textbf{攻撃者の入力値}\\[2pt]
+    \footnotesize \texttt{' OR '1'='1} (常に真になる命令)
+  };
+
+  \node[draw=black!70, fill=yellow!15, rounded corners=4pt, align=center, minimum width=6.8cm, minimum height=1.6cm] (app_concat) at (0.2, 3.2) {
+    \textbf{脆弱な文字列連結}\\[2pt]
+    \scriptsize \texttt{SELECT * FROM users WHERE pass = \textbf{\textcolor{inputred}{'' OR '1'='1}};}
+  };
+
+  \node[draw=dbblue, fill=blue!10, rounded corners=4pt, thick, align=center, minimum width=4.0cm, minimum height=1.4cm] (db_leak) at (6.6, 3.2) {
+    \textbf{データベース}\\[2pt]
+    \footnotesize \textcolor{inputred}{\textbf{全ユーザー情報が漏洩！}}
+  };
+
+  \draw[->, very thick, red] (atk_in.east) -- (app_concat.west);
+  \draw[->, very thick, red] (app_concat.east) -- (db_leak.west);
+
+  % -------------------------------------------------------------
+  % 下段：安全なプレースホルダ（バインド機構・サニタイズ）
+  % -------------------------------------------------------------
+  \node[draw=safegreen, fill=green!6, rounded corners=8pt, line width=1.5pt, minimum width=18.5cm, minimum height=3.6cm, align=left] (safe_box) at (0, -1.2) {};
+  
+  \node[above right, font=\large\bfseries, text=safegreen] at (-9.0, 0.0) {【堅牢】プレースホルダ（Prepared Statement）：入力値を「純粋なデータ」として無害化};
+
+  \node[draw=black!70, fill=white, rounded corners=4pt, thick, align=center, minimum width=4.8cm, minimum height=1.4cm] (norm_in) at (-6.2, -1.6) {
+    \textbf{悪意ある入力値}\\[2pt]
+    \footnotesize \texttt{' OR '1'='1}
+  };
+
+  \node[draw=safegreen, fill=green!15, rounded corners=4pt, very thick, align=center, minimum width=6.8cm, minimum height=1.6cm] (app_bind) at (0.2, -1.6) {
+    \textbf{\textcolor{safegreen}{プレースホルダによるバインド処理}}\\[2pt]
+    \scriptsize \texttt{SELECT * FROM users WHERE pass = \textbf{\textcolor{safegreen}{?}};}\\[1pt]
+    \tiny ※入力値はただの「文字列」として厳格に扱われ、命令としては絶対に動かない！
+  };
+
+  \node[draw=dbblue, fill=blue!10, rounded corners=4pt, thick, align=center, minimum width=4.0cm, minimum height=1.4cm] (db_safe) at (6.6, -1.6) {
+    \textbf{データベース}\\[2pt]
+    \footnotesize \textcolor{safegreen}{\textbf{不正認証・漏洩を完全防御！}}
+  };
+
+  \draw[->, very thick, safegreen] (norm_in.east) -- (app_bind.west);
+  \draw[->, very thick, safegreen] (app_bind.east) -- (db_safe.west);
+
+\end{tikzpicture}
+\end{document}
