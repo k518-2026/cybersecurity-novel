@@ -1,0 +1,67 @@
+[
+  {
+    "episode_num": 1,
+    "id": "ep01_passwords_and_authentication",
+    "title": "秘密の合言葉と見えない鍵 〜パスワード認証と多要素認証の仕組み〜",
+    "theme": "認証の基礎（知識・所持・生体情報）と多要素認証（MFA）、辞書攻撃・ブルートフォース攻撃への対策",
+    "dss_topic": "セキュリティリテラシー・認証管理（情報セキュリティの基本行動）",
+    "news_context": "大手サービスでのアカウントリスト攻撃・パスワード使い回しによる不正ログイン多発事例",
+    "university_connection": "情報学部・計算機科学科（認証プロトコル、ハッシュ関数、情報倫理）",
+    "protagonist": "橘 葵",
+    "mentor": "芹沢 涼香 准教授",
+    "tikz_description": "認証の3要素（知識・所持・生体）と多要素認証（MFA）のブロック図",
+    "drawthings_prompt": "Vertical four-panel comic strip, Japanese yonkoma manga layout, 4 rectangular panels stacked vertically from top to bottom with clean white borders, full color Japanese anime art style. Panel 1: A cute high school girl student with ponytail surprised looking at smartphone alert in computer classroom. Panel 2: A kind and cool female university cybersecurity professor explaining smartphone authenticator app and lock mechanisms. Panel 3: Professor and high school girl smiling at multi-factor authentication shield diagram on digital tablet. Panel 4: Both smiling happily together with confidence in bright modern computer laboratory. Masterpiece, high contrast, crisp lines, completely pure anime style, no speech bubbles, no text, no letters."
+  },
+  {
+    "episode_num": 2,
+    "id": "ep02_phishing_and_social_engineering",
+    "title": "偽りの手紙と本物の目印 〜フィッシング詐欺の見抜き方とURLの秘密〜",
+    "theme": "ソーシャルエンジニアリング、フィッシング詐欺の手口、ドメイン名・FQDNの構造とSSL/TLS電子証明書の見方",
+    "dss_topic": "脅威の認識・不審なメッセージの判断・標的型攻撃対策",
+    "news_context": "宅配不在通知や金融機関を装うフィッシングSMS・スミッシング急増の最新ニュース",
+    "university_connection": "情報ネットワーク学科（DNS構造、PKI公開鍵基盤、Webセキュリティ）",
+    "protagonist": "橘 葵",
+    "mentor": "芹沢 涼香 准教授",
+    "tikz_description": "正規サイト vs フィッシングサイトのURLドメイン階層構造とSSL/TLS証明書チェーン",
+    "drawthings_prompt": "Vertical four-panel comic strip, Japanese yonkoma manga layout, 4 rectangular panels stacked vertically from top to bottom with clean white borders, full color Japanese anime art style. Panel 1: High school girl confused looking at suspicious SMS parcel delivery link on smartphone. Panel 2: Kind female professor showing domain name structure on blackboard with magnifying glass illustration. Panel 3: High school girl happily understanding the fake domain difference on laptop monitor. Panel 4: Both characters smiling warmly and proudly in university seminar room. Masterpiece, clean colors, no text, no letters."
+  },
+  {
+    "episode_num": 3,
+    "id": "ep03_free_wifi_and_encryption",
+    "title": "街角の電波は誰のもの？ 〜公衆無線LANの危険性と通信の暗号化（HTTPS）〜",
+    "theme": "パケット盗聴・中間者攻撃（Man-in-the-Middle）、共通鍵暗号と公開鍵暗号のハイブリッド暗号方式、VPN",
+    "dss_topic": "通信セキュリティ・ネットワーク利用時の防犯",
+    "news_context": "カフェ等の野良Wi-Fiによる情報詐取リスクと暗号化通信の重要性",
+    "university_connection": "情報セキュリティ工学科（暗号数学、通信プロトコル、ネットワーク解析）",
+    "protagonist": "城崎 悠真＆橘 葵",
+    "mentor": "芹沢 涼香 准教授",
+    "tikz_description": "中間者攻撃の盗聴リスクとHTTPS（SSL/TLS暗号化トンネル）による保護フロー図",
+    "drawthings_prompt": "Vertical four-panel comic strip, Japanese yonkoma manga layout, 4 rectangular panels stacked vertically from top to bottom with clean white borders, full color Japanese anime art style. Panel 1: High school students studying at a stylish campus cafe with laptops and smartphones. Panel 2: Female professor showing a glowing shield protecting data packets passing through radio waves. Panel 3: The students excited looking at encrypted green padlock icon on their screen. Panel 4: Professor and students smiling cheerfully together in comfortable cafe study space. Masterpiece, no speech bubbles, no text, no letters."
+  },
+  {
+    "episode_num": 4,
+    "id": "ep04_malware_and_vulnerabilities",
+    "title": "忍び寄るトロイの木馬 〜マルウェアの種類とソフトウェア更新の真実〜",
+    "theme": "マルウェア分類（ウイルス・ワーム・トロイの木馬・ランサムウェア）、脆弱性（セキュリティホール）の原理、ゼロデイ攻撃とセキュリティパッチ",
+    "dss_topic": "端末保護・脆弱性管理・ソフトウェアアップデートの徹底",
+    "news_context": "医療機関やサプライチェーン企業を狙うランサムウェア被害とバックアップの重要性",
+    "university_connection": "コンピュータシステム学科（OSアーキテクチャ、メモリ脆弱性、静的・動的解析）",
+    "protagonist": "橘 葵",
+    "mentor": "芹沢 涼香 准教授",
+    "tikz_description": "脆弱性（穴）を突く攻撃とセキュリティパッチによる修復、シールド防御の図解",
+    "drawthings_prompt": "Vertical four-panel comic strip, Japanese yonkoma manga layout, 4 rectangular panels stacked vertically from top to bottom with clean white borders, full color Japanese anime art style. Panel 1: High school girl staring at an OS update notification popup on notebook PC. Panel 2: Female professor drawing a castle wall with repaired bricks on whiteboard. Panel 3: Students happily clicking system update button as digital barrier lights up in blue. Panel 4: Warm friendly smiles of professor and high school girl in modern computer room. Masterpiece, no text, no letters."
+  },
+  {
+    "episode_num": 5,
+    "id": "ep05_cia_triad_and_defense_in_depth",
+    "title": "三つの宝珠を守る城壁 〜情報セキュリティの3要素（CIA）と多層防御〜",
+    "theme": "CIAの3要素（機密性・完全性・可用性）と真正性・責任追跡性、多層防御（入口・内部・出口対策）",
+    "dss_topic": "情報セキュリティの基本概念・セキュリティガバナンス入門",
+    "news_context": "DDoS攻撃による可用性の損失やWebサイト改ざんによる完全性破壊事例",
+    "university_connection": "総合情報学部・情報社会科学科（セキュリティマネジメント、リスク分析、情報法）",
+    "protagonist": "橘 葵＆城崎 悠真",
+    "mentor": "芹沢 涼香 准教授",
+    "tikz_description": "CIAトライアングル（機密性・完全性・可用性）と多層防御の同心円モデル",
+    "drawthings_prompt": "Vertical four-panel comic strip, Japanese yonkoma manga layout, 4 rectangular panels stacked vertically from top to bottom with clean white borders, full color Japanese anime art style. Panel 1: High school girl and boy looking at a large glowing triangular diagram of Confidentiality, Integrity, Availability. Panel 2: Female professor guiding them through multiple layers of digital shields protecting a central glowing core. Panel 3: Students smiling with deep realization about security balance and ethics. Panel 4: Group happy smiling together with future hope in high-tech university cyber lab. Masterpiece, no text, no letters."
+  }
+]

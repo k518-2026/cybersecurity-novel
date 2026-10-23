@@ -1,0 +1,56 @@
+\documentclass[tikz,border=12pt]{standalone}
+\usepackage{luatexja}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric,arrows.meta,positioning,calc}
+
+\definecolor{secblue}{RGB}{24, 76, 120}
+\definecolor{lightblue}{RGB}{235, 245, 255}
+\definecolor{secgreen}{RGB}{34, 139, 34}
+\definecolor{lightgreen}{RGB}{235, 255, 235}
+\definecolor{secorange}{RGB}{210, 105, 30}
+\definecolor{lightorange}{RGB}{255, 245, 230}
+\definecolor{secred}{RGB}{178, 34, 34}
+\definecolor{lightred}{RGB}{255, 240, 240}
+
+\begin{document}
+\begin{tikzpicture}[>=Stealth, font=\small]
+
+  % 3要素のボックス
+  \node[draw=secblue, fill=lightblue, rounded corners=6pt, very thick, minimum width=4.5cm, minimum height=2.2cm, align=center] (know) at (0, 4) {
+    \textbf{\large 【知識情報】}\\[3pt]
+    本人だけが「知っていること」\\[3pt]
+    \footnotesize パスワード、暗証番号 (PIN)、秘密の質問
+  };
+
+  \node[draw=secgreen, fill=lightgreen, rounded corners=6pt, very thick, minimum width=4.5cm, minimum height=2.2cm, align=center] (poss) at (5.5, 4) {
+    \textbf{\large 【所持情報】}\\[3pt]
+    本人だけが「持っているもの」\\[3pt]
+    \footnotesize スマホ認証アプリ、SMSワンタイム鍵、ICカード
+  };
+
+  \node[draw=secorange, fill=lightorange, rounded corners=6pt, very thick, minimum width=4.5cm, minimum height=2.2cm, align=center] (bio) at (11, 4) {
+    \textbf{\large 【生体情報】}\\[3pt]
+    本人自身の「身体的特徴」\\[3pt]
+    \footnotesize 指紋認証、顔認証、虹彩・静脈スキャン
+  };
+
+  % 単一認証の危険性
+  \node[draw=secred, fill=lightred, rounded corners=4pt, dashed, thick, align=center, minimum width=15.5cm, inner sep=6pt] (single_risk) at (5.5, 2) {
+    \textbf{単一要素認証（例：パスワードのみ）の脆弱性}\quad $\rightarrow$\quad 使い回しによるリスト型攻撃や流出で容易に突破される危険！
+  };
+
+  % 多要素認証のゴール
+  \node[draw=secblue, fill=secblue!10, rounded corners=8pt, very thick, minimum width=15.5cm, minimum height=2.2cm, align=center] (mfa) at (5.5, -0.6) {
+    \textbf{\Large 多要素認証（MFA: Multi-Factor Authentication）}\\[4pt]
+    \textbf{異なる２つ以上の「独立した要素」を組み合わせて本人を確認}\\[3pt]
+    \small 【例】「パスワード（知識）」＋「スマホのワンタイムパスワード（所持）」\\[2pt]
+    \footnotesize $\Rightarrow$ たとえパスワードが漏洩しても、手元のスマホがなければ不正ログインを確実に阻止できる！
+  };
+
+  % 矢印
+  \draw[->, very thick, secblue] (know.south) -- ++(0,-0.4) -| (mfa.north -| know.south);
+  \draw[->, very thick, secgreen] (poss.south) -- ++(0,-0.4) -| (mfa.north -| poss.south);
+  \draw[->, very thick, secorange] (bio.south) -- ++(0,-0.4) -| (mfa.north -| bio.south);
+
+\end{tikzpicture}
+\end{document}
