@@ -1,56 +1,71 @@
-\documentclass[tikz,border=12pt]{standalone}
+\documentclass[tikz,border=18pt]{standalone}
 \usepackage{luatexja}
 \usepackage{tikz}
 \usetikzlibrary{shapes.geometric,arrows.meta,positioning,calc}
 
-\definecolor{secblue}{RGB}{24, 76, 120}
-\definecolor{lightblue}{RGB}{235, 245, 255}
-\definecolor{secgreen}{RGB}{34, 139, 34}
-\definecolor{lightgreen}{RGB}{235, 255, 235}
-\definecolor{secorange}{RGB}{210, 105, 30}
-\definecolor{lightorange}{RGB}{255, 245, 230}
-\definecolor{secred}{RGB}{178, 34, 34}
-\definecolor{lightred}{RGB}{255, 240, 240}
+\definecolor{secblue}{RGB}{20, 70, 130}
+\definecolor{lightblue}{RGB}{236, 246, 255}
+\definecolor{secgreen}{RGB}{25, 125, 45}
+\definecolor{lightgreen}{RGB}{236, 255, 240}
+\definecolor{secorange}{RGB}{210, 95, 20}
+\definecolor{lightorange}{RGB}{255, 246, 230}
+\definecolor{secred}{RGB}{185, 30, 30}
+\definecolor{lightred}{RGB}{255, 238, 238}
 
 \begin{document}
 \begin{tikzpicture}[>=Stealth, font=\small]
 
-  % 3要素のボックス
-  \node[draw=secblue, fill=lightblue, rounded corners=6pt, very thick, minimum width=4.5cm, minimum height=2.2cm, align=center] (know) at (0, 4) {
-    \textbf{\large 【知識情報】}\\[3pt]
-    本人だけが「知っていること」\\[3pt]
-    \footnotesize パスワード、暗証番号 (PIN)、秘密の質問
+  % ---------------------------------------------------------------
+  % 上段：認証の3大要素（知識・所持・生体）
+  % 横幅 5.8cm、間隔 6.4cm と十分なゆとりを確保
+  % ---------------------------------------------------------------
+  \node[draw=secblue, fill=lightblue, rounded corners=8pt, line width=1.5pt, minimum width=5.8cm, minimum height=2.4cm, align=center] (know) at (0, 5.8) {
+    \textbf{\large 【知識情報】}\\[4pt]
+    本人だけが「知っていること」\\[4pt]
+    \footnotesize パスワード、暗証番号 (PIN)、合言葉
   };
 
-  \node[draw=secgreen, fill=lightgreen, rounded corners=6pt, very thick, minimum width=4.5cm, minimum height=2.2cm, align=center] (poss) at (5.5, 4) {
-    \textbf{\large 【所持情報】}\\[3pt]
-    本人だけが「持っているもの」\\[3pt]
-    \footnotesize スマホ認証アプリ、SMSワンタイム鍵、ICカード
+  \node[draw=secgreen, fill=lightgreen, rounded corners=8pt, line width=1.5pt, minimum width=5.8cm, minimum height=2.4cm, align=center] (poss) at (6.5, 5.8) {
+    \textbf{\large 【所持情報】}\\[4pt]
+    本人だけが「持っているもの」\\[4pt]
+    \footnotesize 認証アプリ(OTP)、SMS通知、ICカード
   };
 
-  \node[draw=secorange, fill=lightorange, rounded corners=6pt, very thick, minimum width=4.5cm, minimum height=2.2cm, align=center] (bio) at (11, 4) {
-    \textbf{\large 【生体情報】}\\[3pt]
-    本人自身の「身体的特徴」\\[3pt]
+  \node[draw=secorange, fill=lightorange, rounded corners=8pt, line width=1.5pt, minimum width=5.8cm, minimum height=2.4cm, align=center] (bio) at (13.0, 5.8) {
+    \textbf{\large 【生体情報】}\\[4pt]
+    本人自身の「身体的特徴」\\[4pt]
     \footnotesize 指紋認証、顔認証、虹彩・静脈スキャン
   };
 
-  % 単一認証の危険性
-  \node[draw=secred, fill=lightred, rounded corners=4pt, dashed, thick, align=center, minimum width=15.5cm, inner sep=6pt] (single_risk) at (5.5, 2) {
-    \textbf{単一要素認証（例：パスワードのみ）の脆弱性}\quad $\rightarrow$\quad 使い回しによるリスト型攻撃や流出で容易に突破される危険！
+  % ---------------------------------------------------------------
+  % 中段：単一要素認証の危険性警告
+  % ---------------------------------------------------------------
+  \node[draw=secred, fill=lightred, rounded corners=6pt, dashed, line width=1.2pt, align=center, minimum width=18.8cm, inner sep=10pt] (single_risk) at (6.5, 3.0) {
+    \textbf{\textcolor{secred}{\large ▲ 単一要素認証（例：パスワードのみ）の脆弱性とリスク}}\\[4pt]
+    \footnotesize 「知識」が1つ漏洩（使い回しやリスト型攻撃・総当たり攻撃）しただけで、第三者にアカウントが即座に乗っ取られる！
   };
 
-  % 多要素認証のゴール
-  \node[draw=secblue, fill=secblue!10, rounded corners=8pt, very thick, minimum width=15.5cm, minimum height=2.2cm, align=center] (mfa) at (5.5, -0.6) {
-    \textbf{\Large 多要素認証（MFA: Multi-Factor Authentication）}\\[4pt]
-    \textbf{異なる２つ以上の「独立した要素」を組み合わせて本人を確認}\\[3pt]
-    \small 【例】「パスワード（知識）」＋「スマホのワンタイムパスワード（所持）」\\[2pt]
-    \footnotesize $\Rightarrow$ たとえパスワードが漏洩しても、手元のスマホがなければ不正ログインを確実に阻止できる！
+  % ---------------------------------------------------------------
+  % 下段：多要素認証（MFA）のアーキテクチャ
+  % ---------------------------------------------------------------
+  \node[draw=secblue, fill=secblue!12, rounded corners=10pt, line width=1.8pt, minimum width=18.8cm, minimum height=2.8cm, align=center] (mfa) at (6.5, -0.6) {
+    \textbf{\Large 多要素認証（MFA: Multi-Factor Authentication）}\\[6pt]
+    \textbf{\normalsize 異なる２つ以上の「独立した要素」を組み合わせて本人を確認}\\[4pt]
+    \small 【最強の組み合わせ例】「知識（パスワード）」＋「所持（手元のスマホ認証アプリ）」\\[3pt]
+    \footnotesize \textcolor{secblue}{\textbf{⇒ たとえパスワードが漏洩しても、手元の物理スマートフォンがないため不正ログインを確実に阻止！}}
   };
 
-  % 矢印
-  \draw[->, very thick, secblue] (know.south) -- ++(0,-0.4) -| (mfa.north -| know.south);
-  \draw[->, very thick, secgreen] (poss.south) -- ++(0,-0.4) -| (mfa.north -| poss.south);
-  \draw[->, very thick, secorange] (bio.south) -- ++(0,-0.4) -| (mfa.north -| bio.south);
+  % ---------------------------------------------------------------
+  % 矢印接続：上段3要素から下段MFAへ接続
+  % ---------------------------------------------------------------
+  \draw[->, very thick, secblue] (know.south) -- (know.south |- single_risk.north);
+  \draw[->, very thick, secblue] (know.south |- single_risk.south) -- (know.south |- mfa.north);
+
+  \draw[->, very thick, secgreen] (poss.south) -- (single_risk.north);
+  \draw[->, very thick, secgreen] (single_risk.south) -- (mfa.north);
+
+  \draw[->, very thick, secorange] (bio.south) -- (bio.south |- single_risk.north);
+  \draw[->, very thick, secorange] (bio.south |- single_risk.south) -- (bio.south |- mfa.north);
 
 \end{tikzpicture}
 \end{document}
