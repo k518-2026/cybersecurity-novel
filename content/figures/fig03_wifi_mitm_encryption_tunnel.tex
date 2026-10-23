@@ -6,7 +6,6 @@
 \definecolor{userblue}{RGB}{20, 80, 150}
 \definecolor{badred}{RGB}{190, 30, 30}
 \definecolor{goodgreen}{RGB}{25, 125, 45}
-\definecolor{bglight}{RGB}{245, 248, 252}
 
 \begin{document}
 \begin{tikzpicture}[>=Stealth, font=\small]
@@ -14,56 +13,59 @@
   % -------------------------------------------------------------
   % 上段：公衆Wi-Fiでの暗号化なし通信（中間者攻撃・盗聴）
   % -------------------------------------------------------------
-  \node[draw=badred, fill=red!6, rounded corners=8pt, line width=1.5pt, minimum width=18.5cm, minimum height=3.6cm, align=left] (unsec_box) at (0, 3.8) {};
+  \node[draw=badred, fill=red!6, rounded corners=8pt, line width=1.5pt, minimum width=21.0cm, minimum height=4.2cm, align=left] (unsec_box) at (0, 4.0) {};
   
-  \node[above right, font=\large\bfseries, text=badred] at (-9.0, 5.0) {【危険】暗号化なし公衆Wi-Fi（HTTP通信・なりすましAP）};
+  \node[above right, font=\large\bfseries, text=badred] at (-10.2, 5.3) {【危険】暗号化なし公衆Wi-Fi（HTTP平文通信・なりすましAP）};
 
-  \node[draw=userblue, fill=blue!10, rounded corners=6pt, thick, align=center, minimum width=3.2cm, minimum height=1.6cm] (user1) at (-6.8, 3.4) {
-    \textbf{高校生スマホ}\\[2pt]
+  \node[draw=userblue, fill=blue!10, rounded corners=6pt, thick, align=center, minimum width=3.8cm, minimum height=1.8cm] (user1) at (-7.8, 3.4) {
+    \textbf{\large 高校生スマホ}\\[3pt]
     \footnotesize (カフェで利用)
   };
 
-  \node[draw=badred, fill=red!15, rounded corners=6pt, very thick, align=center, minimum width=3.8cm, minimum height=1.6cm] (hacker) at (0, 3.4) {
-    \textbf{\textcolor{badred}{攻撃者（中間者: MitM）}}\\[2pt]
+  \node[draw=badred, fill=red!15, rounded corners=6pt, very thick, align=center, minimum width=4.6cm, minimum height=1.8cm] (hacker) at (0, 3.4) {
+    \textbf{\large \textcolor{badred}{攻撃者（中間者: MitM）}}\\[3pt]
     \footnotesize 同一Wi-Fi上の盗聴・パケット解析
   };
 
-  \node[draw=black!70, fill=gray!15, rounded corners=6pt, thick, align=center, minimum width=3.2cm, minimum height=1.6cm] (server1) at (6.8, 3.4) {
-    \textbf{Webサーバー}\\[2pt]
+  \node[draw=black!70, fill=gray!15, rounded corners=6pt, thick, align=center, minimum width=3.8cm, minimum height=1.8cm] (server1) at (7.8, 3.4) {
+    \textbf{\large Webサーバー}\\[3pt]
     \footnotesize (HTTPサービス)
   };
 
-  \draw[->, thick, dashed, red] (user1.east) -- node[above, font=\footnotesize, text=badred] {平文データ (パスワード/閲覧履歴)} (hacker.west);
-  \draw[->, thick, dashed, red] (hacker.east) -- node[above, font=\footnotesize, text=badred] {覗き見・改ざん} (server1.west);
+  % 矢印とラベル：ノードから十分離れた位置に独立配置
+  \draw[->, thick, dashed, badred] (user1.east) -- (hacker.west)
+    node[midway, above=4pt, font=\footnotesize\bfseries, text=badred] {平文データ};
+  \draw[->, thick, dashed, badred] (user1.east) -- (hacker.west)
+    node[midway, below=4pt, font=\scriptsize, text=badred] {(パスワード/閲覧履歴)};
+
+  \draw[->, thick, dashed, badred] (hacker.east) -- (server1.west)
+    node[midway, above=4pt, font=\footnotesize\bfseries, text=badred] {覗き見・改ざん};
 
   % -------------------------------------------------------------
   % 下段：HTTPS / VPN による暗号化トンネル保護
   % -------------------------------------------------------------
-  \node[draw=goodgreen, fill=green!6, rounded corners=8pt, line width=1.5pt, minimum width=18.5cm, minimum height=3.6cm, align=left] (sec_box) at (0, -1.0) {};
+  \node[draw=goodgreen, fill=green!6, rounded corners=8pt, line width=1.5pt, minimum width=21.0cm, minimum height=4.2cm, align=left] (sec_box) at (0, -1.6) {};
   
-  \node[above right, font=\large\bfseries, text=goodgreen] at (-9.0, 0.2) {【安全】HTTPS (TLS暗号化) ＆ VPN による強固なシールドトンネル};
+  \node[above right, font=\large\bfseries, text=goodgreen] at (-10.2, -0.3) {【安全】HTTPS (TLS暗号化) ＆ VPN による強固なシールドトンネル};
 
-  \node[draw=userblue, fill=blue!10, rounded corners=6pt, thick, align=center, minimum width=3.2cm, minimum height=1.6cm] (user2) at (-6.8, -1.4) {
-    \textbf{高校生スマホ}\\[2pt]
+  \node[draw=userblue, fill=blue!10, rounded corners=6pt, thick, align=center, minimum width=3.8cm, minimum height=1.8cm] (user2) at (-7.8, -2.2) {
+    \textbf{\large 高校生スマホ}\\[3pt]
     \footnotesize (暗号化通信)
   };
 
-  \node[draw=goodgreen, fill=green!20, rounded corners=6pt, very thick, align=center, minimum width=6.5cm, minimum height=1.4cm] (tunnel) at (0, -1.4) {
-    \textbf{\textcolor{goodgreen}{TLS / VPN 暗号化トンネル}}\\[2pt]
-    \footnotesize \textbf{共通鍵暗号(AES)＋公開鍵暗号(RSA/ECC)のハイブリッド暗号}
+  \node[draw=goodgreen, fill=green!20, rounded corners=6pt, very thick, align=center, minimum width=8.2cm, minimum height=1.8cm] (tunnel) at (0, -2.2) {
+    \textbf{\large \textcolor{goodgreen}{TLS / VPN 暗号化トンネル}}\\[4pt]
+    \small \textbf{共通鍵暗号(AES)＋公開鍵暗号(RSA/ECC)のハイブリッド}\\[2pt]
+    \footnotesize ※通信内容は完全暗号化され、第三者には解読不能！
   };
 
-  \node[draw=goodgreen, fill=green!15, rounded corners=6pt, thick, align=center, minimum width=3.2cm, minimum height=1.6cm] (server2) at (6.8, -1.4) {
-    \textbf{正規Webサーバー}\\[2pt]
+  \node[draw=goodgreen, fill=green!15, rounded corners=6pt, thick, align=center, minimum width=3.8cm, minimum height=1.8cm] (server2) at (7.8, -2.2) {
+    \textbf{\large 正規Webサーバー}\\[3pt]
     \footnotesize (HTTPSサービス)
   };
 
   \draw[->, very thick, goodgreen] (user2.east) -- (tunnel.west);
   \draw[->, very thick, goodgreen] (tunnel.east) -- (server2.west);
-  
-  \node[below, font=\scriptsize, text=black!80] at (0, -2.3) {
-    ※電波を傍受されても中身は完全に暗号化されており、攻撃者は一切解読できない！
-  };
 
 \end{tikzpicture}
 \end{document}
