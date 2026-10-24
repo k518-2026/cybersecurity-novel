@@ -25,6 +25,21 @@ tags: ["パスワード認証", "多要素認証", "MFA", "アカウントリス
 
 ---
 
+---
+
+## 💬 4コマ漫画キャラクターセリフ（日・英対訳）
+
+挿絵の4コマ漫画（文字なし）の各コマに対応したキャラクターのセリフです。小説本文の導入としてもお楽しみいただけます。
+
+| コマ | 展開 / シチュエーション | 🗣️ 日本語セリフ (Japanese) | 🌐 英語セリフ (English) |
+|:---:|:---|:---|:---|
+| **第1コマ**<br>【起】 | **アカウント乗っ取り警告に青ざめる葵**<br>スマホに突然届いた不審なログイン通知を見て、冷や汗を流す葵。 | **葵**: 「嘘でしょ……！？ ログイン試行が数十件！？ 私のアカウント、誰かに乗っ取られそうになってる……！」 | **Aoi**: "No way... are you kidding me?! Dozens of login attempts?! Someone is trying to hijack my account...!" |
+| **第2コマ**<br>【承】 | **悠真の冷静な分析と多要素認証の助言**<br>落ち着いた眼差しで自身の端末を見せ、パスワード使い回しの危険を指摘する悠真。 | **悠真**: 「落ち着いて、葵。パスワードの使い回しを狙う『アカウントリスト攻撃』だ。合言葉（知識）だけに頼らず、スマホ（所持）を使った『多要素認証（MFA）』を今すぐ設定しよう。」 | **Yuma**: "Calm down, Aoi. This is a credential stuffing attack targeting reused passwords. Don't rely solely on knowledge—let's set up Multi-Factor Authentication (MFA) using your phone right now." |
+| **第3コマ**<br>【転】 | **芹沢先生による認証の3要素の解説**<br>セキュリティキーを掲げ、デジタル空間の見えない防壁を教える芹沢准教授。 | **芹沢先生**: 「認証の3大要素は『知識・所持・生体』。たとえパスワードが盗まれても、あなたが持つ端末の承認がなければ、侵入者は最後の扉を決して開けられないのよ。」 | **Prof. Serizawa**: "The three factors of authentication are: Knowledge, Possession, and Biometrics. Even if your password is stolen, without your physical device, intruders can never open that final door." |
+| **第4コマ**<br>【結】 | **MFA設定完了！葵と悠真の笑顔とグッドサイン**<br>認証成功の緑のチェックマークを見て、安堵の笑みを交わす二人。 | **葵**: 「設定できた！ これでもう勝手にログインされないね！ ありがとう、悠真君！」<br>**悠真**: 「ああ。これで君のアカウントに見えない城壁ができたよ。」 | **Aoi**: "It's all set! Now nobody can sneak into my account! Thank you so much, Yuma!"<br>**Yuma**: "You're welcome. Now you have an invisible fortress protecting you." |
+
+---
+
 ## 📖 小説本文
 
 　放課後の情報教室は、西日に照らされて琥珀色の静寂に包まれていた。

@@ -150,10 +150,59 @@ def parse_markdown_to_html(md_path):
     else:
         body = content.strip()
 
-    # Extract sections
+    # Extract 4-Koma Script if present
+    script_match = re.search(r"## 💬 4コマ漫画キャラクターセリフ（日・英対訳）\s*\n(.*?)(?=\n## |\Z)", body, re.DOTALL)
+    script_raw = script_match.group(1).strip() if script_match else ""
+    script_html = ""
+    if script_raw:
+        # Parse table rows
+        rows = [r.strip() for r in script_raw.split("\n") if r.strip().startswith("|") and not "---" in r and not "シチュエーション" in r]
+        items_html = []
+        for r in rows:
+            cols = [c.strip() for c in r.split("|")[1:-1]]
+            if len(cols) >= 4:
+                koma_num_raw, situ_raw, ja_raw, en_raw = cols[0], cols[1], cols[2], cols[3]
+                # clean formatting
+                koma_label = re.sub(r"<br>", " ", koma_num_raw).replace("**", "").strip()
+                situ_text = re.sub(r"<br>", "<br>", situ_raw).replace("**", "<strong>").replace("</strong>", "</strong>") # preserve simple tags
+                
+                # Format character dialogues
+                ja_formatted = ja_raw.replace("<br>", "<br>")
+                ja_formatted = re.sub(r"\*\*(.*?)\*\*:", r'<span class="koma-char-name">[\1]</span>', ja_formatted)
+                
+                en_formatted = en_raw.replace("<br>", "<br>")
+                en_formatted = re.sub(r"\*\*(.*?)\*\*:", r'<span class="koma-char-name">[\1]</span>', en_formatted)
+
+                item = f"""
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">{html.escape(koma_label)}</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">{situ_text}</div>
+                    <div class="koma-dialogue-ja">🗣️ {ja_formatted}</div>
+                    <div class="koma-dialogue-en">🌐 {en_formatted}</div>
+                  </div>
+                </div>
+                """
+                items_html.append(item)
+        
+        if items_html:
+            script_html = f"""
+            <div class="koma-script-box">
+              <div class="koma-script-header">
+                <h3>💬 4コマ漫画キャラクターセリフ (Story Dialogue Script)</h3>
+                <span class="lang-tag">日・英バイリンガル (JA / EN)</span>
+              </div>
+              <div class="koma-panels-list">
+                {''.join(items_html)}
+              </div>
+            </div>
+            """
+
+    # Extract novel
     novel_match = re.search(r"## 📖 小説本文\s*\n(.*?)(?=\n## |\Z)", body, re.DOTALL)
     novel_raw = novel_match.group(1).strip() if novel_match else ""
 
+    # Extract column
     column_match = re.search(r"## 💡 高校生のためのセキュリティ深掘りコラム\s*\n(.*?)(?=\n## |\Z)", body, re.DOTALL)
     column_raw = column_match.group(1).strip() if column_match else ""
 
@@ -179,15 +228,12 @@ def parse_markdown_to_html(md_path):
             sec_title = col_sections[i].strip()
             sec_body = col_sections[i+1].strip() if i+1 < len(col_sections) else ""
             
-            # format lists and bolds
             lines = []
             for line in sec_body.split("\n"):
                 line = line.strip()
                 if not line:
                     continue
-                # bold
                 line = re.sub(r"\*\*(.*?)\*\*", r"<strong>\1</strong>", line)
-                # code
                 line = re.sub(r"`(.*?)`", r"<code>\1</code>", line)
                 if line.startswith("- "):
                     lines.append(f"<li>{line[2:]}</li>")
@@ -210,14 +256,14 @@ def parse_markdown_to_html(md_path):
             """)
     column_html = "\n".join(column_html_parts)
 
-    return novel_html, column_html
+    return script_html, novel_html, column_html
 
 # Build each episode page
 for idx, ep in enumerate(episodes):
     prev_ep = episodes[idx-1] if idx > 0 else None
     next_ep = episodes[idx+1] if idx < len(episodes)-1 else None
 
-    novel_html, column_html = parse_markdown_to_html(os.path.join(CONTENT_DIR, ep["md_file"]))
+    script_html, novel_html, column_html = parse_markdown_to_html(os.path.join(CONTENT_DIR, ep["md_file"]))
 
     prev_link = f'<a href="{prev_ep["id"]}.html" class="nav-btn">← 第{prev_ep["num"]:02d}話: {html.escape(prev_ep["title"][:18])}...</a>' if prev_ep else '<span class="nav-disabled">最初のエピソード</span>'
     next_link = f'<a href="{next_ep["id"]}.html" class="nav-btn next">第{next_ep["num"]:02d}話: {html.escape(next_ep["title"][:18])}... →</a>' if next_ep else '<span class="nav-disabled">最新エピソード</span>'
@@ -251,17 +297,20 @@ for idx, ep in enumerate(episodes):
 
   <main class="container story-container">
 
-    <!-- ストーリーイラスト -->
+    <!-- ストーリーイラスト (4コマ漫画) -->
     <section class="visual-card">
       <div class="visual-header">
-        <h2>🎨 ストーリーイラスト</h2>
-        <span class="visual-badge">AI生成ビジュアル</span>
+        <h2>🎨 4コマ漫画挿絵（文字なし）</h2>
+        <span class="visual-badge">AI高解像度生成</span>
       </div>
       <div class="visual-body">
         <img src="../assets/images/{ep['illust']}" alt="第{ep['num']:02d}話 ストーリーイラスト" class="responsive-img">
         <p class="caption">▲ 【挿絵】青葉台高校 情報科学部＆帝都科学大学サイバーディフェンス・ラボでの実践シーン</p>
       </div>
     </section>
+
+    <!-- 4コマ漫画セリフ（日・英バイリンガル）※存在する場合 -->
+    {script_html}
 
     <!-- 小説本文 -->
     <section class="novel-section">
@@ -385,4 +434,4 @@ index_html = f"""<!DOCTYPE html>
 index_path = os.path.join(DOCS_DIR, "index.html")
 with open(index_path, "w", encoding="utf-8") as f:
     f.write(index_html)
-print("Updated top index page for all 13 episodes:", index_path)
+print("Updated top index page and story pages for all 13 episodes:", index_path)
