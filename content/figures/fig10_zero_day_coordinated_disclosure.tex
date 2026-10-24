@@ -1,0 +1,60 @@
+\documentclass[tikz,border=18pt]{standalone}
+\usepackage{luatexja}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric,arrows.meta,positioning,calc}
+
+\definecolor{dangerred}{RGB}{200, 30, 30}
+\definecolor{cveblue}{RGB}{20, 80, 160}
+\definecolor{safeemerald}{RGB}{25, 130, 60}
+
+\begin{document}
+\begin{tikzpicture}[>=Stealth, font=\small]
+
+  % タイムライン軸
+  \draw[->, line width=2pt, gray!80] (-9.5, 0) -- (9.5, 0)
+    node[right, font=\footnotesize\bfseries] {時間経過 $\rightarrow$};
+
+  % ステージ1: 脆弱性発見
+  \node[draw=cveblue, fill=blue!10, rounded corners=6pt, thick, align=center, minimum width=4.0cm, minimum height=1.6cm] (s1) at (-7.5, 2.0) {
+    \textbf{① 脆弱性の発見}\\[2pt]
+    \footnotesize ホワイトハッカーが\\
+    \footnotesize ソフトウェアのバグを発見
+  };
+  \draw[->, thick, cveblue] (s1.south) -- (-7.5, 0.2);
+
+  % 悪夢の分岐：ゼロデイ攻撃
+  \node[draw=dangerred, fill=red!15, rounded corners=6pt, very thick, align=center, minimum width=5.0cm, minimum height=2.2cm] (zero_day) at (-2.5, -2.4) {
+    \textbf{\textcolor{dangerred}{\large 【脅威】ゼロデイ攻撃 (0-day)}}\\[3pt]
+    \footnotesize パッチ（修正プログラム）が\\
+    \footnotesize 存在しない「無防備な0日間」に\\
+    \footnotesize 攻撃者が極秘に悪用・ハッキング！
+  };
+  \draw[->, line width=2pt, dashed, red] (-5.0, 0) -- (zero_day.north);
+
+  % 正義の分岐：責任ある協調的開示 (Coordinated Disclosure)
+  \node[draw=safeemerald, fill=green!10, rounded corners=6pt, thick, align=center, minimum width=4.8cm, minimum height=1.8cm] (s2) at (-1.8, 2.2) {
+    \textbf{② 協調的開示 (CVD)}\\[2pt]
+    \footnotesize 開発者へ非公開で報告\\
+    \footnotesize JVN / CVE / CISAと連携し\\
+    \footnotesize 極秘裏に修正パッチを開発
+  };
+  \draw[->, thick, safeemerald] (-1.8, 0.2) -- (s2.south);
+
+  % ステージ3: パッチ公開 ＆ KEV / JVN 注意喚起
+  \node[draw=safeemerald, fill=green!20, rounded corners=6pt, very thick, align=center, minimum width=5.6cm, minimum height=2.2cm] (s3) at (5.2, 2.2) {
+    \textbf{\large ③ パッチ公開と注意喚起}\\[3pt]
+    \footnotesize 修正版のリリースと同時に脆弱性を公表\\
+    \footnotesize (CVE番号発番・JVN / CISA KEV登録)\\[2pt]
+    \scriptsize $\Rightarrow$ 全世界が一斉にアップデート適用！
+  };
+  \draw[->, line width=2pt, safeemerald] (s2.east) -- (s3.west);
+  \draw[->, thick, safeemerald] (5.2, 0.2) -- (s3.south);
+
+  % 最下部注記
+  \node[draw=black!70, fill=yellow!15, rounded corners=6pt, line width=1.2pt, align=center, minimum width=19.5cm, inner sep=6pt] at (0, -4.5) {
+    \textbf{\Large ★ ホワイトハッカー（Ethical Hacker）の誇りと倫理}\\[3pt]
+    \small 脆弱性を発見した際、闇市場に売ったり勝手に悪用すれば犯罪だが、適切に報告して世界を守る力に変えるのが情報倫理の真髄！
+  };
+
+\end{tikzpicture}
+\end{document}

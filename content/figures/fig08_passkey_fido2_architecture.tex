@@ -1,0 +1,61 @@
+\documentclass[tikz,border=18pt]{standalone}
+\usepackage{luatexja}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric,arrows.meta,positioning,calc}
+
+\definecolor{fidoamber}{RGB}{215, 120, 20}
+\definecolor{goodgreen}{RGB}{30, 135, 55}
+\definecolor{clientblue}{RGB}{20, 80, 150}
+
+\begin{document}
+\begin{tikzpicture}[>=Stealth, font=\small]
+
+  % 端末側（生体・所持・秘密鍵）
+  \node[draw=clientblue, fill=blue!6, rounded corners=8pt, line width=1.5pt, minimum width=9.2cm, minimum height=7.2cm, align=center] (client_box) at (-5.4, 2.0) {};
+  \node[above, font=\large\bfseries, text=clientblue] at (-5.4, 4.8) {【ユーザー端末】スマホ・PC（生体認証＋Secure Enclave）};
+
+  \node[draw=clientblue, fill=white, rounded corners=6pt, thick, align=center, minimum width=7.6cm, minimum height=1.5cm] (bio_step) at (-5.4, 3.6) {
+    \textbf{ローカル生体認証 (Touch ID / Face ID)}\\[2pt]
+    \footnotesize ※生体データは端末外に一切送信されない！
+  };
+
+  \node[draw=goodgreen, fill=green!15, rounded corners=6pt, very thick, align=center, minimum width=7.6cm, minimum height=2.2cm] (key_step) at (-5.4, 0.8) {
+    \textbf{\textcolor{goodgreen}{\large 端末内チップの「秘密鍵」で署名}}\\[3pt]
+    \footnotesize サーバーから届いたランダムな合言葉（Challenge）に\\
+    \footnotesize 端末内の秘密鍵でデジタル署名を作成！\\[2pt]
+    \scriptsize $\Rightarrow$ 秘密鍵はチップ外に絶対に出ない（流出ゼロ！）
+  };
+
+  \draw[->, very thick, goodgreen] (bio_step.south) -- (key_step.north)
+    node[midway, right=4pt, font=\scriptsize\bfseries, text=goodgreen] {本人確認完了};
+
+  % サーバー側（公開鍵・チャレンジ生成・署名検証）
+  \node[draw=fidoamber, fill=orange!6, rounded corners=8pt, line width=1.5pt, minimum width=9.2cm, minimum height=7.2cm, align=center] (server_box) at (5.4, 2.0) {};
+  \node[above, font=\large\bfseries, text=fidoamber] at (5.4, 4.8) {【サービス提供者】Webサーバー・クラウド};
+
+  \node[draw=fidoamber, fill=white, rounded corners=6pt, thick, align=center, minimum width=7.6cm, minimum height=1.5cm] (chal_step) at (5.4, 3.6) {
+    \textbf{① 毎回異なる使い捨ての合言葉}\\[2pt]
+    \footnotesize (Challenge コードを発行して端末へ送信)
+  };
+
+  \node[draw=fidoamber, fill=orange!15, rounded corners=6pt, very thick, align=center, minimum width=7.6cm, minimum height=2.2cm] (verify_step) at (5.4, 0.8) {
+    \textbf{\textcolor{fidoamber}{\large ② 登録済みの「公開鍵」で署名検証}}\\[3pt]
+    \footnotesize 署名が正しければログイン成功！\\[2pt]
+    \scriptsize サーバーには「公開鍵」しか保存されていないため\\
+    \scriptsize サーバーがハッキングされてもパスワード流出は原理的に不可能！
+  };
+
+  \draw[->, thick, dashed, clientblue] (chal_step.west) -- (bio_step.east)
+    node[midway, above=4pt, font=\scriptsize\bfseries, text=clientblue] {Challenge 送信};
+
+  \draw[->, very thick, goodgreen] (key_step.east) -- (verify_step.west)
+    node[midway, above=4pt, font=\scriptsize\bfseries, text=goodgreen] {署名付き応答 (Response)};
+
+  % 最下部：フィッシング耐性
+  \node[draw=goodgreen, fill=green!25, rounded corners=6pt, line width=1.5pt, align=center, minimum width=20.0cm, inner sep=6pt] at (0, -2.4) {
+    \textbf{\Large ★ なぜパスキーは「フィッシング詐欺」を100\%無効化できるのか？}\\[3pt]
+    \small 端末はブラウザの正規ドメイン（FQDN）と厳格にバインドして署名するため、偽サイトにいくら騙されても署名が絶対に作成・送信されない！
+  };
+
+\end{tikzpicture}
+\end{document}

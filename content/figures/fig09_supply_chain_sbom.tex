@@ -1,0 +1,62 @@
+\documentclass[tikz,border=18pt]{standalone}
+\usepackage{luatexja}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric,arrows.meta,positioning,calc}
+
+\definecolor{chainblue}{RGB}{20, 80, 150}
+\definecolor{badred}{RGB}{190, 30, 30}
+\definecolor{goodgreen}{RGB}{30, 135, 55}
+\definecolor{sbomgold}{RGB}{205, 120, 20}
+
+\begin{document}
+\begin{tikzpicture}[>=Stealth, font=\small]
+
+  % 上段：サプライチェーン攻撃
+  \node[draw=badred, fill=red!6, rounded corners=8pt, line width=1.5pt, minimum width=20.0cm, minimum height=3.8cm, align=left] (attack_box) at (0, 3.8) {};
+  \node[above right, font=\large\bfseries, text=badred] at (-9.8, 5.1) {【脅威】サプライチェーン攻撃：防備の固い本体ではなく「手薄な関連先」を狙う！};
+
+  \node[draw=badred, fill=red!20, rounded corners=6pt, thick, align=center, minimum width=4.2cm, minimum height=1.6cm] (hacker) at (-7.0, 3.2) {
+    \textbf{攻撃者}\\[2pt]
+    \footnotesize (大企業・官公庁を狙う)
+  };
+
+  \node[draw=black!70, fill=white, rounded corners=6pt, thick, align=center, minimum width=5.0cm, minimum height=1.6cm] (supplier) at (-0.8, 3.2) {
+    \textbf{外部委託先・関連会社・OSS}\\[2pt]
+    \footnotesize (パスワード管理や更新が手薄)
+  };
+
+  \node[draw=chainblue, fill=blue!10, rounded corners=6pt, very thick, align=center, minimum width=5.0cm, minimum height=1.6cm] (target) at (6.4, 3.2) {
+    \textbf{\Large 本丸の標的組織}\\[2pt]
+    \footnotesize (強固な壁を持つ大企業・病院)
+  };
+
+  \draw[->, line width=2pt, badred] (hacker.east) -- node[above=2pt, font=\scriptsize\bfseries, text=badred] {手薄な会社を侵略} (supplier.west);
+  \draw[->, line width=2pt, badred] (supplier.east) -- node[above=2pt, font=\scriptsize\bfseries, text=badred] {業務ネットワーク経由で侵入！} (target.west);
+
+  % 下段：対策（SBOM）
+  \node[draw=goodgreen, fill=green!6, rounded corners=8pt, line width=1.5pt, minimum width=20.0cm, minimum height=3.8cm, align=left] (defense_box) at (0, -1.4) {};
+  \node[above right, font=\large\bfseries, text=goodgreen] at (-9.8, -0.1) {【対策】国家サイバー統括室要請 ＆ SBOM（ソフトウェア部品構成表）による徹底点検};
+
+  \node[draw=sbomgold, fill=orange!15, rounded corners=6pt, thick, align=center, minimum width=5.4cm, minimum height=1.6cm] (sbom) at (-6.4, -2.0) {
+    \textbf{\large ＳＢＯＭ (部品構成表)}\\[2pt]
+    \footnotesize アプリに含まれる全ての外部ライブラリを\\
+    \footnotesize 食品の原材料表示のように可視化！
+  };
+
+  \node[draw=goodgreen, fill=green!15, rounded corners=6pt, thick, align=center, minimum width=5.4cm, minimum height=1.6cm] (audit) at (0.0, -2.0) {
+    \textbf{\large 委託先セキュリティ審査}\\[2pt]
+    \footnotesize 契約基準の統一・多要素認証の義務化\\
+    \footnotesize ネットワークアクセスの最小化
+  };
+
+  \node[draw=chainblue, fill=blue!15, rounded corners=6pt, very thick, align=center, minimum width=5.4cm, minimum height=1.6cm] (secure_corp) at (6.4, -2.0) {
+    \textbf{\large 堅牢なサプライチェーン}\\[2pt]
+    \footnotesize どこかに脆弱性が見つかっても\\
+    \footnotesize 瞬時に特定して遮断・修復可能！
+  };
+
+  \draw[->, very thick, goodgreen] (sbom.east) -- (audit.west);
+  \draw[->, very thick, goodgreen] (audit.east) -- (secure_corp.west);
+
+\end{tikzpicture}
+\end{document}

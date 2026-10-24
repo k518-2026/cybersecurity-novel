@@ -82,6 +82,33 @@ episodes = [
         "md_file": "2026-10-23_ep07_cryptography_and_digital_signatures.md",
         "illust": "ep07_art.png",
         "figure": "fig07_digital_signature_pki.png"
+    },
+    {
+        "num": 8,
+        "id": "ep08",
+        "title": "覚えない合言葉と手のひらの証明 〜パスキー（FIDO2）とパスワードのない未来〜",
+        "theme": "パスキー（FIDO2/WebAuthn）、端末セキュアエレメント、チャレンジ＆レスポンス、フィッシング耐性",
+        "md_file": "2026-10-24_ep08_passkey_and_fido2_passwordless.md",
+        "illust": "ep08_art.png",
+        "figure": "fig08_passkey_fido2_architecture.png"
+    },
+    {
+        "num": 9,
+        "id": "ep09",
+        "title": "見えない裏口と材料の目録 〜サプライチェーン攻撃とソフトウェアの原材料表示〜",
+        "theme": "サプライチェーン攻撃（委託先経由侵害）、国家サイバー統括室要請、SBOM（ソフトウェア部品構成表）、CISA",
+        "md_file": "2026-10-24_ep09_supply_chain_attack_and_sbom.md",
+        "illust": "ep09_art.png",
+        "figure": "fig09_supply_chain_sbom.png"
+    },
+    {
+        "num": 10,
+        "id": "ep10",
+        "title": "ゼロの日を越える翼 〜ゼロデイ脆弱性と世界を守るホワイトハッカー〜",
+        "theme": "ゼロデイ攻撃（0-day）、協調的脆弱性開示（CVD）、CVE/CVSS、米CISA KEV、ホワイトハッカー倫理",
+        "md_file": "2026-10-24_ep10_zero_day_and_white_hackers.md",
+        "illust": "ep10_art.png",
+        "figure": "fig10_zero_day_coordinated_disclosure.png"
     }
 ]
 
@@ -89,11 +116,9 @@ def parse_markdown(filepath):
     with open(filepath, "r", encoding="utf-8") as f:
         text = f.read()
 
-    # Split frontmatter
     parts = text.split("---", 2)
     body = parts[2] if len(parts) >= 3 else text
 
-    # Extract sections
     novel_match = re.search(r"## 📖 小説本文\s*(.*?)\s*## 📊 TikZ", body, re.DOTALL)
     novel_text = novel_match.group(1).strip() if novel_match else ""
 
@@ -121,7 +146,6 @@ def format_novel_paragraphs(text):
     return "\n".join(html_out)
 
 def format_column_markdown(text):
-    # Convert simple markdown headers and lists to HTML
     lines = text.split("\n")
     html_out = []
     in_list = False
@@ -132,7 +156,6 @@ def format_column_markdown(text):
             html_out.append(f"<h3>{html.escape(line_s[4:])}</h3>")
         elif line_s.startswith("- ") or line_s.startswith("* "):
             if not in_list: html_out.append("<ul>"); in_list = True
-            # bold parse
             l_body = line_s[2:]
             l_body = re.sub(r"\*\*(.*?)\*\*", r"<strong>\1</strong>", l_body)
             html_out.append(f"<li>{l_body}</li>")
@@ -150,7 +173,7 @@ def format_column_markdown(text):
     if in_list: html_out.append("</ul>")
     return "\n".join(html_out)
 
-# 1. Build Story Detail Pages
+# Build Story Detail Pages
 for ep in episodes:
     md_path = os.path.join(CONTENT_DIR, ep["md_file"])
     if not os.path.exists(md_path):
@@ -181,7 +204,8 @@ for ep in episodes:
     <div class="nav-badges">
       <span class="badge">IPA デジタルスキル標準 (DSS) 準拠</span>
       <span class="badge">国家サイバー統括室 (cyber.go.jp) 啓発方針</span>
-      <span class="badge">高校「情報I・情報II」対応</span>
+      <span class="badge">デジタル庁・総務省ガイドライン</span>
+      <span class="badge">米CISA / 国際セキュリティ基準</span>
     </div>
   </header>
 
@@ -223,7 +247,7 @@ for ep in episodes:
 
   <footer class="site-footer">
     <p>© 2026 放課後サイバーディフェンス・ラボ (Cybersecurity Novel Library)</p>
-    <p>Powered by Qwen 3.5 / Shosetsu LLM, FLUX.2 Klein Image Gen & TikZ / LuaLaTeX</p>
+    <p>Repository: <a href="https://github.com/k518-2026/cybersecurity-novel" target="_blank" rel="noopener" style="color: var(--primary);">k518-2026/cybersecurity-novel</a></p>
   </footer>
 
 </body>
@@ -234,7 +258,7 @@ for ep in episodes:
         f.write(story_html)
     print("Created story page:", out_html)
 
-# 2. Build Top Index Page (docs/index.html)
+# Build Top Index Page (docs/index.html)
 cards_html = []
 for ep in episodes:
     card = f"""
@@ -269,7 +293,8 @@ index_html = f"""<!DOCTYPE html>
     <div class="nav-badges">
       <span class="badge">IPA デジタルスキル標準 (DSS) 準拠</span>
       <span class="badge">国家サイバー統括室 (cyber.go.jp) 啓発方針</span>
-      <span class="badge">高校「情報I・情報II」対応</span>
+      <span class="badge">デジタル庁・総務省ガイドライン</span>
+      <span class="badge">米CISA / 国際セキュリティ基準</span>
       <span class="badge">大学情報科学・工学進学ガイド</span>
     </div>
   </header>
@@ -279,11 +304,11 @@ index_html = f"""<!DOCTYPE html>
       <h2 style="font-size: 1.4rem; color: var(--secondary); margin-bottom: 0.8rem;">🛡️ このライブラリについて</h2>
       <p style="color: #475569; font-size: 0.98rem; line-height: 1.8;">
         高校生がサイバーセキュリティの面白さや重要性に触れ、将来の情報科学系・工学系大学への進学やセキュリティ専門職を目指すための入門ライトノベルです。<br>
-        男子高校生（城崎 悠真 部長）と女子高校生（橘 葵）が、身近なITトラブルや最新のサイバーニュースを題材に、大学の芹沢 涼香 准教授（サイバーセキュリティ研究室 / IPAアドバイザー）と共にセキュリティの仕組みを優しく・正確に探求していきます。
+        男子高校生（城崎 悠真 部長）と女子高校生（橘 葵）が、国内外の最新サイバー脅威ニュースや政府機関（デジタル庁・国家サイバー統括室・米CISA等）の公式情報を題材に、大学の芹沢 涼香 准教授と共にセキュリティの仕組みを優しく・正確に探求していきます。
       </p>
     </section>
 
-    <h2 style="font-size: 1.5rem; color: var(--secondary); margin-bottom: 1.5rem; border-left: 4px solid var(--primary); padding-left: 0.8rem;">📚 収録エピソード一覧（全7話）</h2>
+    <h2 style="font-size: 1.5rem; color: var(--secondary); margin-bottom: 1.5rem; border-left: 4px solid var(--primary); padding-left: 0.8rem;">📚 収録エピソード一覧（全10話）</h2>
 
     <div class="episodes-grid">
       {''.join(cards_html)}
@@ -302,4 +327,4 @@ index_html = f"""<!DOCTYPE html>
 index_path = os.path.join(DOCS_DIR, "index.html")
 with open(index_path, "w", encoding="utf-8") as f:
     f.write(index_html)
-print("Created top index page:", index_path)
+print("Updated top index page for all 10 episodes:", index_path)
