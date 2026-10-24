@@ -62,7 +62,7 @@ episodes = [
         "title": "三つの宝玉を守る城壁 〜情報セキュリティの3大要素（CIA）と多層防御〜",
         "theme": "CIA（機密性・完全性・可用性）、DDoS攻撃、多層防御の同心円モデル",
         "md_file": "2026-10-23_ep05_cia_triad_and_defense_in_depth.md",
-        "illust": "ep05_art.png",
+        "illust": "ep05_4koma.png",
         "figure": "fig05_cia_and_defense_in_depth.png"
     },
     {
@@ -71,7 +71,7 @@ episodes = [
         "title": "データベースの合言葉と呪文の罠 〜SQLインジェクションと安全なプログラミング〜",
         "theme": "SQLインジェクション攻撃、文字列連結の脆弱性、プレースホルダ（バインド機構）",
         "md_file": "2026-10-23_ep06_sql_injection_and_web_security.md",
-        "illust": "ep06_art.png",
+        "illust": "ep06_4koma.png",
         "figure": "fig06_sql_injection_defense.png"
     },
     {
@@ -80,7 +80,7 @@ episodes = [
         "title": "割れない南京錠と魔法の印鑑 〜公開鍵暗号とデジタル署名の数理〜",
         "theme": "鍵配送問題、公開鍵暗号の鍵ペア、デジタル署名（電子署名）、SHA-256ハッシュ関数",
         "md_file": "2026-10-23_ep07_cryptography_and_digital_signatures.md",
-        "illust": "ep07_art.png",
+        "illust": "ep07_4koma.png",
         "figure": "fig07_digital_signature_pki.png"
     },
     {

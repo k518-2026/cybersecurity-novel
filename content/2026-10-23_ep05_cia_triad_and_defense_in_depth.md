@@ -21,7 +21,7 @@ tags: ["CIAの3要素", "機密性", "完全性", "可用性", "多層防御", "
 
 ## 🎨 ストーリーイラスト (Draw Things 生成)
 
-![第5話 ストーリーイラスト](illustrations/ep05_art.png)
+![第5話 ストーリーイラスト](illustrations/ep05_4koma.png)
 
 ---
 

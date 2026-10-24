@@ -21,7 +21,7 @@ tags: ["暗号理論", "公開鍵暗号", "デジタル署名", "ハッシュ関
 
 ## 🎨 ストーリーイラスト (Draw Things 生成)
 
-![第7話 ストーリーイラスト](illustrations/ep07_art.png)
+![第7話 ストーリーイラスト](illustrations/ep07_4koma.png)
 
 ---
 

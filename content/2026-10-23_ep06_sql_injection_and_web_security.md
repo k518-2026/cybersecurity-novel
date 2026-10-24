@@ -21,7 +21,7 @@ tags: ["SQLインジェクション", "Webセキュリティ", "セキュアプ�
 
 ## 🎨 ストーリーイラスト (Draw Things 生成)
 
-![第6話 ストーリーイラスト](illustrations/ep06_art.png)
+![第6話 ストーリーイラスト](illustrations/ep06_4koma.png)
 
 ---
 
