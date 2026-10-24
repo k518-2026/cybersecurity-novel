@@ -125,7 +125,7 @@ episodes = [
         "title": "世界を繋ぐバケツリレー 〜家庭・学校のLAN、ルーターとDNSの秘密〜",
         "theme": "LANとWAN、プライベートIPとグローバルIP、ルーター（NAT/NAPT）、DNS名前解決、初期ファイアウォール",
         "md_file": "2026-10-24_ep12_lan_routers_and_dns_basics.md",
-        "illust": "ep12_art.png",
+        "illust": "ep12_4koma.png",
         "figure": "fig12_lan_router_dns.png"
     },
     {
@@ -134,7 +134,7 @@ episodes = [
         "title": "旗を掲げる守護者たち 〜サイバーセキュリティ競技（CTF）と未来への扉〜",
         "theme": "CTF（Capture The Flag）競技、5大ジャンル（Web, Crypto, Reversing, Forensics, Pwn）、大学情報学部進路、CISO",
         "md_file": "2026-10-24_ep13_ctf_competition_and_future_careers.md",
-        "illust": "ep13_art.png",
+        "illust": "ep13_4koma.png",
         "figure": "fig13_ctf_and_careers.png"
     },
     {
@@ -143,7 +143,7 @@ episodes = [
         "title": "見えない空の保管庫 〜クラウドセキュリティと責任共有モデル〜",
         "theme": "クラウドサービス（IaaS/PaaS/SaaS）、責任共有モデル、IAM最小権限の原則、公開バケット設定ミス防止",
         "md_file": "2026-10-24_ep14_cloud_security_and_shared_responsibility.md",
-        "illust": "ep14_art.png",
+        "illust": "ep14_4koma.png",
         "figure": "fig14_cloud_shared_responsibility.png"
     },
     {
@@ -152,7 +152,7 @@ episodes = [
         "title": "知性をまとう盾と矛 〜人工知能（AI）の悪用脅威と防衛の未来（第1部 完結）〜",
         "theme": "AI時代の脅威（プロンプト注入・ディープフェイク・データ汚染） vs AI自律防御、人間の倫理と知性、第1部堂々完結",
         "md_file": "2026-10-24_ep15_ai_security_and_future_frontiers.md",
-        "illust": "ep15_art.png",
+        "illust": "ep15_4koma.png",
         "figure": "fig15_ai_security_deepfake.png"
     }
 ]

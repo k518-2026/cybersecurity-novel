@@ -18,7 +18,7 @@ tags: ["LAN", "ルーター", "NAT/NAPT", "IPアドレス", "DNS", "ネットワ
 
 ## 🎨 ストーリーイラスト (Draw Things 生成)
 
-![第12話 世界を繋ぐバケツリレー 〜家庭・学校のLAN、ルーターとDNSの秘密〜 ストーリーイラスト](illustrations/ep12_art.png)
+![第12話 世界を繋ぐバケツリレー 〜家庭・学校のLAN、ルーターとDNSの秘密〜 ストーリーイラスト](illustrations/ep12_4koma.png)
 
 ---
 
