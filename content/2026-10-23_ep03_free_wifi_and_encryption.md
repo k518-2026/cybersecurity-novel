@@ -25,6 +25,21 @@ tags: ["公衆無線LAN", "フリーWi-Fi", "中間者攻撃", "HTTPS", "TLS", "
 
 ---
 
+---
+
+## 💬 4コマ漫画キャラクターセリフ（日・英対訳）
+
+挿絵の4コマ漫画（文字なし）の各コマに対応したキャラクターのセリフです。小説本文の導入としてもお楽しみいただけます。
+
+| コマ | 展開 / シチュエーション | 🗣️ 日本語セリフ (Japanese) | 🌐 英語セリフ (English) |
+|:---:|:---|:---|:---|
+| **第1コマ**<br>【起】 | **カフェで野良フリーWi-Fiを見つけて喜ぶ葵**<br>パスワード不要の公衆無線LANを見つけ、ギガが浮くと無邪気に喜ぶ葵。 | **葵**: 「見て見て悠真君！ 『Free_WiFi_Guest』って電波があるよ！ パスワードなしでネット使い放題だ〜！」 | **Aoi**: "Look, Yuma! There's a network called 'Free_WiFi_Guest'! Free internet with no password needed—jackpot!" |
+| **第2コマ**<br>【承】 | **悠真が危険な電波傍受を真剣に警告**<br>テーブル越しに接続を制止し、暗号化されていない電波の危険性を説く悠真。 | **悠真**: 「ちょっと待って、葵。暗号化されていない野良Wi-Fiは、通信内容が周囲に丸見えなんだ。悪意ある人がパケットを盗聴しているかもしれないよ。」 | **Yuma**: "Wait just a second, Aoi. Unencrypted public Wi-Fi broadcasts all your traffic out in the open. A malicious actor nearby could be eavesdropping on every packet." |
+| **第3コマ**<br>【転】 | **芹沢先生による暗号化トンネルの解説**<br>光るトンネルモデルを掲げ、HTTPSやVPNによるデータ保護を教える芹沢准教授。 | **芹沢先生**: 「電波の海を安全に渡るには『暗号化』というトンネルが必要よ。HTTPS通信やVPNを使えば、データをカプセル化して第三者の盗聴を完全にシャットアウトできるの。」 | **Prof. Serizawa**: "To safely cross the ocean of radio waves, you need an encrypted tunnel. Using HTTPS and a VPN encapsulates your data, completely locking out third-party eavesdroppers." |
+| **第4コマ**<br>【結】 | **安全な通信で安心してカフェ学習を楽しむ二人**<br>VPN保護を有効化し、コーヒーを片手に安心してパソコン学習を進める二人。 | **葵**: 「VPNをオンにしたから、これでもう安心だね！ 美味しいコーヒーを飲みながら課題頑張ろう！」<br>**悠真**: 「ああ。仕組みを正しく知っていれば、街の電波も心強い味方になるね。」 | **Aoi**: "Now that VPN is on, we're totally safe! Let's get our assignments done while enjoying this delicious coffee!"<br>**Yuma**: "Right. Once you understand how it works, public networks become a reliable ally." |
+
+---
+
 ## 📖 小説本文
 
 　街角のカフェ『L'Aube』は、焙煎された豆の香りと、微かなジャズの旋律に包まれていた。

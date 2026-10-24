@@ -25,6 +25,21 @@ tags: ["フィッシング詐欺", "ソーシャルエンジニアリング", "U
 
 ---
 
+---
+
+## 💬 4コマ漫画キャラクターセリフ（日・英対訳）
+
+挿絵の4コマ漫画（文字なし）の各コマに対応したキャラクターのセリフです。小説本文の導入としてもお楽しみいただけます。
+
+| コマ | 展開 / シチュエーション | 🗣️ 日本語セリフ (Japanese) | 🌐 英語セリフ (English) |
+|:---:|:---|:---|:---|
+| **第1コマ**<br>【起】 | **不在通知メッセージに焦る葵**<br>スマホに届いた「荷物を持ち帰りました」という偽SMSを見て、慌ててURLを押そうとする葵。 | **葵**: 「えっ、荷物の不在通知！？ 昨日頼んだやつかな……早く再配達頼まなきゃ！」 | **Aoi**: "Wait, a missed delivery notice?! Maybe it's the package I ordered yesterday... I have to request redelivery right away!" |
+| **第2コマ**<br>【承】 | **悠真の冷静な制止とURL分析**<br>葵の手首をそっと掴んでタップを止め、偽ドメインの怪しい文字列を指摘する悠真。 | **悠真**: 「待って、葵！ 押す前にURLをよく見て。本物の宅配業者とドメインの文字列が全然違う。焦りを誘うスミッシング（SMS詐欺）だ！」 | **Yuma**: "Hold on, Aoi! Check the URL carefully before tapping. The domain name is completely different from the real carrier. It's a smishing scam designed to panic you!" |
+| **第3コマ**<br>【転】 | **芹沢先生によるフィッシング詐欺の解説**<br>ホワイトボードの前で虫眼鏡を掲げ、心理的隙を突く罠の構造を解き明かす芹沢准教授。 | **芹沢先生**: 「人間の『焦り』や『油断』に付け込む攻撃をソーシャルエンジニアリングと呼ぶの。URLの末尾やSSL証明書の正当性を確認する習慣が最大の盾になるわ。」 | **Prof. Serizawa**: "Attacks exploiting human panic or carelessness are called social engineering. Cultivating the habit of verifying domain suffixes and SSL certificates is your strongest shield." |
+| **第4コマ**<br>【結】 | **危機回避の安堵と感謝の笑顔**<br>詐欺の手口を理解して胸をなで下ろし、夕陽の部室で悠真に感謝する葵。 | **葵**: 「あぶなかった〜！ 悠真君が止めてくれなかったら偽サイトに入力しちゃうところだったよ。ありがとう！」<br>**悠真**: 「気づけてよかった。冷静な確認が一番の防壁だよ。」 | **Aoi**: "That was close! If you hadn't stopped me, Yuma, I would've typed my info into a fake site. Thank you so much!"<br>**Yuma**: "Glad we caught it in time. Staying calm and verifying is always the best defense." |
+
+---
+
 ## 📖 小説本文
 
 　放課後の情報科学部室。窓から差し込む西日が、並べられたサーバーラックとモニターの放熱ファンが回る微かな音を包み込んでいた。
