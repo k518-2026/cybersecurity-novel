@@ -36,6 +36,8 @@
 | 11 | **砂浜の足跡と電子の鑑識官** | 城崎 悠真, 橘 葵, 芹沢准教授 | デジタル・フォレンジック（電子鑑識）、ライトブロッカー、ハッシュ値照合、不正アクセス禁止法、サイバー警察・CSIRT | [図解](content/figures/fig11_digital_forensics_law.png) | [挿絵](content/illustrations/ep11_art.png) | [第11話本文](content/2026-10-24_ep11_digital_forensics_and_cyber_law.md) |
 | 12 | **世界を繋ぐバケツリレー** | 城崎 悠真, 橘 葵, 芹沢准教授 | 家庭・学校のLANとWAN、プライベートIPとグローバルIP、ルーター（NAT/NAPT）、DNS名前解決の仕組み | [図解](content/figures/fig12_lan_router_dns.png) | [挿絵](content/illustrations/ep12_art.png) | [第12話本文](content/2026-10-24_ep12_lan_routers_and_dns_basics.md) |
 | 13 | **旗を掲げる守護者たち** | 城崎 悠真, 橘 葵, 芹沢准教授 | サイバーセキュリティ競技（CTF）、5大ジャンル（Web, Crypto, Reversing, Forensics, Pwn）、大学情報学部進路、CISO | [図解](content/figures/fig13_ctf_and_careers.png) | [挿絵](content/illustrations/ep13_art.png) | [第13話本文](content/2026-10-24_ep13_ctf_competition_and_future_careers.md) |
+| 14 | **見えない空の保管庫** | 橘 葵, 城崎 悠真, 芹沢准教授 | クラウドセキュリティ、責任共有モデル（Shared Responsibility Model）、IAM最小権限の原則、バケット全世界公開対策 | [図解](content/figures/fig14_cloud_shared_responsibility.png) | [挿絵](content/illustrations/ep14_art.png) | [第14話本文](content/2026-10-24_ep14_cloud_security_and_shared_responsibility.md) |
+| 15 | **知性をまとう盾と矛（第1部 完結）** | 橘 葵, 城崎 悠真, 芹沢准教授 | AI悪用脅威（プロンプト注入・ディープフェイク・データ汚染） vs 自律型AIサイバー防御、人間の倫理と知性、第1部完結・進路決定 | [図解](content/figures/fig15_ai_security_deepfake.png) | [挿絵](content/illustrations/ep15_art.png) | [第15話本文](content/2026-10-24_ep15_ai_security_and_future_frontiers.md) |
 
 ---
 

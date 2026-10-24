@@ -22,6 +22,20 @@ tags: ["CTF", "サイバーセキュリティ競技", "大学情報科学", "ホ
 
 ---
 
+## 💬 4コマ漫画キャラクターセリフ（日・英対訳）
+
+挿絵の4コマ漫画（文字なし）の各コマに対応したキャラクターのセリフです。小説本文の導入としてもお楽しみいただけます。
+
+| コマ | 展開 / シチュエーション | 🗣️ 日本語セリフ (Japanese) | 🌐 英語セリフ (English) |
+|:---:|:---|:---|:---|
+| **第1コマ**<br>【起】 | **初めてのCTF（セキュリティ競技）に挑む葵と悠真！**<br>制限時間が刻々と迫るコンテスト画面を前に、パズルと謎解きに目を輝かせる葵。 | **葵**: 「これがCTF（旗取り合戦）……！ Webの脆弱性診断から暗号解読まで、まるでハイテクな謎解きゲームみたい！」 | **Aoi**: "So this is a CTF (Capture The Flag)...! From finding web flaws to breaking crypto, it's like a high-tech puzzle quest!" |
+| **第2コマ**<br>【承】 | **悠真のファインプレー：隠されたバイナリからFlagを獲得！**<br>デバッガで実行ファイルをリバースエンジニアリングし、隠されたフラグ文字列を発見してガッツポーズの悠真。 | **悠真**: 「解けた！ リバースエンジニアリングで暗号化ルーチンを特定してFlagを回収したぞ！ `FLAG{w3lc0m3_t0_cber_w0rld}` だ！」 | **Yuma**: "Solved it! Reverse-engineered the binary, decoded the crypto routine, and captured the flag: `FLAG{w3lc0m3_t0_cber_w0rld}`!" |
+| **第3コマ**<br>【転】 | **芹沢先生が語る大学情報理工学研究と未来のセキュリティキャリア**<br>CTFで培われる実践的スキルが、大学の自律AI防衛研究や、企業のCISO・ペネトレーションテスターへ直結する道を語る芹沢准教授。 | **芹沢先生**: 「CTFで培う好奇心と技術は、大学での高度研究や社会を守るセキュリティエンジニアへの確かな架け橋になります。世界が最も必要としている人材なのよ。」 | **Prof. Serizawa**: "The practical agility honed in CTFs bridges directly into university informatics research and vital careers like penetration testers and CISOs. You are training to become defenders the world urgently needs." |
+| **第4コマ**<br>【結】 | **チーム総合入賞！未来の守護者への新たな旅立ち**<br>スコアボード上位に青葉台高校の名前が輝き、ハイタッチで笑顔を弾けさせる葵と悠真。 | **葵**: 「やったー、入賞できた！ 私、大学で本格的にセキュリティを研究したい！」<br>**悠真**: 「僕もだ。ここからが僕たちの本当のサイバーディフェンスの始まりだね。」 | **Aoi**: "We did it, we ranked in the top leaderboard! I definitely want to study cybersecurity at university!"<br>**Yuma**: "Me too. This is where our real journey as cyber defenders truly begins." |
+
+---
+
+
 ## 📖 小説本文
 
 深夜の静寂を切り裂くのは、高速で打ち込まれるキーボードの打鍵音と、唸りを上げるPCの冷却ファンの回転音だけだった。

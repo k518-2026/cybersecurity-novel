@@ -25,6 +25,20 @@ tags: ["SQLインジェクション", "Webセキュリティ", "セキュアプ�
 
 ---
 
+## 💬 4コマ漫画キャラクターセリフ（日・英対訳）
+
+挿絵の4コマ漫画（文字なし）の各コマに対応したキャラクターのセリフです。小説本文の導入としてもお楽しみいただけます。
+
+| コマ | 展開 / シチュエーション | 🗣️ 日本語セリフ (Japanese) | 🌐 英語セリフ (English) |
+|:---:|:---|:---|:---|
+| **第1コマ**<br>【起】 | **検索フォームに入力した「呪文」で全データ流出！？**<br>フォームに `' OR '1'='1` と入れただけで非公開データがずらりと表示され、唖然とする悠真。 | **悠真**: 「……嘘だろ。ただの入力フォームなのに、全ユーザーの非公開データがそのまま引き出せてしまった……！」 | **Yuma**: "...You've got to be kidding me. Just typing into an ordinary form exposed every user's private records...!" |
+| **第2コマ**<br>【承】 | **葵の驚き：文字列の連結が生んだ致命的な罠**<br>コードの `WHERE name = ' + input + '` を指差し、悪意ある呪文がSQL文を改変した手口に気づく葵。 | **葵**: 「ユーザーの入力した文字をそのままSQLに合体させてる……！ だから命令文がすり替わっちゃったんだ！」 | **Aoi**: "The code literally concatenates raw user input into the SQL query...! That's why the command got hijacked!" |
+| **第3コマ**<br>【転】 | **芹沢先生によるプレースホルダ（バインド機構）の指南**<br>「データ」と「命令」を絶対に混ぜてはいけない原則と、安全なプレースホルダ構造をホワイトボードで解説する芹沢准教授。 | **芹沢先生**: 「文字列連結は最も危険な悪手です。プレースホルダ（バインド機構）を使えば、悪意ある文字列も単なる『無害なデータ』として処理されるのよ。」 | **Prof. Serizawa**: "String concatenation is the most dangerous pitfall. By using prepared statements with placeholders (binding), malicious code is treated strictly as 'harmless data'." |
+| **第4コマ**<br>【結】 | **セキュアコーディング完了！安全なデータベースへ**<br>コードをプレースホルダに書き換え、テストで不正入力が完全に弾かれたのを確認して笑顔で頷き合う二人。 | **悠真**: 「よし、バインド機構の実装完了。どんな不正な文字列が来ても、命令として解釈されることはない。」<br>**葵**: 「プログラミングの安全って、こういう細かな配慮の積み重ねなんだね！」 | **Yuma**: "Alright, prepared statements are fully in place. No malicious input will ever be executed as code."<br>**Aoi**: "Secure programming truly comes down to these thoughtful, rigorous habits!" |
+
+---
+
+
 ## 📖 小説本文
 
 放課後の情報科学部室は、西日の斜光が埃の粒子を黄金色に染め上げていた。

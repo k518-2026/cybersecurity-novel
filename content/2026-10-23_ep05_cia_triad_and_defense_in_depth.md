@@ -25,6 +25,20 @@ tags: ["CIAの3要素", "機密性", "完全性", "可用性", "多層防御", "
 
 ---
 
+## 💬 4コマ漫画キャラクターセリフ（日・英対訳）
+
+挿絵の4コマ漫画（文字なし）の各コマに対応したキャラクターのセリフです。小説本文の導入としてもお楽しみいただけます。
+
+| コマ | 展開 / シチュエーション | 🗣️ 日本語セリフ (Japanese) | 🌐 英語セリフ (English) |
+|:---:|:---|:---|:---|
+| **第1コマ**<br>【起】 | **DDoS攻撃で学内Webサイトがダウン！**<br>アクセス殺到でサーバー応答不能の赤いエラー画面を見て頭を抱える葵。 | **葵**: 「えっ！？ 学内ポータルが全然開かない……！ サーバーが落ちちゃったの！？」 | **Aoi**: "What?! The school portal isn't opening at all...! Has the server crashed?!" |
+| **第2コマ**<br>【承】 | **悠真の冷静な分析：可用性の喪失**<br>ログ画面を見せながら、DDoS攻撃による可用性侵害を説明する悠真。 | **悠真**: 「これは悪意ある大量アクセスによるDDoS攻撃だ。『可用性（Availability）』が侵害されて、誰もサービスを使えなくなっているんだ。」 | **Yuma**: "This is a DDoS attack with malicious traffic flood. 'Availability' is compromised, preventing everyone from accessing the service." |
+| **第3コマ**<br>【転】 | **芹沢先生によるCIAの3大要素と多層防御の解説**<br>ホワイトボードにCIAの三角形と三重の防壁を描き、堅牢な防御設計を説く芹沢准教授。 | **芹沢先生**: 「セキュリティの基本はCIA。『機密性・完全性・可用性』。どれか一つ欠けても破綻します。だからこそ、入口・内部・出口の『多層防御』が必要なのよ。」 | **Prof. Serizawa**: "The core of security is CIA: Confidentiality, Integrity, and Availability. If any one fails, trust collapses. That is why we need 'Defense in Depth' across entry, internal, and exit layers." |
+| **第4コマ**<br>【結】 | **トラフィック遮断成功！三つの宝珠を守り抜く笑顔**<br>WAFと多層防御で攻撃パケットを弾き、サーバー復旧の緑アイコンに安堵の笑顔を浮かべる葵と悠真。 | **葵**: 「すごい、サイトが復活した！ 三つの宝珠（CIA）を守るってこういうことなんだね！」<br>**悠真**: 「ああ。一つの壁が破られても、次の壁が守る。これが鉄壁の守りだよ。」 | **Aoi**: "Awesome, the portal is back online! Now I truly understand how to defend the three jewels of CIA!"<br>**Yuma**: "Exactly. Even if one wall is breached, the next one holds. That is true defense in depth." |
+
+---
+
+
 ## 📖 小説本文
 
 窓の外では、放課後の校庭をオレンジ色の西日が長く引き延ばしている。

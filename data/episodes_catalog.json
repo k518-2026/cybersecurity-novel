@@ -9,8 +9,7 @@
     "university_connection": "情報学部・計算機科学科（認証プロトコル、ハッシュ関数、情報倫理）",
     "protagonist": "橘 葵",
     "mentor": "芹沢 涼香 准教授",
-    "tikz_description": "認証の3要素（知識・所持・生体）と多要素認証（MFA）のブロック図",
-    "drawthings_prompt": "Vertical four-panel comic strip, Japanese yonkoma manga layout, 4 rectangular panels stacked vertically from top to bottom with clean white borders, full color Japanese anime art style. Panel 1: A cute high school girl student with ponytail surprised looking at smartphone alert in computer classroom. Panel 2: A kind and cool female university cybersecurity professor explaining smartphone authenticator app and lock mechanisms. Panel 3: Professor and high school girl smiling at multi-factor authentication shield diagram on digital tablet. Panel 4: Both smiling happily together with confidence in bright modern computer laboratory. Masterpiece, high contrast, crisp lines, completely pure anime style, no speech bubbles, no text, no letters."
+    "tikz_description": "認証の3要素（知識・所持・生体）と多要素認証（MFA）のブロック図"
   },
   {
     "episode_num": 2,
@@ -22,8 +21,7 @@
     "university_connection": "情報ネットワーク学科（DNS構造、PKI公開鍵基盤、Webセキュリティ）",
     "protagonist": "橘 葵",
     "mentor": "芹沢 涼香 准教授",
-    "tikz_description": "正規サイト vs フィッシングサイトのURLドメイン階層構造とSSL/TLS証明書チェーン",
-    "drawthings_prompt": "Vertical four-panel comic strip, Japanese yonkoma manga layout, 4 rectangular panels stacked vertically from top to bottom with clean white borders, full color Japanese anime art style. Panel 1: High school girl confused looking at suspicious SMS parcel delivery link on smartphone. Panel 2: Kind female professor showing domain name structure on blackboard with magnifying glass illustration. Panel 3: High school girl happily understanding the fake domain difference on laptop monitor. Panel 4: Both characters smiling warmly and proudly in university seminar room. Masterpiece, clean colors, no text, no letters."
+    "tikz_description": "正規サイト vs フィッシングサイトのURLドメイン階層構造とSSL/TLS証明書チェーン"
   },
   {
     "episode_num": 3,
@@ -35,8 +33,7 @@
     "university_connection": "情報セキュリティ工学科（暗号数学、通信プロトコル、ネットワーク解析）",
     "protagonist": "城崎 悠真＆橘 葵",
     "mentor": "芹沢 涼香 准教授",
-    "tikz_description": "中間者攻撃の盗聴リスクとHTTPS（SSL/TLS暗号化トンネル）による保護フロー図",
-    "drawthings_prompt": "Vertical four-panel comic strip, Japanese yonkoma manga layout, 4 rectangular panels stacked vertically from top to bottom with clean white borders, full color Japanese anime art style. Panel 1: High school students studying at a stylish campus cafe with laptops and smartphones. Panel 2: Female professor showing a glowing shield protecting data packets passing through radio waves. Panel 3: The students excited looking at encrypted green padlock icon on their screen. Panel 4: Professor and students smiling cheerfully together in comfortable cafe study space. Masterpiece, no speech bubbles, no text, no letters."
+    "tikz_description": "中間者攻撃の盗聴リスクとHTTPS（SSL/TLS暗号化トンネル）による保護フロー図"
   },
   {
     "episode_num": 4,
@@ -48,20 +45,138 @@
     "university_connection": "コンピュータシステム学科（OSアーキテクチャ、メモリ脆弱性、静的・動的解析）",
     "protagonist": "橘 葵",
     "mentor": "芹沢 涼香 准教授",
-    "tikz_description": "脆弱性（穴）を突く攻撃とセキュリティパッチによる修復、シールド防御の図解",
-    "drawthings_prompt": "Vertical four-panel comic strip, Japanese yonkoma manga layout, 4 rectangular panels stacked vertically from top to bottom with clean white borders, full color Japanese anime art style. Panel 1: High school girl staring at an OS update notification popup on notebook PC. Panel 2: Female professor drawing a castle wall with repaired bricks on whiteboard. Panel 3: Students happily clicking system update button as digital barrier lights up in blue. Panel 4: Warm friendly smiles of professor and high school girl in modern computer room. Masterpiece, no text, no letters."
+    "tikz_description": "脆弱性（穴）を突く攻撃とセキュリティパッチによる修復、シールド防御の図解"
   },
   {
     "episode_num": 5,
     "id": "ep05_cia_triad_and_defense_in_depth",
-    "title": "三つの宝珠を守る城壁 〜情報セキュリティの3要素（CIA）と多層防御〜",
+    "title": "三つの宝珠を守る城壁 〜情報セキュリティの3大要素（CIA）と多層防御〜",
     "theme": "CIAの3要素（機密性・完全性・可用性）と真正性・責任追跡性、多層防御（入口・内部・出口対策）",
     "dss_topic": "情報セキュリティの基本概念・セキュリティガバナンス入門",
     "news_context": "DDoS攻撃による可用性の損失やWebサイト改ざんによる完全性破壊事例",
-    "university_connection": "総合情報学部・情報社会科学科（セキュリティマネジメント、リスク分析、情報法）",
+    "university_connection": "情報マネジメント学科（リスクマネジメント、セキュリティポリシー策定、BCP）",
     "protagonist": "橘 葵＆城崎 悠真",
     "mentor": "芹沢 涼香 准教授",
-    "tikz_description": "CIAトライアングル（機密性・完全性・可用性）と多層防御の同心円モデル",
-    "drawthings_prompt": "Vertical four-panel comic strip, Japanese yonkoma manga layout, 4 rectangular panels stacked vertically from top to bottom with clean white borders, full color Japanese anime art style. Panel 1: High school girl and boy looking at a large glowing triangular diagram of Confidentiality, Integrity, Availability. Panel 2: Female professor guiding them through multiple layers of digital shields protecting a central glowing core. Panel 3: Students smiling with deep realization about security balance and ethics. Panel 4: Group happy smiling together with future hope in high-tech university cyber lab. Masterpiece, no text, no letters."
+    "tikz_description": "CIAの3要素ピラミッドと入口・内部・出口の多層防御同心円モデル"
+  },
+  {
+    "episode_num": 6,
+    "id": "ep06_sql_injection_and_web_security",
+    "title": "データベースの合言葉と呪文の罠 〜SQLインジェクションと安全なプログラミング〜",
+    "theme": "SQLインジェクションの原理、文字列連結の脆弱性、プレースホルダ（バインド機構）、入力バリデーション、サニタイジング",
+    "dss_topic": "セキュアプログラミング・Webアプリケーション脅威の回避",
+    "news_context": "Webフォームを通じた不正アクセスによる数万人規模の個人情報流出インシデント",
+    "university_connection": "ソフトウェア工学科・情報システム学科（データベース論、セキュアコーディング、静的解析）",
+    "protagonist": "城崎 悠真",
+    "mentor": "芹沢 涼香 准教授",
+    "tikz_description": "SQLインジェクション攻撃コードの混入とプレースホルダによる無害化構造図"
+  },
+  {
+    "episode_num": 7,
+    "id": "ep07_cryptography_and_digital_signatures",
+    "title": "割れない南京錠と魔法の印鑑 〜公開鍵暗号とデジタル署名の数理〜",
+    "theme": "共通鍵暗号の限界（鍵配送問題）、公開鍵暗号（RSA・楕円曲線暗号）、ハッシュ関数（SHA-256）とデジタル署名、耐改ざん性",
+    "dss_topic": "暗号技術の基本原理・データ真正性の担保",
+    "news_context": "電子契約や公的証明書、ソフトウェア配布元署名の不正署名改ざん事件",
+    "university_connection": "数理科学科・情報数理専攻（素数論、離散対数問題、量子耐性暗号 PQC）",
+    "protagonist": "橘 葵＆城崎 悠真",
+    "mentor": "芹沢 涼香 准教授",
+    "tikz_description": "公開鍵・秘密鍵の暗号化とデジタル署名による本人確認・改ざん検知の対比図"
+  },
+  {
+    "episode_num": 8,
+    "id": "ep08_passkey_and_fido2_passwordless",
+    "title": "覚えない合言葉と手のひらの証明 〜パスキー（FIDO2）とパスワードのない未来〜",
+    "theme": "パスキー（Passkeys）、FIDO2/WebAuthn規格、デバイス内セキュアエレメント（Secure Enclave）、公開鍵認証によるフィッシング耐性",
+    "dss_topic": "次世代認証基盤・パスワードレス認証の運用",
+    "news_context": "デジタル庁・総務省のパスキー推奨方針と大手テック企業のパスキー標準対応",
+    "university_connection": "サイバーセキュリティ学科・ヒューマンコンピュータインタラクション（次世代認証、生体認証セキュリティ）",
+    "protagonist": "橘 葵",
+    "mentor": "芹沢 涼香 准教授",
+    "tikz_description": "パスキーの仕組み（デバイス内秘密鍵保管と公開鍵によるサーバー検証フロー）"
+  },
+  {
+    "episode_num": 9,
+    "id": "ep09_supply_chain_attack_and_sbom",
+    "title": "見えない裏口と材料の目録 〜サプライチェーン攻撃とソフトウェアの原材料表示〜",
+    "theme": "サプライチェーン攻撃、取引先経由の侵入、オープンソース（OSS）依存性の危険性、SBOM（Software Bill of Materials）",
+    "dss_topic": "サプライチェーンリスク管理・OSSガバナンス",
+    "news_context": "委託先やビルドシステムへの不正侵入を介したマルウェア混入インシデント（XZ Utils, SolarWinds等）",
+    "university_connection": "システム工学科・セキュリティアーキテクチャ（ソフトウェア工学、依存関係解析、DevSecOps）",
+    "protagonist": "城崎 悠真",
+    "mentor": "芹沢 涼香 准教授",
+    "tikz_description": "サプライチェーン攻撃の侵入経路とSBOMによるコンポーネント追跡図"
+  },
+  {
+    "episode_num": 10,
+    "id": "ep10_zero_day_and_white_hackers",
+    "title": "ゼロの日を越える翼 〜ゼロデイ脆弱性と世界を守るホワイトハッカー〜",
+    "theme": "ゼロデイ脆弱性（0-day）、脆弱性報奨金制度（バグバウンティ）、協調的脆弱性開示（CVD）、CVE/CVSS、倫理的ハッカーの行動規範",
+    "dss_topic": "脆弱性マネジメント・サイバー倫理・インシデント即応",
+    "news_context": "OSやブラウザのゼロデイ脆弱性の悪用と緊急修正パッチの配信（CISA KEVカタログ等）",
+    "university_connection": "情報セキュリティ学科・法情報学（脆弱性探索技術、リバースエンジニアリング、情報セキュリティ法）",
+    "protagonist": "橘 葵＆城崎 悠真",
+    "mentor": "芹沢 涼香 准教授",
+    "tikz_description": "ゼロデイ攻撃の脅威タイムラインとホワイトハッカーによる協調的開示（CVD）サイクル"
+  },
+  {
+    "episode_num": 11,
+    "id": "ep11_digital_forensics_and_cyber_law",
+    "title": "砂浜の足跡と電子の鑑識官 〜デジタル・フォレンジックと不正アクセス禁止法〜",
+    "theme": "デジタル・フォレンジック、証拠保全（ライトブロッカー、ビット単位イメージ複製、SHA-256ハッシュ照合）、不正アクセス禁止法、サイバー警察・CSIRT",
+    "dss_topic": "インシデントレスポンス・法的証拠保全・法規範の遵守",
+    "news_context": "不正アクセス禁止法違反事件の摘発と警察サイバー捜査隊による電子鑑識",
+    "university_connection": "法情報学科・サイバー犯罪捜査科学（法工学、証拠能力、ファイルシステム解析）",
+    "protagonist": "城崎 悠真＆橘 葵",
+    "mentor": "芹沢 涼香 准教授",
+    "tikz_description": "デジタルフォレンジックの保全・抽出・解析フローと不正アクセス禁止法の適用範囲"
+  },
+  {
+    "episode_num": 12,
+    "id": "ep12_lan_routers_and_dns_basics",
+    "title": "世界を繋ぐバケツリレー 〜家庭・学校のLAN、ルーターとDNSの秘密〜",
+    "theme": "LANとWANの構造、プライベートIPアドレスとグローバルIPアドレス、ルーターのNAT/NAPT変換、DNS名前解決とDNSキャッシュポイズニング、DNSSEC",
+    "dss_topic": "ネットワーク基礎インフラ・ドメイン基盤の防衛",
+    "news_context": "家庭用ルーターの脆弱性を狙ったボットネット化（Mirai派生）やDNS障害による世界規模サービス停止",
+    "university_connection": "情報通信工学科・コンピュータネットワーク専攻（ルーティングプロトコル、インターネットアーキテクチャ）",
+    "protagonist": "橘 葵",
+    "mentor": "芹沢 涼香 准教授",
+    "tikz_description": "LAN内端末からルーター（NAT変換）を経てDNS・Webサーバーに至るパケット転送経路図"
+  },
+  {
+    "episode_num": 13,
+    "id": "ep13_ctf_competition_and_future_careers",
+    "title": "旗を掲げる守護者たち 〜サイバーセキュリティ競技（CTF）と未来への扉〜",
+    "theme": "サイバーセキュリティ競技（CTF: Capture The Flag）、各ジャンル（Web, Crypto, Reversing, Forensics, Pwn, OSINT）、大学・大学院での先端研究とキャリア形成（セキュリティエンジニア、アナリスト、CISO）",
+    "dss_topic": "実践的セキュリティスキル・倫理的競技・キャリアパス探究",
+    "news_context": "全国高校生・大学生向けセキュリティコンテスト（SECCON Beginners等）の活況と高度セキュリティ人材育成",
+    "university_connection": "大学院情報理工学系研究科・サイバーレジリエンス研究室（先端サイバー防御、自律防御AI研究）",
+    "protagonist": "橘 葵＆城崎 悠真",
+    "mentor": "芹沢 涼香 准教授",
+    "tikz_description": "CTFの競技領域分類（Web/Crypto/Pwn/Forensics/OSINT）とセキュリティエンジニアのキャリア発展マップ"
+  },
+  {
+    "episode_num": 14,
+    "id": "ep14_cloud_security_and_shared_responsibility",
+    "title": "見えない空の保管庫 〜クラウドセキュリティと責任共有モデル〜",
+    "theme": "クラウドサービス（IaaS/PaaS/SaaS）、責任共有モデル（Shared Responsibility Model）、IAM（アイデンティティ＆アクセス管理）の最小権限原則、クラウドストレージの公開設定ミス（バケット漏洩対策）",
+    "dss_topic": "クラウド運用セキュリティ・アクセス制御・設定不備防止",
+    "news_context": "大手企業や官公庁におけるクラウドストレージ公開設定不備による機密データ漏洩インシデント",
+    "university_connection": "分散システム工学科・クラウドコンピューティング研究室（クラウドインフラ設計、認可プロトコル）",
+    "protagonist": "橘 葵",
+    "mentor": "芹沢 涼香 准教授",
+    "tikz_description": "責任共有モデル（SaaS/PaaS/IaaSにおけるクラウド事業者と利用者の責任境界線）とIAM最小権限の図解"
+  },
+  {
+    "episode_num": 15,
+    "id": "ep15_ai_security_and_future_frontiers",
+    "title": "知性をまとう盾と矛 〜人工知能（AI）の悪用脅威と防衛の未来（第1部 完結）〜",
+    "theme": "生成AI時代のセキュリティ、プロンプトインジェクション、データポイズニング、ディープフェイク音声・動画詐欺、AIによる自律ログ解析・防御自動化、第1部完結と新たな世代への継承",
+    "dss_topic": "AIセーフティ・機械学習セキュリティ・高度先端脅威への適応",
+    "news_context": "AI生成の音声クローン・ディープフェイクを用いた巨額詐欺被害とAI安全基準策定の世界的動向",
+    "university_connection": "先端AI情報科学研究所・自律エージェントセキュリティ研究部門（Adversarial Machine Learning, XAI説明可能AI）",
+    "protagonist": "橘 葵＆城崎 悠真",
+    "mentor": "芹沢 涼香 准教授",
+    "tikz_description": "AIに対する攻撃（プロンプト注入・ポイズニング・ディープフェイク）とAIを活用したサイバー防御の相互対峙図"
   }
 ]

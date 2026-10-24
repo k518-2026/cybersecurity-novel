@@ -21,6 +21,20 @@ tags: ["サイバーセキュリティ", "大学情報科学", "デジタル庁"
 
 ---
 
+## 💬 4コマ漫画キャラクターセリフ（日・英対訳）
+
+挿絵の4コマ漫画（文字なし）の各コマに対応したキャラクターのセリフです。小説本文の導入としてもお楽しみいただけます。
+
+| コマ | 展開 / シチュエーション | 🗣️ 日本語セリフ (Japanese) | 🌐 英語セリフ (English) |
+|:---:|:---|:---|:---|
+| **第1コマ**<br>【起】 | **自社のセキュリティは完璧だったはずなのに侵入！？**<br>堅固に守られていたはずの基幹システムに侵入アラートが鳴り響き、困惑する悠真。 | **悠真**: 「本丸のサーバーは鉄壁の防御を敷いていたはずなのに……一体どこから侵入されたんだ！？」 | **Yuma**: "Our core servers had top-notch defenses... Where on earth did the intruder break in from?!" |
+| **第2コマ**<br>【承】 | **葵の発見：信頼していた取引先ライブラリに裏口が！**<br>依存パッケージのツリー図を調べ、外部委託コンポーネントにバックドアが混入していた事実を突き止める葵。 | **葵**: 「悠真君、見て！ 自作コードじゃなくて、外部から読み込んでいたOSSライブラリの中に不正コードが仕込まれてる！」 | **Aoi**: "Yuma, look! It wasn't our code—a backdoor was hidden inside an open-source library we imported!" |
+| **第3コマ**<br>【転】 | **芹沢先生によるサプライチェーン攻撃とSBOMの解説**<br>食品の原材料表示のように、ソフトウェアに含まれるすべての部品を可視化する「SBOM（ソフトウェア部品表）」の意義を説く芹沢准教授。 | **芹沢先生**: 「現代のシステムは無数の外部部品でできています。だからこそ、どの部品にどんな脆弱性があるかを即座に特定できる『SBOM（Software Bill of Materials）』が必須なのです。」 | **Prof. Serizawa**: "Modern software is built from countless external parts. That is why an 'SBOM'—like food ingredient labeling—is indispensable for instantly tracking vulnerable components." |
+| **第4コマ**<br>【結】 | **SBOMで脆弱コンポーネントを即時隔離・安全なビルドへ**<br>SBOMスキャンで問題のパッケージを特定して自動置換し、透明で安全な開発パイプラインに誇らしげな笑顔を見せる二人。 | **悠真**: 「サプライチェーン全体を見通す透明性こそが、これからの防衛の要だね。」<br>**葵**: 「材料の出どころまでしっかり把握してこそ、本当の安全が作れるんだね！」 | **Yuma**: "Full transparency across the entire supply chain is the key to modern defense."<br>**Aoi**: "Knowing every single ingredient in our software is what makes it truly secure!" |
+
+---
+
+
 ## 📖 小説本文
 
 放課後の部室は、夕刻の陽光が長く伸びて、埃の舞う空間を黄金色に染め上げていた。

@@ -22,6 +22,20 @@ tags: ["LAN", "ルーター", "NAT/NAPT", "IPアドレス", "DNS", "ネットワ
 
 ---
 
+## 💬 4コマ漫画キャラクターセリフ（日・英対訳）
+
+挿絵の4コマ漫画（文字なし）の各コマに対応したキャラクターのセリフです。小説本文の導入としてもお楽しみいただけます。
+
+| コマ | 展開 / シチュエーション | 🗣️ 日本語セリフ (Japanese) | 🌐 英語セリフ (English) |
+|:---:|:---|:---|:---|
+| **第1コマ**<br>【起】 | **URLを入れただけでどうして世界中のサーバーと繋がるの？**<br>ブラウザのアドレスバーを見つめ、無数の家庭内端末がどうやって世界とやり取りしているのか不思議に思う葵。 | **葵**: 「ねえ悠真君、うちのスマホもパソコンもゲーム機も、どうやってたった1本の光回線から世界中に迷わず繋がってるの？」 | **Aoi**: "Hey Yuma, how do all our smartphones, PCs, and gaming consoles connect across the globe through just one home internet fiber without getting lost?" |
+| **第2コマ**<br>【承】 | **悠真が解説するルーターのNAT変換とプライベートIP**<br>ノートに家の中の私書箱（プライベートIP）と家の代表玄関（グローバルIP）の役割分担を描いて説明する悠真。 | **悠真**: 「ルーターが『NAT/NAPT』という変換をしているんだ。家の中では内線番号（プライベートIP）、外に出るときは代表外線（グローバルIP）へポート番号を使って上手に仕分けているんだよ。」 | **Yuma**: "The router performs 'NAT/NAPT' translation. Inside the house, devices use private extension IPs, and the router maps them to a single public global IP using port numbers." |
+| **第3コマ**<br>【転】 | **芹沢先生によるDNS名前解決とDNSSEC（バケツリレー）の解説**<br>ドメイン名（住所の文字）をIPアドレス（数字）に変換するDNSサーバーの階層的問い合わせと、偽装を防ぐDNSSECの仕組みを教える芹沢准教授。 | **芹沢先生**: 「世界中のDNSサーバーがバケツリレーのように住所を教え合っています。途中で偽の住所にすり替えられないよう、電子署名で保証する『DNSSEC』という盾もあるのよ。」 | **Prof. Serizawa**: "DNS servers across the world pass queries like a bucket relay to resolve names to IP addresses. And 'DNSSEC' cryptographically signs responses to prevent cache poisoning." |
+| **第4コマ**<br>【結】 | **見えないインターネットの壮大なバケツリレーに感動！**<br>普段何気なく見ているWebページが、無数のルーターとDNSの正確無比な連係で届いていることに感謝する葵と悠真。 | **葵**: 「クリックした一瞬の間に、世界中の機器がバケツリレーで届けてくれてたんだね！」<br>**悠真**: 「この精緻なインフラを設計した先人たちの知恵には、本当に圧倒されるよ。」 | **Aoi**: "In the single second after I click, devices all over the planet coordinate an incredible bucket relay to deliver the page!"<br>**Yuma**: "The profound wisdom of internet pioneers who engineered this infrastructure is truly breathtaking." |
+
+---
+
+
 ## 📖 小説本文
 
 放課後の部室は、西日が差し込んでオレンジ色の光に包まれていた。

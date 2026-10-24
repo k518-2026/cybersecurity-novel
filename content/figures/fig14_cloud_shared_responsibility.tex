@@ -1,0 +1,76 @@
+\documentclass[tikz,border=18pt]{standalone}
+\usepackage{luatexja}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric,arrows.meta,positioning,calc}
+
+\definecolor{cloudblue}{RGB}{30, 100, 190}
+\definecolor{userorange}{RGB}{220, 100, 20}
+\definecolor{safeamber}{RGB}{240, 160, 30}
+\definecolor{safealert}{RGB}{200, 40, 40}
+
+\begin{document}
+\begin{tikzpicture}[>=Stealth, font=\small]
+
+  % Title box
+  \node[draw=cloudblue, fill=blue!8, rounded corners=8pt, line width=1.5pt, minimum width=21.0cm, minimum height=1.2cm, align=center] at (0, 7.5) {
+    \large\bfseries クラウドセキュリティ「責任共有モデル（Shared Responsibility Model）」の境界線
+  };
+
+  % Service columns
+  % 1. On-Premise
+  \node[draw=gray!80, fill=gray!10, rounded corners=6pt, line width=1.2pt, minimum width=4.8cm, minimum height=6.0cm, align=center] at (-7.5, 3.2) {};
+  \node[font=\bfseries, text=black] at (-7.5, 5.8) {オンプレミス (自社管理)};
+
+  % 2. IaaS
+  \node[draw=cloudblue!80, fill=blue!5, rounded corners=6pt, line width=1.2pt, minimum width=4.8cm, minimum height=6.0cm, align=center] at (-2.5, 3.2) {};
+  \node[font=\bfseries, text=cloudblue] at (-2.5, 5.8) {IaaS (インフラ利用)};
+
+  % 3. PaaS
+  \node[draw=safeamber!90, fill=orange!5, rounded corners=6pt, line width=1.2pt, minimum width=4.8cm, minimum height=6.0cm, align=center] at (2.5, 3.2) {};
+  \node[font=\bfseries, text=safeamber!80!black] at (2.5, 5.8) {PaaS (プラットフォーム)};
+
+  % 4. SaaS
+  \node[draw=userorange!90, fill=red!5, rounded corners=6pt, line width=1.2pt, minimum width=4.8cm, minimum height=6.0cm, align=center] at (7.5, 3.2) {};
+  \node[font=\bfseries, text=userorange] at (7.5, 5.8) {SaaS (ソフトウェア利用)};
+
+  % Layers inside each column
+  % On-Premise layers (all user)
+  \foreach \y/\layer in {4.9/データ・ID・アクセス管理 (IAM), 4.1/アプリケーション, 3.3/ミドルウェア・OS, 2.5/仮想化・ハイパーバイザ, 1.7/物理サーバー・ストレージ, 0.9/データセンター・電源・空調} {
+    \node[draw=userorange, fill=userorange!15, rounded corners=3pt, thick, minimum width=4.4cm, minimum height=0.65cm, font=\footnotesize] at (-7.5, \y) {\layer};
+  }
+
+  % IaaS layers (user top 3, cloud bottom 3)
+  \foreach \y/\layer in {4.9/データ・ID・アクセス管理 (IAM), 4.1/アプリケーション, 3.3/ミドルウェア・OS (パッチ適用)} {
+    \node[draw=userorange, fill=userorange!20, rounded corners=3pt, thick, minimum width=4.4cm, minimum height=0.65cm, font=\footnotesize\bfseries] at (-2.5, \y) {\layer};
+  }
+  \foreach \y/\layer in {2.5/仮想化基盤, 1.7/物理サーバー・ストレージ, 0.9/データセンター物理防護} {
+    \node[draw=cloudblue, fill=blue!15, rounded corners=3pt, thick, minimum width=4.4cm, minimum height=0.65cm, font=\footnotesize] at (-2.5, \y) {\layer};
+  }
+
+  % PaaS layers (user top 2, cloud bottom 4)
+  \foreach \y/\layer in {4.9/データ・ID・アクセス管理 (IAM), 4.1/アプリケーション} {
+    \node[draw=userorange, fill=userorange!20, rounded corners=3pt, thick, minimum width=4.4cm, minimum height=0.65cm, font=\footnotesize\bfseries] at (2.5, \y) {\layer};
+  }
+  \foreach \y/\layer in {3.3/ランタイム・OS自動管理, 2.5/仮想化基盤, 1.7/物理サーバー・ストレージ, 0.9/データセンター物理防護} {
+    \node[draw=cloudblue, fill=blue!15, rounded corners=3pt, thick, minimum width=4.4cm, minimum height=0.65cm, font=\footnotesize] at (2.5, \y) {\layer};
+  }
+
+  % SaaS layers (user top 1, cloud bottom 5)
+  \node[draw=userorange, fill=userorange!20, rounded corners=3pt, thick, minimum width=4.4cm, minimum height=0.65cm, font=\footnotesize\bfseries] at (7.5, 4.9) {データ・ID・アクセス管理 (IAM)};
+  \foreach \y/\layer in {4.1/アプリケーション本体, 3.3/ランタイム・OS管理, 2.5/仮想化基盤, 1.7/物理サーバー・ストレージ, 0.9/データセンター物理防護} {
+    \node[draw=cloudblue, fill=blue!15, rounded corners=3pt, thick, minimum width=4.4cm, minimum height=0.65cm, font=\footnotesize] at (7.5, \y) {\layer};
+  }
+
+  % Legend
+  \node[draw=userorange, fill=userorange!20, rounded corners=4pt, thick, minimum width=9.5cm, minimum height=1.0cm, align=left] at (-5.0, -0.2) {
+    \bfseries\color{userorange!90!black} ■ 利用者の責任 (Security IN the Cloud)\\
+    \footnotesize データの機密保持、IAM最小権限設定、公開バケット設定の確認
+  };
+
+  \node[draw=cloudblue, fill=blue!15, rounded corners=4pt, thick, minimum width=9.5cm, minimum height=1.0cm, align=left] at (5.0, -0.2) {
+    \bfseries\color{cloudblue} ■ クラウド事業者の責任 (Security OF the Cloud)\\
+    \footnotesize データセンター物理警備、ハードウェア障害対応、基盤ネットワーク
+  };
+
+\end{tikzpicture}
+\end{document}

@@ -22,6 +22,20 @@ tags: ["デジタル・フォレンジック", "電子鑑識", "不正アクセ�
 
 ---
 
+## 💬 4コマ漫画キャラクターセリフ（日・英対訳）
+
+挿絵の4コマ漫画（文字なし）の各コマに対応したキャラクターのセリフです。小説本文の導入としてもお楽しみいただけます。
+
+| コマ | 展開 / シチュエーション | 🗣️ 日本語セリフ (Japanese) | 🌐 英語セリフ (English) |
+|:---:|:---|:---|:---|
+| **第1コマ**<br>【起】 | **不審な侵入痕跡を発見！電源を切ろうとする葵**<br>サーバーの不穏な挙動に慌てて電源コンセントに手を伸ばす葵。 | **葵**: 「大変、侵入されてるかも！ すぐに電源プラグを引っこ抜いてシャットダウンしなきゃ！」 | **Aoi**: "Oh no, someone might have broken in! I need to pull the power plug right now!" |
+| **第2コマ**<br>【承】 | **悠真が制止！「電源を切ったら揮発性メモリが消えてしまう！」**<br>葵の手を制し、RAMにしか残らない実行中プロセスの重要性を訴える悠真。 | **悠真**: 「待って葵、電源を切っちゃダメだ！ メモリ（RAM）上の証拠データが消えてしまう。まずはネットワークを物理的に遮断して現状を凍結するんだ！」 | **Yuma**: "Wait Aoi, don't kill the power! Volatile evidence in RAM will vanish forever. Physically disconnect the network first to preserve the active state!" |
+| **第3コマ**<br>【転】 | **芹沢先生によるライトブロッカーとハッシュ値照合の解説**<br>書き込み禁止装置（ライトブロッカー）でビット単位の完全クローンを作成し、SHA-256ハッシュで原本性を裁判所に証明する手順を教える芹沢准教授。 | **芹沢先生**: 「デジタル証拠は改ざんが容易だからこそ、ライトブロッカーで複製し、ハッシュ値で同一性を証明します。『不正アクセス禁止法』の法廷でも耐えうる厳格な鑑識作法が求められるのよ。」 | **Prof. Serizawa**: "Digital evidence is easily altered. We use write-blockers to create bit-stream copies and verify identical SHA-256 hashes. Rigorous chain of custody is essential in court under anti-hacking laws." |
+| **第4コマ**<br>【結】 | **デジタル鑑識完了！砂浜に残された確かな電子の足跡**<br>消されたはずのログから侵入経路を特定し、サイバー捜査の科学的奥深さに目を輝かせる葵と悠真。 | **葵**: 「犯人が消そうとした足跡も、電子の鑑識官にはすべて見えていたんだね！」<br>**悠真**: 「技術と法が手を取り合ってこそ、デジタルの正義は守られるんだね。」 | **Aoi**: "Even tracks that intruders tried to erase are completely visible to digital forensic investigators!"<br>**Yuma**: "When technology and law unite, true justice in the digital realm is preserved." |
+
+---
+
+
 ## 📖 小説本文
 
 放課後のコンピュータ室は、夕刻の陽光が窓から差し込み、埃の粒子を黄金色に染め上げていた。

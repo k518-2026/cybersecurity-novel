@@ -136,6 +136,24 @@ episodes = [
         "md_file": "2026-10-24_ep13_ctf_competition_and_future_careers.md",
         "illust": "ep13_art.png",
         "figure": "fig13_ctf_and_careers.png"
+    },
+    {
+        "num": 14,
+        "id": "ep14",
+        "title": "見えない空の保管庫 〜クラウドセキュリティと責任共有モデル〜",
+        "theme": "クラウドサービス（IaaS/PaaS/SaaS）、責任共有モデル、IAM最小権限の原則、公開バケット設定ミス防止",
+        "md_file": "2026-10-24_ep14_cloud_security_and_shared_responsibility.md",
+        "illust": "ep14_art.png",
+        "figure": "fig14_cloud_shared_responsibility.png"
+    },
+    {
+        "num": 15,
+        "id": "ep15",
+        "title": "知性をまとう盾と矛 〜人工知能（AI）の悪用脅威と防衛の未来（第1部 完結）〜",
+        "theme": "AI時代の脅威（プロンプト注入・ディープフェイク・データ汚染） vs AI自律防御、人間の倫理と知性、第1部堂々完結",
+        "md_file": "2026-10-24_ep15_ai_security_and_future_frontiers.md",
+        "illust": "ep15_art.png",
+        "figure": "fig15_ai_security_deepfake.png"
     }
 ]
 
@@ -415,7 +433,7 @@ index_html = f"""<!DOCTYPE html>
       </p>
     </section>
 
-    <h2 style="font-size: 1.5rem; color: var(--secondary); margin-bottom: 1.5rem; border-left: 4px solid var(--primary); padding-left: 0.8rem;">📑 収録エピソード一覧（全13話）</h2>
+    <h2 style="font-size: 1.5rem; color: var(--secondary); margin-bottom: 1.5rem; border-left: 4px solid var(--primary); padding-left: 0.8rem;">📑 収録エピソード一覧（第1部 全15話）</h2>
 
     <div class="episodes-grid">
       {''.join(cards_html)}

@@ -21,6 +21,20 @@ tags: ["サイバーセキュリティ", "大学情報科学", "デジタル庁"
 
 ---
 
+## 💬 4コマ漫画キャラクターセリフ（日・英対訳）
+
+挿絵の4コマ漫画（文字なし）の各コマに対応したキャラクターのセリフです。小説本文の導入としてもお楽しみいただけます。
+
+| コマ | 展開 / シチュエーション | 🗣️ 日本語セリフ (Japanese) | 🌐 英語セリフ (English) |
+|:---:|:---|:---|:---|
+| **第1コマ**<br>【起】 | **無数のパスワードにうんざりする葵**<br>記号・大文字混在の複雑なパスワードを何十個も覚えきれず、思わず頭を机に突っ伏す葵。 | **葵**: 「16桁で英数記号混在、しかも使い回し禁止って……もう人間の記憶力の限界だよ〜！」 | **Aoi**: "16 characters with symbols, uppercase, and no reuse... This is way beyond human memory limits!" |
+| **第2コマ**<br>【承】 | **悠真がスマホを指紋にかざして一瞬でログイン！**<br>パスワードを一文字も入力せず、指紋センサーに触れただけで安全に認証を完了させる悠真。 | **悠真**: 「葵、もうパスワードを記憶する時代は終わりつつあるよ。これを見てごらん。『パスキー（Passkey）』なら指紋一つで即座にサインインだ。」 | **Yuma**: "Aoi, the era of memorizing passwords is coming to an end. Watch this—with 'Passkeys', one touch on the fingerprint sensor signs me in instantly." |
+| **第3コマ**<br>【転】 | **芹沢先生によるFIDO2とセキュアエレメントの仕組み解説**<br>端末内部の専用安全領域（Secure Enclave）に秘密鍵が厳重保管され、フィッシングサイトには偽鍵が絶対に渡らない構造を説く芹沢准教授。 | **芹沢先生**: 「パスキーはFIDO2規格に基づき、端末内で公開鍵暗号を行います。秘密鍵は端末の外へ絶対に出ないため、偽装サイトに騙されてパスワードを盗まれる心配が根本からゼロになるのよ。」 | **Prof. Serizawa**: "Passkeys rely on FIDO2 public-key cryptography inside your device's Secure Enclave. Since your private key never leaves the device, phishing attacks are rendered completely powerless." |
+| **第4コマ**<br>【結】 | **葵もパスキー登録完了！パスワードのない快適な未来へ**<br>スマホの生体認証でスピーディにログイン成功し、ストレスフリーなセキュリティに満面の笑みを浮かべる葵。 | **葵**: 「わあ、本当に一瞬で入れた！ もう長い文字列をメモして隠す必要もないんだね！」<br>**悠真**: 「便利さと最強の安全性が両立する。これがパスワードレスの世界だよ。」 | **Aoi**: "Wow, it logged in in a split second! No more jotting down long passwords on sticky notes!"<br>**Yuma**: "Maximum convenience meets bulletproof security. That's the passwordless future." |
+
+---
+
+
 ## 📖 小説本文
 
 　窓の外では、夕暮れ時の湿った風が銀杏の葉を揺らしている。

@@ -21,6 +21,20 @@ tags: ["サイバーセキュリティ", "大学情報科学", "デジタル庁"
 
 ---
 
+## 💬 4コマ漫画キャラクターセリフ（日・英対訳）
+
+挿絵の4コマ漫画（文字なし）の各コマに対応したキャラクターのセリフです。小説本文の導入としてもお楽しみいただけます。
+
+| コマ | 展開 / シチュエーション | 🗣️ 日本語セリフ (Japanese) | 🌐 英語セリフ (English) |
+|:---:|:---|:---|:---|
+| **第1コマ**<br>【起】 | **開発者すら知らない未知の脆弱性（ゼロデイ）が発覚！**<br>修正パッチが地球上に存在しない「0-day」の緊急速報を見て、戦慄する葵。 | **葵**: 「パッチが存在しない脆弱性……！？ 防ぐ手立てがないまま攻撃されるなんて、どうすればいいの……！？」 | **Aoi**: "A vulnerability with zero available patches...?! If attacks happen before fixes exist, what can we even do...?!" |
+| **第2コマ**<br>【承】 | **悠真が解説するCVE識別番号とCVSS重要度スコア**<br>世界共通の脆弱性識別番号（CVE）と危険度を測るCVSSスコア画面を開き、冷静に被害範囲を分析する悠真。 | **悠真**: 「これが『ゼロデイ（0-day）』の恐怖だ。でも世界中の専門家が『CVE識別番号』で情報を共有し、暫定回避策（Workaround）を急ピッチで検証しているよ。」 | **Yuma**: "This is the terror of a 'Zero-Day'. But cybersecurity experts worldwide share data via CVE IDs and rapidly deploy temporary workarounds." |
+| **第3コマ**<br>【転】 | **芹沢先生による協調的開示（CVD）とホワイトハッカーの倫理**<br>バグを見つけても悪用せず、開発者へ極秘報告して修正を待つ「協調的脆弱性開示（CVD）」の重要性を語る芹沢准教授。 | **芹沢先生**: 「高度な技術を持つ者は、世界を壊すためではなく守るために力を使います。脆弱性を発見し、安全に報告して修復を促す倫理――それが『ホワイトハッカー』の誇りです。」 | **Prof. Serizawa**: "Those with advanced technical mastery must use their skills to protect, not destroy. Finding flaws, reporting them privately, and coordinating repairs—that is the honorable ethics of an ethical white hacker." |
+| **第4コマ**<br>【結】 | **緊急パッチ配信！世界中の端末が救われる**<br>開発元から公式パッチが届き、青空の下でホワイトハッカーたちの見えない連帯と献身に胸を熱くする葵と悠真。 | **葵**: 「見えないところで、世界中のホワイトハッカーたちが私たちを守ってくれているんだね……！」<br>**悠真**: 「いつか僕たちも、その守護者の一員として世界に貢献しよう。」 | **Aoi**: "Behind the scenes, ethical hackers across the globe are tirelessly protecting all of us...!"<br>**Yuma**: "Someday, let's join those digital guardians and protect the world too." |
+
+---
+
+
 ## 📖 小説本文
 
 深夜の放課後、部室に漂うのは古い電子機器が発する微かな熱気と、連日の解析作業で乾いた空気だけだった。

@@ -25,6 +25,20 @@ tags: ["暗号理論", "公開鍵暗号", "デジタル署名", "ハッシュ関
 
 ---
 
+## 💬 4コマ漫画キャラクターセリフ（日・英対訳）
+
+挿絵の4コマ漫画（文字なし）の各コマに対応したキャラクターのセリフです。小説本文の導入としてもお楽しみいただけます。
+
+| コマ | 展開 / シチュエーション | 🗣️ 日本語セリフ (Japanese) | 🌐 英語セリフ (English) |
+|:---:|:---|:---|:---|
+| **第1コマ**<br>【起】 | **鍵を送る途中で盗まれたらどうするの？**<br>共通鍵暗号の「鍵配送問題」に直面し、安全に秘密の鍵を相手に届ける難しさに頭を抱える葵。 | **葵**: 「秘密のメッセージを暗号化しても、その『解錠する鍵』をインターネットで送ったら盗聴されちゃうじゃない！」 | **Aoi**: "Even if we encrypt a secret message, if we send the 'unlock key' over the Internet, eavesdroppers can steal it!" |
+| **第2コマ**<br>【承】 | **悠真の提案：開いた南京錠だけを相手に送る！**<br>公開鍵暗号の直感的なアイデアとして、誰でもロックできる南京錠を配る仕組みを説明する悠真。 | **悠真**: 「そこで『公開鍵暗号』だよ。開いた南京錠（公開鍵）をネットで配り、相手にロックしてもらう。開けられるのは自分だけが持つ秘密鍵だけだ。」 | **Yuma**: "That's why Public Key Cryptography exists! You distribute unlocked padlocks (public keys) publicly. Only your own private key can ever unlock it." |
+| **第3コマ**<br>【転】 | **芹沢先生によるデジタル署名とSHA-256ハッシュの解説**<br>秘密鍵で捺印し、公開鍵で誰でも本物と確認できる「デジタル署名」とハッシュ値の改ざん耐性を教える芹沢准教授。 | **芹沢先生**: 「秘密鍵で署名し、公開鍵で検証する。これで『本人が書いたこと（真正性）』と『1文字も改ざんされていないこと（完全性）』を数学的に証明できるのよ。」 | **Prof. Serizawa**: "Sign with a private key, and verify with a public key. This mathematically proves both 'Identity (Authenticity)' and 'Zero Tampering (Integrity)'." |
+| **第4コマ**<br>【結】 | **緑の暗号化シールドとデジタル印鑑の完成！**<br>公開鍵暗号とデジタル署名で守られた通信が緑の光を放ち、数学の美しさと強さに感動する葵と悠真。 | **葵**: 「素数のパズルが、世界中の通信と契約を守ってるんだ……！ 数学って本当にすごい！」<br>**悠真**: 「これぞ情報科学の真髄だね。見えない数式が最強の南京錠なんだ。」 | **Aoi**: "Prime number math is actively safeguarding global communications and contracts...! Math is unbelievable!"<br>**Yuma**: "That's the true essence of computer science. Invisible formulas form unbreakable padlocks." |
+
+---
+
+
 ## 📖 小説本文
 
 窓の外では、校庭の木々が秋の風に揺れ、乾いた葉の音が規則的に響いている。放課後の部室には、わずかに埃の舞う空気と、古いサーバーから漏れる微かな駆動音だけが漂っていた。

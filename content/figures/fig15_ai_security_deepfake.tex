@@ -1,0 +1,65 @@
+\documentclass[tikz,border=18pt]{standalone}
+\usepackage{luatexja}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric,arrows.meta,positioning,calc}
+
+\definecolor{threatred}{RGB}{200, 30, 40}
+\definecolor{defensegreen}{RGB}{20, 130, 60}
+\definecolor{cyberpurple}{RGB}{110, 40, 160}
+
+\begin{document}
+\begin{tikzpicture}[>=Stealth, font=\small]
+
+  % Title box
+  \node[draw=cyberpurple, fill=purple!8, rounded corners=8pt, line width=1.5pt, minimum width=21.0cm, minimum height=1.2cm, align=center] at (0, 7.5) {
+    \large\bfseries 人工知能（AI）時代のサイバー脅威 vs AIによる自律型サイバー防御
+  };
+
+  % Left Box: AI Threats
+  \node[draw=threatred, fill=red!5, rounded corners=8pt, line width=1.5pt, minimum width=9.8cm, minimum height=6.2cm, align=center] at (-5.3, 3.2) {};
+  \node[font=\bfseries\large, text=threatred] at (-5.3, 5.8) {⚠️ AIを悪用した新世代の脅威 (矛)};
+
+  \node[draw=threatred!80, fill=white, rounded corners=4pt, thick, minimum width=9.0cm, minimum height=1.1cm, align=left] at (-5.3, 4.6) {
+    \textbf{1. プロンプトインジェクション (Prompt Injection)}\\
+    \footnotesize 悪意ある指示文でAIの安全フィルターや制約を無効化し機密を奪う
+  };
+
+  \node[draw=threatred!80, fill=white, rounded corners=4pt, thick, minimum width=9.0cm, minimum height=1.1cm, align=left] at (-5.3, 3.2) {
+    \textbf{2. ディープフェイク音声・動画詐欺 (Deepfake Phishing)}\\
+    \footnotesize 家族やCEOの声をわずか数秒のサンプルから精密再現し送金を指示
+  };
+
+  \node[draw=threatred!80, fill=white, rounded corners=4pt, thick, minimum width=9.0cm, minimum height=1.1cm, align=left] at (-5.3, 1.8) {
+    \textbf{3. 学習データ汚染・ポイズニング (Data Poisoning)}\\
+    \footnotesize 学習データに微細な毒（バックドア）を混入させ、特定条件で誤認識を誘発
+  };
+
+  % Right Box: AI Defense
+  \node[draw=defensegreen, fill=green!5, rounded corners=8pt, line width=1.5pt, minimum width=9.8cm, minimum height=6.2cm, align=center] at (5.3, 3.2) {};
+  \node[font=\bfseries\large, text=defensegreen] at (5.3, 5.8) {🛡️ AIを活用した次世代の守護 (盾)};
+
+  \node[draw=defensegreen!80, fill=white, rounded corners=4pt, thick, minimum width=9.0cm, minimum height=1.1cm, align=left] at (5.3, 4.6) {
+    \textbf{1. 自律型SIEM・異常トラフィック即時検知}\\
+    \footnotesize 毎秒数百万行の通信ログをミリ秒単位で相関分析しゼロデイ攻撃を遮断
+  };
+
+  \node[draw=defensegreen!80, fill=white, rounded corners=4pt, thick, minimum width=9.0cm, minimum height=1.1cm, align=left] at (5.3, 3.2) {
+    \textbf{2. ディープフェイク生体・音声紋鑑識}\\
+    \footnotesize 微小な周波数歪みや血管脈波（rPPG）の非整合性を検知し偽造を判定
+  };
+
+  \node[draw=defensegreen!80, fill=white, rounded corners=4pt, thick, minimum width=9.0cm, minimum height=1.1cm, align=left] at (5.3, 1.8) {
+    \textbf{3. セキュアLLMガードレール＆自動パッチ生成}\\
+    \footnotesize ユーザー入出力を二重査定し、コード脆弱性の自動検証と修正提案を実行
+  };
+
+  % Central clash icon / message
+  \draw[<->, line width=2.5pt, cyberpurple] (-0.3, 3.2) -- (0.3, 3.2);
+
+  % Bottom note
+  \node[draw=cyberpurple, fill=purple!10, rounded corners=6pt, line width=1.2pt, minimum width=21.0cm, minimum height=0.9cm, align=center] at (0, -0.4) {
+    \bfseries 人間の倫理と深い知性こそが、AI技術を「世界を守る盾」として導く真の原動力
+  };
+
+\end{tikzpicture}
+\end{document}
