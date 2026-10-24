@@ -17,7 +17,7 @@ tags: ["サイバーセキュリティ", "大学情報科学", "デジタル庁"
 
 ## 🎨 ストーリーイラスト (Draw Things 生成)
 
-![第8話 ストーリーイラスト](illustrations/ep08_art.png)
+![第8話 ストーリーイラスト](illustrations/ep08_4koma.png)
 
 ---
 

@@ -89,7 +89,7 @@ episodes = [
         "title": "パスワードを捨てる日 〜生体認証とパスキー（FIDO2）が拓く未来〜",
         "theme": "パスキー（Passkey）、FIDO2 / WebAuthn、公開鍵認証、Secure Enclave、パスワードレス認証",
         "md_file": "2026-10-24_ep08_passkey_and_fido2_passwordless.md",
-        "illust": "ep08_art.png",
+        "illust": "ep08_4koma.png",
         "figure": "fig08_passkey_fido2_architecture.png"
     },
     {
@@ -98,7 +98,7 @@ episodes = [
         "title": "見えない鎖の綻び 〜サプライチェーン攻撃とソフトウェアの原材料表示（SBOM）〜",
         "theme": "サプライチェーン攻撃、委託先経由侵入、オープンソース汚染、SBOM（ソフトウェア部品構成表）",
         "md_file": "2026-10-24_ep09_supply_chain_attack_and_sbom.md",
-        "illust": "ep09_art.png",
+        "illust": "ep09_4koma.png",
         "figure": "fig09_supply_chain_sbom.png"
     },
     {
@@ -107,7 +107,7 @@ episodes = [
         "title": "ゼロの日を越える翼 〜ゼロデイ脆弱性と世界を守るホワイトハッカー〜",
         "theme": "ゼロデイ攻撃（0-day）、協調的脆弱性開示（CVD）、CVE番号、米CISA KEVカタログ、倫理的ハッカー",
         "md_file": "2026-10-24_ep10_zero_day_and_white_hackers.md",
-        "illust": "ep10_art.png",
+        "illust": "ep10_4koma.png",
         "figure": "fig10_zero_day_coordinated_disclosure.png"
     },
     {
@@ -116,7 +116,7 @@ episodes = [
         "title": "砂浜の足跡と電子の鑑識官 〜デジタル・フォレンジックと不正アクセス禁止法〜",
         "theme": "デジタル・フォレンジック、ライトブロッカー、ハッシュ値照合、不正アクセス禁止法、サイバー警察・CSIRT",
         "md_file": "2026-10-24_ep11_digital_forensics_and_cyber_law.md",
-        "illust": "ep11_art.png",
+        "illust": "ep11_4koma.png",
         "figure": "fig11_digital_forensics_law.png"
     },
     {
