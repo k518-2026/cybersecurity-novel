@@ -23,7 +23,7 @@ episodes = [
     {
         "num": 1,
         "id": "ep01",
-        "title": "秘密の合言葉と見えない鍵 〜パスワード認証と多要素認証の仕組み〜",
+        "title": "秘密の合言葉と見えない壁 〜パスワード認証と多要素認証の仕組み〜",
         "theme": "認証の3要素（知識・所持・生体）、多要素認証（MFA）、アカウントリスト攻撃",
         "md_file": "2026-10-23_ep01_passwords_and_authentication.md",
         "illust": "ep01_4koma.png",
@@ -59,7 +59,7 @@ episodes = [
     {
         "num": 5,
         "id": "ep05",
-        "title": "三つの宝珠を守る城壁 〜情報セキュリティの3大要素（CIA）と多層防御〜",
+        "title": "三つの宝玉を守る城壁 〜情報セキュリティの3大要素（CIA）と多層防御〜",
         "theme": "CIA（機密性・完全性・可用性）、DDoS攻撃、多層防御の同心円モデル",
         "md_file": "2026-10-23_ep05_cia_triad_and_defense_in_depth.md",
         "illust": "ep05_art.png",
@@ -86,8 +86,8 @@ episodes = [
     {
         "num": 8,
         "id": "ep08",
-        "title": "覚えない合言葉と手のひらの証明 〜パスキー（FIDO2）とパスワードのない未来〜",
-        "theme": "パスキー（FIDO2/WebAuthn）、端末セキュアエレメント、チャレンジ＆レスポンス、フィッシング耐性",
+        "title": "パスワードを捨てる日 〜生体認証とパスキー（FIDO2）が拓く未来〜",
+        "theme": "パスキー（Passkey）、FIDO2 / WebAuthn、公開鍵認証、Secure Enclave、パスワードレス認証",
         "md_file": "2026-10-24_ep08_passkey_and_fido2_passwordless.md",
         "illust": "ep08_art.png",
         "figure": "fig08_passkey_fido2_architecture.png"
@@ -95,8 +95,8 @@ episodes = [
     {
         "num": 9,
         "id": "ep09",
-        "title": "見えない裏口と材料の目録 〜サプライチェーン攻撃とソフトウェアの原材料表示〜",
-        "theme": "サプライチェーン攻撃（委託先経由侵害）、国家サイバー統括室要請、SBOM（ソフトウェア部品構成表）、CISA",
+        "title": "見えない鎖の綻び 〜サプライチェーン攻撃とソフトウェアの原材料表示（SBOM）〜",
+        "theme": "サプライチェーン攻撃、委託先経由侵入、オープンソース汚染、SBOM（ソフトウェア部品構成表）",
         "md_file": "2026-10-24_ep09_supply_chain_attack_and_sbom.md",
         "illust": "ep09_art.png",
         "figure": "fig09_supply_chain_sbom.png"
@@ -105,85 +105,122 @@ episodes = [
         "num": 10,
         "id": "ep10",
         "title": "ゼロの日を越える翼 〜ゼロデイ脆弱性と世界を守るホワイトハッカー〜",
-        "theme": "ゼロデイ攻撃（0-day）、協調的脆弱性開示（CVD）、CVE/CVSS、米CISA KEV、ホワイトハッカー倫理",
+        "theme": "ゼロデイ攻撃（0-day）、協調的脆弱性開示（CVD）、CVE番号、米CISA KEVカタログ、倫理的ハッカー",
         "md_file": "2026-10-24_ep10_zero_day_and_white_hackers.md",
         "illust": "ep10_art.png",
         "figure": "fig10_zero_day_coordinated_disclosure.png"
+    },
+    {
+        "num": 11,
+        "id": "ep11",
+        "title": "砂浜の足跡と電子の鑑識官 〜デジタル・フォレンジックと不正アクセス禁止法〜",
+        "theme": "デジタル・フォレンジック、ライトブロッカー、ハッシュ値照合、不正アクセス禁止法、サイバー警察・CSIRT",
+        "md_file": "2026-10-24_ep11_digital_forensics_and_cyber_law.md",
+        "illust": "ep11_art.png",
+        "figure": "fig11_digital_forensics_law.png"
+    },
+    {
+        "num": 12,
+        "id": "ep12",
+        "title": "世界を繋ぐバケツリレー 〜家庭・学校のLAN、ルーターとDNSの秘密〜",
+        "theme": "LANとWAN、プライベートIPとグローバルIP、ルーター（NAT/NAPT）、DNS名前解決、初期ファイアウォール",
+        "md_file": "2026-10-24_ep12_lan_routers_and_dns_basics.md",
+        "illust": "ep12_art.png",
+        "figure": "fig12_lan_router_dns.png"
+    },
+    {
+        "num": 13,
+        "id": "ep13",
+        "title": "旗を掲げる守護者たち 〜サイバーセキュリティ競技（CTF）と未来への扉〜",
+        "theme": "CTF（Capture The Flag）競技、5大ジャンル（Web, Crypto, Reversing, Forensics, Pwn）、大学情報学部進路、CISO",
+        "md_file": "2026-10-24_ep13_ctf_competition_and_future_careers.md",
+        "illust": "ep13_art.png",
+        "figure": "fig13_ctf_and_careers.png"
     }
 ]
 
-def parse_markdown(filepath):
-    with open(filepath, "r", encoding="utf-8") as f:
-        text = f.read()
+def parse_markdown_to_html(md_path):
+    with open(md_path, "r", encoding="utf-8") as f:
+        content = f.read()
 
-    parts = text.split("---", 2)
-    body = parts[2] if len(parts) >= 3 else text
+    # Split frontmatter
+    parts = content.split("---")
+    if len(parts) >= 3:
+        body = "---".join(parts[2:]).strip()
+    else:
+        body = content.strip()
 
-    novel_match = re.search(r"## 📖 小説本文\s*(.*?)\s*## 📊 TikZ", body, re.DOTALL)
-    novel_text = novel_match.group(1).strip() if novel_match else ""
+    # Extract sections
+    novel_match = re.search(r"## 📖 小説本文\s*\n(.*?)(?=\n## |\Z)", body, re.DOTALL)
+    novel_raw = novel_match.group(1).strip() if novel_match else ""
 
-    col_match = re.search(r"## 💡 高校生のためのセキュリティ深掘りコラム\s*(.*)$", body, re.DOTALL)
-    col_text = col_match.group(1).strip() if col_match else ""
+    column_match = re.search(r"## 💡 高校生のためのセキュリティ深掘りコラム\s*\n(.*?)(?=\n## |\Z)", body, re.DOTALL)
+    column_raw = column_match.group(1).strip() if column_match else ""
 
-    meta_match = re.search(r"> \*\*【放課後サイバーディフェンス・ラボ】\*\*\s*(.*?)\s*---", body, re.DOTALL)
-    meta_text = meta_match.group(1).strip() if meta_match else ""
-
-    return meta_text, novel_text, col_text
-
-def format_novel_paragraphs(text):
-    paras = text.split("\n\n")
-    html_out = []
-    for p in paras:
-        p = p.strip()
-        if not p:
+    # Convert novel paragraphs
+    novel_paragraphs = []
+    for para in novel_raw.split("\n\n"):
+        para = para.strip()
+        if not para:
             continue
-        if "* * *" in p or "＊＊＊" in p or "---" in p:
-            html_out.append('<div class="scene-divider">✦ ✦ ✦</div>')
+        if para == "***" or para == "* * *":
+            novel_paragraphs.append('<div class="scene-break">✦ ✦ ✦</div>')
+        elif para.startswith("「") or para.startswith("『"):
+            novel_paragraphs.append(f'<p class="dialogue">{html.escape(para)}</p>')
         else:
-            lines = p.split("\n")
-            p_clean = "<br>".join([html.escape(l) for l in lines if l.strip()])
-            html_out.append(f"<p>{p_clean}</p>")
-    return "\n".join(html_out)
+            novel_paragraphs.append(f'<p>{html.escape(para)}</p>')
+    novel_html = "\n".join(novel_paragraphs)
 
-def format_column_markdown(text):
-    lines = text.split("\n")
-    html_out = []
-    in_list = False
-    for line in lines:
-        line_s = line.strip()
-        if line_s.startswith("### "):
-            if in_list: html_out.append("</ul>"); in_list = False
-            html_out.append(f"<h3>{html.escape(line_s[4:])}</h3>")
-        elif line_s.startswith("- ") or line_s.startswith("* "):
-            if not in_list: html_out.append("<ul>"); in_list = True
-            l_body = line_s[2:]
-            l_body = re.sub(r"\*\*(.*?)\*\*", r"<strong>\1</strong>", l_body)
-            html_out.append(f"<li>{l_body}</li>")
-        elif line_s.startswith("1. ") or line_s.startswith("2. ") or line_s.startswith("3. ") or line_s.startswith("4. "):
-            if not in_list: html_out.append("<ol>"); in_list = True
-            l_body = line_s[3:]
-            l_body = re.sub(r"\*\*(.*?)\*\*", r"<strong>\1</strong>", l_body)
-            html_out.append(f"<li>{l_body}</li>")
-        elif line_s == "":
-            if in_list: html_out.append("</ul>"); in_list = False
-        else:
-            if in_list: html_out.append("</ul>"); in_list = False
-            l_body = re.sub(r"\*\*(.*?)\*\*", r"<strong>\1</strong>", html.escape(line_s))
-            html_out.append(f"<p>{l_body}</p>")
-    if in_list: html_out.append("</ul>")
-    return "\n".join(html_out)
+    # Convert column subsections
+    column_html_parts = []
+    col_sections = re.split(r"### (.*?)\n", column_raw)
+    if len(col_sections) > 1:
+        for i in range(1, len(col_sections), 2):
+            sec_title = col_sections[i].strip()
+            sec_body = col_sections[i+1].strip() if i+1 < len(col_sections) else ""
+            
+            # format lists and bolds
+            lines = []
+            for line in sec_body.split("\n"):
+                line = line.strip()
+                if not line:
+                    continue
+                # bold
+                line = re.sub(r"\*\*(.*?)\*\*", r"<strong>\1</strong>", line)
+                # code
+                line = re.sub(r"`(.*?)`", r"<code>\1</code>", line)
+                if line.startswith("- "):
+                    lines.append(f"<li>{line[2:]}</li>")
+                elif re.match(r"^\d+\.\s", line):
+                    lines.append(f"<li>{line[3:]}</li>")
+                else:
+                    lines.append(f"<p>{line}</p>")
+            
+            body_html = "\n".join(lines)
+            if "<li>" in body_html:
+                body_html = f"<ul>{body_html}</ul>"
 
-# Build Story Detail Pages
-for ep in episodes:
-    md_path = os.path.join(CONTENT_DIR, ep["md_file"])
-    if not os.path.exists(md_path):
-        continue
-    meta_txt, novel_txt, col_txt = parse_markdown(md_path)
-    novel_html = format_novel_paragraphs(novel_txt)
-    col_html = format_column_markdown(col_txt)
+            column_html_parts.append(f"""
+            <div class="column-box">
+              <h3>💡 {html.escape(sec_title)}</h3>
+              <div class="column-content">
+                {body_html}
+              </div>
+            </div>
+            """)
+    column_html = "\n".join(column_html_parts)
 
-    meta_lines = [l.replace("> -", "").replace(">", "").strip() for l in meta_txt.split("\n") if l.strip()]
-    meta_html = "<br>".join([re.sub(r"\*\*(.*?)\*\*", r"<strong>\1</strong>", l) for l in meta_lines])
+    return novel_html, column_html
+
+# Build each episode page
+for idx, ep in enumerate(episodes):
+    prev_ep = episodes[idx-1] if idx > 0 else None
+    next_ep = episodes[idx+1] if idx < len(episodes)-1 else None
+
+    novel_html, column_html = parse_markdown_to_html(os.path.join(CONTENT_DIR, ep["md_file"]))
+
+    prev_link = f'<a href="{prev_ep["id"]}.html" class="nav-btn">← 第{prev_ep["num"]:02d}話: {html.escape(prev_ep["title"][:18])}...</a>' if prev_ep else '<span class="nav-disabled">最初のエピソード</span>'
+    next_link = f'<a href="{next_ep["id"]}.html" class="nav-btn next">第{next_ep["num"]:02d}話: {html.escape(next_ep["title"][:18])}... →</a>' if next_ep else '<span class="nav-disabled">最新エピソード</span>'
 
     story_html = f"""<!DOCTYPE html>
 <html lang="ja">
@@ -198,51 +235,71 @@ for ep in episodes:
 </head>
 <body>
 
-  <header class="site-header">
-    <div class="site-title">放課後サイバーディフェンス・ラボ</div>
-    <div class="site-subtitle">〜高校生からはじめるサイバーセキュリティと大学情報科学の扉〜</div>
-    <div class="nav-badges">
-      <span class="badge">IPA デジタルスキル標準 (DSS) 準拠</span>
-      <span class="badge">国家サイバー統括室 (cyber.go.jp) 啓発方針</span>
-      <span class="badge">デジタル庁・総務省ガイドライン</span>
-      <span class="badge">米CISA / 国際セキュリティ基準</span>
+  <header class="story-header">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">トップ (目次)</a> &gt; <span>第{ep['num']:02d}話</span>
+      </div>
+      <div class="story-ep-tag">Episode {ep['num']:02d}</div>
+      <h1 class="story-main-title">{html.escape(ep['title'])}</h1>
+      <div class="story-meta">
+        <span>📚 学習テーマ: <strong>{html.escape(ep['theme'])}</strong></span>
+        <span>🏫 登場人物: 城崎悠真（部長・高2）、橘葵（部員・高2）、芹沢涼香准教授（大学メンター）</span>
+      </div>
     </div>
   </header>
 
-  <main class="container">
-    <a href="../index.html" class="back-link">← エピソード一覧に戻る</a>
+  <main class="container story-container">
 
-    <article class="story-article">
-      <div class="story-header">
-        <div class="story-ep-num">Episode {ep['num']:02d}</div>
-        <h1 class="story-title">{html.escape(ep['title'])}</h1>
-        <div class="story-meta-box">
-          {meta_html}
-        </div>
+    <!-- ストーリーイラスト -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>🎨 ストーリーイラスト</h2>
+        <span class="visual-badge">AI生成ビジュアル</span>
       </div>
-
-      <div class="art-center">
-        <img src="../assets/images/{ep['illust']}" alt="第{ep['num']:02d}話 ストーリーイラスト" loading="lazy">
+      <div class="visual-body">
+        <img src="../assets/images/{ep['illust']}" alt="第{ep['num']:02d}話 ストーリーイラスト" class="responsive-img">
+        <p class="caption">▲ 【挿絵】青葉台高校 情報科学部＆帝都科学大学サイバーディフェンス・ラボでの実践シーン</p>
       </div>
+    </section>
 
+    <!-- 小説本文 -->
+    <section class="novel-section">
+      <div class="section-title">
+        <h2>📖 小説本文</h2>
+      </div>
       <div class="novel-body">
         {novel_html}
       </div>
+    </section>
 
-      <div class="art-center">
-        <h2 style="font-size: 1.4rem; color: var(--secondary); margin-bottom: 1.2rem;">📊 TikZ セキュリティ構造図解</h2>
-        <img src="../assets/images/{ep['figure']}" alt="第{ep['num']:02d}話 セキュリティ構造図" loading="lazy">
+    <!-- TikZ 技術構造図解 -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>📊 セキュリティ構造図解 (TikZ LuaLaTeX生成)</h2>
+        <span class="visual-badge">国家安全基準・工学図解</span>
       </div>
+      <div class="visual-body">
+        <img src="../assets/images/{ep['figure']}" alt="第{ep['num']:02d}話 セキュリティ構造図解" class="responsive-img">
+        <p class="caption">▲ 【技術構造図】IPAデジタルスキル標準・国際規格に準拠した仕組みのモデル化</p>
+      </div>
+    </section>
 
-      <div class="column-box">
-        <h2>💡 高校生のためのセキュリティ深掘りコラム</h2>
-        {col_html}
+    <!-- 深掘りコラム -->
+    <section class="column-section">
+      <div class="section-title">
+        <h2>💡 高校生のためのセキュリティ深掘りコラム ＆ 大学進路ガイド</h2>
       </div>
+      {column_html}
+    </section>
 
-      <div style="text-align: center; margin-top: 3rem;">
-        <a href="../index.html" class="card-btn" style="padding: 0.8rem 2rem;">エピソード一覧に戻る</a>
-      </div>
-    </article>
+    <!-- 前後ナビゲーション -->
+    <nav class="episode-nav">
+      {prev_link}
+      <a href="../index.html" class="nav-btn center">目次に戻る</a>
+      {next_link}
+    </nav>
+
   </main>
 
   <footer class="site-footer">
@@ -253,6 +310,7 @@ for ep in episodes:
 </body>
 </html>
 """
+
     out_html = os.path.join(STORIES_DIR, f"{ep['id']}.html")
     with open(out_html, "w", encoding="utf-8") as f:
         f.write(story_html)
@@ -301,14 +359,14 @@ index_html = f"""<!DOCTYPE html>
 
   <main class="container">
     <section style="background: white; border-radius: 1rem; padding: 2rem; margin-bottom: 2.5rem; border: 1px solid var(--border-color); box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
-      <h2 style="font-size: 1.4rem; color: var(--secondary); margin-bottom: 0.8rem;">🛡️ このライブラリについて</h2>
+      <h2 style="font-size: 1.4rem; color: var(--secondary); margin-bottom: 0.8rem;">📖 このライブラリについて</h2>
       <p style="color: #475569; font-size: 0.98rem; line-height: 1.8;">
         高校生がサイバーセキュリティの面白さや重要性に触れ、将来の情報科学系・工学系大学への進学やセキュリティ専門職を目指すための入門ライトノベルです。<br>
         男子高校生（城崎 悠真 部長）と女子高校生（橘 葵）が、国内外の最新サイバー脅威ニュースや政府機関（デジタル庁・国家サイバー統括室・米CISA等）の公式情報を題材に、大学の芹沢 涼香 准教授と共にセキュリティの仕組みを優しく・正確に探求していきます。
       </p>
     </section>
 
-    <h2 style="font-size: 1.5rem; color: var(--secondary); margin-bottom: 1.5rem; border-left: 4px solid var(--primary); padding-left: 0.8rem;">📚 収録エピソード一覧（全10話）</h2>
+    <h2 style="font-size: 1.5rem; color: var(--secondary); margin-bottom: 1.5rem; border-left: 4px solid var(--primary); padding-left: 0.8rem;">📑 収録エピソード一覧（全13話）</h2>
 
     <div class="episodes-grid">
       {''.join(cards_html)}
@@ -327,4 +385,4 @@ index_html = f"""<!DOCTYPE html>
 index_path = os.path.join(DOCS_DIR, "index.html")
 with open(index_path, "w", encoding="utf-8") as f:
     f.write(index_html)
-print("Updated top index page for all 10 episodes:", index_path)
+print("Updated top index page for all 13 episodes:", index_path)
