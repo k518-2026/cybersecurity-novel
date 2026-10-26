@@ -199,6 +199,81 @@ body {
   margin-bottom: 4rem;
 }
 
+/* 4-Koma Manga & Script Interactive Layout */
+.koma-interactive-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Desktop 2-Column Side-by-Side Layout */
+@media (min-width: 860px) {
+  .koma-interactive-container {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 1.75rem;
+    align-items: stretch;
+  }
+
+  .koma-interactive-container .visual-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+  }
+
+  .koma-interactive-container .visual-card .visual-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem 1rem;
+    position: sticky;
+    top: 1.5rem;
+  }
+
+  .koma-interactive-container .visual-card .responsive-img {
+    max-width: 100%;
+    width: auto;
+    max-height: min(780px, 85vh);
+    object-fit: contain;
+  }
+
+  .koma-interactive-container .koma-script-box {
+    margin: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .koma-interactive-container .koma-panels-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .koma-interactive-container .koma-panel-item {
+    flex: 1;
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    padding: 1.35rem 1.5rem;
+  }
+}
+
+@media (min-width: 1100px) {
+  .koma-interactive-container {
+    grid-template-columns: 400px 1fr;
+    gap: 2rem;
+  }
+  
+  .koma-interactive-container .visual-card .responsive-img {
+    max-height: min(840px, 88vh);
+  }
+}
+
 /* Visual Cards */
 .visual-card {
   background: white;
@@ -292,6 +367,11 @@ body {
   display: flex;
   gap: 1.25rem;
   align-items: flex-start;
+  transition: background-color 0.2s ease;
+}
+
+.koma-panel-item:hover {
+  background-color: #f8fafc;
 }
 
 .koma-panel-item:last-child {
