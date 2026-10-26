@@ -154,6 +154,51 @@ episodes = [
         "md_file": "2026-10-24_ep15_ai_security_and_future_frontiers.md",
         "illust": "ep15_4koma.png",
         "figure": "fig15_ai_security_deepfake.png"
+    },
+    {
+        "num": 16,
+        "id": "ep16",
+        "title": "街角の監視者たち 〜スマート家電の隙と見えないボットネット〜",
+        "theme": "第2部開幕、IoT初期パスワード放置、Miraiボットネット、NOTICEプロジェクト、VLANセグメント分離",
+        "md_file": "2026-10-26_ep16_iot_security_and_default_passwords.md",
+        "illust": "ep16_4koma.png",
+        "figure": "fig16_iot_security_mirai.png"
+    },
+    {
+        "num": 17,
+        "id": "ep17",
+        "title": "城壁のない砦 〜ゼロトラストと「決して信頼しない」約束〜",
+        "theme": "境界型防御の破綻、内部横展開（ラテラルムーブメント）、NIST SP 800-207ゼロトラスト原則、マイクロセグメンテーション",
+        "md_file": "2026-10-26_ep17_zero_trust_and_perimeter_defense.md",
+        "illust": "ep17_4koma.png",
+        "figure": "fig17_zero_trust_architecture.png"
+    },
+    {
+        "num": 18,
+        "id": "ep18",
+        "title": "基板の上の囁き 〜物理端子ハッキングと差分電力解析の罠〜",
+        "theme": "物理デバッグ端子（UART/JTAG）、Root権限奪取、サイドチャネル攻撃（差分電力解析 DPA）、セキュアブート",
+        "md_file": "2026-10-26_ep18_hardware_hacking_and_side_channel.md",
+        "illust": "ep18_4koma.png",
+        "figure": "fig18_hardware_and_side_channel.png"
+    },
+    {
+        "num": 19,
+        "id": "ep19",
+        "title": "秘密を明かさぬ計算 〜完全準同型暗号と差分プライバシーの魔法〜",
+        "theme": "プライバシー強化技術（PETs）、完全準同型暗号（FHE：暗号化したまま演算）、差分プライバシー（DP）、秘密計算",
+        "md_file": "2026-10-26_ep19_privacy_enhancing_technologies.md",
+        "illust": "ep19_4koma.png",
+        "figure": "fig19_privacy_enhancing_tech.png"
+    },
+    {
+        "num": 20,
+        "id": "ep20",
+        "title": "走るネットワークと灯火の防衛 〜制御システム（OT）と自動車セキュリティ〜",
+        "theme": "第2部前半完結、産業制御システム（OT/SCADA）可用性最優先、コネクテッドカー（CANバス）、国連UN-R155、SecOC",
+        "md_file": "2026-10-26_ep20_ot_scada_and_automotive_security.md",
+        "illust": "ep20_4koma.png",
+        "figure": "fig20_ot_scada_automotive.png"
     }
 ]
 
@@ -429,11 +474,12 @@ index_html = f"""<!DOCTYPE html>
       <h2 style="font-size: 1.4rem; color: var(--secondary); margin-bottom: 0.8rem;">📖 このライブラリについて</h2>
       <p style="color: #475569; font-size: 0.98rem; line-height: 1.8;">
         高校生がサイバーセキュリティの面白さや重要性に触れ、将来の情報科学系・工学系大学への進学やセキュリティ専門職を目指すための入門ライトノベルです。<br>
-        男子高校生（城崎 悠真 部長）と女子高校生（橘 葵）が、国内外の最新サイバー脅威ニュースや政府機関（デジタル庁・国家サイバー統括室・米CISA等）の公式情報を題材に、大学の芹沢 涼香 准教授と共にセキュリティの仕組みを優しく・正確に探求していきます。
+        <strong>第1部（第1話〜第15話）</strong>：橘 葵＆城崎 悠真が、パスワード認証から暗号、クラウド、AI防御までの基礎原理を習得して大学進学へ。<br>
+        <strong>第2部（第16話〜第20話）</strong>：新入生の神崎 蓮（ハードウェア・IoT班）＆白石 結衣（暗号数理班）が、大学1年となった悠真TAや芹沢准教授と共に、IoT、ゼロトラスト、ハードウェア解析、プライバシー強化技術、社会重要インフラ（自動車・電力）の先端セキュリティに挑みます！
       </p>
     </section>
 
-    <h2 style="font-size: 1.5rem; color: var(--secondary); margin-bottom: 1.5rem; border-left: 4px solid var(--primary); padding-left: 0.8rem;">📑 収録エピソード一覧（第1部 全15話）</h2>
+    <h2 style="font-size: 1.5rem; color: var(--secondary); margin-bottom: 1.5rem; border-left: 4px solid var(--primary); padding-left: 0.8rem;">📑 収録エピソード一覧（第1部・第2部 全20話）</h2>
 
     <div class="episodes-grid">
       {''.join(cards_html)}

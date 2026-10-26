@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第16話 街角の監視者たち 〜スマート家電の隙と見えないボットネット〜 | 放課後サイバーディフェンス・ラボ</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Shippori+Mincho:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="story-header">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">トップ (目次)</a> &gt; <span>第16話</span>
+      </div>
+      <div class="story-ep-tag">Episode 16</div>
+      <h1 class="story-main-title">街角の監視者たち 〜スマート家電の隙と見えないボットネット〜</h1>
+      <div class="story-meta">
+        <span>📚 学習テーマ: <strong>第2部開幕、IoT初期パスワード放置、Miraiボットネット、NOTICEプロジェクト、VLANセグメント分離</strong></span>
+        <span>🏫 登場人物: 城崎悠真（部長・高2）、橘葵（部員・高2）、芹沢涼香准教授（大学メンター）</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container story-container">
+
+    <!-- ストーリーイラスト (4コマ漫画) -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>🎨 4コマ漫画挿絵（文字なし）</h2>
+        <span class="visual-badge">AI高解像度生成</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/ep16_4koma.png" alt="第16話 ストーリーイラスト" class="responsive-img">
+        <p class="caption">▲ 【挿絵】青葉台高校 情報科学部＆帝都科学大学サイバーディフェンス・ラボでの実践シーン</p>
+      </div>
+    </section>
+
+    <!-- 4コマ漫画セリフ（日・英バイリンガル）※存在する場合 -->
+    
+            <div class="koma-script-box">
+              <div class="koma-script-header">
+                <h3>💬 4コマ漫画キャラクターセリフ (Story Dialogue Script)</h3>
+                <span class="lang-tag">日・英バイリンガル (JA / EN)</span>
+              </div>
+              <div class="koma-panels-list">
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">第1コマ 【起】</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation"><strong>自作IoTカメラが動いて大はしゃぎの蓮<strong><br>基板に組んだマイコンカメラの緑LEDが点灯し、得意満面に自慢する蓮。</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[蓮]</span> 「見てくれよ結衣！ 部室の見守りカメラ完成だ！ スマホからバッチリ映像が見えるぞ！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Ren]</span> "Check it out, Yui! Our clubroom security camera is up and running! I can see the live feed right on my phone!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">第2コマ 【承】</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation"><strong>結衣の冷徹な指摘：初期パスワードとTelnet全開<strong><br>端末を覗き込み、デフォルトの `admin/admin` とポート23開放に呆れる結衣。</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[結衣]</span> 「……論外です。認証が `admin/admin` の初期値のまま、ポート23（Telnet）が全世界に開いています。」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yui]</span> "...Unbelievable. You left the credentials as the default 'admin/admin', and port 23 (Telnet) is wide open to the whole world."</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">第3コマ 【転】</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation"><strong>悠真TAが登場！MiraiボットネットとNOTICEの警告<strong><br>部室を訪れた先輩の悠真が、世界中から届く無差別侵入スキャンのログを解説。</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[悠真]</span> 「やあ蓮、結衣さん。そのままだと数分で『Mirai』に感染して、大規模DDoS攻撃の踏み台にされるよ。」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yuma]</span> "Hey Ren, Yui. If you leave it like that, it'll get infected by Mirai within minutes and weaponized as a DDoS bot."</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">第4コマ 【結】</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation"><strong>強固な個別パスワード変更完了！新世代コンビの始動<strong><br>不要ポートを閉じ、強固なパスワードに更新して安堵の笑みを交わす二人。</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[蓮]</span> 「危ねえ……！ 動いただけで満足しちゃダメなんだな！」<br><span class="koma-char-name">[結衣]</span> 「ハードウェアの便利さは、確かなセキュリティの上にしか成り立ちません。」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Ren]</span> "Whew, that was close...! I can't just be happy that it turns on!"<br><span class="koma-char-name">[Yui]</span> "Hardware convenience is only meaningful when built upon solid security."</div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+
+    <!-- 小説本文 -->
+    <section class="novel-section">
+      <div class="section-title">
+        <h2>📖 小説本文</h2>
+      </div>
+      <div class="novel-body">
+        <p>窓から差し込む四月の陽光は、まだ少しだけ肌寒さを孕んでいた。
+　新しくなった情報科学部の部室には、新学期の高揚感と、それとは対照的な電子機器の乾いた熱気が充満している。</p>
+<p class="dialogue">「見てくれよ、結衣。ついに動いたんだ」</p>
+<p>神崎蓮は、机の上に散らばった基板やジャンパーワイヤーの山を掻き分けながら、晴れやかな笑顔を見せた。
+　彼の前には、自作の筐体に収められた小型のカメラユニットがある。レンズの奥でわずかに駆動音が響き、モニターには鮮明な部室の風景が映し出された。</p>
+<p class="dialogue">「……動いているのは確かね。でも、蓮。あなたの『工作』はいつも、完成した瞬間に次の問題を引き起こす傾向があるわ」</p>
+<p>白石結衣は、手元のタブレットを操作しながら淡々と指摘した。彼女は数学オリンピックの経験者であり、その思考は極めて論理的で無駄がない。蓮が「形にする」ことに執着するのに対し、彼女は「構造を解明する」ことに重きを置く。</p>
+<p class="dialogue">「何のことだよ。このカメラ、Raspberry Piをベースに自作したんだ。映像の遅延も最小限に抑えられたし、あとはネット経由でどこからでもチェックできれば完璧だろ？」</p>
+<p>蓮は誇らしげに、ルーターと接続されたカメラの電源スイッチをいじった。彼はこのデバイスが「自分の所有物」として正しく機能することにのみ夢中だった。その裏側にある、インターネットという巨大な海への門戸が開かれたことには、ほとんど無頓着だった。</p>
+<div class="scene-break">✦ ✦ ✦</div>
+<p class="dialogue">「……おい、蓮。ちょっとこれを見てくれないか」</p>
+<p>背後から声をかけたのは、大学一年の城崎悠真だった。彼は芹沢研究室のTAとして部室に顔を出しており、かつてこの部を支えたOBの一人でもある。
+　彼の手にはノートPCがあり、その画面には幾何学的な模様とは程遠い、無機質なログの羅列が高速で流れていた。</p>
+<p class="dialogue">「悠真先輩？ 何かあったんですか？」</p>
+<p>蓮が顔を背け、モニターを覗き込む。
+　そこには、秒間数百件という異常な頻度で届く接続試行の記録があった。すべては特定のポート――TelnetとSSHへのアクセス要求だ。</p>
+<p class="dialogue">「君の作ったカメラ、インターネットに公開したんだろ？ それも初期設定のまま」</p>
+<p>悠真の声は低く、どこか呆然としたような響きを含んでいた。
+　画面上の地図には、世界中から届く攻撃のソースが点灯している。ロシア、中国、ブラジル……国境を越えた無数のIPアドレスから、蓮の「おもちゃ」への侵入を試みるノック音が鳴り続けていた。</p>
+<p class="dialogue">「え……。いや、ただ繋いだだけですよ。パスワードも設定したつもりだけど……」</p>
+<p class="dialogue">「『admin/admin』だろ？ それは世界中のボットが真っ先に試す合言葉だ。君のカメラは今、この瞬間も外部から無差別なスキャンを受け続けている。まるで、鍵の掛かっていない家の前で、世界中の泥棒が一斉にドアノブをガチャガチャと回しているような状態だ」</p>
+<p>結衣がタブレットを置き、モニターへ歩み寄った。彼女の瞳に、冷徹な分析の光が宿る。
+　「……離散数学的に見れば、この攻撃のパターンは非常に単純ね。しかし、その規模は個人の悪意というより、自動化された『群れ』によるものだわ」</p>
+<div class="scene-break">✦ ✦ ✦</div>
+<p>部室の空気は一変した。蓮の顔から余裕が消え、代わりに困惑と微かな恐怖が浮かぶ。
+　そこへ、スマートフォンのビデオ通話が割り込んだ。画面の向こうには、大学の准教授であり、このプロジェクトの指導者である芹沢涼香の姿があった。</p>
+<p class="dialogue">「悠真君、状況はどうかな。……ああ、蓮君も一緒なら、少しだけ話をさせてほしい」</p>
+<p>芹沢は眼鏡の奥の瞳を鋭く光らせた。彼女は総務省やNICTが進めるIoT防衛プロジェクトの最前線に立つ人物だ。
+　彼女は淡々と、しかし重みのある言葉を紡ぎ始めた。</p>
+<p class="dialogue">「蓮君。あなたが作ったそのカメラは、今この瞬間から『ボット』に変貌する可能性がある。Miraiというボットネットの歴史を知っているかな？」</p>
+<p>蓮は首を横に振った。
+　「それは……大規模なDDoS攻撃に使われたという話ですけど」</p>
+<p class="dialogue">「その通り。しかし、それは遠い過去の話ではないわ。スマート家電やルーターといった、セキュリティ意識の低いIoT機器は、ボットネットにとって最高の餌場なのよ。攻撃者はあなたのカメラを乗っ取り、それを『兵器』の一部として組み込む。そして、一斉に国家のインフラ――電力網や通信網――へと押し寄せる。あなたの『趣味』が、知らないうちに誰かの社会を破壊する加担者になる可能性があるの」</p>
+<p>結衣が小さく息を呑む。
+　「自分の作ったものが、悪意を持って使われる……。それが現実としてそこにあるってことですか」</p>
+<p class="dialogue">「ええ。だからこそ、私たちは防衛の原則を徹底しなければならない。まずは強固な個別パスワードへの変更。次に、不要なポートの遮断。そして、ネットワークの可視化……いわゆるNOTICEプロジェクトのような思想が必要なのよ。デバイスがネットに繋がるということは、常に監視され、常に攻撃を受ける準備があることを意識すること。それがデジタル時代の生存戦略よ」</p>
+<div class="scene-break">✦ ✦ ✦</div>
+<p>通話が終わった後、部室には重苦しい沈黙が流れた。
+　蓮は震える手でキーボードを叩き、カメラの管理画面を開いた。
+　彼は今まで「動けばいい」という思考でハードウェアを組み立ててきた。しかし、今目の前にあるのは、自分の無知が招くかもしれない巨大な穴だった。</p>
+<p class="dialogue">「……結衣。手伝ってくれ。パスワードの生成、あとルーターのファイアウォール設定。君の得意な論理で、最強の鍵を一緒に作ってほしい」</p>
+<p>蓮の声には、先ほどまでの無邪気な熱狂とは違う、真剣な決意がこもっていた。
+　結衣はわずかに口角を上げた。それは彼女なりの、信頼の証だった。</p>
+<p class="dialogue">「いいわよ。数学的なエントロピーを最大化するパスワードなら、私に任せて。……でも、次からは勝手にネットへ晒すのは禁止ね」</p>
+<p>二人は並んでモニターに向き合った。
+　蓮が物理的な回路を組み、結衣が論理の盾を築く。
+　窓の外では、新学期の春がさらに鮮やかさを増していく。しかし部室の中では、見えない世界の脅威と向き合うための、静かな、しかし熾烈な戦いが始まろうとしていた。</p>
+<p>蓮は自分のカメラを見つめた。それはもう単なる「おもちゃ」ではない。彼らが守るべき、デジタルな境界線の最前線だった。</p>
+<p>---</p>
+      </div>
+    </section>
+
+    <!-- TikZ 技術構造図解 -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>📊 セキュリティ構造図解 (TikZ LuaLaTeX生成)</h2>
+        <span class="visual-badge">国家安全基準・工学図解</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/fig16_iot_security_mirai.png" alt="第16話 セキュリティ構造図解" class="responsive-img">
+        <p class="caption">▲ 【技術構造図】IPAデジタルスキル標準・国際規格に準拠した仕組みのモデル化</p>
+      </div>
+    </section>
+
+    <!-- 深掘りコラム -->
+    <section class="column-section">
+      <div class="section-title">
+        <h2>💡 高校生のためのセキュリティ深掘りコラム ＆ 大学進路ガイド</h2>
+      </div>
+      
+            <div class="column-box">
+              <h3>💡 1. スマート家電と「Miraiボットネット」の恐怖</h3>
+              <div class="column-content">
+                <p>ネットワークカメラ、スマートテレビ、Wi-Fiルーター、スマート照明など、世界中で急速に普及するIoT（Internet of Things）機器。</p>
+<p>しかし、多くの機器が「出荷時の初期ID・パスワード（<code>root : 123456</code>, <code>admin : admin</code> など）」のままインターネットに直結されています。</p>
+<p>2016年に出現したマルウェア<strong>「Mirai」</strong>は、全世界のIPアドレス空間を高速スキャンし、辞書攻撃で初期設定のIoT機器を次々と乗っ取りました。数十万台規模のIoT機器が「ボットネット（ゾンビPC網）」へと組織化され、米国の主要DNSプロバイダへ1Tbpsを超える壊滅的なDDoS攻撃を浴びせ、Twitter（現X）やNetflixなどの世界的大手サービスを一斉に麻痺させたのです。</p>
+              </div>
+            </div>
+            
+
+            <div class="column-box">
+              <h3>💡 2. 総務省・NICT「NOTICE」プロジェクト</h3>
+              <div class="column-content">
+                <p>日本国内では、このようなサイバー攻撃の踏み台化を未然に防ぐため、総務省・NICT（情報通信研究機構）およびISPが連携した国家防衛プロジェクト<strong>「NOTICE（National Operation Towards IoT Clean Environment）」</strong>が常時運用されています。</p>
+<p>NOTICEでは、外部からアクセス可能なIoT機器に対し、デフォルトのパスワード等の既知の脆弱な組み合わせを入力する安全な調査を実施し、問題が確認された機器の利用者にプロバイダ経由でパスワード変更を注意喚起しています。</p>
+              </div>
+            </div>
+            
+
+            <div class="column-box">
+              <h3>💡 3. 大学情報工学科・IoTセキュリティ研究の最前線</h3>
+              <div class="column-content">
+                <p>大学の情報工学部や組み込みシステム研究室では、省電力・低スペックなマイコンチップ上でいかに高速かつ軽量な暗号処理（Lightweight Cryptography）を実現するか、また家庭内ネットワークをVLANで物理的・論理的に分離するマイクロセグメンテーション技術が研究されています。</p>
+<p>ハードウェア工作が好きな高校生にとって、<strong>IoTセキュリティエンジニア</strong>や<strong>組み込みファームウェアエンジニア</strong>は、モノづくりとサイバー防衛を直結させる極めて魅力的な進路です。</p>
+              </div>
+            </div>
+            
+    </section>
+
+    <!-- 前後ナビゲーション -->
+    <nav class="episode-nav">
+      <a href="ep15.html" class="nav-btn">← 第15話: 知性をまとう盾と矛 〜人工知能（AI...</a>
+      <a href="../index.html" class="nav-btn center">目次に戻る</a>
+      <a href="ep17.html" class="nav-btn next">第17話: 城壁のない砦 〜ゼロトラストと「決し... →</a>
+    </nav>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 放課後サイバーディフェンス・ラボ (Cybersecurity Novel Library)</p>
+    <p>Repository: <a href="https://github.com/k518-2026/cybersecurity-novel" target="_blank" rel="noopener" style="color: var(--primary);">k518-2026/cybersecurity-novel</a></p>
+  </footer>
+
+</body>
+</html>

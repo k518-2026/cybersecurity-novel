@@ -1,0 +1,59 @@
+\documentclass[tikz,border=18pt]{standalone}
+\usepackage{amsmath,amssymb}
+\usepackage{luatexja}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric,arrows.meta,positioning,calc}
+
+\definecolor{petpurple}{RGB}{120, 40, 170}
+\definecolor{diffblue}{RGB}{20, 100, 190}
+\definecolor{safegreen}{RGB}{20, 130, 60}
+
+\begin{document}
+\begin{tikzpicture}[>=Stealth, font=\small]
+
+  % Title
+  \node[draw=petpurple, fill=purple!8, rounded corners=8pt, line width=1.5pt, minimum width=21.0cm, minimum height=1.2cm, align=center] at (0, 7.5) {
+    \large\bfseries プライバシー強化技術（PETs）：完全準同型暗号（FHE）と差分プライバシー（DP）
+  };
+
+  % Left Box: Homomorphic Encryption
+  \node[draw=petpurple, fill=purple!4, rounded corners=8pt, line width=1.3pt, minimum width=9.8cm, minimum height=6.2cm, align=center] at (-5.3, 3.2) {};
+  \node[font=\bfseries\large, text=petpurple] at (-5.3, 5.8) {🔐 完全準同型暗号（FHE: Homomorphic Encryption）};
+
+  \node[draw=petpurple, fill=white, rounded corners=4pt, thick, minimum width=9.0cm, minimum height=1.5cm, align=left] at (-5.3, 4.5) {
+    \textbf{画期的原理：「暗号化したまま計算できる」}\\
+    \footnotesize 平文 $m_1, m_2$ を復号することなく、暗号文のまま加算・乗算が可能\\
+    \footnotesize $\mathrm{Enc}(m_1) \oplus \mathrm{Enc}(m_2) = \mathrm{Enc}(m_1 + m_2)$
+  };
+
+  \node[draw=safegreen, fill=green!8, rounded corners=4pt, thick, minimum width=9.0cm, minimum height=2.2cm, align=left] at (-5.3, 2.3) {
+    \textbf{実社会での絶大なメリット}\\
+    \footnotesize ・\textbf{医療データ解析}：患者のカルテ・遺伝子情報を秘匿したまま創薬AI学習\\
+    \footnotesize ・\textbf{クラウド外部委託}：クラウドサーバーに平文を一切見せずに集計処理\\
+    \footnotesize ・\textbf{情報漏洩の根本的撲滅}：サーバーが侵入されても暗号データしか存在しない
+  };
+
+  % Right Box: Differential Privacy
+  \node[draw=diffblue, fill=blue!4, rounded corners=8pt, line width=1.3pt, minimum width=9.8cm, minimum height=6.2cm, align=center] at (5.3, 3.2) {};
+  \node[font=\bfseries\large, text=diffblue] at (5.3, 5.8) {📊 差分プライバシー（DP: Differential Privacy）};
+
+  \node[draw=diffblue, fill=white, rounded corners=4pt, thick, minimum width=9.0cm, minimum height=1.5cm, align=left] at (5.3, 4.5) {
+    \textbf{数理的保証：「特定の個人がデータに存在するか否かを特定不能にする」}\\
+    \footnotesize 集計結果に、ラプラス分布等の制御された統計的ノイズを意図的に付加\\
+    \footnotesize プライバシー損失パラメータ $\epsilon$（イプシロン）による厳密な安全性評価
+  };
+
+  \node[draw=safegreen, fill=green!8, rounded corners=4pt, thick, minimum width=9.0cm, minimum height=2.2cm, align=left] at (5.3, 2.3) {
+    \textbf{実社会での活用事例}\\
+    \footnotesize ・\textbf{国勢調査（米国センサス局）}：地域統計から個人の特定・逆引きを防止\\
+    \footnotesize ・\textbf{スマホキーボード予測変換}：ユーザーの入力傾向を収集しつつ個人のプライバシー保護\\
+    \footnotesize ・\textbf{秘密計算（SMPC）}との融合による複数企業間データセキュア連携
+  };
+
+  % Bottom note
+  \node[draw=petpurple, fill=purple!10, rounded corners=6pt, line width=1.2pt, minimum width=21.0cm, minimum height=0.9cm, align=center] at (0, -0.4) {
+    \bfseries 「データを活用しながらプライバシーを数学的に完全防護する」次世代デジタル社会の基盤技術
+  };
+
+\end{tikzpicture}
+\end{document}

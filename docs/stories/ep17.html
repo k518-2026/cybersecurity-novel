@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第17話 城壁のない砦 〜ゼロトラストと「決して信頼しない」約束〜 | 放課後サイバーディフェンス・ラボ</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Shippori+Mincho:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="story-header">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">トップ (目次)</a> &gt; <span>第17話</span>
+      </div>
+      <div class="story-ep-tag">Episode 17</div>
+      <h1 class="story-main-title">城壁のない砦 〜ゼロトラストと「決して信頼しない」約束〜</h1>
+      <div class="story-meta">
+        <span>📚 学習テーマ: <strong>境界型防御の破綻、内部横展開（ラテラルムーブメント）、NIST SP 800-207ゼロトラスト原則、マイクロセグメンテーション</strong></span>
+        <span>🏫 登場人物: 城崎悠真（部長・高2）、橘葵（部員・高2）、芹沢涼香准教授（大学メンター）</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container story-container">
+
+    <!-- ストーリーイラスト (4コマ漫画) -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>🎨 4コマ漫画挿絵（文字なし）</h2>
+        <span class="visual-badge">AI高解像度生成</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/ep17_4koma.png" alt="第17話 ストーリーイラスト" class="responsive-img">
+        <p class="caption">▲ 【挿絵】青葉台高校 情報科学部＆帝都科学大学サイバーディフェンス・ラボでの実践シーン</p>
+      </div>
+    </section>
+
+    <!-- 4コマ漫画セリフ（日・英バイリンガル）※存在する場合 -->
+    
+            <div class="koma-script-box">
+              <div class="koma-script-header">
+                <h3>💬 4コマ漫画キャラクターセリフ (Story Dialogue Script)</h3>
+                <span class="lang-tag">日・英バイリンガル (JA / EN)</span>
+              </div>
+              <div class="koma-panels-list">
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">第1コマ 【起】</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation"><strong>学内Wi-Fiなら全部使い放題と喜ぶ蓮<strong><br>部室サーバーを「LAN内アクセスフリー」に設定し、椅子にふんぞり返る蓮。</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[蓮]</span> 「校内Wi-Fiに入りさえすれば、IDもパスワードもなしで部室サーバー使い放題！ これぞ最強の便利さだろ！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Ren]</span> "Once you connect to school Wi-Fi, you get unlimited access to all club servers without passwords! Pure convenience!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">第2コマ 【承】</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation"><strong>結衣の論理的警鐘：城壁の中の感染爆発<strong><br>ホワイトボードに崩れた城壁を描き、横展開（ラテラルムーブメント）の脅威を説く結衣。</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[結衣]</span> 「極めて短絡的です。もし部員のスマホが1台でも感染したら、城壁の内部から全データが盗まれます。」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yui]</span> "Dangerously naive. If a single student's phone gets infected, malware can loot every database from inside the walls."</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">第3コマ 【転】</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation"><strong>芹沢先生によるゼロトラスト原則の指導<strong><br>タブレット画面を掲げ、NIST SP 800-207の「決して信頼せず常に検証せよ」を説く芹沢准教授。</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[芹沢先生]</span> 「社内だから安全という神話は終わりました。場所ではなく、ユーザーのIDと端末の健全性を毎回検証する『ゼロトラスト』が必要です。」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Prof. Serizawa]</span> "The myth of 'safe inside' is dead. We need 'Zero Trust'—never trust, always verify user identity and device health continuously."</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">第4コマ 【結】</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation"><strong>マイクロセグメンテーション完了！真の防衛へ<strong><br>最小権限の動的アクセス制御を組み上げ、晴れやかな笑顔でハイタッチを交わす蓮と結衣。</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[蓮]</span> 「境界線の壁に頼るんじゃなくて、ファイル一つ一つにしっかり鍵をかけるんだな！」<br><span class="koma-char-name">[結衣]</span> 「はい。これこそが現代の破られない要塞です。」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Ren]</span> "Instead of relying on an outer wall, we lock each file individually!"<br><span class="koma-char-name">[Yui]</span> "Indeed. That is what a truly unbreakable modern fortress looks like."</div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+
+    <!-- 小説本文 -->
+    <section class="novel-section">
+      <div class="section-title">
+        <h2>📖 小説本文</h2>
+      </div>
+      <div class="novel-body">
+        <p>放課後の部室は、夕闇が迫る窓の外の景色と、青白く光る数台のモニターのコントラストに包まれていた。
+「見てよ結衣！　これ、最高じゃない？　学内Wi-Fiさえ繋げば、俺の作った部室サーバーのデータも自由自在。VPNの設定もあんなに苦労したのに、中に入っちゃえば『おらえ、仲間だ』って全開で通してくれるんだよ」
+　神崎蓮は、誇らしげにキーボードを叩きながら笑った。画面上には、権限設定の甘さを露呈したファイル群が整然と並んでいる。彼は自ら構築したネットワークの「便利さ」に酔いしれていた。一度境界を突破すれば、あとはすべてが自分の庭であるという確信。それは彼にとって、最も効率的な設計の結果だった。</p>
+<p>しかし、隣でその操作を見守っていた白石結衣の表情は、快活な蓮とは対照的に険しいものだった。彼女は細い指先で顎を突き、モニターに映るディレクトリ構造を凝視する。
+「……蓮、それって『城壁さえ超えれば、中の人は全員味方』っていう中世の騎士道精神みたいな設計じゃない？」
+「え、何が？」
+「だって、このままだと、もし誰か一人がマルウェアに感染しただけで、部室のサーバー全部が『味方のもの』として開放されちゃうよ。城壁の門を突破されたら、中の部屋は全部開けっ放しってこと。それじゃあ、防御の穴がデカすぎる」
+　結衣の声には、論理的な危惧が宿っていた。彼女の指摘は、現代のセキュリティにおける「境界防御」の致命的な矛盾――内部端末の感染による横展開（ラテラルムーブメント）の恐怖を正確に射抜いていた。</p>
+<div class="scene-break">✦ ✦ ✦</div>
+<p class="dialogue">「結衣さんの言う通りです。今の蓮君の設計は、いわば『高い壁で囲まれた広大なホール』ですね」
+　静かな声が部室に響いた。芹沢涼香が、手元のタブレットから視線を上げていた。彼女は大学の准教授であり、このプロジェクトの技術顧問でもある。
+「かつての情報社会では、その『城壁』さえ作れば安全だと思われていました。でも、今の時代は違います。攻撃者はもう、外から壁を壊しに来るだけじゃない。正規のユーザーが使うデバイスを乗っ取ったり、フィッシングで中に入り込んだりする。一度内側に潜り込めば、境界防御は無力化されるんです」
+　涼香は淡々と、しかし重みを持って続けた。
+「現代のネットワークにおいて、『内側だから信頼する』という前提自体が、最大の脆弱性になりつつある。私たちは、その『信頼』の概念を根底から作り直さなければなりません」</p>
+<p>それまで黙って聞いていた蓮は、自分の作ったシステムの「便利さ」が、実は「危うさ」の裏返しであったことに気づき、少しだけ顔を引きつらせた。
+「じゃあ……どうすればいいんだよ。全部にパスワードをかけまくったら、使い勝手が最悪になるだろ？」</p>
+<div class="scene-break">✦ ✦ ✦</div>
+<p class="dialogue">「そこで登場するのが『ゼロトラスト・アーキテクチャ』です」
+　背後から声をかけたのは、大学生の悠真だった。彼は芹沢研のTAとして、部室のネットワーク再構築を技術的にリードしている。
+「要は、NIST SP 800-207の原則に従うんです。『Never Trust, Always Verify（決して信頼せず、常に検証せよ）』。相手が『内側』にいるか、あるいは『味方』であるかなど関係ない。すべてのアクセス要求を、その都度疑い、検証する仕組みです」
+　悠真はモニターの横に立ち、複雑なネットワーク構成図を指し示した。
+「具体的には、三つの柱（ピラー）で考えます。一つ目は『IDと端末の健全性評価』。単にパスワードを知っているかだけじゃなく、そのデバイスが最新の状態か、不審な挙動をしていないかを常にチェックする。二つ目は『リソース単位のアクセス認可』。PDP（ポリシー決定点）とPEP（ポリシー執行点）を設けて、特定のサーバーへのアクセスごとに、その時々の権限を判定するんです」
+　悠真の説明に、蓮の目が輝き始めた。
+「それって、個別の部屋ごとに鍵をかけるみたいなもんか？」
+「そう。それを『マイクロセグメンテーション』と呼びます。ネットワークを細かく区切り、必要な通信だけを許可する。こうすれば、一箇所が突破されても、被害はそこだけに封じ込められる」</p>
+<p>蓮は画面を見つめ、自分の設計図を脳内で書き換え始めた。
+「……なるほど。俺の『便利さ』は、誰にも信頼していないことを前提にした『高度な管理』の上に成り立つものだったんだな」</p>
+<div class="scene-break">✦ ✦ ✦</div>
+<p>その夜、部室の明かりは消えることなく灯り続けた。
+　蓮と結衣は、悠真の指導のもとでネットワーク構成の再構築に没頭していた。かつての「開かれたホール」のような設計を壊し、細かな権限の壁を積み上げていく作業だ。
+「これ、一個のファイルにアクセスするたびにチェックが入るってこと？　ちょっと面倒じゃない？」
+　蓮が苦笑しながら呟く。
+「面倒なのは、安全を買うためのコストよ」
+　結衣は真剣な眼差しで、マイクロセグメンテーションのルールを一つずつ設定していく。
+「でも、この仕組みを徹底すれば、誰かがウイルスに感染しても、他のサーバーには一歩も近づけない。私たちの『砦』は、壁があるから守られるんじゃなくて、個々の扉が強固だから守られるようになるのね」</p>
+<p>蓮はキーボードを叩く手に力を込めた。
+「ああ、わかってるよ。俺の『便利さ』を壊して、新しい『信頼の形』を作るってことだな」
+　彼らは協力し合い、ルールの定義を書き込み、アクセス制御のフローを組み立てていく。画面上のコンソールに、正確な許可証が発行されるたびに、二人の間には達成感が共有された。
+　深夜の部室。そこにはもう、無防備な城壁はない。あるのは、一歩進むごとに「君は誰か？」「その端末は安全か？」と問いかけ続ける、厳格で知的な約束だけだった。</p>
+<p>---</p>
+      </div>
+    </section>
+
+    <!-- TikZ 技術構造図解 -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>📊 セキュリティ構造図解 (TikZ LuaLaTeX生成)</h2>
+        <span class="visual-badge">国家安全基準・工学図解</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/fig17_zero_trust_architecture.png" alt="第17話 セキュリティ構造図解" class="responsive-img">
+        <p class="caption">▲ 【技術構造図】IPAデジタルスキル標準・国際規格に準拠した仕組みのモデル化</p>
+      </div>
+    </section>
+
+    <!-- 深掘りコラム -->
+    <section class="column-section">
+      <div class="section-title">
+        <h2>💡 高校生のためのセキュリティ深掘りコラム ＆ 大学進路ガイド</h2>
+      </div>
+      
+            <div class="column-box">
+              <h3>💡 1. 従来の「境界型防御（城壁モデル）」はなぜ崩壊したのか？</h3>
+              <div class="column-content">
+                <ul><p>かつての企業や学校ネットワークは、中世の城壁都市に例えられました。</p>
+<p>「外側のインターネットは敵（危険）」であり、「内側のLANやVPN内部は全員味方（安全）」とみなし、境界線のファイアウォールさえ強固であれば安全だと信じられていたのです。</p>
+<p>しかし、以下の変化によって城壁モデルは完全に破綻しました：</p>
+<li><strong>クラウドへの移行</strong>: データやサーバーが社内ではなく外部のメガクラウドに分散した。</li>
+<li><strong>テレワーク・モバイル端末の普及</strong>: 社員や生徒が自宅やカフェなど様々な場所からアクセスするようになった。</li>
+<li><strong>標的型フィッシングとサプライチェーン侵害</strong>: 社内のPCが1台でも感染すると、ファイアウォールは何の役にも立たず、内部を自由に攻撃（ラテラルムーブメント）されてしまう。</li></ul>
+              </div>
+            </div>
+            
+
+            <div class="column-box">
+              <h3>💡 2. ゼロトラストの核心「Never Trust, Always Verify」</h3>
+              <div class="column-content">
+                <ul><p>米国NIST（国立標準技術研究所）が定めた規格<strong>SP 800-207</strong>では、ゼロトラストの基本理念を<strong>「決して信頼せず、常に検証せよ（Never Trust, Always Verify）」</strong>と定義しています。</p>
+<li><strong>ネットワークの場所を信じない</strong>: 社内LANからの通信であろうと、外部カフェからの通信であろうと、全く同じ厳格さで検証します。</li>
+<li><strong>リソース単位の動的認可</strong>: PDP（ポリシー決定点）が「誰が、どの端末から、どんな振る舞いでアクセスしているか」を評価し、PEP（ポリシー実行点）が最小限のアクセスのみを動的に許可します。</li>
+<li><strong>マイクロセグメンテーション</strong>: ネットワークを細かな独立区画に分割し、万一1つの端末が侵害されても他区画への横展開を物理的・論理的に封じ込めます。</li></ul>
+              </div>
+            </div>
+            
+
+            <div class="column-box">
+              <h3>💡 3. 大学情報科学・セキュリティアーキテクチャの進路</h3>
+              <div class="column-content">
+                <p>大学の情報理工学科や情報ネットワーク専攻では、分散環境におけるID基盤（IDaaS、OAuth2.0、OpenID Connect）や、暗号化通信トンネル、端末健全性監視（EDR/XDR）のアルゴリズムを研究します。</p>
+<p>将来は<strong>ゼロトラスト・アーキテクト</strong>や<strong>エンタープライズ・セキュリティエンジニア</strong>として、政府機関やグローバル企業の次世代基盤を設計する中核リーダーとして活躍できます。</p>
+              </div>
+            </div>
+            
+    </section>
+
+    <!-- 前後ナビゲーション -->
+    <nav class="episode-nav">
+      <a href="ep16.html" class="nav-btn">← 第16話: 街角の監視者たち 〜スマート家電の隙...</a>
+      <a href="../index.html" class="nav-btn center">目次に戻る</a>
+      <a href="ep18.html" class="nav-btn next">第18話: 基板の上の囁き 〜物理端子ハッキング... →</a>
+    </nav>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 放課後サイバーディフェンス・ラボ (Cybersecurity Novel Library)</p>
+    <p>Repository: <a href="https://github.com/k518-2026/cybersecurity-novel" target="_blank" rel="noopener" style="color: var(--primary);">k518-2026/cybersecurity-novel</a></p>
+  </footer>
+
+</body>
+</html>

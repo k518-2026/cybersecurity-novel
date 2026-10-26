@@ -178,5 +178,65 @@
     "protagonist": "橘 葵＆城崎 悠真",
     "mentor": "芹沢 涼香 准教授",
     "tikz_description": "AIに対する攻撃（プロンプト注入・ポイズニング・ディープフェイク）とAIを活用したサイバー防御の相互対峙図"
+  },
+  {
+    "episode_num": 16,
+    "id": "ep16_iot_security_and_default_passwords",
+    "title": "街角の監視者たち 〜スマート家電の隙と見えないボットネット〜",
+    "theme": "IoT機器の初期パスワード放置、Miraiボットネットによる無差別TelnetスキャンとDDoS攻撃加担、総務省・NICT NOTICEプロジェクト、VLANによるIoTセグメント分離",
+    "dss_topic": "IoT・組み込み機器セキュリティ・脆弱性対処",
+    "news_context": "総務省・NICTのNOTICEプロジェクトによる安全でないIoT機器への注意喚起とMirai亜種インシデント",
+    "university_connection": "情報工学科・組み込みシステム研究室（軽量暗号、マイクロセグメンテーション）",
+    "protagonist": "神崎 蓮＆白石 結衣",
+    "mentor": "城崎 悠真（TA）＆芹沢 涼香 准教授",
+    "tikz_description": "IoTデフォルトパスワード放置とMiraiボットネット感染経路・NOTICE防衛図"
+  },
+  {
+    "episode_num": 17,
+    "id": "ep17_zero_trust_and_perimeter_defense",
+    "title": "城壁のない砦 〜ゼロトラストと「決して信頼しない」約束〜",
+    "theme": "境界型防御（Castle & Moat）の破綻、内部横展開（ラテラルムーブメント）、NIST SP 800-207ゼロトラスト原則（Never Trust, Always Verify）、動的ポリシー認可（PDP/PEP）",
+    "dss_topic": "ゼロトラストアーキテクチャ・アクセス制御管理",
+    "news_context": "テレワーク・クラウド移行に伴うVPN脆弱性を突いたランサムウェア侵入被害と政府ゼロトラスト方針",
+    "university_connection": "情報セキュリティ工学科・分散システム専攻（IDaaS認可、マイクロセグメンテーション）",
+    "protagonist": "神崎 蓮＆白石 結衣",
+    "mentor": "城崎 悠真（TA）＆芹沢 涼香 准教授",
+    "tikz_description": "境界型防御の破綻モデル vs NIST SP 800-207ゼロトラスト3大ピラー構造図"
+  },
+  {
+    "episode_num": 18,
+    "id": "ep18_hardware_hacking_and_side_channel",
+    "title": "基板の上の囁き 〜物理端子ハッキングと差分電力解析の罠〜",
+    "theme": "基板デバッグ端子（UART/JTAG）の放置とRoot権限奪取、ROM直接ダンプ、サイドチャネル攻撃（差分電力解析 DPA）、セキュアブートとハードウェアRoT",
+    "dss_topic": "ハードウェアセキュリティ・物理解析耐性・ファームウェア保護",
+    "news_context": "車載ECUやスマートメーターの物理端子経由のリバースエンジニアリングと鍵漏洩実証",
+    "university_connection": "電気電子工学科・半導体セキュリティ研究室（耐タンパー性、物理乱数生成器 PUF）",
+    "protagonist": "神崎 蓮＆白石 結衣",
+    "mentor": "城崎 悠真（TA）＆芹沢 涼香 准教授",
+    "tikz_description": "物理端子（UART/JTAG）直結攻撃と差分電力解析（DPA）波形解析図"
+  },
+  {
+    "episode_num": 19,
+    "id": "ep19_privacy_enhancing_technologies",
+    "title": "秘密を明かさぬ計算 〜完全準同型暗号と差分プライバシーの魔法〜",
+    "theme": "プライバシー強化技術（PETs）、完全準同型暗号（FHE：暗号化したまま演算）、差分プライバシー（DP：統計ノイズによる特定防止）、プライバシー損失パラメータε",
+    "dss_topic": "プライバシー保護技術・データ活用ガバナンス",
+    "news_context": "医療データ連携や国勢調査、AI学習における個人情報保護法対応とPETsの世界的実用化",
+    "university_connection": "数理科学科・先端暗号理論研究室（格子暗号、秘密計算 SMPC、暗号数理）",
+    "protagonist": "白石 結衣＆神崎 蓮",
+    "mentor": "城崎 悠真（TA）＆芹沢 涼香 准教授",
+    "tikz_description": "完全準同型暗号（FHE）の暗号化演算モデルと差分プライバシーのラプラスノイズ付加図"
+  },
+  {
+    "episode_num": 20,
+    "id": "ep20_ot_scada_and_automotive_security",
+    "title": "走るネットワークと灯火の防衛 〜制御システム（OT）と自動車セキュリティ〜",
+    "theme": "重要インフラ制御システム（OT/SCADA）の可用性絶対最優先、コネクテッドカー（CANバス）の脆弱性、国連規則UN-R155、メッセージ認証（SecOC）、車載IDS（vIDS）",
+    "dss_topic": "制御システム（OT）セキュリティ・重要インフラ防護・モビリティセキュリティ",
+    "news_context": "自動車サイバーセキュリティ国際基準UN-R155適合義務化と電力・上下水道インフラへのサイバー攻撃脅威",
+    "university_connection": "サイバーフィジカルシステム（CPS）安全工学研究科（車載ネットワーク、リアルタイムOS防衛）",
+    "protagonist": "神崎 蓮＆白石 結衣",
+    "mentor": "城崎 悠真（TA）＆芹沢 涼香 准教授",
+    "tikz_description": "OT/SCADAとコネクテッドカー（CANバスSecOC）のサイバーフィジカル防衛アーキテクチャ"
   }
 ]

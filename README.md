@@ -19,7 +19,9 @@
 
 ---
 
-## 📚 収録エピソード一覧（第1部 全15話）
+## 📚 収録エピソード一覧（第1部・第2部 全20話）
+
+### 第1部：高校情報科学部とサイバーセキュリティの基礎（第1話〜第15話 完結）
 
 | 話数 | タイトル | 主人公・登場人物 | 学習テーマ・参照規格 | 図解 (TikZ) | 挿絵 (Draw Things 4コマ) | 原稿 (Markdown) |
 |:---:|:---|:---|:---|:---:|:---:|:---:|
@@ -38,6 +40,16 @@
 | 13 | **旗を掲げる守護者たち** | 城崎 悠真, 橘 葵, 芹沢准教授 | サイバーセキュリティ競技（CTF）、5大ジャンル（Web, Crypto, Reversing, Forensics, Pwn）、大学情報学部進路、CISO | [図解](content/figures/fig13_ctf_and_careers.png) | [4コマ漫画](content/illustrations/ep13_4koma.png) | [第13話本文](content/2026-10-24_ep13_ctf_competition_and_future_careers.md) |
 | 14 | **見えない空の保管庫** | 橘 葵, 城崎 悠真, 芹沢准教授 | クラウドセキュリティ、責任共有モデル（Shared Responsibility Model）、IAM最小権限の原則、バケット全世界公開対策 | [図解](content/figures/fig14_cloud_shared_responsibility.png) | [4コマ漫画](content/illustrations/ep14_4koma.png) | [第14話本文](content/2026-10-24_ep14_cloud_security_and_shared_responsibility.md) |
 | 15 | **知性をまとう盾と矛（第1部 完結）** | 橘 葵, 城崎 悠真, 芹沢准教授 | AI悪用脅威（プロンプト注入・ディープフェイク・データ汚染） vs 自律型AIサイバー防御、人間の倫理と知性、第1部完結・進路決定 | [図解](content/figures/fig15_ai_security_deepfake.png) | [4コマ漫画](content/illustrations/ep15_4koma.png) | [第15話本文](content/2026-10-24_ep15_ai_security_and_future_frontiers.md) |
+
+### 第2部：新世代の胎動と先端ハードウェア＆ゼロトラスト防御（第16話〜第20話）
+
+| 話数 | タイトル | 主人公・登場人物 | 学習テーマ・参照規格 | 図解 (TikZ) | 挿絵 (Draw Things 4コマ) | 原稿 (Markdown) |
+|:---:|:---|:---|:---|:---:|:---:|:---:|
+| 16 | **街角の監視者たち** | 神崎 蓮, 白石 結衣, 城崎悠真TA, 芹沢准教授 | 第2部開幕、IoT初期パスワード放置、Miraiボットネット、総務省・NICT NOTICEプロジェクト、VLAN分離 | [図解](content/figures/fig16_iot_security_mirai.png) | [4コマ漫画](content/illustrations/ep16_4koma.png) | [第16話本文](content/2026-10-26_ep16_iot_security_and_default_passwords.md) |
+| 17 | **城壁のない砦** | 神崎 蓮, 白石 結衣, 城崎悠真TA, 芹沢准教授 | 境界型防御の破綻、内部横展開（ラテラルムーブメント）、NIST SP 800-207ゼロトラスト原則、マイクロセグメンテーション | [図解](content/figures/fig17_zero_trust_architecture.png) | [4コマ漫画](content/illustrations/ep17_4koma.png) | [第17話本文](content/2026-10-26_ep17_zero_trust_and_perimeter_defense.md) |
+| 18 | **基板の上の囁き** | 神崎 蓮, 白石 結衣, 城崎悠真TA, 芹沢准教授 | 基板物理端子（UART/JTAG）、Root権限奪取、サイドチャネル攻撃（差分電力解析 DPA）、セキュアブート | [図解](content/figures/fig18_hardware_and_side_channel.png) | [4コマ漫画](content/illustrations/ep18_4koma.png) | [第18話本文](content/2026-10-26_ep18_hardware_hacking_and_side_channel.md) |
+| 19 | **秘密を明かさぬ計算** | 白石 結衣, 神崎 蓮, 城崎悠真TA, 芹沢准教授 | プライバシー強化技術（PETs）、完全準同型暗号（FHE：暗号化したまま演算）、差分プライバシー（DP）、秘密計算 | [図解](content/figures/fig19_privacy_enhancing_tech.png) | [4コマ漫画](content/illustrations/ep19_4koma.png) | [第19話本文](content/2026-10-26_ep19_privacy_enhancing_technologies.md) |
+| 20 | **走るネットワークと灯火の防衛** | 神崎 蓮, 白石 結衣, 城崎悠真TA, 芹沢准教授 | 第2部前半完結、産業制御システム（OT/SCADA）可用性最優先、コネクテッドカー（CANバス）、国連UN-R155、SecOC | [図解](content/figures/fig20_ot_scada_automotive.png) | [4コマ漫画](content/illustrations/ep20_4koma.png) | [第2話本文](content/2026-10-26_ep20_ot_scada_and_automotive_security.md) |
 
 ---
 

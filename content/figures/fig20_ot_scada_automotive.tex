@@ -1,0 +1,59 @@
+\documentclass[tikz,border=18pt]{standalone}
+\usepackage{luatexja}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric,arrows.meta,positioning,calc}
+
+\definecolor{otamber}{RGB}{200, 100, 10}
+\definecolor{dangerred}{RGB}{210, 30, 40}
+\definecolor{safegreen}{RGB}{20, 130, 60}
+\definecolor{autoblue}{RGB}{20, 80, 180}
+
+\begin{document}
+\begin{tikzpicture}[>=Stealth, font=\small]
+
+  % Title
+  \node[draw=otamber, fill=orange!8, rounded corners=8pt, line width=1.5pt, minimum width=21.0cm, minimum height=1.2cm, align=center] at (0, 7.5) {
+    \large\bfseries 重要インフラ・制御システム（OT/SCADA）とコネクテッドカー（CANバス）のサイバー防衛
+  };
+
+  % Left Box: Factory & Power Grid (OT / SCADA)
+  \node[draw=otamber, fill=orange!4, rounded corners=8pt, line width=1.3pt, minimum width=9.8cm, minimum height=6.2cm, align=center] at (-5.3, 3.2) {};
+  \node[font=\bfseries\large, text=otamber!90!black] at (-5.3, 5.8) {🏭 産業制御システム（OT: Operational Technology）};
+
+  \node[draw=otamber, fill=white, rounded corners=4pt, thick, minimum width=9.0cm, minimum height=1.6cm, align=left] at (-5.3, 4.4) {
+    \textbf{ITとOTの決定的違い：人命と可用性最優先}\\
+    \footnotesize ・IT（情報系）：機密性（C）が最重要、パッチ適用や再起動が可能\\
+    \footnotesize ・OT（制御系）：\textbf{可用性（A）が絶対最優先}、24時間365日停止不能（発電所・水道等）
+  };
+
+  \node[draw=dangerred, fill=red!8, rounded corners=4pt, thick, minimum width=9.0cm, minimum height=1.6cm, align=left] at (-5.3, 2.2) {
+    \textbf{⚠️ 制御システム特有の脅威}\\
+    \footnotesize ・\textbf{レガシープロトコルの暗号化欠如}（Modbus, DNP3等）\\
+    \footnotesize ・物理的エアギャップ（隔離）の崩壊（保守用USBやリモートメンテ経由）\\
+    \footnotesize ・物理破壊をもたらすマルウェア（Stuxnet, Industroyer等）
+  };
+
+  % Right Box: Automotive / Connected Car Security
+  \node[draw=autoblue, fill=blue!4, rounded corners=8pt, line width=1.3pt, minimum width=9.8cm, minimum height=6.2cm, align=center] at (5.3, 3.2) {};
+  \node[font=\bfseries\large, text=autoblue] at (5.3, 5.8) {🚗 コネクテッドカー・自動車セキュリティ（CANバス）};
+
+  \node[draw=autoblue, fill=white, rounded corners=4pt, thick, minimum width=9.0cm, minimum height=1.6cm, align=left] at (5.3, 4.4) {
+    \textbf{CANバス（Controller Area Network）の脆弱性}\\
+    \footnotesize ・車両内の電子制御ユニット（ECU）間通信はブロードキャスト方式\\
+    \footnotesize ・送信元認証・暗号化がなく、偽装パケットでハンドルやブレーキが遠隔操作可能
+  };
+
+  \node[draw=safegreen, fill=green!10, rounded corners=4pt, thick, minimum width=9.0cm, minimum height=1.6cm, align=left] at (5.3, 2.2) {
+    \textbf{🛡️ 国際法規と次世代防衛（UN-R155 / SecOC）}\\
+    \footnotesize ・\textbf{SecOC（Secure Onboard Communication）}：CANパケットへのMAC認証子付与\\
+    \footnotesize ・\textbf{中央ゲートウェイによるドメイン分離}：車載通信と情報エンタメ系の物理分離\\
+    \footnotesize ・\textbf{車載侵入検知システム（vIDS）}による不正パケットのミリ秒単位遮断
+  };
+
+  % Bottom note
+  \node[draw=otamber, fill=orange!10, rounded corners=6pt, line width=1.2pt, minimum width=21.0cm, minimum height=0.9cm, align=center] at (0, -0.4) {
+    \bfseries サイバー攻撃が物理世界（人命・電力網・交通）を直接揺るがす時代におけるCPS（サイバーフィジカルシステム）防衛
+  };
+
+\end{tikzpicture}
+\end{document}

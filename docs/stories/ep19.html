@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第19話 秘密を明かさぬ計算 〜完全準同型暗号と差分プライバシーの魔法〜 | 放課後サイバーディフェンス・ラボ</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Shippori+Mincho:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="story-header">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">トップ (目次)</a> &gt; <span>第19話</span>
+      </div>
+      <div class="story-ep-tag">Episode 19</div>
+      <h1 class="story-main-title">秘密を明かさぬ計算 〜完全準同型暗号と差分プライバシーの魔法〜</h1>
+      <div class="story-meta">
+        <span>📚 学習テーマ: <strong>プライバシー強化技術（PETs）、完全準同型暗号（FHE：暗号化したまま演算）、差分プライバシー（DP）、秘密計算</strong></span>
+        <span>🏫 登場人物: 城崎悠真（部長・高2）、橘葵（部員・高2）、芹沢涼香准教授（大学メンター）</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container story-container">
+
+    <!-- ストーリーイラスト (4コマ漫画) -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>🎨 4コマ漫画挿絵（文字なし）</h2>
+        <span class="visual-badge">AI高解像度生成</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/ep19_4koma.png" alt="第19話 ストーリーイラスト" class="responsive-img">
+        <p class="caption">▲ 【挿絵】青葉台高校 情報科学部＆帝都科学大学サイバーディフェンス・ラボでの実践シーン</p>
+      </div>
+    </section>
+
+    <!-- 4コマ漫画セリフ（日・英バイリンガル）※存在する場合 -->
+    
+            <div class="koma-script-box">
+              <div class="koma-script-header">
+                <h3>💬 4コマ漫画キャラクターセリフ (Story Dialogue Script)</h3>
+                <span class="lang-tag">日・英バイリンガル (JA / EN)</span>
+              </div>
+              <div class="koma-panels-list">
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">第1コマ 【起】</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation"><strong>アンケート集計でプライバシー流出に悩む蓮<strong><br>生徒の生活習慣データを集計しようとして、個人が特定されてしまう問題に頭を抱える蓮。</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[蓮]</span> 「うーん……統計グラフを作りたいんだけど、回答の組み合わせで誰のデータかバレちゃいそうなんだよ！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Ren]</span> "Ugh... I want to chart this student survey, but combining answers might totally give away who is who!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">第2コマ 【承】</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation"><strong>結衣が語る暗号の奇跡：完全準同型暗号（FHE）<strong><br>黒板に数式を書き、「暗号化したまま計算できる」夢の暗号理論を熱く語る結衣。</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[結衣]</span> 「これを見てください。『完全準同型暗号』なら、データを一度も平文に戻すことなく、暗号文のまま集計が可能です。」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yui]</span> "Look at this formula. With Fully Homomorphic Encryption, we can calculate data while keeping it entirely encrypted."</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">第3コマ 【転】</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation"><strong>芹沢先生による差分プライバシー（DP）の解説<strong><br>光の粒子を掲げ、制御された統計的ノイズで個人の存在を完璧に隠す数理を説く芹沢准教授。</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[芹沢先生]</span> 「そして『差分プライバシー』は、特定の個人がデータに存在するか否かを数学的に隠す魔法のノイズ（ε）を与えるのよ。」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Prof. Serizawa]</span> "And 'Differential Privacy' injects calibrated mathematical noise (ε) to make individual presence mathematically indistinguishable."</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">第4コマ 【結】</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation"><strong>秘密を守り抜くセキュア集計ツールの完成！<strong><br>データを安全に活かすPETsの威力に感動し、満面の笑みを交わす蓮と結衣。</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[蓮]</span> 「データの中身を見ないのに、正しい合計や平均が出るなんて魔法みたいだ！」<br><span class="koma-char-name">[結衣]</span> 「魔法ではありません。これこそが、人々を守る数学の純粋な力です。」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Ren]</span> "Getting accurate totals without ever seeing the raw data feels like pure magic!"<br><span class="koma-char-name">[Yui]</span> "It's not magic. It is the pure, protective power of mathematics."</div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+
+    <!-- 小説本文 -->
+    <section class="novel-section">
+      <div class="section-title">
+        <h2>📖 小説本文</h2>
+      </div>
+      <div class="novel-body">
+        <p>研究室の空気は、微かな電子機器の駆動音と、窓から差し込む午後の陽光によって、どこか静謐な熱を帯びていた。
+　神崎蓮は、モニターに映し出された膨大なアンケート結果を前に、深くため息をついた。画面上には、部員たちが正直に打ち明けた悩みや、身体の不調に関する記述が並んでいる。</p>
+<p class="dialogue">「……これじゃあ、分析に使えない」</p>
+<p>蓮は頭を抱えた。目的は、部員のメンタルヘルスを把握し、より良い練習環境を整えるための統計を取ることだ。しかし、そのためのデータにはあまりにも個人のプライバシーが色濃く反映されている。
+「特定の個人だと推測されるような記述をそのまま集計すれば、誰が何を言ったかが筒抜けになる。かといって、完全に匿名化して抽象度を上げすぎれば、本当に必要な『小さな予兆』まで消えてしまう……」</p>
+<p>隣でその様子を眺めていた白石結衣が、眼鏡の縁を指先で押し上げた。彼女はノートPCのキーボードを叩く手を止め、険しい表情で画面を見つめている。
+「データのジレンマね。社会を良くするための『知見』を抽出したいけれど、そのために個人の秘密をさらけ出させるリスクを冒すことへの恐怖。今の技術では、クラウドに計算を投げる際に一度平文に戻さなければならないから、その瞬間にすべてが漏洩する可能性がある……」</p>
+<p>結衣の言葉には、暗号数理を深く学んできた者特有の、鋭くも切実な危惧がこもっていた。</p>
+<div class="scene-break">✦ ✦ ✦</div>
+<p class="dialogue">「その『壁』を壊すための魔法、見せてあげるよ」</p>
+<p>背後から声をかけたのは、大学のティーチング・アシスタント（TA）を務める城崎悠真だった。彼は手に持ったタブレットを操作しながら、ホワイトボードに複雑な数式を次々と展開していく。
+「……えっ？」
+　蓮が顔を上げると、悠真は自信に満ちた笑みを浮かべていた。</p>
+<p class="dialogue">「いいかい、これが『完全準同型暗号（FHE）』だ。これまでの暗号技術は、データを守るための『金庫』だった。中身を見るためには鍵が必要で、計算をするには一度金庫から中身を取り出さなきゃならなかった。でも、この技術は違う」</p>
+<p>悠真の指がホワイトボードを弾く。
+「『暗号化したまま』で足し算や掛け算ができるんだ。サーバー側は、中身が何であるかを知ることなく、ただ計算処理だけを行う。暗号化されたデータの塊を放り込めば、サーバーはそれをこねくり回して、正解の暗号化データを返してくれる。中身（平文）に触れることなく、結果だけを取り出す。……これこそが暗号界の聖杯だよ」</p>
+<p>結衣の瞳が、一瞬で輝きを変えた。彼女の視線は数式へと釘付けになる。
+「……信じられない。数学的に、加法構造を保ったまま射影空間で計算を完結させるってこと？ データの秘匿性と計算可能性を両立させるための代償としての計算コストの問題は……」
+「今はまだ重いけど、どんどん進化してる。君たちのやりたいことは、この数式の美しさの延長線上にあるんだよ」</p>
+<p>悠真の解説に、結衣はノートに猛烈な勢いでペンを走らせ始めた。彼女にとってそれは単なる技術紹介ではなく、純粋な数学的真理との邂逅だった。</p>
+<div class="scene-break">✦ ✦ ✦</div>
+<p class="dialogue">「でも、計算が終わった後の『結果』はどうする？」</p>
+<p>静かな声が部屋に響いた。入ってきたのは、大学の准教授である芹沢涼香だった。彼女は落ち着いた足取りで歩み寄り、悠真の描いた数式の隣に、新たな概念を書き加えた。</p>
+<p class="dialogue">「FHEで計算過程を守っても、最終的な統計結果から『特定の個人』の存在が逆算できてしまうリスクは残るわ。例えば、非常に珍しい疾患のデータが含まれていれば、その集計結果自体が個人の特定につながる可能性がある」</p>
+<p>芹沢はチョークを置き、結衣と蓮を見渡した。
+「そこで必要になるのが『差分プライバシー（DP）』。これは数学的な『ノイズ』の魔法よ」</p>
+<p>彼女はホワイトボードにラプラス分布の式を書き込んだ。
+「全体としての統計精度を保ちながら、個々のデータへの影響を意図的にぼかす。特定の個人が含まれているかいないかで、出力結果が劇的に変わらないように、計算結果に微細なノイズを付加するの。この『プライバシー損失』の度合いを示すパラメータ、$\epsilon$（イプシロン）の設計こそが、数理の美しさの極致だわ」</p>
+<p>結衣は息を呑んだ。
+「ノイズをただ混ぜるんじゃなくて、数学的に制御された分布に従って付加する……。それによって、個人の秘密を守りつつ、全体の真実だけを抽出する」</p>
+<p class="dialogue">「そう。プライバシーと有用性のトレードオフを、$\epsilon$という一つの指標でコントロールする。これは単なる技術じゃない。人間が社会の中で共生するための『境界線』を数式で定義しているのよ」</p>
+<p>芹沢の言葉に、結衣は自身のノートを見つめた。そこには、彼女が憧れた「数学の美しさ」と、蓮が解決したかった「倫理的な課題」が、一つの数式として溶け合おうとしていた。</p>
+<div class="scene-break">✦ ✦ ✦</div>
+<p>沈黙が流れた後、蓮が小さく呟いた。
+「……つまり、FHEで『計算の過程』を守って、DPで『結果の輪郭』をぼかす。この二つを組み合わせれば、僕たちがやりたかったことができるんだ」</p>
+<p>蓮の瞳には、先ほどまでの当惑は消え、強い意志が宿っていた。
+「部員たちのプライバシーを一切侵害せずに、彼らが抱えている課題の『地図』だけを正確に描き出す。誰にも秘密を明かさず、でも全員のために動けるツール……」</p>
+<p>結衣が顔を上げ、蓮と同じ方向を見つめた。彼女は自分のノートを閉じ、力強く頷く。
+「……最高にクールな設計ね。数学的な美しさが、人のための技術に変わる瞬間。これこそが私たちが求めていた答えだわ」</p>
+<p>結衣の指先がキーボードの上で踊り始めた。彼女の頭の中では、複雑な関数と確率分布が、一つの洗練されたシステムへと組み上がっていく。
+　窓の外には、夕焼けが世界をオレンジ色に染め上げている。それはまるで、高度な数式が複雑に絡み合いながらも、最終的に一つの調和した答えへと収束していくかのような、鮮やかな色彩のグラデーションだった。</p>
+<p class="dialogue">「よし、やってみよう。誰も傷つけない、秘密を守り抜くための計算を」</p>
+<p>蓮の言葉に呼応するように、結衣が笑った。二人の前には、理論と情熱が交差する、真っ白なキャンバスのような画面が広がっていた。</p>
+<p>---</p>
+      </div>
+    </section>
+
+    <!-- TikZ 技術構造図解 -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>📊 セキュリティ構造図解 (TikZ LuaLaTeX生成)</h2>
+        <span class="visual-badge">国家安全基準・工学図解</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/fig19_privacy_enhancing_tech.png" alt="第19話 セキュリティ構造図解" class="responsive-img">
+        <p class="caption">▲ 【技術構造図】IPAデジタルスキル標準・国際規格に準拠した仕組みのモデル化</p>
+      </div>
+    </section>
+
+    <!-- 深掘りコラム -->
+    <section class="column-section">
+      <div class="section-title">
+        <h2>💡 高校生のためのセキュリティ深掘りコラム ＆ 大学進路ガイド</h2>
+      </div>
+      
+            <div class="column-box">
+              <h3>💡 1. プライバシーのジレンマと「PETs（プライバシー強化技術）」</h3>
+              <div class="column-content">
+                <p>ビッグデータやAIの時代において、社会は深刻なジレンマに直面しています。</p>
+<p>「医療データや購買履歴を活用して難病治療法や便利なサービスを開発したい」という強いニーズがある一方で、「個人の病歴や行動履歴を外部クラウドに預けると漏洩やプライバシー侵害が怖い」という当然の拒絶感があります。</p>
+<p>この対立を打ち破るブレイクスルーとして世界中が注目しているのが<strong>「PETs（Privacy-Enhancing Technologies：プライバシー強化技術）」</strong>です。</p>
+              </div>
+            </div>
+            
+
+            <div class="column-box">
+              <h3>💡 2. 暗号界の聖杯「完全準同型暗号（FHE）」</h3>
+              <div class="column-content">
+                <p>従来の暗号（AESやRSA）では、暗号化されたデータに対して足し算や検索を行う場合、必ず一度「秘密鍵で平文に復号」する必要がありました。復号した瞬間にサーバーのメモリ上でデータが露出するため、クラウドへの外部委託には常に漏洩リスクがつきまとっていました。</p>
+<p>2009年にクレイグ・ジェントリーによって提唱された<strong>「完全準同型暗号（FHE: Fully Homomorphic Encryption）」</strong>は、平文を一切見ることなく、暗号文のまま任意の足し算と掛け算を何度でも実行できます。</p>
+<p>クラウド事業者は暗号化された結果だけを利用者に返し、利用者だけが自分の秘密鍵で復号して正しい答えを得られるため、サーバーが世界最強のハッカーに乗っ取られていたとしても、平文データは絶対に盗まれません。</p>
+              </div>
+            </div>
+            
+
+            <div class="column-box">
+              <h3>💡 3. 差分プライバシー（DP）と現代社会への応用</h3>
+              <div class="column-content">
+                <p>もう一つの強力な技術が<strong>「差分プライバシー（Differential Privacy）」</strong>です。</p>
+<p>集計結果にラプラス分布などの緻密に計算された微小な統計ノイズを加えることで、「ある特定の個人がそのデータベースに含まれていたとしても、いなかったとしても、集計結果の出力確率がほぼ変わらない」ことを数理的に保証します。</p>
+<p>米国国勢調査やApple、Googleのスマートフォン入力統計などで実際に導入されており、現代社会の個人情報保護の国際デファクトスタンダードとなっています。</p>
+              </div>
+            </div>
+            
+    </section>
+
+    <!-- 前後ナビゲーション -->
+    <nav class="episode-nav">
+      <a href="ep18.html" class="nav-btn">← 第18話: 基板の上の囁き 〜物理端子ハッキング...</a>
+      <a href="../index.html" class="nav-btn center">目次に戻る</a>
+      <a href="ep20.html" class="nav-btn next">第20話: 走るネットワークと灯火の防衛 〜制御... →</a>
+    </nav>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 放課後サイバーディフェンス・ラボ (Cybersecurity Novel Library)</p>
+    <p>Repository: <a href="https://github.com/k518-2026/cybersecurity-novel" target="_blank" rel="noopener" style="color: var(--primary);">k518-2026/cybersecurity-novel</a></p>
+  </footer>
+
+</body>
+</html>

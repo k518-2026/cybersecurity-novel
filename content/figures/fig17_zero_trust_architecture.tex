@@ -1,0 +1,59 @@
+\documentclass[tikz,border=18pt]{standalone}
+\usepackage{luatexja}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric,arrows.meta,positioning,calc}
+
+\definecolor{ztblue}{RGB}{20, 80, 180}
+\definecolor{dangerred}{RGB}{210, 40, 40}
+\definecolor{safegreen}{RGB}{20, 140, 50}
+
+\begin{document}
+\begin{tikzpicture}[>=Stealth, font=\small]
+
+  % Title
+  \node[draw=ztblue, fill=blue!8, rounded corners=8pt, line width=1.5pt, minimum width=21.0cm, minimum height=1.2cm, align=center] at (0, 7.5) {
+    \large\bfseries 従来の「境界防御モデル」の破綻 vs 「ゼロトラスト・アーキテクチャ（NIST SP 800-207）」
+  };
+
+  % Left Box: Old Perimeter Security (Broken)
+  \node[draw=gray!80, fill=red!4, rounded corners=8pt, line width=1.2pt, minimum width=9.8cm, minimum height=6.2cm, align=center] at (-5.3, 3.2) {};
+  \node[font=\bfseries\large, text=dangerred] at (-5.3, 5.8) {❌ 従来の境界型防御（Castle \& Moat）};
+
+  \node[draw=gray, fill=white, rounded corners=4pt, thick, minimum width=9.0cm, minimum height=1.1cm, align=left] at (-5.3, 4.6) {
+    \textbf{前提：「社内ネットワーク（VPN内）は全員安全」}\\
+    \footnotesize 城壁（Firewall/VPN）の外側は敵、内側は無条件に信頼する
+  };
+
+  \node[draw=dangerred, fill=red!10, rounded corners=4pt, thick, minimum width=9.0cm, minimum height=2.4cm, align=left] at (-5.3, 2.4) {
+    \textbf{致命的弱点：侵入後の横展開（ラテラルムーブメント）}\\
+    \footnotesize ・VPNの認証情報が盗まれると、社内全域にノーガードでアクセス可能\\
+    \footnotesize ・内部端末が1台マルウェア感染すると、周囲の機密サーバーへ侵入拡散\\
+    \footnotesize ・テレワーク・クラウド移行により「境界線そのもの」が消失
+  };
+
+  % Right Box: Zero Trust (NIST SP 800-207)
+  \node[draw=ztblue, fill=blue!4, rounded corners=8pt, line width=1.5pt, minimum width=9.8cm, minimum height=6.2cm, align=center] at (5.3, 3.2) {};
+  \node[font=\bfseries\large, text=ztblue] at (5.3, 5.8) {🛡️ ゼロトラスト（Never Trust, Always Verify）};
+
+  \node[draw=ztblue, fill=white, rounded corners=4pt, thick, minimum width=9.0cm, minimum height=1.1cm, align=left] at (5.3, 4.6) {
+    \textbf{核心原則：「社内外を問わず、いかなる通信も決して信頼しない」}\\
+    \footnotesize 場所（ネットワーク）ではなく、「ID・端末状態・振る舞い」で都度検証
+  };
+
+  \node[draw=safegreen, fill=green!10, rounded corners=4pt, thick, minimum width=9.0cm, minimum height=2.4cm, align=left] at (5.3, 2.4) {
+    \textbf{ゼロトラストの3大防衛ピラー}\\
+    \footnotesize 1. \textbf{厳格なユーザー・端末認証}（Passkey / 多要素認証 / EDR端末健全性）\\
+    \footnotesize 2. \textbf{動的なアクセス制御}（PDPポリシー決定点 $\rightarrow$ PEP実行点による認可）\\
+    \footnotesize 3. \textbf{マイクロセグメンテーション}（リソース単位で通信を孤立・暗号化）
+  };
+
+  % Central comparison arrow
+  \draw[->, line width=2.5pt, ztblue] (-0.3, 3.2) -- (0.3, 3.2);
+
+  % Bottom note
+  \node[draw=ztblue, fill=blue!10, rounded corners=6pt, line width=1.2pt, minimum width=21.0cm, minimum height=0.9cm, align=center] at (0, -0.4) {
+    \bfseries 米国NIST SP 800-207準拠：すべてのアクセス要求をリソース単位で検証し、最小権限を動的に付与
+  };
+
+\end{tikzpicture}
+\end{document}

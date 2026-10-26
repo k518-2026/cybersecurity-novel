@@ -1,0 +1,57 @@
+\documentclass[tikz,border=18pt]{standalone}
+\usepackage{luatexja}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric,arrows.meta,positioning,calc}
+
+\definecolor{hwcopper}{RGB}{190, 80, 20}
+\definecolor{alertred}{RGB}{200, 30, 40}
+\definecolor{shieldgreen}{RGB}{20, 120, 60}
+
+\begin{document}
+\begin{tikzpicture}[>=Stealth, font=\small]
+
+  % Title
+  \node[draw=hwcopper, fill=orange!8, rounded corners=8pt, line width=1.5pt, minimum width=21.0cm, minimum height=1.2cm, align=center] at (0, 7.5) {
+    \large\bfseries ハードウェア・セキュリティ：物理デバッグ端子（UART/JTAG）とサイドチャネル攻撃（DPA）
+  };
+
+  % Left Box: Hardware Interface Hacking
+  \node[draw=hwcopper, fill=orange!5, rounded corners=8pt, line width=1.3pt, minimum width=9.8cm, minimum height=6.2cm, align=center] at (-5.3, 3.2) {};
+  \node[font=\bfseries\large, text=hwcopper!90!black] at (-5.3, 5.8) {🔌 物理インターフェースの攻撃（基板ハッキング）};
+
+  \node[draw=hwcopper, fill=white, rounded corners=4pt, thick, minimum width=9.0cm, minimum height=1.6cm, align=left] at (-5.3, 4.4) {
+    \textbf{1. デバッグ端子の放置（UART / JTAGポート）}\\
+    \footnotesize ・基板上のテストピン（GND, TX, RX, VCC）にUSBシリアルを直結\\
+    \footnotesize ・管理者Rootシェルがパスワードなしで立ち上がる脆弱性
+  };
+
+  \node[draw=hwcopper, fill=white, rounded corners=4pt, thick, minimum width=9.0cm, minimum height=1.6cm, align=left] at (-5.3, 2.2) {
+    \textbf{2. フラッシュメモリ（SPI Flash）の直接ダンプ}\\
+    \footnotesize ・基板上のROMチップをクリップで挟み、ファームウェアバイナリを抽出\\
+    \footnotesize ・ハードコードされた暗号鍵やパスワードハッシュを直接復元
+  };
+
+  % Right Box: Side-Channel Attacks
+  \node[draw=alertred, fill=red!4, rounded corners=8pt, line width=1.3pt, minimum width=9.8cm, minimum height=6.2cm, align=center] at (5.3, 3.2) {};
+  \node[font=\bfseries\large, text=alertred] at (5.3, 5.8) {⚡ サイドチャネル攻撃（電力解析・電磁波漏洩）};
+
+  \node[draw=alertred, fill=white, rounded corners=4pt, thick, minimum width=9.0cm, minimum height=1.6cm, align=left] at (5.3, 4.4) {
+    \textbf{1. 差分電力解析（DPA: Differential Power Analysis）}\\
+    \footnotesize ・CPUが「0」と「1」を計算する際の微小な消費電力の揺らぎをオシロスコープで計測\\
+    \footnotesize ・数学的に破れないはずのAES/RSA暗号鍵の秘密ビットを統計的に特定
+  };
+
+  \node[draw=shieldgreen, fill=green!10, rounded corners=4pt, thick, minimum width=9.0cm, minimum height=1.6cm, align=left] at (5.3, 2.2) {
+    \textbf{🛡️ ハードウェア防衛策}\\
+    \footnotesize ・\textbf{端子無効化・ヒューズ溶断}（製品出荷時のJTAG無効化）\\
+    \footnotesize ・\textbf{セキュアブート}（公開鍵署名で改ざんファームウェアの起動拒否）\\
+    \footnotesize ・\textbf{マスキング・電力ダミー消費}（サイドチャネル対策）
+  };
+
+  % Bottom note
+  \node[draw=hwcopper, fill=orange!10, rounded corners=6pt, line width=1.2pt, minimum width=21.0cm, minimum height=0.9cm, align=center] at (0, -0.4) {
+    \bfseries 物理的なアクセスを許せばソフトウェアの壁は突破される：ハードウェアRoot of Trust（RoT）の重要性
+  };
+
+\end{tikzpicture}
+\end{document}

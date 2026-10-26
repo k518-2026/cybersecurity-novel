@@ -1,0 +1,65 @@
+\documentclass[tikz,border=18pt]{standalone}
+\usepackage{luatexja}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric,arrows.meta,positioning,calc}
+
+\definecolor{iotblue}{RGB}{30, 110, 190}
+\definecolor{dangerred}{RGB}{200, 30, 40}
+\definecolor{safegreen}{RGB}{25, 130, 50}
+
+\begin{document}
+\begin{tikzpicture}[>=Stealth, font=\small]
+
+  % Title
+  \node[draw=iotblue, fill=blue!8, rounded corners=8pt, line width=1.5pt, minimum width=21.0cm, minimum height=1.2cm, align=center] at (0, 7.5) {
+    \large\bfseries IoTセキュリティの脅威：デフォルトパスワード放置とMiraiボットネット感染経路
+  };
+
+  % Attacker (Mirai botnet scanning)
+  \node[draw=dangerred, fill=red!10, rounded corners=6pt, line width=1.5pt, minimum width=5.0cm, minimum height=4.8cm, align=center] at (-7.5, 3.2) {
+    \textbf{\color{dangerred} 👾 攻撃者 / C2サーバー}\\[6pt]
+    \footnotesize ポート23 (Telnet) / 22 (SSH)\\
+    \footnotesize 全世界IPレンジを高速無差別スキャン\\[8pt]
+    \textbf{【辞書攻撃リスト】}\\
+    \scriptsize \texttt{admin : admin}\\
+    \scriptsize \texttt{root : 123456}\\
+    \scriptsize \texttt{default : password}
+  };
+
+  % Middle: Vulnerable IoT Devices
+  \node[draw=dangerred!80, fill=red!5, rounded corners=6pt, line width=1.2pt, minimum width=6.5cm, minimum height=4.8cm, align=center] at (0, 3.2) {
+    \textbf{\color{dangerred!90!black} ⚠️ 感染する家庭内・工場IoT機器}\\[6pt]
+    \footnotesize ・ネットワークカメラ (Webcam)\\
+    \footnotesize ・家庭用スマート電球・プラグ\\
+    \footnotesize ・安価なWi-Fiルーター / NAS\\[6pt]
+    \color{dangerred}\bfseries ❌ 初期パスワードの未変更\\
+    \color{dangerred}\bfseries ❌ ファームウェア更新の未適用\\
+    \color{dangerred}\bfseries ❌ 管理画面が外部へ直結 (UPnP)
+  };
+
+  % Right: Botnet Recruitment & DDoS Target
+  \node[draw=iotblue, fill=blue!5, rounded corners=6pt, line width=1.2pt, minimum width=5.5cm, minimum height=4.8cm, align=center] at (7.5, 3.2) {
+    \textbf{\color{iotblue} 🛡️ 守るべき防衛策 (NOTICE)}\\[6pt]
+    \footnotesize 1. \textbf{初期パスワードの即時変更}\\
+    \footnotesize 　（推測不能な強固な文字列）\\[4pt]
+    \footnotesize 2. \textbf{不要ポートの閉鎖}\\
+    \footnotesize 　（外部からのTelnet遮断）\\[4pt]
+    \footnotesize 3. \textbf{専用IoTセグメント分離}\\
+    \footnotesize 　（ゲストWi-FiによるVLAN分離）\\[4pt]
+    \footnotesize 4. \textbf{定期的なFWアップデート}
+  };
+
+  % Arrows
+  \draw[->, line width=2.0pt, dangerred] (-4.8, 4.0) -- (-3.4, 4.0) node[midway, above, font=\scriptsize\bfseries] {初期認証突破};
+  \draw[->, line width=2.0pt, dangerred] (-4.8, 2.4) -- (-3.4, 2.4) node[midway, below, font=\scriptsize\bfseries] {マルウェア注入};
+
+  \draw[->, line width=2.0pt, safegreen] (3.4, 3.2) -- (4.6, 3.2) node[midway, above, font=\scriptsize\bfseries] {防衛策適用};
+
+  % Bottom note
+  \node[draw=safegreen, fill=green!10, rounded corners=6pt, line width=1.2pt, minimum width=21.0cm, minimum height=1.0cm, align=center] at (0, -0.4) {
+    \bfseries 総務省・NICT「NOTICE（National Operation Towards IoT Clean Environment）」プロジェクト準拠\\
+    \footnotesize 日本国内の安全でないIoT機器を調査し、ISPを通じて利用者にパスワード変更を注意喚起する国家防衛インフラ
+  };
+
+\end{tikzpicture}
+\end{document}
