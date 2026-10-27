@@ -1,0 +1,61 @@
+\documentclass[tikz,border=18pt]{standalone}
+\usepackage{luatexja}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric,arrows.meta,positioning,calc}
+
+\definecolor{biogreen}{RGB}{20, 120, 60}
+\definecolor{alertred}{RGB}{200, 30, 40}
+\definecolor{gelorange}{RGB}{220, 110, 20}
+
+\begin{document}
+\begin{tikzpicture}[>=Stealth, font=\small]
+
+  % Title
+  \node[draw=biogreen, fill=green!8, rounded corners=8pt, line width=1.5pt, minimum width=21.0cm, minimum height=1.2cm, align=center] at (0, 7.5) {
+    \large\bfseries 横浜国大・松本勉教授の伝説的論文：人工指（グミ指）による生体認証突破と「生体検知（Liveness）」
+  };
+
+  % Left Box: Gummy Finger Attack (SPIE 2002)
+  \node[draw=gelorange, fill=orange!5, rounded corners=8pt, line width=1.3pt, minimum width=9.8cm, minimum height=6.2cm, align=center] at (-5.3, 3.2) {};
+  \node[font=\bfseries\large, text=gelorange!90!black] at (-5.3, 5.8) {🍬 人工指（グミ指）の衝撃（松本論文 2002年）};
+
+  \node[draw=gelorange, fill=white, rounded corners=4pt, thick, minimum width=9.0cm, minimum height=1.6cm, align=left] at (-5.3, 4.4) {
+    \textbf{1. 身近な素材による偽造指の作成}\\
+    \footnotesize ・残留指紋や型取り材からゼラチン（お菓子のグミ）で人工指を作製\\
+    \footnotesize ・ゼラチンの水分・誘電率が人間の生体皮膚と極めて酷似
+  };
+
+  \node[draw=alertred, fill=red!10, rounded corners=4pt, thick, minimum width=9.0cm, minimum height=1.8cm, align=left] at (-5.3, 2.3) {
+    \textbf{2. 当時の商用指紋センサーの誤認突破率：約8割！}\\
+    \footnotesize ・光学式（カメラ撮影）：模様の一致だけで本人と誤認\\
+    \footnotesize ・静電容量式（電気抵抗測定）：グミの微小導電性で本物と誤認\\
+    \footnotesize $\rightarrow$ \textbf{「形骸化したバイオメトリクス」に世界的警鐘}
+  };
+
+  % Right Box: Liveness Detection (Modern Defense)
+  \node[draw=biogreen, fill=green!4, rounded corners=8pt, line width=1.3pt, minimum width=9.8cm, minimum height=6.2cm, align=center] at (5.3, 3.2) {};
+  \node[font=\bfseries\large, text=biogreen] at (5.3, 5.8) {🛡️ 生体検知（Liveness Detection）の技術革新};
+
+  \node[draw=biogreen, fill=white, rounded corners=4pt, thick, minimum width=9.0cm, minimum height=1.6cm, align=left] at (5.3, 4.4) {
+    \textbf{1. 生きている人間（Live Human）の物理的証明}\\
+    \footnotesize ・\textbf{血流・脈波測定}：指先内部のヘモグロビン血流拍動を光学検知\\
+    \footnotesize ・\textbf{生体皮膚インピーダンス}：表皮・真皮の多周波電気特性を解析
+  };
+
+  \node[draw=biogreen, fill=white, rounded corners=4pt, thick, minimum width=9.0cm, minimum height=1.8cm, align=left] at (5.3, 2.3) {
+    \textbf{2. 多層バイオメトリクス・評価基準（ISO/IEC 30107）}\\
+    \footnotesize ・PAD（Presentation Attack Detection：なりすまし攻撃検知）規格策定\\
+    \footnotesize ・指紋＋顔認証＋端末内セキュアエレメント（FIDO2 / パスキー）融合\\
+    \footnotesize $\rightarrow$ 横浜国大の研究が世界の国際標準規格（ISO）の礎となった
+  };
+
+  % Arrow
+  \draw[->, line width=2.5pt, biogreen] (-0.3, 3.2) -- (0.3, 3.2);
+
+  % Bottom note
+  \node[draw=biogreen, fill=green!10, rounded corners=6pt, line width=1.2pt, minimum width=21.0cm, minimum height=0.9cm, align=center] at (0, -0.4) {
+    \bfseries 論文参照：Tsutomu Matsumoto et al., "Impact of Artificial Gummy Fingers on Fingerprint Systems" (SPIE 2002)
+  };
+
+\end{tikzpicture}
+\end{document}

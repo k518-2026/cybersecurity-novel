@@ -1,0 +1,64 @@
+\documentclass[tikz,border=18pt]{standalone}
+\usepackage{luatexja}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric,arrows.meta,positioning,calc}
+
+\definecolor{darkblue}{RGB}{10, 30, 80}
+\definecolor{ampred}{RGB}{200, 30, 40}
+\definecolor{safegreen}{RGB}{20, 130, 50}
+
+\begin{document}
+\begin{tikzpicture}[>=Stealth, font=\small]
+
+  % Title
+  \node[draw=darkblue, fill=blue!8, rounded corners=8pt, line width=1.5pt, minimum width=21.0cm, minimum height=1.2cm, align=center] at (0, 7.5) {
+    \large\bfseries 横浜国大SPIRAL・牧田＆吉岡論文：ダークネットとハニーポットの相関分析によるDDoS予兆検知
+  };
+
+  % Left Box: Darknet Passive Monitoring
+  \node[draw=darkblue, fill=black!6, rounded corners=8pt, line width=1.3pt, minimum width=6.2cm, minimum height=5.8cm, align=center] at (-7.0, 3.2) {
+    \textbf{\color{darkblue} 🌌 ダークネット（未割当IP空間）}\\[6pt]
+    \footnotesize ・端末が存在しない広大なIPアドレス群\\
+    \footnotesize ・本来届くはずのない「迷子パケット」\\
+    \footnotesize 　（無差別スキャン・攻撃反射波）を受動収集\\[8pt]
+    \textbf{\color{ampred} 【リフレクション攻撃の反射波（Backscatter）】}\\
+    \scriptsize 送信元IPを偽装された被害者宛の\\
+    \scriptsize 巨大アンプ応答がダークネットにも漂着
+  };
+
+  % Middle Box: Correlation Analysis (The YNU Discovery)
+  \node[draw=safegreen, fill=green!4, rounded corners=8pt, line width=1.5pt, minimum width=6.8cm, minimum height=5.8cm, align=center] at (0, 3.2) {
+    \textbf{\color{safegreen!90!black} 🔍 ハニーポットとの相関分析}\\[4pt]
+    \footnotesize （情報処理学会 特選論文 / CyCon 2026）\\[8pt]
+    \textbf{1. DNS/NTP AmpPot による能動観測}\\
+    \footnotesize 攻撃者がアンプ（増幅器）を探す「事前偵察」を記録\\[6pt]
+    \textbf{2. 時系列・IP相関マッチング}\\
+    \footnotesize 「偵察スキャン $\rightarrow$ 攻撃実行 $\rightarrow$ バック散乱」\\
+    \footnotesize の因果関係を統計的に解明\\[6pt]
+    \textbf{3. 国際情勢・サイバー紛争の長期観測}\\
+    \footnotesize ウクライナ情勢等における国家間DDoSの実態
+  };
+
+  % Right Box: Proactive Early Warning
+  \node[draw=darkblue, fill=blue!5, rounded corners=8pt, line width=1.3pt, minimum width=5.6cm, minimum height=5.8cm, align=center] at (7.3, 3.2) {
+    \textbf{\color{darkblue} ⚡ 事前予兆検知と防衛}\\[6pt]
+    \footnotesize 1. \textbf{攻撃発生前の警戒アラート}\\
+    \footnotesize 　偵察パケット急増から\\
+    \footnotesize 　数時間〜数日後の大規模攻撃を予測\\[6pt]
+    \footnotesize 2. \textbf{オープンリゾルバの自動封じ込め}\\
+    \footnotesize 　踏み台に悪用されるDNSサーバーへ\\
+    \footnotesize 　設定修正を要請（JPRS等と連携）\\[6pt]
+    \footnotesize 3. \textbf{国家レベルのサイバーレジリエンス}
+  };
+
+  % Flow arrows
+  \draw[->, line width=2.0pt, ampred] (-3.8, 3.2) -- (-3.5, 3.2);
+  \draw[->, line width=2.0pt, safegreen] (3.5, 3.2) -- (4.4, 3.2);
+
+  % Bottom note
+  \node[draw=darkblue, fill=blue!10, rounded corners=6pt, line width=1.2pt, minimum width=21.0cm, minimum height=0.9cm, align=center] at (0, -0.4) {
+    \bfseries 論文参照：牧田大佑, 吉岡克成, 松本勉 et al., "DNSアンプ攻撃の事前対策へ向けたDNSハニーポットとダークネットの相関分析" (IPSJ Journal 2015)
+  };
+
+\end{tikzpicture}
+\end{document}

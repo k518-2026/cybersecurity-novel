@@ -19,7 +19,7 @@
 
 ---
 
-## 📚 収録エピソード一覧（第1部・第2部 全20話）
+## 📚 収録エピソード一覧（第1部・第2部 全25話）
 
 ### 第1部：高校情報科学部とサイバーセキュリティの基礎（第1話〜第15話 完結）
 
@@ -41,7 +41,9 @@
 | 14 | **見えない空の保管庫** | 橘 葵, 城崎 悠真, 芹沢准教授 | クラウドセキュリティ、責任共有モデル（Shared Responsibility Model）、IAM最小権限の原則、バケット全世界公開対策 | [図解](content/figures/fig14_cloud_shared_responsibility.png) | [4コマ漫画](content/illustrations/ep14_4koma.png) | [第14話本文](content/2026-10-24_ep14_cloud_security_and_shared_responsibility.md) |
 | 15 | **知性をまとう盾と矛（第1部 完結）** | 橘 葵, 城崎 悠真, 芹沢准教授 | AI悪用脅威（プロンプト注入・ディープフェイク・データ汚染） vs 自律型AIサイバー防御、人間の倫理と知性、第1部完結・進路決定 | [図解](content/figures/fig15_ai_security_deepfake.png) | [4コマ漫画](content/illustrations/ep15_4koma.png) | [第15話本文](content/2026-10-24_ep15_ai_security_and_future_frontiers.md) |
 
-### 第2部：新世代の胎動と先端ハードウェア＆ゼロトラスト防御（第16話〜第20話）
+### 第2部：新世代編（第16話〜第25話）
+
+#### 【前半：新世代の胎動と先端ハードウェア＆ゼロトラスト防御】
 
 | 話数 | タイトル | 主人公・登場人物 | 学習テーマ・参照規格 | 図解 (TikZ) | 挿絵 (Draw Things 4コマ) | 原稿 (Markdown) |
 |:---:|:---|:---|:---|:---:|:---:|:---:|
@@ -49,7 +51,18 @@
 | 17 | **城壁のない砦** | 神崎 蓮, 白石 結衣, 城崎悠真TA, 芹沢准教授 | 境界型防御の破綻、内部横展開（ラテラルムーブメント）、NIST SP 800-207ゼロトラスト原則、マイクロセグメンテーション | [図解](content/figures/fig17_zero_trust_architecture.png) | [4コマ漫画](content/illustrations/ep17_4koma.png) | [第17話本文](content/2026-10-26_ep17_zero_trust_and_perimeter_defense.md) |
 | 18 | **基板の上の囁き** | 神崎 蓮, 白石 結衣, 城崎悠真TA, 芹沢准教授 | 基板物理端子（UART/JTAG）、Root権限奪取、サイドチャネル攻撃（差分電力解析 DPA）、セキュアブート | [図解](content/figures/fig18_hardware_and_side_channel.png) | [4コマ漫画](content/illustrations/ep18_4koma.png) | [第18話本文](content/2026-10-26_ep18_hardware_hacking_and_side_channel.md) |
 | 19 | **秘密を明かさぬ計算** | 白石 結衣, 神崎 蓮, 城崎悠真TA, 芹沢准教授 | プライバシー強化技術（PETs）、完全準同型暗号（FHE：暗号化したまま演算）、差分プライバシー（DP）、秘密計算 | [図解](content/figures/fig19_privacy_enhancing_tech.png) | [4コマ漫画](content/illustrations/ep19_4koma.png) | [第19話本文](content/2026-10-26_ep19_privacy_enhancing_technologies.md) |
-| 20 | **走るネットワークと灯火の防衛** | 神崎 蓮, 白石 結衣, 城崎悠真TA, 芹沢准教授 | 第2部前半完結、産業制御システム（OT/SCADA）可用性最優先、コネクテッドカー（CANバス）、国連UN-R155、SecOC | [図解](content/figures/fig20_ot_scada_automotive.png) | [4コマ漫画](content/illustrations/ep20_4koma.png) | [第2話本文](content/2026-10-26_ep20_ot_scada_and_automotive_security.md) |
+| 20 | **走るネットワークと灯火の防衛** | 神崎 蓮, 白石 結衣, 城崎悠真TA, 芹沢准教授 | 第2部前半完結、産業制御システム（OT/SCADA）可用性最優先、コネクテッドカー（CANバス）、国連UN-R155、SecOC | [図解](content/figures/fig20_ot_scada_automotive.png) | [4コマ漫画](content/illustrations/ep20_4koma.png) | [第20話本文](content/2026-10-26_ep20_ot_scada_and_automotive_security.md) |
+
+#### 【後半：大学先端研究の扉 〜横浜国大SPIRAL論文探訪〜（第21話〜第25話）】
+*(参照・協力：[横浜国立大学 サイバーセキュリティ実践教育研究センター SPIRAL](https://spiral.ynu.ac.jp/))*
+
+| 話数 | タイトル | 主人公・登場人物 | 学習テーマ・探訪論文 | 図解 (TikZ) | 挿絵 (Draw Things 4コマ) | 原稿 (Markdown) |
+|:---:|:---|:---|:---|:---:|:---:|:---:|
+| 21 | **甘い偽指の衝撃** | 神崎 蓮, 白石 結衣, 城崎悠真TA, 芹沢准教授 | 松本勉教授の伝説的論文『人工グミ指による生体認証突破』（SPIE 2002）、生体情報Revoke不能性、提示攻撃検知（Liveness Detection / PAD）、国際規格 ISO/IEC 30107 | [図解](content/figures/fig21_gummy_finger_liveness.png) | [4コマ漫画](content/illustrations/ep21_4koma.png) | [第21話本文](content/2026-10-27_ep21_gummy_finger_and_liveness_detection.md) |
+| 22 | **蜜壺が暴く暗黒生態系** | 神崎 蓮, 白石 結衣, 城崎悠真TA, 芹沢准教授 | 吉岡克成教授らの先駆的論文『IoTPOTによる異種CPUマルウェア動態解明』（USENIX WOOT 2015）、異種CPUサンドボックス、Mirai前夜の脅威観測エコシステム | [図解](content/figures/fig22_iotpot_threat_intelligence.png) | [4コマ漫画](content/illustrations/ep22_4koma.png) | [第22話本文](content/2026-10-27_ep22_iotpot_and_iot_malware_ecosystem.md) |
+| 23 | **闇夜の反射鏡を砕け** | 神崎 蓮, 白石 結衣, 城崎悠真TA, 芹沢准教授 | 牧田大佑准教授・吉岡克成教授らの特選論文『ダークネットとDNSハニーポットの相関分析によるDDoS事前対策』（情報処理学会特選論文 2015）、UDP送信元IP偽装、事前予兆検知 | [図解](content/figures/fig23_darknet_ddos_correlation.png) | [4コマ漫画](content/illustrations/ep23_4koma.png) | [第23話本文](content/2026-10-27_ep23_darknet_and_dns_amplification_prevention.md) |
+| 24 | **量子の嵐と格子の盾** | 白石 結衣, 神崎 蓮, 城崎悠真TA, 芹沢准教授 | 四方順司教授（NexCrypt Lab長）の耐量子計算機暗号（PQC）数理、ショアのアルゴリズム、高次元格子幾何学（ML-KEM/ML-DSA）、HNDL脅威、匿名同報認証、集約MAC | [図解](content/figures/fig24_pqc_lattice_shikata.png) | [4コマ漫画](content/illustrations/ep24_4koma.png) | [第24話本文](content/2026-10-27_ep24_pqc_lattice_cryptography_shikata_lab.md) |
+| 25 | **賢者の檻と化かす影** | 神崎 蓮, 白石 結衣, 城崎悠真TA, 芹沢准教授 | 伊藤曜助教・吉岡克成教授らの最新論文『LLMによるサンドボックス回避耐性強化支援』（CSS 2025 ICSS研究賞）、マルウェアの擬死・環境検知、LLM自律探索・擬態パッチ | [図解](content/figures/fig25_llm_sandbox_spiral.png) | [4コマ漫画](content/illustrations/ep25_4koma.png) | [第25話本文](content/2026-10-27_ep25_llm_sandbox_evasion_robustness_spiral.md) |
 
 ---
 

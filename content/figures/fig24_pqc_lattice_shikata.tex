@@ -1,0 +1,65 @@
+\documentclass[tikz,border=18pt]{standalone}
+\usepackage{luatexja}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric,arrows.meta,positioning,calc}
+
+\definecolor{pqcpurple}{RGB}{110, 30, 160}
+\definecolor{quantumred}{RGB}{200, 30, 40}
+\definecolor{latticeblue}{RGB}{20, 80, 180}
+
+\begin{document}
+\begin{tikzpicture}[>=Stealth, font=\small]
+
+  % Title
+  \node[draw=pqcpurple, fill=purple!8, rounded corners=8pt, line width=1.5pt, minimum width=21.0cm, minimum height=1.2cm, align=center] at (0, 7.5) {
+    \large\bfseries 横浜国大SPIRAL・四方順司教授の研究：耐量子計算機暗号（PQC）と次世代高機能暗号数理
+  };
+
+  % Left Box: Threat of Quantum Computers
+  \node[draw=quantumred, fill=red!4, rounded corners=8pt, line width=1.3pt, minimum width=6.2cm, minimum height=5.8cm, align=center] at (-7.0, 3.2) {
+    \textbf{\color{quantumred} ⚛️ 量子コンピュータの脅威}\\[6pt]
+    \footnotesize ・ショアのアルゴリズム（Shor's Algorithm）\\
+    \footnotesize ・多項式時間で素因数分解・離散対数を解法\\[8pt]
+    \textbf{\color{quantumred} 【現在の公開鍵暗号の破綻】}\\
+    \scriptsize ❌ RSA暗号（素数積の困難性）$\rightarrow$ 瞬時に解読\\
+    \scriptsize ❌ 楕円曲線暗号（ECC）$\rightarrow$ 瞬時に解読\\[6pt]
+    \footnotesize 「今盗んで後で解読する」\\
+    \footnotesize （Harvest Now, Decrypt Later）の脅威
+  };
+
+  % Middle Box: Lattice Cryptography & PQC (NIST / YNU NexCrypt)
+  \node[draw=latticeblue, fill=blue!4, rounded corners=8pt, line width=1.5pt, minimum width=6.8cm, minimum height=5.8cm, align=center] at (0, 3.2) {
+    \textbf{\color{latticeblue} 🛡️ 格子問題に基づく耐量子暗号}\\[4pt]
+    \footnotesize （米国NIST標準暗号 / ML-KEM・ML-DSA）\\[8pt]
+    \textbf{1. 高次元幾何学「格子（Lattice）」の難しさ}\\
+    \footnotesize 数百次元の空間で最も近い格子点を\\
+    \footnotesize 探す問題（LWE問題）は量子でも解けない\\[6pt]
+    \textbf{2. 鍵交換とデジタル署名の完全刷新}\\
+    \footnotesize 量子耐性を持つ新世代アルゴリズムへ移行\\[6pt]
+    \textbf{3. 情報理論的安全性（Unconditional Security）}\\
+    \footnotesize 計算能力が無限にあっても解けない数理基盤
+  };
+
+  % Right Box: Advanced Cryptography (YNU Shikata Lab)
+  \node[draw=pqcpurple, fill=purple!4, rounded corners=8pt, line width=1.3pt, minimum width=5.6cm, minimum height=5.8cm, align=center] at (7.3, 3.2) {
+    \textbf{\color{pqcpurple} ✨ 四方教授の高機能暗号}\\[6pt]
+    \footnotesize 1. \textbf{匿名同報認証・暗号化}\\
+    \footnotesize 　IoT機器の1対多制御において\\
+    \footnotesize 　受信者の匿名性と改ざん防止を両立\\[6pt]
+    \footnotesize 2. \textbf{集約メッセージ認証（Aggregate MAC）}\\
+    \footnotesize 　複数機器の認証子を圧縮して超軽量化\\[6pt]
+    \footnotesize 3. \textbf{秘密分散・情報理論的プロトコル}\\
+    \footnotesize 　Beyond 5G/6G時代の安全な通信基盤
+  };
+
+  % Flow arrows
+  \draw[->, line width=2.0pt, quantumred] (-3.8, 3.2) -- (-3.5, 3.2);
+  \draw[->, line width=2.0pt, pqcpurple] (3.5, 3.2) -- (4.4, 3.2);
+
+  % Bottom note
+  \node[draw=pqcpurple, fill=purple!10, rounded corners=6pt, line width=1.2pt, minimum width=21.0cm, minimum height=0.9cm, align=center] at (0, -0.4) {
+    \bfseries 論文参照：四方順司 et al., "量子コンピュータ時代の高機能暗号" (IEICE 2023) / "Tight Lower Bounds of Anonymous Broadcast Authentication" (2023)
+  };
+
+\end{tikzpicture}
+\end{document}

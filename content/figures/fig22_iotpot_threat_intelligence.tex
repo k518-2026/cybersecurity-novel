@@ -1,0 +1,65 @@
+\documentclass[tikz,border=18pt]{standalone}
+\usepackage{luatexja}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric,arrows.meta,positioning,calc}
+
+\definecolor{honeydark}{RGB}{200, 110, 10}
+\definecolor{botred}{RGB}{200, 30, 40}
+\definecolor{intelblue}{RGB}{20, 90, 180}
+
+\begin{document}
+\begin{tikzpicture}[>=Stealth, font=\small]
+
+  % Title
+  \node[draw=honeydark, fill=orange!8, rounded corners=8pt, line width=1.5pt, minimum width=21.0cm, minimum height=1.2cm, align=center] at (0, 7.5) {
+    \large\bfseries 横浜国大SPIRAL・吉岡克成教授の先駆的研究：IoTPOTによるIoTマルウェア生態系解明
+  };
+
+  % Attacker (Left)
+  \node[draw=botred, fill=red!8, rounded corners=6pt, line width=1.3pt, minimum width=4.8cm, minimum height=5.8cm, align=center] at (-7.5, 3.2) {
+    \textbf{\color{botred} 👾 攻撃者・感染IoT機器}\\[6pt]
+    \footnotesize ・無差別Telnetスキャン\\
+    \footnotesize ・ルータ / 防犯カメラ標的\\[8pt]
+    \textbf{【多様なCPUアーキテクチャ】}\\
+    \scriptsize ARM, MIPS, MIPSEL\\
+    \scriptsize PowerPC, SH4, SPARC\\[6pt]
+    \footnotesize 攻撃者が専用バイナリを\\
+    \footnotesize ダウンロード・実行
+  };
+
+  % Middle: IoTPOT (Frontend + Sandbox IoTBOX)
+  \node[draw=honeydark, fill=orange!4, rounded corners=8pt, line width=1.5pt, minimum width=6.8cm, minimum height=5.8cm, align=center] at (0, 3.2) {
+    \textbf{\color{honeydark!90!black} 🍯 IoTPOT フロントエンド}\\[4pt]
+    \footnotesize 仮想IoTデバイスとしてTelnet対話を模倣\\[6pt]
+    \draw[->, thick, honeydark] (-2.2, 0) -- (2.2, 0) node[midway, above, font=\scriptsize] {検体転送};
+    \\[6pt]
+    \textbf{\color{intelblue} 📦 IoTBOX 動的サンドボックス}\\[4pt]
+    \footnotesize ・QEMU仮想環境で各種CPUを実行\\
+    \footnotesize ・マルウェアの通信先（C2サーバー）\\
+    \footnotesize 　およびDDoS攻撃命令を安全に記録\\
+    \footnotesize ・ハッシュ値とシグネチャの自動生成
+  };
+
+  % Right: Global Threat Intelligence
+  \node[draw=intelblue, fill=blue!5, rounded corners=6pt, line width=1.3pt, minimum width=5.2cm, minimum height=5.8cm, align=center] at (7.5, 3.2) {
+    \textbf{\color{intelblue} 🌐 観測インテリジェンス}\\[6pt]
+    \footnotesize 1. \textbf{Miraiの起源と進化の特定}\\
+    \footnotesize 　世界初のIoTマルウェア長期観測\\[6pt]
+    \footnotesize 2. \textbf{産官学連携・国際共有}\\
+    \footnotesize 　警察・NICT・海外CERTへ\\
+    \footnotesize 　リアルタイム脅威警報を提供\\[6pt]
+    \footnotesize 3. \textbf{NOTICEプロジェクトの礎}\\
+    \footnotesize 　日本全国の安全調査へ還元
+  };
+
+  % Connections
+  \draw[->, line width=2.0pt, botred] (-5.0, 3.2) -- (-3.5, 3.2) node[midway, above, font=\scriptsize\bfseries] {攻撃誘引};
+  \draw[->, line width=2.0pt, intelblue] (3.5, 3.2) -- (4.8, 3.2) node[midway, above, font=\scriptsize\bfseries] {インテリジェンス};
+
+  % Bottom note
+  \node[draw=honeydark, fill=orange!10, rounded corners=6pt, line width=1.2pt, minimum width=21.0cm, minimum height=0.9cm, align=center] at (0, -0.4) {
+    \bfseries 論文参照：Yin Minn Pa Pa, Katsunari Yoshioka, Tsutomu Matsumoto, Christian Rossow et al., "IoTPOT: Analysing the Rise of IoT Compromises" (USENIX WOOT 2015)
+  };
+
+\end{tikzpicture}
+\end{document}

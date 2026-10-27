@@ -238,5 +238,65 @@
     "protagonist": "神崎 蓮＆白石 結衣",
     "mentor": "城崎 悠真（TA）＆芹沢 涼香 准教授",
     "tikz_description": "OT/SCADAとコネクテッドカー（CANバスSecOC）のサイバーフィジカル防衛アーキテクチャ"
+  },
+  {
+    "episode_num": 21,
+    "id": "ep21_gummy_finger_and_liveness_detection",
+    "title": "甘い偽指の衝撃 〜松本論文「グミ指」と生体検知（Liveness Detection）〜",
+    "theme": "横浜国大SPIRAL松本勉教授、グミ指（人工指）による生体認証突破、生体情報の本質的脆弱性（Revoke不能性）、なりすまし検知（Liveness Detection / PAD）、国際規格 ISO/IEC 30107",
+    "dss_topic": "先端生体認証セキュリティ・物理攻撃耐性・提示攻撃検知（PAD）",
+    "news_context": "スマートフォン決済やスマートロックにおける生体認証普及とAIディープフェイク・偽造生体攻撃対策の国際標準化",
+    "university_connection": "横浜国立大学 SPIRAL（サイバーセキュリティ実践教育研究センター）・物理セキュリティ研究室",
+    "protagonist": "神崎 蓮＆白石 結衣",
+    "mentor": "城崎 悠真（TA）＆芹沢 涼香 准教授",
+    "tikz_description": "松本論文「グミ指」による突破メカニズムと多層生体検知（血流・真皮・電気・AI）防衛図"
+  },
+  {
+    "episode_num": 22,
+    "id": "ep22_iotpot_and_iot_malware_ecosystem",
+    "title": "蜜壺が暴く暗黒生態系 〜吉岡研「IoTPOT」とIoTマルウェアの進化〜",
+    "theme": "横浜国大SPIRAL吉岡克成教授、IoTPOT論文（USENIX WOOT）、異種CPUアーキテクチャ（ARM/MIPS/PowerPC等）サンドボックス、IoTマルウェア生態系解明、脅威インテリジェンス",
+    "dss_topic": "脅威インテリジェンス・ハニーポット動態観測・マルウェア解析工学",
+    "news_context": "Mirai出現を予見したIoTマルウェア感染競争の学術的解明とグローバル脅威観測エコシステムの確立",
+    "university_connection": "横浜国立大学 SPIRAL・吉岡研究室（CyRaP Lab: Cybersecurity Research and Practice）",
+    "protagonist": "神崎 蓮＆白石 結衣",
+    "mentor": "城崎 悠真（TA）＆芹沢 涼香 准教授",
+    "tikz_description": "吉岡研「IoTPOT」二段階協調アーキテクチャ（Frontend罠 × Backend多CPU QEMU環境）"
+  },
+  {
+    "episode_num": 23,
+    "id": "ep23_darknet_and_dns_amplification_prevention",
+    "title": "闇夜の反射鏡を砕け 〜ダークネットとDNSアンプ攻撃事前観測〜",
+    "theme": "横浜国大SPIRAL牧田大佑准教授・吉岡克成教授、情報処理学会特選論文、DNSアンプDDoS攻撃、UDP送信元IP偽装（IP Spoofing）、ダークネット（未使用IP空間）事前探索スキャン相関分析",
+    "dss_topic": "広域ネットワーク監視・DDoS攻撃事前抑止・オープンリゾルバ対策",
+    "news_context": "テラビット級DDoS攻撃の主流であるDNS/NTP反射アンプ攻撃とダークネットビッグデータによる予兆検知",
+    "university_connection": "横浜国立大学 SPIRAL・広域脅威観測グループ（NICTダークネット連携・CyLINK）",
+    "protagonist": "神崎 蓮＆白石 結衣",
+    "mentor": "城崎 悠真（TA）＆芹沢 涼香 准教授",
+    "tikz_description": "ダークネット事前探索スキャンとDNSハニーポット相関分析によるプロアクティブ防御フロー図"
+  },
+  {
+    "episode_num": 24,
+    "id": "ep24_pqc_lattice_cryptography_shikata_lab",
+    "title": "量子の嵐と格子の盾 〜四方研究室と耐量子計算機暗号数理〜",
+    "theme": "横浜国大SPIRAL四方順司教授（NexCrypt Lab長）、ショアのアルゴリズム、耐量子計算機暗号（PQC）、格子暗号（ML-KEM/ML-DSA）、HNDL脅威、匿名同報認証、集約MAC",
+    "dss_topic": "耐量子暗号（PQC）移行・高機能暗号数理・情報理論的安全保障",
+    "news_context": "NIST PQC標準化（FIPS 203/204）と「今盗んで将来解読する（HNDL）」国家級サイバー脅威への対抗策",
+    "university_connection": "横浜国立大学 SPIRAL・四方研究室（NexCrypt Lab: Next-Generation Cryptography）",
+    "protagonist": "白石 結衣＆神崎 蓮",
+    "mentor": "城崎 悠真（TA）＆芹沢 涼香 准教授",
+    "tikz_description": "量子ショアアルゴリズムの脅威 vs 高次元格子問題（SVP/LWE）と次世代高機能暗号数理モデル"
+  },
+  {
+    "episode_num": 25,
+    "id": "ep25_llm_sandbox_evasion_robustness_spiral",
+    "title": "賢者の檻と化かす影 〜LLMが暴くサンドボックス回避の迷宮〜",
+    "theme": "横浜国大SPIRAL伊藤曜助教・吉岡克成教授、CSS 2025 ICSS研究賞、マルウェアのサンドボックス検出・環境擬態（Evasion Attacks）、LLMによる設定アーティファクト自動探索・自律的耐性強化",
+    "dss_topic": "AI駆動型サイバー防御・マルウェア動的解析強化・自律的セキュリティ検証",
+    "news_context": "高度標的型攻撃における仮想環境回避マルウェアの激増とLLMエージェントによる次世代サイバー防衛",
+    "university_connection": "横浜国立大学 SPIRAL・先進AIセキュリティ研究グループ（CyAPEX / CyRaP）",
+    "protagonist": "神崎 蓮＆白石 結衣",
+    "mentor": "城崎 悠真（TA）＆芹沢 涼香 准教授",
+    "tikz_description": "マルウェアのサンドボックス回避ロジック vs LLMによる自律的脆弱性探索・擬態強化サイクル図"
   }
 ]

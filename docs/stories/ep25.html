@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第25話 賢者の檻と化かす影 〜LLMが暴くサンドボックス回避の迷宮〜 | 放課後サイバーディフェンス・ラボ</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Shippori+Mincho:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="story-header">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">トップ (目次)</a> &gt; <span>第25話</span>
+      </div>
+      <div class="story-ep-tag">Episode 25</div>
+      <h1 class="story-main-title">賢者の檻と化かす影 〜LLMが暴くサンドボックス回避の迷宮〜</h1>
+      <div class="story-meta">
+        <span>📚 学習テーマ: <strong>横浜国大SPIRAL伊藤曜助教・吉岡克成教授、CSS 2025 ICSS研究賞、マルウェアのサンドボックス検出・環境擬態（Evasion）、LLMによる設定アーティファクト自動探索・自律的耐性強化</strong></span>
+        <span>🏫 登場人物: 城崎悠真（部長・高2）、橘葵（部員・高2）、芹沢涼香准教授（大学メンター）</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container story-container">
+
+    <!-- ストーリーイラスト (4コマ漫画) -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>🎨 4コマ漫画挿絵（文字なし）</h2>
+        <span class="visual-badge">AI高解像度生成</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/ep25_4koma.png" alt="第25話 ストーリーイラスト" class="responsive-img">
+        <p class="caption">▲ 【挿絵】青葉台高校 情報科学部＆帝都科学大学サイバーディフェンス・ラボでの実践シーン</p>
+      </div>
+    </section>
+
+    <!-- 4コマ漫画セリフ（日・英バイリンガル）※存在する場合 -->
+    
+            <div class="koma-script-box">
+              <div class="koma-script-header">
+                <h3>💬 4コマ漫画キャラクターセリフ (Story Dialogue Script)</h3>
+                <span class="lang-tag">日・英バイリンガル (JA / EN)</span>
+              </div>
+              <div class="koma-panels-list">
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">第1コマ 【起】</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation"><strong>蓮の勘違い：サンドボックスで動いた無害なプログラム？<strong><br>解析用仮想環境で怪しい検体を実行したところ何のエラーも出ず、「安全なファイルだったよ！」と胸を撫で下ろす蓮。</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[蓮]</span> 「隔離環境で動かしてみたけど、何もしないで終了したよ！ なーんだ、無害な安全ファイルだったんだな！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Ren]</span> "I ran it in the sandbox, but it did nothing and exited! Phew, turns out it's completely harmless!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">第2コマ 【承】</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation"><strong>結衣と悠真のタネ明かし：それは「死んだふり」！<strong><br>画面のレジストリやマウス移動履歴を指差し、マルウェアが檻を察知して攻撃を封印した（回避行動）と指摘する結衣。</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[結衣]</span> 「騙されてはいけません。マルウェアが仮想環境特有の痕跡を察知して『死んだふり』をしているだけです。」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yui]</span> "Don't be fooled. The malware detected the virtual environment and is simply playing dead to deceive us."</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">第3コマ 【転】</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation"><strong>悠真TAが解説するSPIRAL伊藤・吉岡論文のブレイクスルー<strong><br>横浜国大の伊藤曜助教らが開発した「LLMを使ってサンドボックスの弱点を自動発見・修復する」最新論文を紹介。</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[悠真]</span> 「そこで横浜国大の伊藤・吉岡先生たちは、LLMを活用して檻の擬態漏れを自律的に強化する技術を生み出したんだ。」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yuma]</span> "That's why Dr. Ito and Prof. Yoshioka at YNU created an LLM framework to automatically detect and patch sandbox leaks."</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">第4コマ 【結】</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation"><strong>第2部先進研究編完結！大学先端の地平へ<strong><br>AIと数理が交差する最前線の学術研究に圧倒され、いつか自分たちも世界を守る論文を書く研究者になると誓う二人。</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[蓮]</span> 「AIで攻撃を見破り、AIで檻を完璧にするのか！ 俺、絶対にこの研究の最前線へ進むぞ！」<br><span class="koma-char-name">[結衣]</span> 「ええ。巨人の肩の上に立ち、未来の安全を拓く研究者を目指しましょう！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Ren]</span> "Using AI to anticipate attacks and perfect the sandbox! I'm definitely heading to the frontier of this research!"<br><span class="koma-char-name">[Yui]</span> "Yes. Standing on the shoulders of giants, let us become researchers who forge future security!"</div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+
+    <!-- 小説本文 -->
+    <section class="novel-section">
+      <div class="section-title">
+        <h2>📖 小説本文</h2>
+      </div>
+      <div class="novel-body">
+        <p>帝都科学大学、先端セキュリティ実習室。
+　薄暗い室内には、整然と並んだサーバーラックの冷却ファンが放つ低い唸りだけが響いている。モニターの青白い光に照らされた神崎蓮は、眉間に皺を寄せたままキーボードを叩く手を止めた。</p>
+<p class="dialogue">「……おかしい。何も起きない」</p>
+<p>蓮は声を絞り出した。目の前のディスプレイには、隔離環境であるサンドボックス内で実行されたはずのマルウェアプログラムが、「正常終了」のステータスを表示している。
+　彼は確信していた。このファイルは、機密情報を窃取し、ネットワークを破壊する極めて危険なコードだ。それを解析するために用意したのが、徹底的に隔離された仮想環境――サンドボックスである。しかし、実行ボタンを押してから数秒、プログラムは沈黙したまま、まるでただの計算機のような挙動を見せたのだ。</p>
+<p class="dialogue">「本当に安全なファイルだったのかな。それとも、このサンドボックスの検知能力が低すぎるのか……」</p>
+<p>蓮の呟きに、背後から白石結衣が身を乗り出した。彼女はモニターを凝視し、その行間を読み取るように目を見開く。
+「……いえ、蓮くん。それは『安全』じゃないわ。もっと別のことが起きてる」</p>
+<p>✦ ✦ ✦</p>
+<p class="dialogue">「いいかい、蓮くん。マルウェアにとって、サンドボックスは『檻』だ。そして賢いマルウェアは、自分が檻の中にいることを察知する術を持っているんだよ」</p>
+<p>隣で解説を始めたのは、大学のTAである城崎悠真だった。彼はタブレットを操作し、解析ログの一部をハイライトする。
+「これを『擬死（死んだふり）』と呼ぶ。マルウェアは実行された直後、まず自分の周囲の環境をスキャンするんだ。例えば、マウスカーソルの移動履歴があるか？ 画面の解像度はどうなっているか？ CPUのコア数はいくつあるか？」</p>
+<p>悠真の声は淡々と、しかし重みを持って響いた。
+「さらに、仮想マシン特有のドライバや、VMware固有のMACアドレス、あるいは特定のレジストリキーが存在しないかまでチェックする。もし『あ、ここは監視用の偽物の環境だ』と判断すれば、マルウェアは攻撃コードを封印し、何事もしていないふりをして動かない。解析者を欺き、自分自身の正体を隠すためにね」</p>
+<p>結衣が感嘆の声を上げた。
+「つまり、彼らは『知能』を持ってこちらの罠を見抜いているってことね。こちらが用意した隔離環境を逆手に取って、自分たちの正体を隠蔽している……」</p>
+<p class="dialogue">「その通り。そして、それが解析者の頭を悩ませる最大の要因だ」と悠真は苦笑した。「攻撃者は次々と新しい検知手法を見つけてくる。防御側はそのたびに、サンドボックスを本物のPCにそっくりに偽装し直さなきゃならない。まさに終わりのない『モグラ叩き』のゲームだ。手動での修正には限界がある」</p>
+<p>✦ ✦ ✦</p>
+<p>実習室の扉が開いた。入ってきたのは、この分野の権威の一人である芹沢涼香准教授だった。彼女は手に持った資料を机に置き、熱を帯びた眼差しで学生たちを見つめた。</p>
+<p class="dialogue">「悠真くんの言う通りよ。従来の防御は、攻撃者が見つけた穴を一つずつ手動で塞いでいく『後追い』の戦いだった。でも、最近そのパラダイムが劇的に変わろうとしているわ」</p>
+<p>芹沢は、横浜国立大学SPIRALの研究チームによる最新論文を指し示した。
+「伊藤曜助教や吉岡克成教授らによるこの研究……『大規模言語モデル（LLM）によるサンドボックス回避耐性強化支援』。これこそが、次世代の防衛戦略よ」</p>
+<p>彼女は身を乗り出し、情熱的に語り始めた。
+「彼らは、LLMに膨大なマルウェアコード、APIドキュメント、そしてOSの仕様を学習させたの。そして、LLMに『マルウェアならどうやってこの環境を検知するか』という思考プロセスそのものをシミュレーションさせる。つまり、攻撃者の視点をAIに擬似体験させ、サンドボックスのどこに設定漏れがあるか、どの偽装が不自然かを自動的に網羅して発見させるのよ」</p>
+<p>蓮と結衣は息を呑んだ。
+「手動で修正するのではなく、LLMに自律的に『検知される隙』を見つけさせ、サンドボックス側の擬態能力を強化・検証させる……。これは、防衛側が攻撃者の思考を先回りして封じ込めることを意味するわね」</p>
+<p>芹沢の言葉に合わせて、モニターには複雑な数理モデルと、AIによって自動生成された環境構成パラメータの羅列が表示された。
+「LLMは単に文章を作るための道具じゃない。高度な推論能力を駆使して、数千万通りの組み合わせから『見破られない偽装』を導き出すための、知的な盾になるの。この研究は、まさに防御側の手に、圧倒的な『先手』を取らせる鍵なのよ」</p>
+<p>✦ ✦ ✦</p>
+<p>静寂が訪れた実習室に、蓮と結衣の視線が交差した。
+　モニターに映し出されたのは、ただのプログラムの挙動ではなく、人類の知性とAIの推論が火花を散らす最前線の戦場だった。</p>
+<p class="dialogue">「……すごい。僕たちはまだ、この入り口に立っただけなんだね」
+　蓮は自分の震える手を見つめた。今まで自分が信じていた「安全な檻」の脆さと、それを乗り越えようとする巨人の知恵を知った衝撃が、彼の中に熱い動機へと変わっていく。</p>
+<p>結衣もまた、凛とした表情で頷いた。
+「そうね。横浜国大SPIRALの研究成果っていう、巨大な肩の上に立って、私たちは見ているだけじゃいられないわ」</p>
+<p>彼女は蓮に向き直り、力強く手を差し出した。
+「いつか私たちも、この最前線に立つ研究者やエンジニアになりたい。この論文を読んで感動したように、次世代の防衛技術を世界に提示する側になるのよ。……私たちの番まで、あとどれくらいだろうね」</p>
+<p>蓮はその手を力強く握り返した。
+　青白い光が照らす実習室で、二人の若き解析者の瞳には、未知の迷宮を切り拓くための強い意志の火が灯っていた。</p>
+<p>---</p>
+      </div>
+    </section>
+
+    <!-- TikZ 技術構造図解 -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>📊 セキュリティ構造図解 (TikZ LuaLaTeX生成)</h2>
+        <span class="visual-badge">国家安全基準・工学図解</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/fig25_llm_sandbox_spiral.png" alt="第25話 セキュリティ構造図解" class="responsive-img">
+        <p class="caption">▲ 【技術構造図】IPAデジタルスキル標準・国際規格に準拠した仕組みのモデル化</p>
+      </div>
+    </section>
+
+    <!-- 深掘りコラム -->
+    <section class="column-section">
+      <div class="section-title">
+        <h2>💡 高校生のためのセキュリティ深掘りコラム ＆ 大学進路ガイド</h2>
+      </div>
+      
+            <div class="column-box">
+              <h3>💡 1. マルウェアの狡猾な知恵「サンドボックス回避（Evasion Attack）」</h3>
+              <div class="column-content">
+                <ul><p>セキュリティ企業や研究機関は、不審なプログラムを見つけると<strong>「サンドボックス（解析用仮想マシン環境）」</strong>の中で安全に実行し、どのような悪事（ファイルの暗号化、外部通信、パスワード窃取など）を働くかを動的解析します。</p>
+<p>しかし、現代の高度なマルウェアは<strong>「自分が檻（サンドボックス）の中にいるかどうか」を極めて狡猾に確認</strong>します：</p>
+<li><strong>ユーザー操作の不在</strong>: マウスカーソルが一定時間全く動いていない、キーボード入力がない。</li>
+<li><strong>ハードウェアの不自然さ</strong>: CPUコア数が1個しかない、RAMが極端に小さい、画面解像度が800x600など不自然。</li>
+<li><strong>仮想環境特有の痕跡（アーティファクト）</strong>: VMwareやVirtualBox特有のデバイスドライバ、レジストリキー、MACアドレスのOUI（ベンダー識別子）が存在する。</li>
+<li><strong>時間の引き伸ばし（Time Acceleration検知）</strong>: スリープ関数を呼び出した際、解析ツールが時間を早送りしたことを高精度タイマーで検知する。</li>
+<p>檻の中にいると判断したマルウェアは、攻撃コードを一切実行せずに<strong>正常なプログラムのふりをして終了（擬死）</strong>し、解析者を欺いて「安全なファイル」と判定させようとします。</p></ul>
+              </div>
+            </div>
+            
+
+            <div class="column-box">
+              <h3>💡 2. 防御側の苦悩：果てしない「モグラ叩き」</h3>
+              <div class="column-content">
+                <p>サンドボックスを開発するセキュリティ研究者は、マルウェアに「本物の人間のパソコンだ」と信じ込ませるために、無数のシステム設定やレジストリ、ダミーファイル、マウス移動エミュレーションなどを手作業で組み込んできました。</p>
+<p>しかし、Windows OSやLinux OSの内部仕様は膨大であり、攻撃者が次々と見つけ出す「新たな環境識別トリガー」を手作業で網羅し続けることには物理的な限界がありました。</p>
+              </div>
+            </div>
+            
+
+            <div class="column-box">
+              <h3>💡 3. 横浜国大・伊藤曜助教と吉岡克成教授の革新（CSS 2025 / ICSS研究賞）</h3>
+              <div class="column-content">
+                <ul><p>このモグラ叩きに終止符を打つべく、横浜国立大学 SPIRALの<strong>伊藤曜 助教・吉岡克成 教授</strong>らが提案したのが、<strong>「大規模言語モデル（LLM）を活用したサンドボックス回避耐性の自律的強化支援技術」</strong>です。</p>
+<li><strong>アプローチの革新性</strong>:</li>
+<p>LLMは、膨大なオープンソースコード、マルウェア解析レポート、Windows API仕様書、リバースエンジニアリング文献の知識を保持しています。</p>
+<p>研究チームは、LLMに対してマルウェアアナリストと回避攻撃者の双方の視点を与え、<strong>「あるサンドボックス設定に対して、攻撃者ならどのAPIやレジストリをチェックして仮想環境だと見破るか」を自律的に推論・列挙</strong>させました。</p>
+<li><strong>自動検証とパッチ適用</strong>:</li>
+<p>LLMが提案した回避ロジックを実際のサンドボックス上で動的テストし、実際に回避に使われうる「設定の隙（アーティファクト漏れ）」をピンポイントで特定。さらに、その漏れを塞ぐためのOS設定スクリプトやダミー環境パッチを自動生成させることに成功しました。</p>
+<p>この成果は情報処理学会の<strong>コンピュータセキュリティシンポジウム（CSS 2025）において「ICSS研究賞」</strong>を受賞し、AIとサイバーセキュリティが融合した最先端の学術成果として国内外で絶賛されています。</p>
+<p>大学の研究室では、このように日夜、世界を守るための最先端の知性が生み出され続けているのです。</p></ul>
+              </div>
+            </div>
+            
+    </section>
+
+    <!-- 前後ナビゲーション -->
+    <nav class="episode-nav">
+      <a href="ep24.html" class="nav-btn">← 第24話: 量子の嵐と格子の盾 〜四方研究室と耐...</a>
+      <a href="../index.html" class="nav-btn center">目次に戻る</a>
+      <span class="nav-disabled">最新エピソード</span>
+    </nav>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 放課後サイバーディフェンス・ラボ (Cybersecurity Novel Library)</p>
+    <p>Repository: <a href="https://github.com/k518-2026/cybersecurity-novel" target="_blank" rel="noopener" style="color: var(--primary);">k518-2026/cybersecurity-novel</a></p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+\documentclass[tikz,border=18pt]{standalone}
+\usepackage{luatexja}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric,arrows.meta,positioning,calc}
+
+\definecolor{llmpurple}{RGB}{120, 30, 180}
+\definecolor{evasionred}{RGB}{200, 30, 40}
+\definecolor{spiralgreen}{RGB}{20, 130, 60}
+
+\begin{document}
+\begin{tikzpicture}[>=Stealth, font=\small]
+
+  % Title
+  \node[draw=spiralgreen, fill=green!8, rounded corners=8pt, line width=1.5pt, minimum width=21.0cm, minimum height=1.2cm, align=center] at (0, 7.5) {
+    \large\bfseries 横浜国大SPIRAL・伊藤＆吉岡論文（2025年受賞）：LLMによるサンドボックス回避耐性強化
+  };
+
+  % Left Box: Evasive Malware Problem
+  \node[draw=evasionred, fill=red!4, rounded corners=8pt, line width=1.3pt, minimum width=6.2cm, minimum height=5.8cm, align=center] at (-7.0, 3.2) {
+    \textbf{\color{evasionred} 🥷 回避型マルウェアの狡猾さ}\\[6pt]
+    \footnotesize ・サンドボックス（解析環境）を検知\\
+    \footnotesize ・解析中はおとなしく振る舞い、\\
+    \footnotesize 　本番環境でのみ悪意ある動作を実行\\[8pt]
+    \textbf{\color{evasionred} 【検知回避のテクニック】}\\
+    \scriptsize ・マウスの微小な移動履歴をチェック\\
+    \scriptsize ・CPUコア数・メモリ容量・MACアドレス確認\\
+    \scriptsize ・解析者がいないと判定されるまで長時間スリープ
+  };
+
+  % Middle Box: LLM-assisted Hardening (The SPIRAL Innovation)
+  \node[draw=llmpurple, fill=purple!4, rounded corners=8pt, line width=1.5pt, minimum width=6.8cm, minimum height=5.8cm, align=center] at (0, 3.2) {
+    \textbf{\color{llmpurple} 🤖 LLMによる解析環境の自己強化}\\[4pt]
+    \footnotesize （CSS 2025 / ICSS研究賞 受賞論文）\\[8pt]
+    \textbf{1. 回避ロジックの自動解釈}\\
+    \footnotesize LLMがマルウェアのバイナリ・API呼び出しを\\
+    \footnotesize 逆アセンブルし、「何を疑っているか」を即座に洞察\\[6pt]
+    \textbf{2. リアルな「人間の偽装シグナル」動的生成}\\
+    \footnotesize 自然なマウスクリックやキー入力、稼働時間、\\
+    \footnotesize 一般アプリの存在痕跡をLLMがリアルタイム模倣\\[6pt]
+    \textbf{3. サンドボックスの自動偽装・適応進化}\\
+    \footnotesize マルウェアを騙し、正体を露わにさせる
+  };
+
+  % Right Box: SPIRAL Mission
+  \node[draw=spiralgreen, fill=green!4, rounded corners=8pt, line width=1.3pt, minimum width=5.6cm, minimum height=5.8cm, align=center] at (7.3, 3.2) {
+    \textbf{\color{spiralgreen} 🌀 SPIRALの螺旋的進化}\\[6pt]
+    \footnotesize 1. \textbf{AI vs AIの防衛最前線}\\
+    \footnotesize 　攻撃側の高度化に対し、\\
+    \footnotesize 　自律型防御AIを先回りして開発\\[6pt]
+    \footnotesize 2. \textbf{研究・教育・実践の一体化}\\
+    \footnotesize 　実戦データ（CyRaP）と人材育成（CyAPEX）\\
+    \footnotesize 　次世代暗号（NexCrypt）の螺旋的融合\\[6pt]
+    \footnotesize 3. \textbf{高校生から世界トップ研究への架け橋}
+  };
+
+  % Flow arrows
+  \draw[->, line width=2.0pt, evasionred] (-3.8, 3.2) -- (-3.5, 3.2);
+  \draw[->, line width=2.0pt, spiralgreen] (3.5, 3.2) -- (4.4, 3.2);
+
+  % Bottom note
+  \node[draw=spiralgreen, fill=green!10, rounded corners=6pt, line width=1.2pt, minimum width=21.0cm, minimum height=0.9cm, align=center] at (0, -0.4) {
+    \bfseries 論文参照：伊藤曜, グエン ティ ヴァン アン, イン ミンパパ, 田辺瑠偉, 吉岡克成, "LLMによるサンドボックスの回避耐性強化支援" (CSS 2025 / ICSS研究賞)
+  };
+
+\end{tikzpicture}
+\end{document}

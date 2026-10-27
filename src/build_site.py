@@ -199,6 +199,51 @@ episodes = [
         "md_file": "2026-10-26_ep20_ot_scada_and_automotive_security.md",
         "illust": "ep20_4koma.png",
         "figure": "fig20_ot_scada_automotive.png"
+    },
+    {
+        "num": 21,
+        "id": "ep21",
+        "title": "甘い偽指の衝撃 〜松本論文「グミ指」と生体検知（Liveness Detection）〜",
+        "theme": "横浜国大SPIRAL松本勉教授、グミ指（人工指）による生体認証突破、生体情報Revoke不能性、Liveness Detection（PAD）、ISO/IEC 30107",
+        "md_file": "2026-10-27_ep21_gummy_finger_and_liveness_detection.md",
+        "illust": "ep21_4koma.png",
+        "figure": "fig21_gummy_finger_liveness.png"
+    },
+    {
+        "num": 22,
+        "id": "ep22",
+        "title": "蜜壺が暴く暗黒生態系 〜吉岡研「IoTPOT」とIoTマルウェアの進化〜",
+        "theme": "横浜国大SPIRAL吉岡克成教授、IoTPOT、異種CPUアーキテクチャ（ARM/MIPS）サンドボックス、IoTマルウェア生態系解明、脅威インテリジェンス",
+        "md_file": "2026-10-27_ep22_iotpot_and_iot_malware_ecosystem.md",
+        "illust": "ep22_4koma.png",
+        "figure": "fig22_iotpot_threat_intelligence.png"
+    },
+    {
+        "num": 23,
+        "id": "ep23",
+        "title": "闇夜の反射鏡を砕け 〜ダークネットとDNSアンプ攻撃事前観測〜",
+        "theme": "横浜国大SPIRAL牧田大佑准教授・吉岡克成教授、情報処理学会特選論文、DNSアンプDDoS、UDP送信元IP偽装、ダークネット事前探索スキャン相関分析",
+        "md_file": "2026-10-27_ep23_darknet_and_dns_amplification_prevention.md",
+        "illust": "ep23_4koma.png",
+        "figure": "fig23_darknet_ddos_correlation.png"
+    },
+    {
+        "num": 24,
+        "id": "ep24",
+        "title": "量子の嵐と格子の盾 〜四方研究室と耐量子計算機暗号数理〜",
+        "theme": "横浜国大SPIRAL四方順司教授（NexCrypt）、ショアのアルゴリズム、耐量子計算機暗号（PQC）、格子暗号（ML-KEM/ML-DSA）、HNDL脅威、匿名同報認証、集約MAC",
+        "md_file": "2026-10-27_ep24_pqc_lattice_cryptography_shikata_lab.md",
+        "illust": "ep24_4koma.png",
+        "figure": "fig24_pqc_lattice_shikata.png"
+    },
+    {
+        "num": 25,
+        "id": "ep25",
+        "title": "賢者の檻と化かす影 〜LLMが暴くサンドボックス回避の迷宮〜",
+        "theme": "横浜国大SPIRAL伊藤曜助教・吉岡克成教授、CSS 2025 ICSS研究賞、マルウェアのサンドボックス検出・環境擬態（Evasion）、LLMによる設定アーティファクト自動探索・自律的耐性強化",
+        "md_file": "2026-10-27_ep25_llm_sandbox_evasion_robustness_spiral.md",
+        "illust": "ep25_4koma.png",
+        "figure": "fig25_llm_sandbox_spiral.png"
     }
 ]
 
