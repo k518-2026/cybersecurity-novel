@@ -19,7 +19,7 @@
 
 ---
 
-## 📚 収録エピソード一覧（第1部・第2部 全25話）
+## 📚 収録エピソード一覧（第1部・第2部 全27話）
 
 ### 第1部：高校情報科学部とサイバーセキュリティの基礎（第1話〜第15話 完結）
 
@@ -63,6 +63,8 @@
 | 23 | **闇夜の反射鏡を砕け** | 神崎 蓮, 白石 結衣, 城崎悠真TA, 芹沢准教授 | 牧田大佑准教授・吉岡克成教授らの特選論文『ダークネットとDNSハニーポットの相関分析によるDDoS事前対策』（情報処理学会特選論文 2015）、UDP送信元IP偽装、事前予兆検知 | [図解](content/figures/fig23_darknet_ddos_correlation.png) | [4コマ漫画](content/illustrations/ep23_4koma.png) | [第23話本文](content/2026-10-27_ep23_darknet_and_dns_amplification_prevention.md) |
 | 24 | **量子の嵐と格子の盾** | 白石 結衣, 神崎 蓮, 城崎悠真TA, 芹沢准教授 | 四方順司教授（NexCrypt Lab長）の耐量子計算機暗号（PQC）数理、ショアのアルゴリズム、高次元格子幾何学（ML-KEM/ML-DSA）、HNDL脅威、匿名同報認証、集約MAC | [図解](content/figures/fig24_pqc_lattice_shikata.png) | [4コマ漫画](content/illustrations/ep24_4koma.png) | [第24話本文](content/2026-10-27_ep24_pqc_lattice_cryptography_shikata_lab.md) |
 | 25 | **賢者の檻と化かす影** | 神崎 蓮, 白石 結衣, 城崎悠真TA, 芹沢准教授 | 伊藤曜助教・吉岡克成教授らの最新論文『LLMによるサンドボックス回避耐性強化支援』（CSS 2025 ICSS研究賞）、マルウェアの擬死・環境検知、LLM自律探索・擬態パッチ | [図解](content/figures/fig25_llm_sandbox_spiral.png) | [4コマ漫画](content/illustrations/ep25_4koma.png) | [第25話本文](content/2026-10-27_ep25_llm_sandbox_evasion_robustness_spiral.md) |
+| 26 | **身代金ビジネスの暗雲** | 神崎 蓮, 白石 結衣, 城崎悠真TA, 芹沢准教授 | 吉岡克成教授・インミンパパ特任准教授らの国際共同論文『LockBit 3.0の脅迫ライフサイクルと対抗動態』（RAID 2025）、RaaS分業、二重脅迫、Operation Cronos対抗動態、サイバー犯罪学 | [図解](content/figures/fig26_lockbit_extortion_lifecycle.png) | [4コマ漫画](content/illustrations/ep26_4koma.png) | [第26話本文](content/2026-10-29_ep26_lockbit_extortion_lifecycle.md) |
+| 27 | **届かぬ警告と目覚める砦** | 神崎 蓮, 白石 結衣, 城崎悠真TA, 芹沢准教授 | 佐々木貴之准教授・吉岡克成教授・松本勉上席特別教授らのトップ論文『大規模IoT診断サービスAm I Infected?からの教訓』（USENIX Security 2025）、ヒューマンファクター、Secure-by-Design | [図解](content/figures/fig27_iot_diagnostic_human_factors.png) | [4コマ漫画](content/illustrations/ep27_4koma.png) | [第27話本文](content/2026-10-29_ep27_iot_diagnostic_human_factors.md) |
 
 ---
 

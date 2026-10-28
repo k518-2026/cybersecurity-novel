@@ -1,0 +1,69 @@
+\documentclass[tikz,border=12pt]{standalone}
+\usepackage{luatexja}
+\usepackage{amsmath,amssymb}
+\usetikzlibrary{shapes.geometric,arrows.meta,positioning,calc,fit,backgrounds,shadows}
+
+\begin{document}
+\begin{tikzpicture}[
+    font=\small,
+    >=Stealth,
+    node distance=1.2cm and 1.5cm,
+    stepbox/.style={rectangle, rounded corners=4pt, draw=blue!70!black, fill=blue!5, thick, text width=3.4cm, align=center, inner sep=6pt, drop shadow},
+    barrier/.style={rectangle, rounded corners=4pt, draw=red!70!black, fill=red!6, thick, text width=3.8cm, align=center, inner sep=6pt, drop shadow},
+    solution/.style={rectangle, rounded corners=4pt, draw=teal!70!black, fill=teal!6, thick, text width=4.5cm, align=center, inner sep=6pt, drop shadow},
+    arrow/.style={->, very thick, color=blue!60!black},
+    alertarrow/.style={->, very thick, color=red!70!black},
+    solarrow/.style={->, very thick, color=teal!70!black}
+]
+
+% Title
+\node[font=\large\bfseries, text=blue!80!black] (title) at (6, 4.2) {横浜国大SPIRAL：大規模IoT診断サービス運用の教訓（USENIX Security 2025）};
+
+% Stage 1: Detection
+\node[stepbox] (scan) at (1.5, 2.5) {
+    \textbf{ステップ1: 脅威検知}\\
+    \footnotesize インターネット広域探索\\ポート開放・感染兆候検知\\(総務省NOTICE / 診断)
+};
+
+% Stage 2: Notification
+\node[stepbox] (notify) at (6, 2.5) {
+    \textbf{ステップ2: ユーザー通知}\\
+    \footnotesize ISP経由の警告メール\\Web注意喚起バナー提示\\対策手順書の案内
+};
+
+% Stage 3: Remediation
+\node[stepbox] (remedy) at (10.5, 2.5) {
+    \textbf{ステップ3: 対策・復旧}\\
+    \footnotesize パスワード変更\\ファームウェア更新\\感染マルウェアの駆除
+};
+
+% Barrier box
+\node[barrier] (human) at (6, 0.2) {
+    \textbf{現実の壁（ヒューマンファクター）}\\
+    \footnotesize ・警告を不審メールと誤認\\・管理画面の開き方が不明\\・専門用語（IP/ポート）の難解さ\\・機器EOLでパッチ未提供
+};
+
+% Success vs Dropout
+\node[barrier] (dropout) at (10.5, 0.2) {
+    \textbf{高い離脱率 (Dropout)}\\
+    \footnotesize 実際に設定変更・駆除に\\至るユーザーはごく一部\\（自己責任モデルの限界）
+};
+
+% Future solution
+\node[solution] (future) at (6, -2.5) {
+    \textbf{学術的知見から導かれた解決策（佐々木・吉岡研）}\\
+    \footnotesize ① \textbf{Secure-by-Design}: 初期PW廃止・初回強制設定\\
+    ② \textbf{自動更新}: ユーザー無操作での自動セキュリティパッチ\\
+    ③ \textbf{ネットワーク協調}: ISP側での悪性通信フィルタリング
+};
+
+% Arrows
+\draw[arrow] (scan) -- node[above, font=\scriptsize] {診断結果連携} (notify);
+\draw[arrow] (notify) -- node[above, font=\scriptsize] {対策要請} (remedy);
+\draw[alertarrow] (notify) -- (human);
+\draw[alertarrow] (human) -- (dropout);
+\draw[alertarrow] (remedy) -- (dropout);
+\draw[solarrow] (human) -- node[right, font=\scriptsize] {構造改革} (future);
+
+\end{tikzpicture}
+\end{document}

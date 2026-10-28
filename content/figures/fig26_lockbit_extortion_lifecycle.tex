@@ -1,0 +1,62 @@
+\documentclass[tikz,border=12pt]{standalone}
+\usepackage{luatexja}
+\usepackage{amsmath,amssymb}
+\usetikzlibrary{shapes.geometric,arrows.meta,positioning,calc,fit,backgrounds,shadows}
+
+\begin{document}
+\begin{tikzpicture}[
+    font=\small,
+    >=Stealth,
+    node distance=1.2cm and 1.5cm,
+    box/.style={rectangle, rounded corners=4pt, draw=blue!70!black, fill=blue!5, thick, text width=4.2cm, align=center, inner sep=7pt, drop shadow},
+    adversary/.style={rectangle, rounded corners=4pt, draw=red!70!black, fill=red!5, thick, text width=4.5cm, align=center, inner sep=7pt, drop shadow},
+    lebox/.style={rectangle, rounded corners=4pt, draw=teal!70!black, fill=teal!5, thick, text width=4.5cm, align=center, inner sep=7pt, drop shadow},
+    note/.style={rectangle, rounded corners=3pt, draw=orange!80!black, fill=orange!8, dashed, text width=4.0cm, align=center, inner sep=5pt},
+    arrow/.style={->, very thick, color=blue!60!black},
+    alertarrow/.style={->, very thick, color=red!70!black},
+    learrow/.style={->, very thick, color=teal!70!black}
+]
+
+% Title
+\node[font=\large\bfseries, text=blue!80!black] (title) at (6, 4.5) {横浜国大SPIRAL：LockBit 3.0の脅迫ライフサイクルと対抗動態（RAID 2025）};
+
+% Core Components
+\node[adversary] (raas) at (1.5, 2.5) {
+    \textbf{RaaS コア開発者 (LockBit)}\\
+    \footnotesize マルウェア本体・暗号化エンジン\\Tor上の二重脅迫リークサイト管理
+};
+
+\node[adversary] (affiliate) at (1.5, -0.2) {
+    \textbf{アフィリエイト (侵入実行犯)}\\
+    \footnotesize 標的企業への初期侵入・データ窃取\\ランサムウェア展開・身代金交渉
+};
+
+\node[box] (victim) at (7, -0.2) {
+    \textbf{被害組織 (Victim)}\\
+    \footnotesize ① データ暗号化（業務停止）\\② リークサイトでの情報公開予告\\③ 身代金交渉（チャットログ記録）
+};
+
+\node[lebox] (le) at (7, 2.5) {
+    \textbf{国際法復捜査機関 (Operation Cronos)}\\
+    \footnotesize FBI, NCA, 日本警察庁らによる\\インフラ差押・復号鍵配布・制裁
+};
+
+\node[note] (spiral) at (4.25, -3.0) {
+    \textbf{SPIRAL（吉岡・イン研究室）の長期分析}\\
+    \footnotesize リークサイト長期クローリング・交渉ログ解析\\テイクダウン後の攻撃者側のブランド再建・対抗動態の実証解明
+};
+
+% Flows
+\draw[alertarrow] (raas) -- node[left, font=\scriptsize, align=right] {ビルド配布\\身代金配分 (20\%)} (affiliate);
+\draw[alertarrow] (affiliate) -- node[above, font=\scriptsize] {侵入・二重脅迫} (victim);
+\draw[alertarrow] (raas) -- node[above, font=\scriptsize] {データ暴露・時限カウント} (victim);
+
+\draw[learrow] (le) -- node[right, font=\scriptsize, align=left] {テイクダウン\\復号鍵公開} (victim);
+\draw[learrow] (le) -- node[above, font=\scriptsize] {サーバー押収・幹部制裁} (raas);
+
+\draw[arrow, dashed] (victim) |- (spiral);
+\draw[arrow, dashed] (raas) |- (spiral);
+\draw[arrow, dashed] (le) |- (spiral);
+
+\end{tikzpicture}
+\end{document}

@@ -244,6 +244,24 @@ episodes = [
         "md_file": "2026-10-27_ep25_llm_sandbox_evasion_robustness_spiral.md",
         "illust": "ep25_4koma.png",
         "figure": "fig25_llm_sandbox_spiral.png"
+    },
+    {
+        "num": 26,
+        "id": "ep26",
+        "title": "身代金ビジネスの暗雲 〜LockBit 3.0の脅迫ライフサイクルと国際捜査の追跡〜",
+        "theme": "横浜国大SPIRAL吉岡克成教授・インミンパパ特任准教授、RAID 2025、LockBit 3.0、RaaS、二重脅迫（DLS）、Tor交渉ログ追跡、国際捜査Operation Cronosへの対抗動態、サイバー犯罪学",
+        "md_file": "2026-10-29_ep26_lockbit_extortion_lifecycle.md",
+        "illust": "ep26_4koma.png",
+        "figure": "fig26_lockbit_extortion_lifecycle.png"
+    },
+    {
+        "num": 27,
+        "id": "ep27",
+        "title": "届かぬ警告と目覚める砦 〜大規模IoT診断サービス「Am I Infected?」の真実〜",
+        "theme": "横浜国大SPIRAL佐々木貴之准教授・吉岡克成教授・松本勉上席特別教授、USENIX Security 2025、「Am I Infected?」、NOTICE、ヒューマンファクター（難解UI・パッチ手順・EOL）、Secure-by-Design",
+        "md_file": "2026-10-29_ep27_iot_diagnostic_human_factors.md",
+        "illust": "ep27_4koma.png",
+        "figure": "fig27_iot_diagnostic_human_factors.png"
     }
 ]
 

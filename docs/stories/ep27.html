@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第27話 届かぬ警告と目覚める砦 〜大規模IoT診断サービス「Am I Infected?」の真実〜 | 放課後サイバーディフェンス・ラボ</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Shippori+Mincho:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="story-header">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">トップ (目次)</a> &gt; <span>第27話</span>
+      </div>
+      <div class="story-ep-tag">Episode 27</div>
+      <h1 class="story-main-title">届かぬ警告と目覚める砦 〜大規模IoT診断サービス「Am I Infected?」の真実〜</h1>
+      <div class="story-meta">
+        <span>📚 学習テーマ: <strong>横浜国大SPIRAL佐々木貴之准教授・吉岡克成教授・松本勉上席特別教授、USENIX Security 2025、「Am I Infected?」、NOTICE、ヒューマンファクター（難解UI・パッチ手順・EOL）、Secure-by-Design</strong></span>
+        <span>🏫 登場人物: 城崎悠真（部長・高2）、橘葵（部員・高2）、芹沢涼香准教授（大学メンター）</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container story-container">
+
+    <!-- ストーリーイラスト (4コマ漫画) -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>🎨 4コマ漫画挿絵（文字なし）</h2>
+        <span class="visual-badge">AI高解像度生成</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/ep27_4koma.png" alt="第27話 ストーリーイラスト" class="responsive-img">
+        <p class="caption">▲ 【挿絵】青葉台高校 情報科学部＆帝都科学大学サイバーディフェンス・ラボでの実践シーン</p>
+      </div>
+    </section>
+
+    <!-- 4コマ漫画セリフ（日・英バイリンガル）※存在する場合 -->
+    
+            <div class="koma-script-box">
+              <div class="koma-script-header">
+                <h3>💬 4コマ漫画キャラクターセリフ (Story Dialogue Script)</h3>
+                <span class="lang-tag">日・英バイリンガル (JA / EN)</span>
+              </div>
+              <div class="koma-panels-list">
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">第1コマ 【起】</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation"><strong>蓮の楽観論：危険を通知すれば皆すぐ直す！<strong><br>「脆弱なIoTルーターが見つかったら、持ち主にメールで知らせれば即解決！」と自信満々の蓮。</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[蓮]</span> 「危ないルーターを見つけたら、持ち主に『危険ですよ』って通知を送ればすぐ直してくれるはず！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Ren]</span> "If we find a vulnerable router, sending an alert to the owner should get it fixed immediately!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">第2コマ 【承】</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation"><strong>結衣の冷静な指摘：一般人の絶望的障壁<strong><br>「専門用語だらけの管理画面や更新手順は、一般人には詐欺メールに見えたり絶望の壁です」と説く結衣。</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[結衣]</span> 「甘いです。ルーターの設定画面を開いてファームウェアを更新するのは、一般人には絶望的な壁です。」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yui]</span> "Naïve. Opening a router admin panel and updating firmware is a hopelessly daunting barrier for average users."</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">第3コマ 【転】</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation"><strong>悠真TAによるUSENIX Security論文の衝撃データ<strong><br>何十万台もの大規模診断でも改善行動を起こしたのはごく僅かだったという人間行動の現実を語る悠真。</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[悠真]</span> 「横浜国大・佐々木准教授らのUSENIX Security 2025論文『Am I Infected?』がその現実を克明に暴いたんだ。」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yuma]</span> "YNU Assoc. Prof. Sasaki's USENIX Security 2025 paper 'Am I Infected?' proved that reality with massive operational data."</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">第4コマ 【結】</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation"><strong>Secure-by-Designと誰も取り残さない砦へ<strong><br>ユーザーの自己責任に頼らず、初期出荷時から安全でネットワークが守る仕組みの重要性に目覚める二人。</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[蓮]</span> 「ユーザーに頑張らせるんじゃなく、何もしなくても安全な砦を僕たちが作らなきゃ！」<br><span class="koma-char-name">[結衣]</span> 「Secure-by-Designと社会基盤の連携……これこそ目指すべき工学ですね。」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Ren]</span> "Instead of burdening users, we need to build fortress devices that stay secure automatically!"<br><span class="koma-char-name">[Yui]</span> "Secure-by-Design paired with infrastructure collaboration... that is the engineering goal."</div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+
+    <!-- 小説本文 -->
+    <section class="novel-section">
+      <div class="section-title">
+        <h2>📖 小説本文</h2>
+      </div>
+      <div class="novel-body">
+        <p>帝都科学大学、先端セキュリティ実習室の空気は、微かなサーバーの駆動音と、数台のワークステーションから発せられる熱気で満ちていた。
+　壁一面に並んだモニターには、複雑なネットワークトポロジーの図と、無数のIoT機器から送出されるパケットのフローが映し出されている。</p>
+<p class="dialogue">「だから、僕の考えはこうなんだ」
+　神崎蓮は、白線の引かれたホワイトボードの前に立ち、拳を握りしめて強調した。
+「脆弱なデバイスを見つけたら、即座に持ち主に通知を送る。例えば、『あなたのルーターが攻撃を受けています。今すぐ設定を変えてください』ってメールやプッシュ通知を送れば、みんな危機感を持って動くはずだ。それが最もシンプルで、誰もを救える方法だよ」</p>
+<p>蓮の瞳には、純粋な正義感と技術への信頼が宿っていた。彼は、セキュリティとは「正しい情報を伝えること」だと信じていた。
+　しかし、その隣で腕を組んでいた白石結衣は、冷ややかな、しかしどこか悲劇的な眼差しで彼を見つめていた。</p>
+<p class="dialogue">「……蓮、それは『理想』の範囲の話だね」
+　結衣の声は静かだったが、その言葉には鋭い楔が含まれていた。
+「世の中のほとんどの人は、自分が使っているルーターのIPアドレスもログインパスワードも知らない。ましてや、管理画面にアクセスしてファームウェアを更新するなんていう『絶望的なハードル』を越える動機なんて、ただの警告メール一つでは生まれないよ」</p>
+<p class="dialogue">「えっ、でも……」
+　蓮が言葉を詰まらせる。</p>
+<p class="dialogue">「彼らにとって、その通知は『怪しい詐欺メール』の一種として処理される可能性が高い。あるいは、スマホの通知欄に埋もれて無視されるか。技術的な正論は、一般ユーザーの日常というノイズの中に投げ込まれた瞬間、ただのゴミになってしまうんだ」
+　結衣はモニターの一角を指さした。そこには、家庭内で放置されたままの古いスマート家電のリストが表示されている。
+「私たちは『正しいこと』を言おうとしているけれど、相手は『正しいこと』を知りたくないし、難しくて動けないだけなんだよ」</p>
+<p>✦ ✦ ✦</p>
+<p>その時、実習室の重い扉が開き、大学のTAである城崎悠真が入ってきた。彼は手元のタブレットを操作しながら、少し複雑な表情で二人の方へ歩み寄る。</p>
+<p class="dialogue">「二人の議論、いいところまで来てるね」
+　悠真はホワイトボードの横に立ち、最新の研究成果がまとめられた資料を投影した。
+「結衣の言う通りなんだ。実はその『理想と現実の乖離』こそが、今まさにセキュリティ研究の最前線で議論されているテーマなんだよ。特に、横浜国立大学のSPIRAL・佐々木准教授たちが発表した論文……USENIX Security 2025に採択された『Am I Infected?』の内容を知ると、君たちの感覚はより研ぎ澄まされるはずだ」</p>
+<p>悠真は資料を操作し、大規模な実証実験のグラフを表示させた。
+「この論文は、何十万台もの一般ユーザー機器に対する大規模なセキュリティ診断サービスを実際に運用した結果を分析したものだ。総務省のNOTICEとも連動している、非常にリアルなデータだよ」</p>
+<p>蓮と結衣は、画面に映し出された数字に息を呑んだ。
+「……これ、診断通知を送った後のユーザーの反応じゃないか？」
+　結衣が問いかける。</p>
+<p class="dialogue">「そう。衝撃的なのはここだ」
+　悠真はグラフの一点を指した。
+「脆弱性やマルウェア感染が判明し、詳細な対策手順を含めた通知を送ったとしても、実際に機器を安全に再設定したり、駆除を実行したりしたユーザーは極めて少数にとどまった。ほとんどのユーザーは、通知を受け取ったものの、具体的な行動に移ることができなかったんだ」</p>
+<p class="dialogue">「なぜ……？」
+　蓮が絶望に近い声を漏らす。</p>
+<p class="dialogue">「論文では、その障壁（バリア）をいくつか特定している」
+　悠真は淡々と、しかし重みを持って解説を続けた。
+「第一に、あまりにも難解すぎる専門用語のUI。第二に、ファームウェア更新の手順があまりに複雑で、失敗を恐れて手を出せない心理的障壁。そして第三に、機器の寿命切れ（EOL）によるパッチ不在。そもそもメーカーが更新をやめていて、ユーザー側ではどうしようもないケースだ。さらに、所有者が誰かもわからないまま放置された『死んだデバイス』も数多く含まれている」</p>
+<p>蓮は拳を握りしめ、俯いた。自分の正義が、データという名の冷徹な現実によって打ち砕かれた瞬間だった。</p>
+<p>✦ ✦ ✦</p>
+<p class="dialogue">「技術で解決できることには限界がある。でも、絶望して終わる必要はないわ」
+　背後から凛とした声が響いた。振り返ると、そこには芹沢涼香准教授が立っていた。彼女は学生たちの表情を観察するように見つめ、ゆっくりと歩み寄る。</p>
+<p class="dialogue">「蓮君、結衣さん。この論文の真の意義は、『通知を送っても動かない』という事実に落胆することじゃないわ。その『動けない理由』を工学的に解明し、社会実装の障壁を取り除くための鍵を見つけようとしていることにあるのよ」</p>
+<p>芹沢はホワイトボードに大きく「Human Factor（人間因子）」と書き込んだ。
+「サイバー防衛の最後の砦は、高度なアルゴリズムでも検知システムでもない。いかに一般市民や社会に行動変容を起こさせるかという『人間への配慮』なの。ユーザーに自己責任で守らせるのではなく、システム側がプロアクティブに動く仕組みへシフトする必要があるわ」</p>
+<p>彼女の熱い語りは、実習室の空気を一変させた。
+「例えば、ISP（インターネットサービスプロバイダ）側で、脆弱なデバイスへの通信を自動的にフィルタリングする。あるいは、ユーザーの操作を介さずに安全なアップデートを強制するバックエンドの実装。製品出荷時のデフォルト設定そのものを『セキュア・バイ・デザイン』として再定義し、パスワードの強制変更や最新プロトコルの採用を義務付ける。これらすべては、ユーザーに『頑張らせる』のではなく、ユーザーが『何もしなくても安全な状態』へ導くための設計なのよ」</p>
+<p>蓮は顔を上げた。
+「……つまり、僕たちが作るべきは、『警告を送るアプリ』じゃないってことか」</p>
+<p class="dialogue">「ええ」と芹沢は頷いた。「『警告すら必要ないほどに安全で、かつ使い勝手の良いインフラ』の構築よ。技術者としての誇りは、高度な防御壁を築くことだけじゃない。その壁の向こう側で暮らす人々の日常を守り、彼らを迷わせないための道筋を作ることにあるわ」</p>
+<p>✦ ✦ ✦</p>
+<p>実習室の明かりが、少しずつ薄れていく。
+　蓮はホワイトボードに残された「Human Factor」という文字を見つめていた。自分の楽観的な仮説は打ち砕かれた。しかし、その破片の中から新しい火花が散っていることに気づいた。</p>
+<p class="dialogue">「結衣……俺、気づいたよ」
+　蓮は隣に座る結衣を見た。
+「通知を送って『危ないよ』って叫ぶだけじゃダメなんだ。使う人が専門知識を持っていなくても、何も知らなくても、絶対に安全なハードウェアやシステムを僕たちが作らなきゃいけない。誰にも負担をかけない、透明な防衛線だ」</p>
+<p>結衣はわずかに微笑んだ。その瞳には、これまでの冷徹な分析とは違う、熱い光が宿っていた。
+「そうね。私たちの役割は、高度な数学や暗号の技術を『難解な壁』にするんじゃなくて、それを裏側に隠して、使う人を迷わせないための優しいインターフェースに落とし込むことよ」</p>
+<p>結衣は手元のタブレットを取り出し、新しいプロジェクトの設計図を描き始めた。
+「数学的に確実で、かつ人に優しいプロトコル……それこそが、この『Am I Infected?』の論文から僕たちが受け取った最大の教訓ね」</p>
+<p>二人の視線は、再びモニターへと向けられた。
+　そこにはまだ解決されていない無数の脆弱性と、守るべき数千万の日常が広がっている。
+　蓮は深く息を吸い込み、キーボードを叩き始めた。
+　届かぬ警告の代わりに、誰も気づかない場所で静かに砦を築くための、新しい航海が始まった。</p>
+<p>---</p>
+      </div>
+    </section>
+
+    <!-- TikZ 技術構造図解 -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>📊 セキュリティ構造図解 (TikZ LuaLaTeX生成)</h2>
+        <span class="visual-badge">国家安全基準・工学図解</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/fig27_iot_diagnostic_human_factors.png" alt="第27話 セキュリティ構造図解" class="responsive-img">
+        <p class="caption">▲ 【技術構造図】IPAデジタルスキル標準・国際規格に準拠した仕組みのモデル化</p>
+      </div>
+    </section>
+
+    <!-- 深掘りコラム -->
+    <section class="column-section">
+      <div class="section-title">
+        <h2>💡 高校生のためのセキュリティ深掘りコラム ＆ 大学進路ガイド</h2>
+      </div>
+      
+            <div class="column-box">
+              <h3>💡 1. IoT機器のセキュリティはなぜこれほど放置されるのか？</h3>
+              <div class="column-content">
+                <ul><p>パソコンやスマートフォンであれば、OSの自動アップデート機能やセキュリティ警告が日常的に表示されます。しかし、家庭やオフィスに設置されたWi-Fiルーター、ネットワークカメラ、スマート家電などの<strong>IoT（Internet of Things）機器</strong>は、一度電源を入れると押し入れや天井裏に何年も放置されがちです。</p>
+<li><strong>画面やキーボードがない</strong>: 機器単体では異常を伝えるディスプレイがなく、攻撃されてマルウェア（Mirai等）に感染しても普段通り通信できるため、所有者は感染に気づけません。</li>
+<li><strong>初期パスワード（admin/admin等）の放置</strong>: インターネット全体からのポートスキャンを受け、辞書攻撃で容易に乗っ取られてDDoS攻撃の踏み台（ボットネット）にされてしまいます。</li></ul>
+              </div>
+            </div>
+            
+
+            <div class="column-box">
+              <h3>💡 2. 総務省・NICT・横浜国大が挑む「NOTICE」と「Am I Infected?」</h3>
+              <div class="column-content">
+                <p>日本国内では、2019年から総務省・国立研究開発法人情報通信研究機構（NICT）・インターネットサービスプロバイダ（ISP）が連携し、サイバー攻撃に悪用される恐れのあるIoT機器を調査してユーザーに注意喚起を行う国家プロジェクト<strong>「NOTICE（National Operation towards IoT Clean Environment）」</strong>が実施されています。</p>
+<p>これと連動し、一般ユーザーが自ら「自分の機器が感染していないか」を簡単にWebブラウザから診断できるように設計・運用されたのが、横浜国立大学 SPIRALの<strong>佐々木貴之 准教授、吉岡克成 教授、松本勉 上席特別教授</strong>らが開発・実証した大規模診断プラットフォーム<strong>「Am I Infected?（私、感染していませんか？）」</strong>です。</p>
+              </div>
+            </div>
+            
+
+            <div class="column-box">
+              <h3>💡 3. 世界最高峰国際会議 USENIX Security 2025 採択論文が暴いた真実</h3>
+              <div class="column-content">
+                <ul><p>2025年、セキュリティ研究の最高峰である <strong>USENIX Security Symposium 2025</strong> に採択された論文『*Am I Infected? Lessons from Operating a Large-Scale IoT Security Diagnostic Service*』は、何十万台もの一般ユーザー環境に大規模診断と注意喚起を提供した長期運用データから、極めて重要かつ衝撃的な<strong>「ヒューマンファクター（人間行動の壁）」</strong>を明らかにしました。</p>
+<li><strong>届かぬ警告</strong>: 診断結果として「感染している」「脆弱な設定である」と明確な警告と詳細な修正マニュアルを提示しても、実際に機器の設定を変更したりファームウェアを更新して安全化に至ったユーザーは極めて限定的でした。</li>
+<li><strong>ユーザーが直面する絶望的な障壁</strong>:</li>
+<li><strong>リテラシーの壁</strong>: 「デフォルトゲートウェイ」「プライベートIP」「ポートフォワーディング」などの専門用語が理解できない。</li>
+<li><strong>心理的恐怖</strong>: 「設定画面をいじってインターネットが繋がらなくなったら困る」「この通知自体がフィッシング詐欺ではないか」という警戒心。</li>
+<li><strong>EOL（End of Life）問題</strong>: メーカーがすでにサポートを終了しており、更新用ファームウェアそのものが存在しない。</li>
+<li><strong>「自己責任」から「Secure-by-Design」への歴史的転換</strong>:</li>
+<p>この研究が世界に与えた最大の示唆は、<strong>「一般ユーザーの努力やリテラシーにセキュリティを期待するモデルは破綻している」</strong>という冷徹な実証結果です。</p>
+<p>これからのサイバーセキュリティ工学は、</p>
+<li>出荷時から安全なパスワード設定を強制する<strong>「セキュア・バイ・デザイン（Secure-by-Design）」</strong></li>
+<li>ユーザーの介在なしに安全にパッチが適用される自動更新機能</li>
+<li>ISPやネットワーク事業者側での不正通信の自動隔離・フィルタリング</li>
+<p>というように、<strong>「ユーザーが何もしなくても、意識しなくても守られる社会基盤づくり」</strong>へとパラダイムシフトしなければならないことを証明したのです。</p></ul>
+              </div>
+            </div>
+            
+    </section>
+
+    <!-- 前後ナビゲーション -->
+    <nav class="episode-nav">
+      <a href="ep26.html" class="nav-btn">← 第26話: 身代金ビジネスの暗雲 〜LockBi...</a>
+      <a href="../index.html" class="nav-btn center">目次に戻る</a>
+      <span class="nav-disabled">最新エピソード</span>
+    </nav>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 放課後サイバーディフェンス・ラボ (Cybersecurity Novel Library)</p>
+    <p>Repository: <a href="https://github.com/k518-2026/cybersecurity-novel" target="_blank" rel="noopener" style="color: var(--primary);">k518-2026/cybersecurity-novel</a></p>
+  </footer>
+
+</body>
+</html>
