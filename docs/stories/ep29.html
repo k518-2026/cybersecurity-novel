@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第29話 悪のIoTを浄化せよ 〜ISP隔離砦（Walled Garden）とMirai駆除の真実〜 | 放課後サイバーディフェンス・ラボ</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Shippori+Mincho:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="story-header">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">トップ (目次)</a> &gt; <span>第29話</span>
+      </div>
+      <div class="story-ep-tag">Episode 29</div>
+      <h1 class="story-main-title">悪のIoTを浄化せよ 〜ISP隔離砦（Walled Garden）とMirai駆除の真実〜</h1>
+      <div class="story-meta">
+        <span>📚 学習テーマ: <strong>横浜国大SPIRAL吉岡克成教授・松本勉上席特別教授、NDSS 2019 Distinguished Paper Award（最優秀論文賞）、Mirai除染実験、実網RCT、メール効果ゼロ vs Walled Garden隔離（14日で92%駆除）</strong></span>
+        <span>🏫 登場人物: 城崎悠真（部長・高2）、橘葵（部員・高2）、芹沢涼香准教授（大学メンター）</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container story-container">
+
+    <!-- ストーリーイラスト (4コマ漫画) -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>🎨 4コマ漫画挿絵（文字なし）</h2>
+        <span class="visual-badge">AI高解像度生成</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/ep29_4koma.png" alt="第29話 ストーリーイラスト" class="responsive-img">
+        <p class="caption">▲ 【挿絵】青葉台高校 情報科学部＆帝都科学大学サイバーディフェンス・ラボでの実践シーン</p>
+      </div>
+    </section>
+
+    <!-- 4コマ漫画セリフ（日・英バイリンガル）※存在する場合 -->
+    
+            <div class="koma-script-box">
+              <div class="koma-script-header">
+                <h3>💬 4コマ漫画キャラクターセリフ (Story Dialogue Script)</h3>
+                <span class="lang-tag">日・英バイリンガル (JA / EN)</span>
+              </div>
+              <div class="koma-panels-list">
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">第1コマ 【起】</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation"><strong>蓮の楽観論：感染ルーターには注意メールを送れば即解決！<strong><br>「プロバイダが感染したルーターの持ち主にメールを送れば、誰でもすぐ直してくれるはず！」と主張する蓮。</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[蓮]</span> 「Miraiに感染したルーターが見つかったら、プロバイダがメールで知らせればみんなすぐ直すでしょ！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Ren]</span> "If a router gets infected with Mirai, sending an ISP email alert will get it fixed right away!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">第2コマ 【承】</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation"><strong>結衣の冷徹な指摘：メール無視と勘違いの罠<strong><br>「メールは無視されるか、PCのウイルス対策ソフトを動かして『直った』と勘違いされるだけです」と指摘する結衣。</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[結衣]</span> 「甘いです。メールは無視され、仮に開いてもPCのアンチウイルスを動かして安心するだけです。」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yui]</span> "Naïve. Alert emails are ignored, or users just scan their PC with antivirus and assume it's fixed."</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">第3コマ 【転】</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation"><strong>悠真TAによるNDSS最優秀論文の実証データ解説<strong><br>メール通知の効果はゼロだが、ブラウザを一時隔離する「Walled Garden」なら14日で92%駆除された実績を語る悠真。</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[悠真]</span> 「吉岡教授らのNDSS 2019最優秀論文では、メールは効果ゼロ、Walled Garden隔離は92%駆除と証明されたんだ。」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yuma]</span> "Prof. Yoshioka's NDSS 2019 award-winning paper proved email had zero effect, but Walled Garden hit 92%!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">第4コマ 【結】</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation"><strong>人間を責めず、インフラの構造で守る砦へ<strong><br>ユーザーの無知を責めるのではなく、ネットワーク側で包み込んで安全へ導く真の防衛に感動する二人。</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[蓮]</span> 「ユーザーを責めるんじゃなく、ネットが優しく包んで守る仕組みなんだ！」<br><span class="koma-char-name">[結衣]</span> 「人間行動と通信インフラの融合……これが学術の到達点ですね。」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Ren]</span> "Instead of blaming users, the network gently envelops and protects them!"<br><span class="koma-char-name">[Yui]</span> "Merging human behavior with network architecture... this is the pinnacle of research."</div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+
+    <!-- 小説本文 -->
+    <section class="novel-section">
+      <div class="section-title">
+        <h2>📖 小説本文</h2>
+      </div>
+      <div class="novel-body">
+        <p>帝都科学大学、先端セキュリティ実習室の空気は、常に微かな電子機器の駆動音と、熱を帯びた空気で満たされている。
+大型モニターには、近時発生した大規模なDDoS攻撃のニュース映像が流れていた。数千台、あるいは数万台ものIoT機器が、一斉に特定のサーバーへパケットを浴びせ、公共サービスを麻痺させている。</p>
+<p class="dialogue">「……いや、これってすごく単純な解決策があると思うんだよ」</p>
+<p>神崎蓮は、モニターの前に身を乗り出して呟いた。彼の瞳には、純粋な好奇心と、少しばかりの「正義感」が宿っている。</p>
+<p class="dialogue">「プロバイダ（ISP）から、『あなたのルーターが感染していますよ』ってメールを送ればいいだけじゃない？　そうすればみんな、自分のパソコンにセキュリティソフトを入れるみたいに、ルーターも『治す』はずだよ。だって、自分の家が攻撃の加担者になってるって知ったら、誰だってびっくりするし、直したくなるでしょ」</p>
+<p>隣でノートPCを叩いていた白石結衣は、キーボードを打つ手を止め、呆れたような視線を蓮に向けた。彼女の口角が、わずかに皮肉を帯びて上がる。</p>
+<p class="dialogue">「……蓮君、それはあまりにも『人間に対する過度な信頼』に基づいた設計ね。そのメール、届くと思う？　あるいは読まれると思う？」
+「えっ、届かない……？」
+「まず、迷惑メールフォルダに振り分けられる可能性が高いわ。それに、仮に開いたとしてもね。一般のユーザーにとって『ルーターのファームウェアがMiraiウイルスに感染している』という事象は、あまりにも抽象的で高度すぎる概念なの。彼らはどう反応するか分かる？　きっとこう思うわ。『あ、私のパソコンがウイルスに感染してるんだ！』って」
+「えっ、それって……」
+「そう。彼らは自分のPCを起動して、いつものアンチウイルスソフトを走らせるわ。そして『異常なし』と表示されたのを見て、『よし、解決した』と安心する。ルーター自体がボットネットの一部になっていることには、これっぽっちも気づかないまま。結局、何も変わらないのよ」</p>
+<p>結衣の言葉は冷徹だったが、それは現場を知る者のリアリズムに基づいた指摘だった。蓮は言葉を失い、モニターに映る無数の「感染した機器」の群れを見つめ直した。</p>
+<p>✦ ✦ ✦</p>
+<p>数日後、一行は横浜国立大学SPIRALの広域ネットワーク解析室へと足を運んでいた。
+そこには、日本のサイバーセキュリティ研究の最前線を走り続ける吉岡克成教授たちの研究成果が、膨大なデータとして蓄積されている。</p>
+<p class="dialogue">「……というわけで、蓮君。君の『メールを送ればいい』という仮説は、実は世界中の研究者が一度は考えたことのある、非常に真っ当な疑問なんだ」</p>
+<p>大学のTAである城崎悠真が、プロジェクターに映し出されたグラフを指し示した。彼は神聖な研究室の空気に馴染むように、落ち着いた、しかし熱のこもった口調で語り始めた。</p>
+<p class="dialogue">「でも、それを科学的に検証したのが、吉岡教授たちのチームによるこの論文なんだ。NDSS 2019でDistinguished Paper Awardを受賞した、『Cleaning Up the Internet of Evil Things』。これは単なる理論の提示じゃない。中規模ISPと協力して、実際のネットワーク上で実施された前代未聞の実証実験なんだよ」</p>
+<p>城崎はスライドをめくった。そこには、ランダム化比較試験（RCT）の結果が示されている。</p>
+<p class="dialogue">「彼らは数万世帯という膨大なサンプルに対して、介入の有無をランダムに分けた。そして、実際に『メール通知』を送ったグループと、何もしなかったグループを比較したんだ。その結果はどうだったと思う？」</p>
+<p>城崎が次のグラフを表示させた。そこには、衝撃的な数値が並んでいた。</p>
+<p class="dialogue">「メール通知による駆除率は……統計的に有意な差なし。つまり、ほぼゼロだ。君の言った通り、ユーザーはメールを無視するか、あるいは内容を正しく理解できなかったんだ」</p>
+<p>蓮は絶句した。自分の無邪気な想像が、最先端の研究によって「否定」された瞬間だった。しかし、城崎の表情はさらに険しくなった。</p>
+<p class="dialogue">「でも、ここからがこの論文の真骨頂だ。彼らはもう一つの手法を試した。『Walled Garden（隔離庭園）』というアプローチだ」</p>
+<p>✦ ✦ ✦</p>
+<p class="dialogue">「Walled Garden……隔離庭園？」
+結衣が顔を上げた。</p>
+<p class="dialogue">「そう。キャプティブポータルという技術を使うんだ。例えば、ユーザーがブラウザを開いた瞬間、ISP側で通信を一時的にインターセプト（遮断）する。そして、強制的に『注意喚起画面』へリダイレクトさせる。ホテルのWi-Fiに接続した時に出るようなあの画面だ」</p>
+<p>城崎は熱っぽく解説を続けた。</p>
+<p class="dialogue">「その画面には、複雑な技術用語は一切書かない。『あなたのルーターの設定に問題があります。安全のためにパスワードを変更してください』という、極めてシンプルで行動を促す指示だけを表示するんだ。そして、その手順に従って操作を完了させるまで、インターネットへのアクセスを制限する」</p>
+<p>城崎が最後の一枚のスライドを映し出した。そこには、劇的な対比データがあった。</p>
+<p class="dialogue">「このWalled Garden方式を採用したグループではどうなったか。なんと、わずか14日以内に、感染機器の92%が駆除されたんだ」</p>
+<p class="dialogue">「……92%！？」
+蓮の声が震えた。メール通知がほぼゼロだったのに対し、ネットワーク側からの強制的な介入が圧倒的な成果を上げたという事実。それは、技術的な勝利であると同時に、人間心理への深い洞察の結果でもあった。</p>
+<p class="dialogue">「面白いのはここからだ」
+城崎は眼鏡のブリッジを押し上げた。
+「ユーザーのメンタルモデルを分析すると、彼らは『Walled Garden』の指示に従ってパスワードを変更し、ルーターを再起動したことで、結果的にウイルスが駆除された。でも、彼ら自身は……『ああ、あの注意画面に出てきた指示に従ったから、これで安心だ』としか思っていない。彼らが自分のPCのアンチウイルスソフトを動かして『異常なし』と出たことを、本当の解決策だと誤解している可能性すらある。つまり、ユーザーの無知や誤解を責めるのではなく、インフラ側が『正しい行動へと誘導する構造』を作ることで、結果的に安全を担保したということなんだ」</p>
+<p>✦ ✦ ✦</p>
+<p>解析室の片隅で、一日の講義を見守っていた芹沢准教授が、静かに口を開いた。</p>
+<p class="dialogue">「城崎君の言う通りよ。ボットネットの根絶という巨大な課題に対して、個人のリテラシーに依存するだけでは限界がある。人間は、複雑なことを正しく理解し、正しく行動することには、構造的な制約があるからね」</p>
+<p>彼女の声は穏やかだが、その芯には強い信念が宿っていた。</p>
+<p class="dialogue">「私たちが目指すべきは、ユーザーを教育して完璧な守護者にすることではないわ。インターネットの玄関口――ISPというインフラ層において、いかに能動的に、かつスマートに介入できるか。ネットワークレベルでのアーキテクチャによって、個人のミスや無知を『許容』しながらも、安全を確保する仕組み。それこそが、この論文が示した真の解決策なのよ」</p>
+<p>蓮は、モニターを見つめたまま動けなくなっていた。
+最初は「メールを送ればいい」という単純な正義感から始まった問いだった。しかし、目の前にあるのは、人間の弱さを直視し、それを技術とインフラの設計で包み込むという、高度に知的な優しさの形だった。</p>
+<p class="dialogue">「……すごいな」
+蓮が小さく呟いた。
+「僕たちは、ただウイルスを倒すだけじゃなくて、人の『不完全さ』を守るための仕組みを作らなきゃいけないんだね」</p>
+<p>結衣は、それを見てわずかに微笑んだ。彼女の鋭い指摘から始まった議論は、技術の深淵と人間への理解が交差する場所へと辿り着いていた。
+横浜国立大学の静かな研究室に、新たな視点を持った若者たちの熱い鼓動が響いた。</p>
+<p>---</p>
+      </div>
+    </section>
+
+    <!-- TikZ 技術構造図解 -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>📊 セキュリティ構造図解 (TikZ LuaLaTeX生成)</h2>
+        <span class="visual-badge">国家安全基準・工学図解</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/fig29_isp_walled_garden_mirai.png" alt="第29話 セキュリティ構造図解" class="responsive-img">
+        <p class="caption">▲ 【技術構造図】IPAデジタルスキル標準・国際規格に準拠した仕組みのモデル化</p>
+      </div>
+    </section>
+
+    <!-- 深掘りコラム -->
+    <section class="column-section">
+      <div class="section-title">
+        <h2>💡 高校生のためのセキュリティ深掘りコラム ＆ 大学進路ガイド</h2>
+      </div>
+      
+            <div class="column-box">
+              <h3>💡 1. 世界を震撼させた「Mirai」ボットネットの悪夢</h3>
+              <div class="column-content">
+                <p>2016年、インターネットに接続された世界中のWi-Fiルーターやネットワークカメラ、デジタルビデオレコーダー（DVR）が、マルウェア<strong>「Mirai（ミライ）」</strong>に次々と乗っ取られました。</p>
+<p>数十万台規模で形成された悪意あるボットネットは、大手DNSサービスDynやセキュリティブログに毎秒1テラビット（Tbps）を超える未曾有のDDoS攻撃を浴びせ、TwitterやNetflix、GitHubなどの主要サービスを麻痺させました。</p>
+<p>Miraiのソースコードがネット上に公開されたことで無数の亜種が誕生し、<strong>「家庭内の感染IoT機器をいかにクリーンアップ（除染）するか」</strong>が地球規模の緊急課題となりました。</p>
+              </div>
+            </div>
+            
+
+            <div class="column-box">
+              <h3>💡 2. 世界最高峰 NDSS 2019 で最優秀論文賞（Distinguished Paper Award）を受賞</h3>
+              <div class="column-content">
+                <p>2019年、セキュリティ研究の4大トップカンファレンスの一つである <strong>NDSS (Network and Distributed System Security Symposium)</strong> において、横浜国立大学 SPIRALの<strong>吉岡克成 教授</strong>、<strong>松本勉 上席特別教授</strong>、情報通信研究機構（NICT）、およびデルフト工科大学（TU Delft）の国際共同研究チームが発表した論文『*Cleaning Up the Internet of Evil Things: Real-World Evidence on ISP and Consumer Efforts to Remove Mirai*』が、全世界の応募論文の中から極めて栄誉ある<strong>「最優秀論文賞（Distinguished Paper Award）」</strong>に輝きました。</p>
+<p>本研究の画期的な点は、机上のシミュレーションではなく、<strong>実際の中規模商用ISPのネットワーク内で感染した数千台の一般家庭ルーターを対象に、医学の臨床試験と同じ「ランダム化比較試験（RCT）」を実施した</strong>点にあります。</p>
+              </div>
+            </div>
+            
+
+            <div class="column-box">
+              <h3>💡 3. データが突きつけた衝撃の事実：メール通知は「効果ゼロ」</h3>
+              <div class="column-content">
+                <ul><p>実証実験の結果は、これまでのセキュリティ業界の常識を覆すものでした：</p>
+<li><strong>メール通知の完全な無力さ</strong>:</li>
+<p>感染機器の契約者に対して「あなたのルーターが感染しています」と詳細な注意喚起メールを送ったグループと、何も通知しなかったグループ（対照群）を比較したところ、<strong>駆除成功率に統計的な有意差が全く見られませんでした（改善効果ゼロ）</strong>。警告メールは迷惑メールに埋もれるか、詐欺メールと警戒されて無視されていたのです。</p>
+<li><strong>ウォールガーデン（Walled Garden：隔離庭園）の圧倒的威力</strong>:</li>
+<p>ISPのネットワーク側で一時的にWeb通信を制御し、ユーザーがブラウザを開いた際に強制的に注意喚起ポータル（キャプティブポータル）を表示させ、画面上でパスワード変更手順を案内したグループでは、<strong>わずか14日以内に92%もの感染デバイスが安全にクリーンアップ</strong>されました。</p>
+<li><strong>消費者のメンタルモデル（誤解）の解明</strong>:</li>
+<p>追跡インタビュー調査を行ったところ、多くのユーザーは「ルーターの感染」という概念が理解できず、「手元のパソコンのアンチウイルスソフトをスキャンして再起動した」と回答していました。ユーザーが間違った認識を持っていても、<strong>ISPの隔離ポータルが強制的に注意を引き、機器の再起動や再設定を促す導線を作ったからこそ駆除が成功した</strong>のです。</p>
+<p>この研究は、「ユーザーのリテラシー向上に頼るのではなく、ISPやネットワークインフラが主体となって能動的に安全な状態へ誘導する仕組み（Walled Garden）」の重要性を世界に知らしめました。</p></ul>
+              </div>
+            </div>
+            
+    </section>
+
+    <!-- 前後ナビゲーション -->
+    <nav class="episode-nav">
+      <a href="ep28.html" class="nav-btn">← 第28話: 潜む裏口と社会インフラの防壁 〜制御...</a>
+      <a href="../index.html" class="nav-btn center">目次に戻る</a>
+      <a href="ep30.html" class="nav-btn next">第30話: 消えゆく足跡と鎖の記憶 〜DeFiト... →</a>
+    </nav>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 放課後サイバーディフェンス・ラボ (Cybersecurity Novel Library)</p>
+    <p>Repository: <a href="https://github.com/k518-2026/cybersecurity-novel" target="_blank" rel="noopener" style="color: var(--primary);">k518-2026/cybersecurity-novel</a></p>
+  </footer>
+
+</body>
+</html>

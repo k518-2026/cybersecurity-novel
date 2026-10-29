@@ -262,6 +262,33 @@ episodes = [
         "md_file": "2026-10-29_ep27_iot_diagnostic_human_factors.md",
         "illust": "ep27_4koma.png",
         "figure": "fig27_iot_diagnostic_human_factors.png"
+    },
+    {
+        "num": 28,
+        "id": "ep28",
+        "title": "潜む裏口と社会インフラの防壁 〜制御システム遠隔管理機器の死角を暴け〜",
+        "theme": "横浜国大SPIRAL佐々木貴之准教授・吉岡克成教授・松本勉上席特別教授、IEEE S&P 2022、重要インフラ遠隔管理WebUIゲートウェイ露見、従来ICSスキャンの死角、13件のゼロデイ、責任ある開示（58%是正）",
+        "md_file": "2026-10-29_ep28_exposed_ics_gateways.md",
+        "illust": "ep28_4koma.png",
+        "figure": "fig28_exposed_ics_gateways.png"
+    },
+    {
+        "num": 29,
+        "id": "ep29",
+        "title": "悪のIoTを浄化せよ 〜ISP隔離砦（Walled Garden）とMirai駆除の真実〜",
+        "theme": "横浜国大SPIRAL吉岡克成教授・松本勉上席特別教授、NDSS 2019 Distinguished Paper Award（最優秀論文賞）、Mirai除染実験、実網RCT、メール効果ゼロ vs Walled Garden隔離（14日で92%駆除）",
+        "md_file": "2026-10-29_ep29_isp_walled_garden_mirai.md",
+        "illust": "ep29_4koma.png",
+        "figure": "fig29_isp_walled_garden_mirai.png"
+    },
+    {
+        "num": 30,
+        "id": "ep30",
+        "title": "消えゆく足跡と鎖の記憶 〜DeFiトークン詐欺とオン・オフチェーン統合インテリジェンス〜",
+        "theme": "横浜国大SPIRALインミンパパ特任准教授・吉岡克成教授、NDSS MADWeb 2025、DeFiトークン詐欺・Rug Pull、オンチェーン×オフチェーン統合、DeFiIntelデータセット（3.2万トークン×55万データ）",
+        "md_file": "2026-10-29_ep30_defiintel_token_scam.md",
+        "illust": "ep30_4koma.png",
+        "figure": "fig30_defiintel_token_scam.png"
     }
 ]
 

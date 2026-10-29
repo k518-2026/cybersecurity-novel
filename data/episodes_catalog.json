@@ -322,5 +322,41 @@
     "protagonist": "神崎 蓮＆白石 結衣",
     "mentor": "城崎 悠真（TA）＆芹沢 涼香 准教授",
     "tikz_description": "大規模IoT診断「Am I Infected?」の運用知見、ユーザー行動障壁とSecure-by-Design連携図"
+  },
+  {
+    "episode_num": 28,
+    "id": "ep28_exposed_ics_gateways",
+    "title": "潜む裏口と社会インフラの防壁 〜制御システム遠隔管理機器の死角を暴け〜",
+    "theme": "横浜国大SPIRAL佐々木貴之准教授・吉岡克成教授・松本勉上席特別教授、IEEE S&P 2022論文、重要インフラ（ダム・太陽光等）の遠隔保守WebUIゲートウェイ露見、従来ICSスキャン（Modbus等）の死角、13件のゼロデイ、責任ある開示（58%是正）",
+    "dss_topic": "重要インフラ制御システム防衛・遠隔管理機器セキュリティ・責任ある脆弱性開示",
+    "news_context": "社会インフラの遠隔監視用Web機器の認証不備と、学会・官公庁・事業者連携による大規模セキュリティ改善",
+    "university_connection": "横浜国立大学 SPIRAL・佐々木研究室＆産業制御サイバーセキュリティ研究グループ",
+    "protagonist": "神崎 蓮＆白石 結衣",
+    "mentor": "城崎 悠真（TA）＆芹沢 涼香 准教授",
+    "tikz_description": "重要インフラの保守用WebUI露見、従来ICSスキャンの死角、ハニーポット攻撃観測と責任ある是正フロー図"
+  },
+  {
+    "episode_num": 29,
+    "id": "ep29_isp_walled_garden_mirai",
+    "title": "悪のIoTを浄化せよ 〜ISP隔離砦（Walled Garden）とMirai駆除の真実〜",
+    "theme": "横浜国大SPIRAL吉岡克成教授・松本勉上席特別教授、NDSS 2019 Distinguished Paper Award（最優秀論文賞）、IoTマルウェアMirai除染実験、ISPランダム化比較試験（RCT）、メール通知（効果ゼロ）vs Walled Garden隔離（14日で92%駆除）、誤ったメンタルモデル",
+    "dss_topic": "広域ボットネット除染・ISPインフラ協調防護・ユーザブルセキュリティ",
+    "news_context": "世界を震撼させたMiraiボットネットの根絶に向け、ISPと学術機関が実網で証明した画期的ネットワーク隔離アプローチ",
+    "university_connection": "横浜国立大学 SPIRAL・吉岡研究室（CyRaP Lab）＆NICT連携広域解析チーム",
+    "protagonist": "神崎 蓮＆白石 結衣",
+    "mentor": "城崎 悠真（TA）＆芹沢 涼香 准教授",
+    "tikz_description": "実稼働ISPでのMirai除染比較：メール通知（効果ゼロ） vs Walled Gardenキャプティブポータル隔離（92%駆除）"
+  },
+  {
+    "episode_num": 30,
+    "id": "ep30_defiintel_token_scam",
+    "title": "消えゆく足跡と鎖の記憶 〜DeFiトークン詐欺とオン・オフチェーン統合インテリジェンス〜",
+    "theme": "横浜国大SPIRALイン・ミンパパ特任准教授・吉岡克成教授、NDSS MADWeb 2025論文、分散型金融（DeFi）トークン詐欺・Rug Pull、オンチェーン（不変の台帳）とオフチェーン（消滅するWeb/SNS）の非対称性、DeFiIntelデータセット（3.2万トークン×55万件データ）、予兆検知",
+    "dss_topic": "Web3・暗号資産フォレンジック・DeFi詐欺予兆検知・マルチモーダルインテリジェンス",
+    "news_context": "年間数億ドルが奪われるDeFiのRug Pull詐欺に対し、消えゆくSNS・Web足跡をリアルタイム保全する最先端学術捜査",
+    "university_connection": "横浜国立大学 SPIRAL・インミンパパ研究グループ＆Web3サイバー犯罪分析チーム",
+    "protagonist": "神崎 蓮＆白石 結衣",
+    "mentor": "城崎 悠真（TA）＆芹沢 涼香 准教授",
+    "tikz_description": "DeFiトークン詐欺のオンチェーン（スマートコントラクト）×オフチェーン（消滅するWeb/SNS）統合捜査アーキテクチャ"
   }
 ]

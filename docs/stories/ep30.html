@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第30話 消えゆく足跡と鎖の記憶 〜DeFiトークン詐欺とオン・オフチェーン統合インテリジェンス〜 | 放課後サイバーディフェンス・ラボ</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Shippori+Mincho:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="story-header">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">トップ (目次)</a> &gt; <span>第30話</span>
+      </div>
+      <div class="story-ep-tag">Episode 30</div>
+      <h1 class="story-main-title">消えゆく足跡と鎖の記憶 〜DeFiトークン詐欺とオン・オフチェーン統合インテリジェンス〜</h1>
+      <div class="story-meta">
+        <span>📚 学習テーマ: <strong>横浜国大SPIRALインミンパパ特任准教授・吉岡克成教授、NDSS MADWeb 2025、DeFiトークン詐欺・Rug Pull、オンチェーン×オフチェーン統合、DeFiIntelデータセット（3.2万トークン×55万データ）</strong></span>
+        <span>🏫 登場人物: 城崎悠真（部長・高2）、橘葵（部員・高2）、芹沢涼香准教授（大学メンター）</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container story-container">
+
+    <!-- ストーリーイラスト (4コマ漫画) -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>🎨 4コマ漫画挿絵（文字なし）</h2>
+        <span class="visual-badge">AI高解像度生成</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/ep30_4koma.png" alt="第30話 ストーリーイラスト" class="responsive-img">
+        <p class="caption">▲ 【挿絵】青葉台高校 情報科学部＆帝都科学大学サイバーディフェンス・ラボでの実践シーン</p>
+      </div>
+    </section>
+
+    <!-- 4コマ漫画セリフ（日・英バイリンガル）※存在する場合 -->
+    
+            <div class="koma-script-box">
+              <div class="koma-script-header">
+                <h3>💬 4コマ漫画キャラクターセリフ (Story Dialogue Script)</h3>
+                <span class="lang-tag">日・英バイリンガル (JA / EN)</span>
+              </div>
+              <div class="koma-panels-list">
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">第1コマ 【起】</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation"><strong>蓮のブロックチェーン万能論：改ざん不能だから詐欺は起きない！<strong><br>暗号コインのホログラムを掲げ、「台帳が公開されてて絶対改ざんできないから詐欺なんてあり得ない！」と豪語する蓮。</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[蓮]</span> 「ブロックチェーンは全世界に台帳が公開されてて改ざんできないんだから、詐欺なんて起きるわけないだろ！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Ren]</span> "Blockchain records are public and immutable! There's no way anyone can pull off a scam!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">第2コマ 【承】</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation"><strong>結衣の冷徹な指摘：Rug Pullと消えゆくWebサイトの罠<strong><br>「スマートコントラクトが正しくても、資金を持ち逃げされ、宣伝サイトやSNSは一瞬で消されます」と語る結衣。</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[結衣]</span> 「甘いです。資金を集めて持ち逃げするRug Pullが多発し、宣伝WebやSNSは証拠隠滅で消滅します。」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yui]</span> "Naïve. Rug pulls drain millions, and promo websites or socials are wiped immediately to destroy evidence."</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">第3コマ 【転】</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation"><strong>悠真TAによるNDSS MADWeb論文『DeFiIntel』解説<strong><br>3.2万個のトークンと55万件の消えゆくWeb/SNSデータをリアルタイム統合したSPIRALの最先端研究を紹介する悠真。</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[悠真]</span> 「イン・ミンパパ特任准教授らのDeFiIntelは、鎖の記録と消滅する55万件のWebデータを結びつけたんだ。」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yuma]</span> "Assoc. Prof. Yin Minn Pa Pa's DeFiIntel bridged on-chain ledger data with 550,000 ephemeral web records."</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">第4コマ 【結】</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation"><strong>暗号数理と人間心理を見据える守護者へ<strong><br>数学の美しさだけでなく、人間の欲望や狡猾さにも立ち向かう真のサイバーディフェンダーとして成長を誓う二人。</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[蓮]</span> 「改ざんできない鎖の記憶と、消えゆく足跡を繋ぐ……これが最新の捜査学なんだ！」<br><span class="koma-char-name">[結衣]</span> 「暗号数理の理想と人間心理の現実……二つを極めてこそ本物の防衛者ですね。」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Ren]</span> "Linking immutable chain data with vanishing tracks... this is the future of forensics!"<br><span class="koma-char-name">[Yui]</span> "Mastering both mathematical elegance and human psychology... that is true defense."</div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+
+    <!-- 小説本文 -->
+    <section class="novel-section">
+      <div class="section-title">
+        <h2>📖 小説本文</h2>
+      </div>
+      <div class="novel-body">
+        <p>帝都科学大学、先端セキュリティ実習室。
+薄暗い室内には、高性能ワークステーションが放つ青白い光と、冷却ファンが回る微かな低周波の唸りだけが漂っていた。壁一面に並んだモニターには、複雑なトランザクションの連鎖と、流動性の推移を示すグラフが絶え間なく更新され続けている。</p>
+<p class="dialogue">「……やっぱり、ブロックチェーンって最高だな」</p>
+<p>神崎蓮は、画面を指差しながら感嘆の声を漏らした。彼の瞳には、整然と並ぶハッシュ値の列が映っている。</p>
+<p class="dialogue">「スマートコントラクトに記述されたルールに従って、すべてが自動で執行される。一度書き込まれたデータは改ざんできない。この『不変性』こそが信頼の根源なんだ。詐欺なんて、この透明な台帳の前では通用しないはずだよ。何かが起きても、すぐに証拠が見つかって、犯人は特定される。それがWeb3の理想だろ？」</p>
+<p>隣でキーボードを叩いていた白石結衣は、手元を止めずに短く鼻で笑った。彼女の視線は、別のウィンドウに表示された「Rug Pull（絨毯引き）」の事例集に向けられている。</p>
+<p class="dialogue">「蓮、それは『技術的な正しさ』と『人間の悪意』を混同してるわ」</p>
+<p>結衣は椅子を回転させ、蓮を真っ直ぐに見つめた。その表情には、冷徹なまでの現実主義が宿っている。</p>
+<p class="dialogue">「確かにブロックチェーンの台帳は改ざんできない。でも、そこに書き込まれる『内容』自体を悪意で設計されたものにしたらどうなる？ 開発者が、あらかじめ資金を引き抜くためのバックドアをスマートコントラクトに仕込んでおけば、システムは正しく『詐欺』を実行するだけよ。DeFiの世界では、偽のプロジェクトを立ち上げて投資家から資金を集め、流動性を一瞬で抜き取って逃走する『Rug Pull』が日常的に起きている。数億ドルもの資産が、この『正しいシステム』によって合法的に盗まれているのよ」</p>
+<p class="dialogue">「……でも、証拠は残るじゃないか。奪われた瞬間も記録されているんだ」</p>
+<p>蓮の反論に対し、結衣はさらに鋭く言葉を継いだ。</p>
+<p class="dialogue">「それが罠なの。オンチェーンのデータ――つまり取引の記録は永遠に残るけれど、詐欺師たちが投資家を騙すために使った『武器』は、彼らが逃げた瞬間に消滅する。公式サイト、開発者のプロフィール、宣伝に使われたX（旧Twitter）のアカウントやTelegramのグループ……これらはすべてオフチェーンの情報。資金を奪ったら、彼らは一瞬でそれらを削除する。捜査官が動き出した時には、もうそこには『無』しかない。オンチェーンとオフチェーンの間に巨大な断絶があるのよ。記録は残っても、犯人の足跡は消えてしまう。この非対称性が、今の法執行を阻んでいるの」</p>
+<p>✦ ✦ ✦</p>
+<p class="dialogue">「その『断絶』を埋めるのが、今まさに最前線で行われている研究なんです」</p>
+<p>背後から声をかけたのは、大学のTAである城崎悠真だった。彼はタブレット端末を操作しながら、最新の研究論文の要旨をプロジェクターに映し出した。</p>
+<p class="dialogue">「神崎君、白石さん。これを見てください。横浜国立大学のSPIRALチーム、イン・ミンパパ准教授や吉岡教授らが発表した最新の研究です。『DeFiIntel: A Dataset Bridging On-Chain and Off-Chain Data』。NDSS 2025のワークショップで注目された内容です」</p>
+<p>画面には、複雑なネットワーク構造と、膨大なデータポイントが結びついた図解が表示された。</p>
+<p class="dialogue">「彼らは、Ethereum上の32,144個ものDeFiトークンを網羅的に調査しました。そして重要なのは、それらと紐付いた『消えゆくオフチェーンデータ』を、詐欺が発生する前にリアルタイムで収集・アーカイブしたことです。Webサイトの構造やSNSのログなど、55万件を超える膨大なデータを統合した世界初のデータセットを構築したんです」</p>
+<p>悠真は熱を帯びた眼差しで説明を続けた。</p>
+<p class="dialogue">「これにより、詐欺師がどのようなプロセスで宣伝を行い、どのタイミングで流動性を引き抜いたかという『ライフサイクル』を可視化できるようになった。オンチェーンの『鎖の記憶』と、消えゆくオフチェーンの『残像』を一つに繋ぎ合わせたことで、単なる事後調査ではなく、詐欺の予兆を検知するインテリジェンスが可能になるんです」</p>
+<p>蓮は画面に映し出された膨大な数の羅列を見つめ、言葉を失った。それは彼が信じていた「ブロックチェーンの聖域」の外側に広がる、泥沼のような情報の戦場だった。</p>
+<p>✦ ✦ ✦</p>
+<p class="dialogue">「技術的な美しさに目を奪われるのは良いことよ。でも、サイバーディフェンダーを目指すなら、その美しさが悪意によって利用される構造を理解しなければならないわ」</p>
+<p>実習室の入り口に立っていた芹沢涼香准教授が、静かに歩み寄ってきた。彼女の存在感は、重厚な学術的権威と、現場を支える技術者の鋭さを併せ持っていた。</p>
+<p class="dialogue">「数学的に完璧なスマートコントラクトを解析するだけでは、現代の詐欺を防ぐことはできない。人間を騙すためのソーシャルな足跡――つまりオフチェーンの動向までを網羅するマルチモーダルなインテリジェンスが必要なの。DeFiIntelの研究が示しているのは、データは『繋がっている』という事実よ。断絶していると思われていたオン・オフチェーンの境界線は、高度な分析技術によって橋渡しができるようになった」</p>
+<p>芹沢は蓮の隣に立ち、モニターを指差した。</p>
+<p class="dialogue">「詐欺師は巧妙です。彼らは心理学を使い、SNSで熱狂を生み出し、Webサイトで偽りの信頼を築く。その『人間心理の狡猾さ』を捉えるためのデータこそが、防衛のための最前線になる。蓮君、あなたが信じたブロックチェーンの透明性は正しい。でも、その透明な台帳の周りには、常に影が潜んでいることを忘れてはいけないわ」</p>
+<p>蓮は自分の手を見つめた。そこには、コードを書くためのキーボードと、複雑な数式を解くための知性が宿っている。しかし、それだけでは足りない。</p>
+<p class="dialogue">「……オンチェーンの記録だけじゃなくて、消えゆく足跡も追いかけなきゃいけないのか」</p>
+<p>蓮の声は低く、しかし確かな決意を含んでいた。</p>
+<p class="dialogue">「そうよ」と結衣が応えた。彼女の表情には、共鳴するような色が浮かんでいた。「数学の美しさと、人間の狡猾さ。その両方を射抜かない限り、私たちは守りきれない」</p>
+<p>✦ ✦ ✦</p>
+<p>実習室の外では、横浜の夜景が静かに輝いていた。しかし、彼らの目の前にあるのは、その輝きの裏側に潜む複雑なデータの奔流だ。</p>
+<p>蓮は再びモニターに向き直った。今度は、単なる「改ざんできない台帳」としてのブロックチェーンではなく、広大な情報の海の中で失われる証拠をいかに繋ぎ止め、保護するかという視点を持って。</p>
+<p class="dialogue">「……やるしかないな。この『鎖の記憶』を、誰も消せない防壁に変えるために」</p>
+<p>蓮の言葉に、結衣が小さく頷いた。</p>
+<p>二人の視線は、再び加速するデータの波へと注がれた。それは、最先端のテクノロジーと人間の知恵を融合させ、デジタル空間の正義を守るための、長く険しい旅の始まりだった。</p>
+<p>彼らはサイバーディフェンダーとしての第一歩を踏み出した。数学的な純粋さと、現実の泥臭い人間心理。その両方を統合するインテリジェンスの地平へ。</p>
+<p>---</p>
+      </div>
+    </section>
+
+    <!-- TikZ 技術構造図解 -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>📊 セキュリティ構造図解 (TikZ LuaLaTeX生成)</h2>
+        <span class="visual-badge">国家安全基準・工学図解</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/fig30_defiintel_token_scam.png" alt="第30話 セキュリティ構造図解" class="responsive-img">
+        <p class="caption">▲ 【技術構造図】IPAデジタルスキル標準・国際規格に準拠した仕組みのモデル化</p>
+      </div>
+    </section>
+
+    <!-- 深掘りコラム -->
+    <section class="column-section">
+      <div class="section-title">
+        <h2>💡 高校生のためのセキュリティ深掘りコラム ＆ 大学進路ガイド</h2>
+      </div>
+      
+            <div class="column-box">
+              <h3>💡 1. Web3・DeFi（分散型金融）で多発する「Rug Pull（絨毯引き）」とは？</h3>
+              <div class="column-content">
+                <ul><p>ビットコインやイーサリアムに代表されるブロックチェーン技術は、「取引台帳が分散管理され、一度刻まれたデータは絶対に改ざんできない」という画期的な特性を持っています。</p>
+<p>しかし、中央管理者のいない<strong>分散型金融（DeFi: Decentralized Finance）</strong>の普及に伴い、悪意ある開発者が自作の偽トークンを発行して投資家を欺く詐欺が急増しています。代表例が<strong>「Rug Pull（ラグプル：足元の絨毯を勢いよく引き抜く詐欺）」</strong>です。</p>
+<li><strong>手口</strong>: 「将来価値が100倍になる画期的な暗号資産」と偽り、きらびやかな公式サイトやX（旧Twitter）、Telegram、Discordで大々的に宣伝（ハイプ）して資金（流動性）を集めます。</li>
+<li><strong>持ち逃げ</strong>: 投資家の買いが集まって価格が上がった瞬間、開発者がスマートコントラクト内の流動性プールから資金を一気に引き抜いて雲隠れします。残されたトークンは一瞬で無価値（ゼロ）になり、世界中で年間数億ドルもの被害が発生しています。</li></ul>
+              </div>
+            </div>
+            
+
+            <div class="column-box">
+              <h3>💡 2. 捜査と防犯を阻む「オンチェーンとオフチェーンの非対称性」</h3>
+              <div class="column-content">
+                <ul><p>DeFi詐欺の調査における最大の障壁は、<strong>「残るデータ」と「消えるデータ」のギャップ</strong>にあります：</p>
+<li><strong>オンチェーン（On-Chain）データ</strong>: ブロックチェーン上のスマートコントラクトのプログラムコード（バイトコード）や送金履歴。これらは永久に残り、世界中誰でも閲覧可能です。</li>
+<li><strong>オフチェーン（Off-Chain）データ</strong>: 詐欺師が投資家を信じ込ませるために作成した「プロジェクト公式サイト」「ホワイトペーパー」「開発チームの経歴」「SNSの投稿やコミュニティチャット」。</li>
+<p>詐欺師は資金を持ち逃げした直後、<strong>自らのWebサイトを閉鎖し、SNSアカウントを即座に削除・非公開化（証拠隠滅）</strong>してしまいます。被害が発生した後に警察や研究者が調査しようとしても、肝心の「どのように人間を騙したのか」というオフチェーンの証拠はインターネット上から完全に消滅してしまっているのです。</p></ul>
+              </div>
+            </div>
+            
+
+            <div class="column-box">
+              <h3>💡 3. 横浜国大 SPIRAL が挑んだ世界初の統合データセット「DeFiIntel」（NDSS MADWeb 2025）</h3>
+              <div class="column-content">
+                <ul><p>2025年、国際シンポジウム NDSS 2025 併設のワークショップ <strong>MADWeb (Workshop on Measurements, Attacks, and Defenses for the Web)</strong> において、横浜国立大学 SPIRALの<strong>イン・ミンパパ 特任准教授</strong>、<strong>吉岡克成 教授</strong>、鈴木伊織 氏らの研究チームは、この未解決問題に決定的なブレークスルーをもたらす論文『*DeFiIntel: A Dataset Bridging On-Chain and Off-Chain Data for DeFi Token Scam Investigation*』を発表しました。</p>
+<li><strong>リアルタイム網羅収集</strong>: イーサリアム（Ethereum）ブロックチェーン上で新規にデプロイされた<strong>32,144個のDeFiトークン</strong>をリアルタイムで追跡。</li>
+<li><strong>55万件超のオフチェーンフットプリントを保全</strong>: トークン生成と同時に、関連するプロジェクトWebサイトのHTMLやスクリーンショット、XやTelegramの投稿など<strong>55万点以上のオフチェーンデータを消え去る前にアーカイブ</strong>しました。</li>
+<li><strong>マルチモーダル・インテリジェンスの確立</strong>: 「スマートコントラクトのバイトコード（数理的特徴）」と「マーケティング用Web・SNSデータ（ソーシャルな騙しの特徴）」を結びつけることで、詐欺トークンが資金を抜くまでの戦術的ライフサイクルや行動パターンを解明。事後捜査の決定的な電子的証拠を提供するだけでなく、<strong>詐欺が実行される前の「予兆検知」を可能にする世界初の基盤</strong>を築き上げました。</li>
+<p>数学的なコードの正しさだけでは防げない「人間の騙しの心理」に対し、多角的なデータ統合で立ち向かう大学先端研究の真骨頂です。</p></ul>
+              </div>
+            </div>
+            
+    </section>
+
+    <!-- 前後ナビゲーション -->
+    <nav class="episode-nav">
+      <a href="ep29.html" class="nav-btn">← 第29話: 悪のIoTを浄化せよ 〜ISP隔離砦...</a>
+      <a href="../index.html" class="nav-btn center">目次に戻る</a>
+      <span class="nav-disabled">最新エピソード</span>
+    </nav>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 放課後サイバーディフェンス・ラボ (Cybersecurity Novel Library)</p>
+    <p>Repository: <a href="https://github.com/k518-2026/cybersecurity-novel" target="_blank" rel="noopener" style="color: var(--primary);">k518-2026/cybersecurity-novel</a></p>
+  </footer>
+
+</body>
+</html>

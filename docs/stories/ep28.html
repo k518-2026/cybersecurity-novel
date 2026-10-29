@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第28話 潜む裏口と社会インフラの防壁 〜制御システム遠隔管理機器の死角を暴け〜 | 放課後サイバーディフェンス・ラボ</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Shippori+Mincho:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="story-header">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">トップ (目次)</a> &gt; <span>第28話</span>
+      </div>
+      <div class="story-ep-tag">Episode 28</div>
+      <h1 class="story-main-title">潜む裏口と社会インフラの防壁 〜制御システム遠隔管理機器の死角を暴け〜</h1>
+      <div class="story-meta">
+        <span>📚 学習テーマ: <strong>横浜国大SPIRAL佐々木貴之准教授・吉岡克成教授・松本勉上席特別教授、IEEE S&amp;P 2022、重要インフラ遠隔管理WebUIゲートウェイ露見、従来ICSスキャンの死角、13件のゼロデイ、責任ある開示（58%是正）</strong></span>
+        <span>🏫 登場人物: 城崎悠真（部長・高2）、橘葵（部員・高2）、芹沢涼香准教授（大学メンター）</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container story-container">
+
+    <!-- ストーリーイラスト (4コマ漫画) -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>🎨 4コマ漫画挿絵（文字なし）</h2>
+        <span class="visual-badge">AI高解像度生成</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/ep28_4koma.png" alt="第28話 ストーリーイラスト" class="responsive-img">
+        <p class="caption">▲ 【挿絵】青葉台高校 情報科学部＆帝都科学大学サイバーディフェンス・ラボでの実践シーン</p>
+      </div>
+    </section>
+
+    <!-- 4コマ漫画セリフ（日・英バイリンガル）※存在する場合 -->
+    
+            <div class="koma-script-box">
+              <div class="koma-script-header">
+                <h3>💬 4コマ漫画キャラクターセリフ (Story Dialogue Script)</h3>
+                <span class="lang-tag">日・英バイリンガル (JA / EN)</span>
+              </div>
+              <div class="koma-panels-list">
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">第1コマ 【起】</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation"><strong>蓮の過信：インフラは専用線で隔離されてるから安全！<strong><br>ダムやメガソーラーの写真を見ながら「Modbusとか専用線で固められてるからハッキングなんて無理！」と豪語する蓮。</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[蓮]</span> 「ダムや発電所なんて専用回線と特殊プロトコルで隔離されてるんだから、外部から侵入されるわけないだろ！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Ren]</span> "Dams and power plants are isolated with dedicated lines and protocols! There's no way anyone can hack in!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">第2コマ 【承】</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation"><strong>結衣の冷徹な指摘：保守用Webゲートウェイの死角<strong><br>「保守業者が遠隔操作するためにつけた安価なWebUIが、認証なしで世界中に公開されています」と指摘する結衣。</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[結衣]</span> 「甘いです。保守業者が便利だからと付けたWeb管理ゲートウェイが、認証もなしにネットへ丸見えなんです。」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yui]</span> "Naïve. Cheap WebUI gateways added for maintenance convenience are exposed to the internet with zero auth."</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">第3コマ 【転】</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation"><strong>悠真TAによるIEEE S&P論文の衝撃データ解説<strong><br>国内だけで890台の露見機器と13件のゼロデイを発見し、ハニーポットで攻撃者を追跡したSPIRALの研究を紹介する悠真。</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[悠真]</span> 「佐々木准教授らのIEEE S&P 2022論文では、国内だけで890台の露見ゲートウェイと13件のゼロデイを暴いたんだ。」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yuma]</span> "Assoc. Prof. Sasaki's IEEE S&P 2022 paper uncovered 890 exposed gateways in Japan and 13 zero-days."</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">第4コマ 【結】</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation"><strong>泥臭い社会連携と責任ある開示の価値へ<strong><br>電話とメールで212事業者に連絡し58%を是正した実績に感銘を受け、現場に寄り添う真の防衛を誓う二人。</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[蓮]</span> 「論文を書くだけじゃなく、212の事業者に電話して58%も直したなんて……本物の砦づくりだ！」<br><span class="koma-char-name">[結衣]</span> 「学術が社会インフラを直接守る……これこそ工学の誇りですね。」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Ren]</span> "They didn't just write a paper—they contacted 212 operators and fixed 58%! That's true defense!"<br><span class="koma-char-name">[Yui]</span> "Academia directly shielding critical infrastructure... that is the pride of engineering."</div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+
+    <!-- 小説本文 -->
+    <section class="novel-section">
+      <div class="section-title">
+        <h2>📖 小説本文</h2>
+      </div>
+      <div class="novel-body">
+        <p>帝都科学大学、先端セキュリティ実習室。
+壁一面に並んだ大型モニターには、巨大なダムの放流映像や、整然と並ぶ太陽光パネルの群れ、そして複雑な配線が張り巡らされたビル管理システムの設計図が映し出されていた。</p>
+<p class="dialogue">「……やっぱり、これだけ巨大なインフラなら安心だよね」</p>
+<p>神崎蓮は、モニターに映るダムの重厚な構造を見つめながら、満足げに頷いた。彼はIoT班の主力として、これまで多くのスマートデバイスを解析してきたが、その自信は今日、確信に近いものへと昇華していた。</p>
+<p class="dialogue">「ModbusやBACnetといった専用プロトコルで、物理的にも論理的にも隔離されたネットワークだ。外部からこの『本丸』に直接アクセスするなんて、映画の中のハッカーのような非現実的な話だよ。僕たちが守らなきゃいけないのは、こういう鉄壁の要塞なんだ」</p>
+<p>蓮の言葉には、技術への純粋な信頼がこもっていた。彼にとって、産業制御システム（ICS）は高度な専門知識を持つ者だけが触れられる聖域であり、一般のインターネット空間とは切り離された「安全な島」のように思えていた。</p>
+<p>しかし、隣で腕を組んでモニターを凝視していた白石結衣は、わずかに眉を潜めた。彼女は暗号数理班として、システムの構造よりもその「隙間」を見抜くことに長けている。</p>
+<p class="dialogue">「……蓮、それは『理想的な設計図』を見てるだけよ」</p>
+<p>結衣の声は低く、しかし鋭く響いた。彼女はリモコンを操作し、ある特定の機器のWeb管理インターフェースのスクリーンショットを表示させた。</p>
+<p class="dialogue">「ダムや発電所そのものは確かに隔離されてるかもしれない。でも、現場の保守員はどうやって遠隔で状況をチェックすると思ってる？ 毎日現場まで通うわけじゃない。彼らは利便性のために『勝手口』を作ったのよ」</p>
+<p>画面には、簡素ながらも機能的なWebUIが表示された機器の画像があった。</p>
+<p class="dialogue">「このリモートゲートウェイを見て。保守業者がブラウザから操作できるように設置した、汎用的なWeb管理インターフェース。これがインターネットに直接晒されているケースがあるの。しかも、認証すら不完全なまま放置されてるものも。蓮、あなたが『本丸』を誇っている間に、彼らは庭の勝手口を全開にして鍵をかけてないのよ」</p>
+<p class="dialogue">「……勝手口？」
+蓮の顔から余裕が消えた。結衣の指摘は、彼の「鉄壁の要塞」という幻想を鮮やかに打ち砕いた。</p>
+<p>✦ ✦ ✦</p>
+<p class="dialogue">「それこそが、現在のセキュリティにおける『盲点（Blind Spot）』なんです」</p>
+<p>実習室の奥にある講義用デスクに立ったのは、大学1年生でありながらTAを務める城崎悠真だった。彼は手元のタブレットを操作し、最新の研究論文を投影した。</p>
+<p class="dialogue">「一般的な脆弱性スキャナー、例えばShodanやCensysといったツールは非常に強力です。しかし、それらは主にModbusやBACnetといった特定の産業用プロトコル、あるいは特定のポート番号をターゲットに検索を行います。そのため、HTTPやHTTPSのWebUIで動いている『保守用機器』は、それらのスキャナーの網をすり抜けてしまうんです」</p>
+<p>城崎は投影された論文のタイトルを強調した。
+『Exposed Infrastructures: Discovery, Attacks and Remediation of Insecure ICS Remote Management Devices』。</p>
+<p class="dialogue">「これは横浜国立大学のSPIRALチーム、佐々木貴之准教授らが発表したIEEE S&amp;P 2022の論文です。彼らは独自のWebUIシグネチャ識別手法を開発し、産業用機器の『隠れた勝手口』をあぶり出しました。驚くべきことに、日本国内だけで890台もの露見機器を発見しているんです」</p>
+<p>蓮と結衣は、その数字の大きさに息を呑んだ。</p>
+<p class="dialogue">「さらに、彼らは発見した機器の中から3機種を精査し、13件ものゼロデイ脆弱性を特定しました。これは、まだ誰も修正法を知らない『未知の穴』です。彼らはこの事実を隠すことなく、研究成果として公表したんです」</p>
+<p>城崎は論文内のグラフを指し示した。そこには、攻撃者の行動に関する生々しいデータが記されていた。</p>
+<p class="dialogue">「特に興味深いのはハニーポット実験の結果です。研究チームは、施設名や現在の発電状況、水圧などがリアルに表示される『リッチなWebUI』を持つハニーポットを設置しました。すると、それら視覚的に『本物らしい』情報が表示される機器ほど、攻撃者の介入頻度が劇的に跳ね上がったんです」</p>
+<p class="dialogue">「……見た目が豪華なほど、攻撃者を引き寄せるってこと？」
+結衣が問いかける。</p>
+<p class="dialogue">「その通りです。攻撃者は『ここなら操作できる』という確信を視覚的なUIから得てしまい、実際にパラメータの改ざんや不正アクセスを試みる頻度が高まった。つまり、ユーザーにとって便利なインターフェースが、攻撃者にとっては『標的としての魅力』を増幅させてしまうという皮肉な現象です」</p>
+<p>✦ ✦ ✦</p>
+<p>実習室の扉が開き、一人の女性が入ってきた。
+横浜国立大学の芹沢涼香准教授だ。彼女は凛とした佇まいで、学生たちの前に立った。</p>
+<p class="dialogue">「城崎君、素晴らしい解説をありがとう。そして蓮君、結衣さん。今のデータを見てどう感じたかしら」</p>
+<p>芹沢は穏やかな、しかし重みのある声で問いかけた。
+蓮は言葉を失っていた。自分が信じていた「技術的な隔離」という防壁が、いかに脆く、人間の利便性という名の隙間に依存していたかを突きつけられていたからだ。</p>
+<p class="dialogue">「重要インフラの防御において、最も重要なのは『本丸の堅牢さ』だけではありません。それ以上に重要なのは、保守運用のために付けられた『勝手口』に対するガバナンスです」
+芹沢はホワイトボードに大きな円を描き、その外側に小さな門を書き込んだ。</p>
+<p class="dialogue">「技術者は完璧なシステムを作ろうとしますが、現場の人間は『動くこと』、そして『便利であること』を求めます。この乖離から生まれる隙間こそが、現代のサイバーセキュリティにおける最大の課題です。SPIRALチームが行ったのは、単なる脆弱性の指摘ではありません」</p>
+<p>彼女は論文の最終章に近いスライドを映した。そこには「Responsible Disclosure（責任ある開示）」という文字があった。</p>
+<p class="dialogue">「彼らは発見した890台の機器の所有者に対し、電話やメールで直接連絡を取りました。212の事業者に対して、個別に事実を伝え、修正を促したのです。その結果、58%の機器で安全化が達成されました。これは学術的な研究が、机上の空論を超えて、現実の社会インフラの防壁を修復した実例です」</p>
+<p>結衣は拳を握りしめた。
+「……ただ穴を見つけるだけじゃなくて、泥臭く、当事者と向き合って塞いでいく。それが『守る』ということなのね」</p>
+<p>蓮もまた、モニターに映るダムの映像を再び見た。先ほどまで見えていたのは「鉄壁の要塞」だったが、今はその背後に隠れた、誰かが残した小さな鍵の穴が見えている。</p>
+<p class="dialogue">「……僕たちは、技術の深さを追求するだけじゃダメなんだ。その技術が、実際の現場でどう使われ、誰がそれを支えているのか。それまで寄り添って、責任を持って穴を塞いでいく勇気が必要なんだな」</p>
+<p>蓮の言葉に、結衣は小さく頷いた。
+帝都科学大学の実習室に、静かな、しかし熱を帯びた決意が漂った。彼らの目指すべき道は、数式やコードの向こう側にある、生身の社会を守るための地道な闘いへと、その輪郭を鮮明に変えていた。</p>
+<p>---</p>
+      </div>
+    </section>
+
+    <!-- TikZ 技術構造図解 -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>📊 セキュリティ構造図解 (TikZ LuaLaTeX生成)</h2>
+        <span class="visual-badge">国家安全基準・工学図解</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/fig28_exposed_ics_gateways.png" alt="第28話 セキュリティ構造図解" class="responsive-img">
+        <p class="caption">▲ 【技術構造図】IPAデジタルスキル標準・国際規格に準拠した仕組みのモデル化</p>
+      </div>
+    </section>
+
+    <!-- 深掘りコラム -->
+    <section class="column-section">
+      <div class="section-title">
+        <h2>💡 高校生のためのセキュリティ深掘りコラム ＆ 大学進路ガイド</h2>
+      </div>
+      
+            <div class="column-box">
+              <h3>💡 1. 「重要インフラは隔離されている」という神話の崩壊</h3>
+              <div class="column-content">
+                <p>電力、水道、鉄道、大型商業ビルなどの<strong>産業制御システム（ICS: Industrial Control Systems / SCADA）</strong>は、かつてはインターネットから物理的に切り離された「エアギャップ環境」にあると信じられていました。</p>
+<p>しかし、人手不足や維持管理コスト削減、広域監視の必要性から、全国各地に点在するメガソーラー（太陽光発電所）や浄水設備、ビルの空調管理装置に<strong>「遠隔監視・保守用ゲートウェイ機器」</strong>が後付けされるケースが急増しています。</p>
+              </div>
+            </div>
+            
+
+            <div class="column-box">
+              <h3>💡 2. 従来型スキャナーが完全に見落としていた「死角（Blind Spot）」</h3>
+              <div class="column-content">
+                <p>サイバー空間の脅威調査では、ShodanやCensysといった検索エンジンが活用されますが、従来のICS調査は<strong>Modbus（ポート502）やBACnet（ポート47808）</strong>といった専用産業プロトコルばかりを対象にしていました。</p>
+<p>しかし、現場の保守員が使いやすいように設置されたゲートウェイは、<strong>通常のWebブラウザ（HTTP/HTTPS）で動くWebUI</strong>を備えています。専用プロトコルのシグネチャを持たないため、従来のセキュリティ監視ツールからは完全に「ノーマークの死角」となっていたのです。</p>
+              </div>
+            </div>
+            
+
+            <div class="column-box">
+              <h3>💡 3. 横浜国大・佐々木准教授らが切り拓いた画期的成果（IEEE S&amp;P 2022）</h3>
+              <div class="column-content">
+                <ul><p>セキュリティ研究の世界最高峰国際会議 <strong>IEEE Symposium on Security and Privacy (S&P 2022)</strong> に採択された横浜国立大学 SPIRALの論文『*Exposed Infrastructures: Discovery, Attacks and Remediation of Insecure ICS Remote Management Devices*』は、この盲点に世界で初めて科学的なメスを入れました。</p>
+<li><strong>WebUIシグネチャによる独自探索</strong>: 機器特有のHTML構造やファビコン、APIレスポンスの特徴を捉える探索技術を開発し、<strong>日本国内だけで890台もの制御用遠隔ゲートウェイがインターネット上に直接露見している</strong>ことを突き止めました。</li>
+<li><strong>13件のゼロデイ脆弱性を特定</strong>: 普及している代表的3機種を詳細にリバースエンジニアリングした結果、<strong>未認証で内部制御コマンドを送信できる脆弱性を含む13件のゼロデイ脆弱性</strong>を発見し、製造元（ベンダー）へ責任ある開示（CVD）を行ってパッチ開発を支援しました。</li>
+<li><strong>高対話ハニーポットによる攻撃者観測</strong>: 実機を模倣したハニーポットをネット上に公開したところ、施設名や発電ログが具体的に表示されるリッチな画面ほど攻撃者の介入が激増し、実際に不正なパラメータ書き換えが試みられることを実証しました。</li>
+<li><strong>学術から社会実装へ（58%の改善達成）</strong>: 研究チームは論文執筆にとどまらず、露見していた<strong>317台の管理事業者へ電話やメールで連絡を行い、212の組織と直接対話</strong>。追跡調査の結果、連絡が取れた組織の<strong>58%で機器の隔離やパスワード設定などの安全化措置が完了</strong>したことを確認しました。大学研究が社会のインフラ事故を未然に防いだ金字塔です。</li></ul>
+              </div>
+            </div>
+            
+    </section>
+
+    <!-- 前後ナビゲーション -->
+    <nav class="episode-nav">
+      <a href="ep27.html" class="nav-btn">← 第27話: 届かぬ警告と目覚める砦 〜大規模Io...</a>
+      <a href="../index.html" class="nav-btn center">目次に戻る</a>
+      <a href="ep29.html" class="nav-btn next">第29話: 悪のIoTを浄化せよ 〜ISP隔離砦... →</a>
+    </nav>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 放課後サイバーディフェンス・ラボ (Cybersecurity Novel Library)</p>
+    <p>Repository: <a href="https://github.com/k518-2026/cybersecurity-novel" target="_blank" rel="noopener" style="color: var(--primary);">k518-2026/cybersecurity-novel</a></p>
+  </footer>
+
+</body>
+</html>

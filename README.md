@@ -19,7 +19,7 @@
 
 ---
 
-## 📚 収録エピソード一覧（第1部・第2部 全27話）
+## 📚 収録エピソード一覧（第1部・第2部 全30話）
 
 ### 第1部：高校情報科学部とサイバーセキュリティの基礎（第1話〜第15話 完結）
 
@@ -53,7 +53,7 @@
 | 19 | **秘密を明かさぬ計算** | 白石 結衣, 神崎 蓮, 城崎悠真TA, 芹沢准教授 | プライバシー強化技術（PETs）、完全準同型暗号（FHE：暗号化したまま演算）、差分プライバシー（DP）、秘密計算 | [図解](content/figures/fig19_privacy_enhancing_tech.png) | [4コマ漫画](content/illustrations/ep19_4koma.png) | [第19話本文](content/2026-10-26_ep19_privacy_enhancing_technologies.md) |
 | 20 | **走るネットワークと灯火の防衛** | 神崎 蓮, 白石 結衣, 城崎悠真TA, 芹沢准教授 | 第2部前半完結、産業制御システム（OT/SCADA）可用性最優先、コネクテッドカー（CANバス）、国連UN-R155、SecOC | [図解](content/figures/fig20_ot_scada_automotive.png) | [4コマ漫画](content/illustrations/ep20_4koma.png) | [第20話本文](content/2026-10-26_ep20_ot_scada_and_automotive_security.md) |
 
-#### 【後半：大学先端研究の扉 〜横浜国大SPIRAL論文探訪〜（第21話〜第25話）】
+#### 【後半：大学先端研究の扉 〜横浜国大SPIRAL論文探訪〜（第21話〜第30話）】
 *(参照・協力：[横浜国立大学 サイバーセキュリティ実践教育研究センター SPIRAL](https://spiral.ynu.ac.jp/))*
 
 | 話数 | タイトル | 主人公・登場人物 | 学習テーマ・探訪論文 | 図解 (TikZ) | 挿絵 (Draw Things 4コマ) | 原稿 (Markdown) |
@@ -65,6 +65,9 @@
 | 25 | **賢者の檻と化かす影** | 神崎 蓮, 白石 結衣, 城崎悠真TA, 芹沢准教授 | 伊藤曜助教・吉岡克成教授らの最新論文『LLMによるサンドボックス回避耐性強化支援』（CSS 2025 ICSS研究賞）、マルウェアの擬死・環境検知、LLM自律探索・擬態パッチ | [図解](content/figures/fig25_llm_sandbox_spiral.png) | [4コマ漫画](content/illustrations/ep25_4koma.png) | [第25話本文](content/2026-10-27_ep25_llm_sandbox_evasion_robustness_spiral.md) |
 | 26 | **身代金ビジネスの暗雲** | 神崎 蓮, 白石 結衣, 城崎悠真TA, 芹沢准教授 | 吉岡克成教授・インミンパパ特任准教授らの国際共同論文『LockBit 3.0の脅迫ライフサイクルと対抗動態』（RAID 2025）、RaaS分業、二重脅迫、Operation Cronos対抗動態、サイバー犯罪学 | [図解](content/figures/fig26_lockbit_extortion_lifecycle.png) | [4コマ漫画](content/illustrations/ep26_4koma.png) | [第26話本文](content/2026-10-29_ep26_lockbit_extortion_lifecycle.md) |
 | 27 | **届かぬ警告と目覚める砦** | 神崎 蓮, 白石 結衣, 城崎悠真TA, 芹沢准教授 | 佐々木貴之准教授・吉岡克成教授・松本勉上席特別教授らのトップ論文『大規模IoT診断サービスAm I Infected?からの教訓』（USENIX Security 2025）、ヒューマンファクター、Secure-by-Design | [図解](content/figures/fig27_iot_diagnostic_human_factors.png) | [4コマ漫画](content/illustrations/ep27_4koma.png) | [第27話本文](content/2026-10-29_ep27_iot_diagnostic_human_factors.md) |
+| 28 | **潜む裏口と社会インフラの防壁** | 神崎 蓮, 白石 結衣, 城崎悠真TA, 芹沢准教授 | 佐々木貴之准教授・吉岡克成教授・松本勉上席特別教授らのトップ論文『重要インフラ遠隔管理Web機器の露見と是正』（IEEE S&P 2022）、従来ICSスキャン死角、13件のゼロデイ、責任ある開示（58%是正） | [図解](content/figures/fig28_exposed_ics_gateways.png) | [4コマ漫画](content/illustrations/ep28_4koma.png) | [第28話本文](content/2026-10-29_ep28_exposed_ics_gateways.md) |
+| 29 | **悪のIoTを浄化せよ** | 神崎 蓮, 白石 結衣, 城崎悠真TA, 芹沢准教授 | 吉岡克成教授・松本勉上席特別教授らの最優秀論文『悪のIoTネットを浄化せよ』（NDSS 2019 Distinguished Paper Award）、Mirai除染、実網RCT、メール効果ゼロ vs Walled Garden隔離（14日で92%駆除） | [図解](content/figures/fig29_isp_walled_garden_mirai.png) | [4コマ漫画](content/illustrations/ep29_4koma.png) | [第29話本文](content/2026-10-29_ep29_isp_walled_garden_mirai.md) |
+| 30 | **消えゆく足跡と鎖の記憶** | 神崎 蓮, 白石 結衣, 城崎悠真TA, 芹沢准教授 | インミンパパ特任准教授・吉岡克成教授らの最新論文『DeFiトークン詐欺の暴き方（DeFiIntel）』（NDSS MADWeb 2025）、Rug Pull詐欺、オンチェーン×消滅するオフチェーン統合アーカイブ、予兆検知 | [図解](content/figures/fig30_defiintel_token_scam.png) | [4コマ漫画](content/illustrations/ep30_4koma.png) | [第30話本文](content/2026-10-29_ep30_defiintel_token_scam.md) |
 
 ---
 
