@@ -358,5 +358,41 @@
     "protagonist": "神崎 蓮＆白石 結衣",
     "mentor": "城崎 悠真（TA）＆芹沢 涼香 准教授",
     "tikz_description": "DeFiトークン詐欺のオンチェーン（スマートコントラクト）×オフチェーン（消滅するWeb/SNS）統合捜査アーキテクチャ"
+  },
+  {
+    "episode_num": 31,
+    "id": "ep31_undocumented_iot_backdoors",
+    "title": "隠された扉と影の合言葉 〜マニュアルにない裏口（バックドア）の真実〜",
+    "theme": "横浜国大SPIRAL吉岡克成教授・佐々木貴之准教授・宮本岩麒氏ら、CSS 2025 エシカルプラクティス賞、市販IoT機器のマニュアル非記載Telnet/SSHサービス調査、工場デバッグ残骸と意図的バックドア、ハードコード認証、エシカル研究倫理",
+    "dss_topic": "IoTファームウェアセキュリティ・未公開ポート・バックドア検出・エシカルプラクティス",
+    "news_context": "市販ルーターやネットワークカメラに放置された非公開Telnet/SSHポートと、ボットネット乗っ取りを防ぐ学術的実態調査",
+    "university_connection": "横浜国立大学 SPIRAL・吉岡・佐々木研究室（CyRaP Lab）＆IoT実践解析チーム",
+    "protagonist": "神崎 蓮＆白石 結衣",
+    "mentor": "城崎 悠真（TA）＆芹沢 涼香 准教授",
+    "tikz_description": "市販IoT機器における公式公開サービス vs マニュアル非記載の裏口Telnet/SSHサービス調査とエシカル是正構造図"
+  },
+  {
+    "episode_num": 32,
+    "id": "ep32_jcstar_iot_labeling",
+    "title": "星の標識と消費者の砦 〜国家基準「JC-STAR」と安全の証明〜",
+    "theme": "横浜国大SPIRAL吉岡克成教授（JC-STAR技術審議委員会委員長）、経済産業省・IPAの国家IoTセキュリティ適合性評価制度JC-STAR、星ラベル（★1〜★4）、レモンの市場克服、ファームウェアSCA脆弱性分析、EU CRA/英国PSTI国際協調",
+    "dss_topic": "IoT製品セキュリティ適合性評価・JC-STARラベリング・サプライチェーン透明化・SCA",
+    "news_context": "経済産業省・IPAが運用開始した国家制度「JC-STAR」と、消費者が一目で安全を選べる星ラベルの社会実装",
+    "university_connection": "横浜国立大学 SPIRAL・社会共創ラボ（CyLINK Lab）＆政策・標準化連携チーム",
+    "protagonist": "神崎 蓮＆白石 結衣",
+    "mentor": "城崎 悠真（TA）＆芹沢 涼香 准教授",
+    "tikz_description": "JC-STARセキュリティラベリング制度（★1〜★4）とSPIRALによる攻撃観測・SCA解析データの技術基盤図"
+  },
+  {
+    "episode_num": 33,
+    "id": "ep33_quantum_physical_layer_security",
+    "title": "空間を翔ける乱数と量子の極致 〜電波の物理現象で紡ぐ破られない暗号〜",
+    "theme": "横浜国大SPIRAL四方順司教授（NexCrypt Lab長）、IEEE Access 2025論文、物理層セキュリティ（PLS）、電波フェージング・マルチパス秘密鍵生成（SKG）、量子アルゴリズム（QAOA・アニーリング）、情報理論的安全保障、B5G/6G ISAC",
+    "dss_topic": "物理層セキュリティ（PLS）・量子アルゴリズム応用・情報理論的安全性・次世代無線暗号",
+    "news_context": "量子コンピュータ時代にも破られない、電波の物理的ノイズと量子最適化アルゴリズムを融合した次世代暗号数理",
+    "university_connection": "横浜国立大学 SPIRAL・次世代暗号ラボ（NexCrypt Lab）＆量子・暗号数理研究グループ",
+    "protagonist": "白石 結衣＆神崎 蓮",
+    "mentor": "城崎 悠真（TA）＆芹沢 涼香 准教授",
+    "tikz_description": "電波の物理層セキュリティ（PLS / SKG）×量子アルゴリズム（アニーリング・QAOA）による情報理論的安全保障構造図"
   }
 ]

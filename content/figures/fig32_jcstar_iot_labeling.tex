@@ -1,0 +1,49 @@
+\documentclass[border=12pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning, calc, fit, backgrounds}
+\usepackage{fontspec}
+\setmainfont{DejaVu Sans}
+
+\begin{document}
+\begin{tikzpicture}[
+    font=\small,
+    >=Stealth,
+    node distance=1.2cm,
+    block/.style={rectangle, draw=blue!70!black, fill=blue!5, rounded corners=4pt, thick, align=center, inner sep=7pt},
+    alertblock/.style={rectangle, draw=red!70!black, fill=red!5, rounded corners=4pt, thick, align=center, inner sep=7pt},
+    greenblock/.style={rectangle, draw=green!60!black, fill=green!5, rounded corners=4pt, thick, align=center, inner sep=7pt},
+    amberblock/.style={rectangle, draw=orange!80!black, fill=orange!5, rounded corners=4pt, thick, align=center, inner sep=7pt},
+    groupbox/.style={draw=black!40, dashed, rounded corners=6pt, fill=black!2, inner sep=10pt}
+]
+
+    % Top Node: The Challenge
+    \node[alertblock] (iotthreat) {\textbf{Surge of IoT Vulnerabilities \& Shadow Devices}\\Lack of transparency in firmware components \& security levels};
+
+    % Central Column 1: JC-STAR Scheme
+    \node[greenblock, below left=1.2cm and 0.5cm of iotthreat, text width=5.2cm] (jcstar) {\textbf{JC-STAR Security Labeling}\\METI \& IPA Government Scheme (2025);\\Four-level star rating ($\star \sim \star\star\star\star$)\\Consumer visual assurance};
+
+    % Central Column 2: SPIRAL Tech Foundation
+    \node[block, below right=1.2cm and 0.5cm of iotthreat, text width=5.2cm] (evidence) {\textbf{YNU SPIRAL Technical Basis}\\Prof. Katsunari Yoshioka (Committee Chair);\\SCA (Software Composition Analysis),\\Firmware CVE extraction \& Honeypots};
+
+    \draw[->, thick, green!70!black] (iotthreat) -| (jcstar);
+    \draw[->, thick, blue!70!black] (iotthreat) -| (evidence);
+
+    % Lower Row
+    \node[amberblock, below=1.2cm of jcstar, text width=5.2cm] (compliance) {\textbf{Global Harmonization}\\Aligning with EU Cyber Resilience Act (CRA)\\and UK PSTI Law;\\Eliminates default passwords \& EOL risks};
+
+    \node[greenblock, below=1.2cm of evidence, text width=5.2cm] (industry) {\textbf{Market & Consumer Impact}\\Empowers buyers to choose verified secure IoT;\\Incentivizes vendors to adopt Secure-by-Design};
+
+    \draw[->, thick] (jcstar) -- (compliance);
+    \draw[->, thick] (evidence) -- (industry);
+
+    % Bottom Summary
+    \node[block, fill=blue!10, below=1.0cm of $(compliance)!0.5!(industry)$, text width=11.5cm] (summary) {\textbf{Academic Research Transforming National Policy}:\\Turning massive academic honeypot data and firmware analysis into government labeling standards that protect every home and factory};
+    \draw[->, thick, blue!80!black] (compliance) |- (summary);
+    \draw[->, thick, green!60!black] (industry) |- (summary);
+
+    \begin{scope}[on background layer]
+        \node[groupbox, fit=(iotthreat) (jcstar) (evidence) (compliance) (industry) (summary), label={[anchor=north west, font=\footnotesize\bfseries, blue!80!black]north west:METI/IPA JC-STAR Scheme $\times$ YNU SPIRAL Academic Foundation}] {};
+    \end{scope}
+
+\end{tikzpicture}
+\end{document}

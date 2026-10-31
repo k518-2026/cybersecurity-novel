@@ -289,6 +289,33 @@ episodes = [
         "md_file": "2026-10-29_ep30_defiintel_token_scam.md",
         "illust": "ep30_4koma.png",
         "figure": "fig30_defiintel_token_scam.png"
+    },
+    {
+        "num": 31,
+        "id": "ep31",
+        "title": "隠された扉と影の合言葉 〜マニュアルにない裏口（バックドア）の真実〜",
+        "theme": "横浜国大SPIRAL吉岡克成教授・佐々木貴之准教授・宮本岩麒氏ら、CSS 2025 エシカルプラクティス賞、市販IoT機器のマニュアル非記載Telnet/SSH調査、デバッグ残骸、ハードコード認証",
+        "md_file": "2026-10-31_ep31_undocumented_iot_backdoors.md",
+        "illust": "ep31_4koma.png",
+        "figure": "fig31_undocumented_iot_backdoors.png"
+    },
+    {
+        "num": 32,
+        "id": "ep32",
+        "title": "星の標識と消費者の砦 〜国家基準「JC-STAR」と安全の証明〜",
+        "theme": "横浜国大SPIRAL吉岡克成教授（技術審議委員長）、経産省・IPAの国家IoTセキュリティ適合性評価制度JC-STAR、星ラベル（★1〜★4）、レモンの市場克服、ファームウェアSCA解析",
+        "md_file": "2026-10-31_ep32_jcstar_iot_labeling.md",
+        "illust": "ep32_4koma.png",
+        "figure": "fig32_jcstar_iot_labeling.png"
+    },
+    {
+        "num": 33,
+        "id": "ep33",
+        "title": "空間を翔ける乱数と量子の極致 〜電波の物理現象で紡ぐ破られない暗号〜",
+        "theme": "横浜国大SPIRAL四方順司教授（NexCrypt Lab長）、IEEE Access 2025、物理層セキュリティ（PLS）、電波フェージング・マルチパス秘密鍵生成（SKG）、量子アルゴリズム、情報理論的安全性",
+        "md_file": "2026-10-31_ep33_quantum_physical_layer_security.md",
+        "illust": "ep33_4koma.png",
+        "figure": "fig33_quantum_physical_layer_security.png"
     }
 ]
 

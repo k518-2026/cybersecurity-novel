@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第31話 隠された扉と影の合言葉 〜マニュアルにない裏口（バックドア）の真実〜 | 放課後サイバーディフェンス・ラボ</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Shippori+Mincho:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="story-header">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">トップ (目次)</a> &gt; <span>第31話</span>
+      </div>
+      <div class="story-ep-tag">Episode 31</div>
+      <h1 class="story-main-title">隠された扉と影の合言葉 〜マニュアルにない裏口（バックドア）の真実〜</h1>
+      <div class="story-meta">
+        <span>📚 学習テーマ: <strong>横浜国大SPIRAL吉岡克成教授・佐々木貴之准教授・宮本岩麒氏ら、CSS 2025 エシカルプラクティス賞、市販IoT機器のマニュアル非記載Telnet/SSH調査、デバッグ残骸、ハードコード認証</strong></span>
+        <span>🏫 登場人物: 城崎悠真（部長・高2）、橘葵（部員・高2）、芹沢涼香准教授（大学メンター）</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container story-container">
+
+    <!-- ストーリーイラスト (4コマ漫画) -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>🎨 4コマ漫画挿絵（文字なし）</h2>
+        <span class="visual-badge">AI高解像度生成</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/ep31_4koma.png" alt="第31話 ストーリーイラスト" class="responsive-img">
+        <p class="caption">▲ 【挿絵】青葉台高校 情報科学部＆帝都科学大学サイバーディフェンス・ラボでの実践シーン</p>
+      </div>
+    </section>
+
+    <!-- 4コマ漫画セリフ（日・英バイリンガル）※存在する場合 -->
+    
+            <div class="koma-script-box">
+              <div class="koma-script-header">
+                <h3>💬 4コマ漫画キャラクターセリフ (Story Dialogue Script)</h3>
+                <span class="lang-tag">日・英バイリンガル (JA / EN)</span>
+              </div>
+              <div class="koma-panels-list">
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">第1コマ 【起】</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation"><strong>蓮の素朴な興奮：マニュアルにない裏ポート発見！<strong><br>ポートスキャンで23番ポート（Telnet）を見つけ、「裏コマンドみたいでカッコいい！」とはしゃぐ蓮。</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[蓮]</span> 「見てよ結衣！ 説明書に書いてないTelnetポートが開いてる！ ゲームの裏技みたいでカッコいいだろ！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Ren]</span> "Look Yui! An unlisted Telnet port is open! It's like finding a secret cheat code in a game!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">第2コマ 【承】</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation"><strong>結衣の冷徹な指摘：デバッグ残骸とバックドアの罠<strong><br>「裏技ではなく致命的な脆弱性です。共通パスワードなら数秒でボットネットの餌食になります」と戒める結衣。</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[結衣]</span> 「甘いです。工場デバッグの消し忘れか意図的バックドアであり、数秒で乗っ取られる致命傷です。」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yui]</span> "Naïve. It's either an unremoved factory debug port or a backdoor, inviting botnets in seconds."</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">第3コマ 【転】</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation"><strong>悠真TAによるCSS 2025受賞論文の実態解説<strong><br>市販IoT機器の大規模調査で非公開ポートや共通認証の放置実態を暴いたSPIRALの研究成果を紹介する悠真。</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[悠真]</span> 「吉岡教授らのCSS 2025エシカルプラクティス賞論文では、市販機器に潜む非公開ポートの実態を解明したんだ。」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yuma]</span> "Prof. Yoshioka's CSS 2025 award-winning paper uncovered the reality of hidden ports in retail IoT devices."</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">第4コマ 【結】</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation"><strong>裏口を残さない！エンジニアの誠実さに目覚める二人<strong><br>都合の良い抜け道を許さず、ゼロトラストで安全を検証する技術者の倫理と誇りを胸に刻む二人。</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[蓮]</span> 「便利だからって勝手口を残しちゃダメなんだ。いかなる裏口も塞ぐエンジニアになるよ！」<br><span class="koma-char-name">[結衣]</span> 「責任ある開示とファームウェアの完全性……これこそ真のエシカルですね。」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Ren]</span> "Convenience is no excuse for backdoors! I'll become an engineer who seals every hidden entrance!"<br><span class="koma-char-name">[Yui]</span> "Responsible disclosure and firmware integrity... that is true ethical engineering."</div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+
+    <!-- 小説本文 -->
+    <section class="novel-section">
+      <div class="section-title">
+        <h2>📖 小説本文</h2>
+      </div>
+      <div class="novel-body">
+        <p>帝都科学大学の先端セキュリティ実習室は、深夜に近い時間帯にもかかわらず、微かな電子機器の唸り音と青白いモニターの光に満ちていた。
+「……あった。見つけたぞ」
+　神崎蓮は、手元のノートPCから発せられる快活な電子音に反応し、顔を輝かせた。画面上には、彼が用意したスマートホーム用ハブのポートスキャン結果が羅列されている。
+「これだよ、結衣。マニュアルには一切の記載がないのに、Telnetポートの23番が開いてる。これって、開発者が自分たちのために残した『裏技』みたいなものじゃないか？ 隠しコマンドとか、特別な設定をいじれる秘密の扉だ」
+　蓮は興奮を隠せず、椅子の背もたれに寄りかかった。自作ガジェットの開発に没頭する彼にとって、公式ドキュメントの外側にある「秘密」は、技術者としての好奇心を刺激する最高のスパイスだった。</p>
+<p>しかし、隣で腕を組んで画面を見つめていた白石結衣は、眉をひそめたまま動かない。彼女の瞳には、蓮のような高揚感ではなく、冷徹な分析の光が宿っていた。
+「……『裏技』なんて甘い言葉で片付けないで。それはただの『放置された脆弱性』よ」
+　結衣の声は低く、鋭い。
+「マニュアルに載っていないということは、ユーザーに知られることを想定していない。でも、ポートが開いているということは、ネットワークを通じて誰でもアクセスを試みられるってこと。もしパスワードが工場出荷時のデフォルトのまま、あるいはハードコードされた共通の文字列だったらどうなるか分かってる？ Miraiのようなボットネットに数秒で検知されて、このデバイスは踏み台にされるわ」
+　彼女はキーボードを叩き、過去のインシデント事例を呼び出した。
+「『便利な抜け道』だと思って開けておいた扉が、悪意ある攻撃者にとっては最高に使い勝手の良い侵入口になる。それがこの世界の現実よ」</p>
+<p>✦ ✦ ✦</p>
+<p>二人の間に緊張した沈黙が流れた時、実習室のドアが開き、大学のTAである城崎悠真が入ってきた。彼は手元のタブレットを操作しながら、二人のやり取りを察したように微笑んだ。
+「お、いいところに来たな。ちょうどいい、その『隠された扉』の話なら、最近すごく注目されている研究があるんだ」
+　悠真はホワイトボードに『CSS 2025 エシカルプラクティス賞』という文字を書き込んだ。
+「横浜国立大学のSPIRAL、吉岡克成教授や佐々木貴之准教授たちのグループが発表した論文だ。『IoT機器におけるマニュアル非記載Telnet/SSHサービスの調査』。これ、かなり大規模な調査なんだよ」
+　悠真は画面を操作し、研究の概要を映し出した。
+「彼らは市販されている多種多様なIoT機器を網羅的に解析して、マニュアルに載っていないポートの実態を突き止めた。結果、多くの機器が非公開ポートとハードコードされたパスワードを放置していることが判明したんだ。なぜこんなことが起きるのか？ それは、製造現場での『QA（品質保証）の漏れ』や、エンジニアがデバッグ用に一時的に開けたポートが、最終的なファームウェアへの統合プロセスで閉じられずに市場へ流れてしまう『サプライチェーンの隙間』なんだよ」
+　悠真の説明に、蓮は少しだけ表情を曇らせた。自分が「カッコいい」と思ったものが、実は製造工程の不備という名の遺物であるという事実に。</p>
+<p>✦ ✦ ✦</p>
+<p>数日後、二人は横浜国立大学SPIRALのCyRaP実証ラボへと足を運んでいた。そこには、研究の核心を支える芹沢准教授の姿があった。
+　ラボ内は、無数のサーバーラックと最新の解析機器が整然と並び、高度な技術の熱気が肌で感じられる空間だった。芹沢は、蓮と結衣を前にして、静かに語り始めた。
+「セキュリティの研究において、最も重要なのは『技術的な発見』そのものではないわ。その発見をどう扱うかという『倫理（エシカル）』の部分よ」
+　彼女の言葉には、教育者としての重みがあった。
+「脆弱性を見つけた時、それを公開して自分の技術力を誇示するのも、悪用して利益を得るのも、自由な世界では可能かもしれない。けれど、大学の研究者、そしてこれからのエンジニアに求められるのは『知の守護者』としての姿勢です」
+　芹沢はホワイトボードに「CVD（Coordinated Vulnerability Disclosure）」という文字を記した。
+「脆弱性を発見したら、まずは製造元に責任を持って報告する。サプライチェーン全体で製品の品質を底上げし、『セキュア・バイ・デザイン』――設計段階から安全を組み込む文化を社会に問いかけること。それが私たちの矜持。単に穴を見つけるのではなく、その穴を埋めるための仕組みを構築することこそが、技術者が背負うべき責任なのよ」
+　蓮は、彼女の言葉を噛み締めるように聞き入った。自分たちがこれから作るシステムは、誰かを守るためのものだという自覚が、胸の奥に熱く灯った。</p>
+<p>✦ ✦ ✦</p>
+<p>実習室に戻り、二人は再び自分のプロジェクトに向けた設計図を見つめていた。
+「……結衣、わかったよ。俺たちの作るスマートガジェットに、『都合の良い裏口』なんて絶対に作らない」
+　蓮は真剣な眼差しで言った。以前の彼なら、デバッグを楽にするためにポートを空けておこうとしただろう。しかし今は違う。
+「あのアカデミックな調査が証明したように、たった一つの『消し忘れ』が、世界中のネットワークを脅かす一歩になる。俺たちは、ユーザーに便利さを提供する前に、まず安全を保証するエンジニアにならなきゃいけない」
+　結衣は小さく頷き、蓮の横顔を見た。
+「ええ。マニュアルに載っていない扉を作るんじゃなくて、誰にも侵せない強固な城を作るのよ。それが私たちの誇りになる」
+　二人の視線は、再びモニターへと向けられた。そこには、単なる「便利さ」を超えた、誠実な技術への意志が宿っていた。
+　窓の外では、横浜の夜景が静かに輝いている。それは、彼らが守ろうとしている未来の光のようにも見えた。</p>
+<p>---</p>
+      </div>
+    </section>
+
+    <!-- TikZ 技術構造図解 -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>📊 セキュリティ構造図解 (TikZ LuaLaTeX生成)</h2>
+        <span class="visual-badge">国家安全基準・工学図解</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/fig31_undocumented_iot_backdoors.png" alt="第31話 セキュリティ構造図解" class="responsive-img">
+        <p class="caption">▲ 【技術構造図】IPAデジタルスキル標準・国際規格に準拠した仕組みのモデル化</p>
+      </div>
+    </section>
+
+    <!-- 深掘りコラム -->
+    <section class="column-section">
+      <div class="section-title">
+        <h2>💡 高校生のためのセキュリティ深掘りコラム ＆ 大学進路ガイド</h2>
+      </div>
+      
+            <div class="column-box">
+              <h3>💡 1. なぜ市販のIoT機器に「マニュアルにないポート」が存在するのか？</h3>
+              <div class="column-content">
+                <ul><p>ユーザーが家電量販店やネット通販で購入するWi-Fiルーターやネットワークカメラ、スマート家電の取扱説明書には、「ブラウザから設定画面（ポート80や443）を開いて初期設定してください」と書かれています。</p>
+<p>しかし、ネットワーク探索ツール（Nmap等）でスキャンすると、<strong>マニュアルのどこにも書かれていない「Telnet（ポート23）」や「SSH（ポート22）」が開いている機器</strong>が少なからず存在します。</p>
+<p>これらには主に2つの要因があります：</p>
+<li><strong>開発・工場検査時の消し忘れ（デバッグ残骸）</strong>: 製造ラインでファームウェアの書き込みテストを行ったり、基板の品質検査を行うために一時的に開けられたポートが、出荷前の最終ビルドで無効化されずにそのまま市場へ出荷されてしまったケース。</li>
+<li><strong>意図的な保守用裏口（ベンダーバックドア）</strong>: 修理サポートや故障診断を容易にするために、メーカー側が故意に内部シェルへの侵入経路を残していたケース。</li></ul>
+              </div>
+            </div>
+            
+
+            <div class="column-box">
+              <h3>💡 2. 世界最高峰のサイバー犯罪温床：ハードコードされた共通パスワード</h3>
+              <div class="column-content">
+                <ul><p>マニュアルに書かれていないポートがなぜ極めて危険なのかというと、<strong>「root/root」「admin/123456」といった脆弱な初期パスワード、あるいは全製品で共通のパスワードがプログラム内に直書き（ハードコード）されていることが多いから</strong>です。</p>
+<li>ユーザーはマニュアルに載っていないためポートの存在すら知らず、パスワードを変更することもできません。</li>
+<li>インターネット全体を常時スキャンしている<strong>Miraiやその亜種（IoTボットネット）</strong>は、こうした既知の非公開ポートとデフォルトパスワードの組み合わせリストを保持しており、見つかった瞬間に数秒で侵入・乗っ取りを完了してしまいます。</li></ul>
+              </div>
+            </div>
+            
+
+            <div class="column-box">
+              <h3>💡 3. 横浜国大 SPIRAL が受賞した「CSS 2025 エシカルプラクティス賞」の意義</h3>
+              <div class="column-content">
+                <ul><p>コンピュータセキュリティシンポジウム 2025（CSS2025）において、横浜国立大学 SPIRALの<strong>吉岡克成 教授</strong>、<strong>佐々木貴之 准教授</strong>、<strong>宮本岩麒 氏</strong>らの研究論文『*セキュリティホールか意図的なバックドアか？IoT機器におけるマニュアルに記載されていないTelnet・SSHサービスの調査*』が、<strong>「エシカルプラクティス賞」</strong>を受賞しました。</p>
+<li><strong>徹底した実態調査</strong>: 実際に市場で流通している多種多様なIoT機器を購入・精査し、どのようなカテゴリの機器に非公開サービスが残存しているのか、その認証仕様を体系的に解明。</li>
+<li><strong>学術的倫理（エシカル）の実践</strong>: 脆弱性を見つけて単に公表するだけでなく、製造メーカーへの責任ある協調的開示（CVD: Coordinated Vulnerability Disclosure）を実施し、サプライチェーン全体でのファームウェア品質管理基準の向上を提唱しました。</li>
+<p>サイバー防衛とは、コードの穴を見つけるだけでなく、「社会や製造現場にいかに誠実に向き合い、安全なモノづくりを支えるか」という倫理観（エシカルマインド）の上に成り立っていることを示す、大学研究の模範です。</p></ul>
+              </div>
+            </div>
+            
+    </section>
+
+    <!-- 前後ナビゲーション -->
+    <nav class="episode-nav">
+      <a href="ep30.html" class="nav-btn">← 第30話: 消えゆく足跡と鎖の記憶 〜DeFiト...</a>
+      <a href="../index.html" class="nav-btn center">目次に戻る</a>
+      <a href="ep32.html" class="nav-btn next">第32話: 星の標識と消費者の砦 〜国家基準「J... →</a>
+    </nav>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 放課後サイバーディフェンス・ラボ (Cybersecurity Novel Library)</p>
+    <p>Repository: <a href="https://github.com/k518-2026/cybersecurity-novel" target="_blank" rel="noopener" style="color: var(--primary);">k518-2026/cybersecurity-novel</a></p>
+  </footer>
+
+</body>
+</html>

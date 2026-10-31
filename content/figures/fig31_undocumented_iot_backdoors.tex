@@ -1,0 +1,48 @@
+\documentclass[border=12pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning, calc, fit, backgrounds}
+\usepackage{fontspec}
+\setmainfont{DejaVu Sans}
+
+\begin{document}
+\begin{tikzpicture}[
+    font=\small,
+    >=Stealth,
+    node distance=1.2cm,
+    block/.style={rectangle, draw=blue!70!black, fill=blue!5, rounded corners=4pt, thick, align=center, inner sep=7pt},
+    alertblock/.style={rectangle, draw=red!70!black, fill=red!5, rounded corners=4pt, thick, align=center, inner sep=7pt},
+    greenblock/.style={rectangle, draw=green!60!black, fill=green!5, rounded corners=4pt, thick, align=center, inner sep=7pt},
+    amberblock/.style={rectangle, draw=orange!80!black, fill=orange!5, rounded corners=4pt, thick, align=center, inner sep=7pt},
+    groupbox/.style={draw=black!40, dashed, rounded corners=6pt, fill=black!2, inner sep=10pt}
+]
+
+    % Top Node: The Hidden Port Dilemma
+    \node[alertblock] (device) {\textbf{Commercial IoT Devices in the Wild}\\Smart Routers, IP Cameras, Smart Appliances};
+
+    % Central Comparison: Documented vs Undocumented
+    \node[block, below left=1.2cm and 0.5cm of device, text width=5.2cm] (documented) {\textbf{Documented Interfaces}\\Web Admin UI (Port 80/443)\\Described in user manuals\\Standard credentials / Auth required};
+
+    \node[amberblock, below right=1.2cm and 0.5cm of device, text width=5.2cm] (hidden) {\textbf{Undocumented Services}\\Hidden Telnet / SSH Ports\\Completely omitted from user manuals!\\Hardcoded credentials or vendor backdoors};
+
+    \draw[->, thick, blue!70!black] (device) -| node[above, font=\footnotesize] {Official Access} (documented);
+    \draw[->, thick, red!80!black] (device) -| node[above, font=\footnotesize] {Shadow Access} (hidden);
+
+    % Ethical Analysis
+    \node[block, below=1.2cm of documented, text width=5.2cm] (testing) {\textbf{Factory Testing \& Debugging}\\Left behind by engineers for QA/maintenance;\\Forgotten before commercial release};
+
+    \node[alertblock, below=1.2cm of hidden, text width=5.2cm] (threat) {\textbf{Severe Threat Vector}\\Exploited by Mirai variants \& botnets;\\Mass unauthorized root takeover};
+
+    \draw[->, thick] (documented) -- (testing);
+    \draw[->, thick] (hidden) -- (threat);
+
+    % Bottom Synthesis
+    \node[greenblock, below=1.0cm of $(testing)!0.5!(threat)$, text width=11.5cm] (remedy) {\textbf{CSS 2025 Ethical Practice Award Finding (YNU SPIRAL)}:\\Distinguishing intentional debug backdoors from accidental security holes;\\Pushing responsible vendor notification, zero-trust firmware inspection, and strict QA standards};
+    \draw[->, thick, green!60!black] (testing) |- (remedy);
+    \draw[->, thick, red!70!black] (threat) |- (remedy);
+
+    \begin{scope}[on background layer]
+        \node[groupbox, fit=(device) (documented) (hidden) (testing) (threat) (remedy), label={[anchor=north west, font=\footnotesize\bfseries, blue!80!black]north west:CSS 2025 Ethical Practice Award: Undocumented Telnet/SSH in IoT}] {};
+    \end{scope}
+
+\end{tikzpicture}
+\end{document}
