@@ -316,6 +316,33 @@ episodes = [
         "md_file": "2026-10-31_ep33_quantum_physical_layer_security.md",
         "illust": "ep33_4koma.png",
         "figure": "fig33_quantum_physical_layer_security.png"
+    },
+    {
+        "num": 34,
+        "id": "ep34",
+        "title": "潜入の影と倫理の光 〜Telegram犯罪捜査とインフォームド・コンセントのジレンマ〜",
+        "theme": "横浜国大SPIRAL吉岡克成教授・インミンパパ特任准教授・久保颯汰氏ら、CSS 2025、Telegram上の人的情報収集（HUMINT）、メンロレポート研究倫理、インフォームド・コンセントのジレンマ、倫理監視LLM",
+        "md_file": "2026-11-01_ep34_ethical_humint_telegram.md",
+        "illust": "ep34_4koma.png",
+        "figure": "fig34_ethical_humint_telegram.png"
+    },
+    {
+        "num": 35,
+        "id": "ep35",
+        "title": "証明書なき星群と格子の絆 〜耐量子IDベース暗号と群テストの奇跡〜",
+        "theme": "横浜国大SPIRAL四方順司教授（NexCrypt Lab長）・佐藤慎悟氏、CANS 2024、超コンパクト耐量子有界共謀IDベース暗号（Compact Post-Quantum BC-IBE）、群テスト数理理論融合、PKI/CRL不要の証明書レス通信",
+        "md_file": "2026-11-01_ep35_pqc_identity_based_encryption.md",
+        "illust": "ep35_4koma.png",
+        "figure": "fig35_pqc_identity_based_encryption.png"
+    },
+    {
+        "num": 36,
+        "id": "ep36",
+        "title": "千の貌を持つ影と振る舞いの砦 〜生成AIマルウェア変種と動的防御の夜明け〜",
+        "theme": "横浜国大SPIRAL吉岡克成教授・インミンパパ特任准教授・松本勉名誉教授ら、ICSS / IEEE DSC 2024、生成AI（LLM）によるポリモーフィック変種量産とAV静的シグネチャ回避、動的挙動検知（振る舞い・EDR）へのパラダイムシフト",
+        "md_file": "2026-11-01_ep36_llm_malware_polymorphism.md",
+        "illust": "ep36_4koma.png",
+        "figure": "fig36_llm_malware_polymorphism.png"
     }
 ]
 

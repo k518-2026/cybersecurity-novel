@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第35話 証明書なき星群と格子の絆 〜耐量子IDベース暗号と群テストの奇跡〜 | 放課後サイバーディフェンス・ラボ</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Shippori+Mincho:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="story-header">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">トップ (目次)</a> &gt; <span>第35話</span>
+      </div>
+      <div class="story-ep-tag">Episode 35</div>
+      <h1 class="story-main-title">証明書なき星群と格子の絆 〜耐量子IDベース暗号と群テストの奇跡〜</h1>
+      <div class="story-meta">
+        <span>📚 学習テーマ: <strong>横浜国大SPIRAL四方順司教授（NexCrypt Lab長）・佐藤慎悟氏、CANS 2024、超コンパクト耐量子有界共謀IDベース暗号（Compact Post-Quantum BC-IBE）、群テスト数理理論融合、PKI/CRL不要の証明書レス通信</strong></span>
+        <span>🏫 登場人物: 城崎悠真（部長・高2）、橘葵（部員・高2）、芹沢涼香准教授（大学メンター）</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container story-container">
+
+    <!-- ストーリーイラスト (4コマ漫画) -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>🎨 4コマ漫画挿絵（文字なし）</h2>
+        <span class="visual-badge">AI高解像度生成</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/ep35_4koma.png" alt="第35話 ストーリーイラスト" class="responsive-img">
+        <p class="caption">▲ 【挿絵】青葉台高校 情報科学部＆帝都科学大学サイバーディフェンス・ラボでの実践シーン</p>
+      </div>
+    </section>
+
+    <!-- 4コマ漫画セリフ（日・英バイリンガル）※存在する場合 -->
+    
+            <div class="koma-script-box">
+              <div class="koma-script-header">
+                <h3>💬 4コマ漫画キャラクターセリフ (Story Dialogue Script)</h3>
+                <span class="lang-tag">日・英バイリンガル (JA / EN)</span>
+              </div>
+              <div class="koma-panels-list">
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">第1コマ 【起】</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation"><strong>蓮の証明書万能論：数十億のIoTに全部証明書を配れば解決だろ！<br>街灯やセンサーの模型を指差し、「数億台のIoT機器すべてに電子証明書を配って管理すれば安心だろ！」と主張する蓮。<strong></div>
+                    <div class="koma-dialogue-ja">🗣️ **蓮: 「数十億台のIoT機器すべてに電子証明書（PKI）を発行して配れば、身元確認なんて完璧だろ！」**</div>
+                    <div class="koma-dialogue-en">🌐 **Ren: 'If we just issue digital certificates (PKI) to billions of IoT devices, identity verification is totally solved!'**</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">第2コマ 【承】</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation"><strong>結衣の証明書管理破綻と量子の壁の指摘<br>サーバーパンクのグラフを示し、「失効管理（CRL）でインフラが破綻し、量子コンピュータで既存暗号は破られます」と論破する結衣。<strong></div>
+                    <div class="koma-dialogue-ja">🗣️ **結衣: 「甘すぎます。失効リストの配信でサーバーはパンクし、量子マシンが来れば既存証明書は全滅です。」**</div>
+                    <div class="koma-dialogue-en">🌐 **Yui: 'Hopelessly naive. Certificate revocation will choke the servers, and quantum computers will crush legacy PKI.'**</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">第3コマ 【転】</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation"><strong>悠真TAによる四方教授らのCANS 2024論文「群テストによる超コンパクト耐量子IBE」解説<br>CANS 2024論文の格子数理スライドを投影し、相手のIDがそのまま鍵になるIBEを群テスト理論で超小型化した四方教授らの偉業を熱く語る悠真。<strong></div>
+                    <div class="koma-dialogue-ja">🗣️ **悠真: 「四方教授らは『群テスト』の数理を融合し、耐量子環境で公開鍵サイズを極限まで小型化したんだ！」**</div>
+                    <div class="koma-dialogue-en">🌐 **Yuma: 'Prof. Shikata merged Group Testing math to achieve ultra-compact public parameters under post-quantum IBE!'**</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">第4コマ 【結】</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation"><strong>証明書のない星群に咲き誇る数学の絆に感動する二人<br>証明書の問い合わせなしにIDだけで瞬時に暗号通信を確立するスマートシティの未来図を見つめ、数学の美しさに目を輝かせる蓮と結衣。<strong></div>
+                    <div class="koma-dialogue-ja">🗣️ **蓮: 「証明書サーバーがなくても、相手のIDだけで瞬時に安全に通信できるなんて……未来すぎる！」<br>結衣: 「幾何学と組合せ論の奇跡……これこそが未来のスマート社会を支える不可視の礎ですね。」**</div>
+                    <div class="koma-dialogue-en">🌐 **Ren: 'Instant, secure communication using just IDs, completely free of certificate servers... mind blown!'<br>Yui: 'A miracle of geometry and combinatorics... the invisible foundation empowering future smart societies.'**</div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+
+    <!-- 小説本文 -->
+    <section class="novel-section">
+      <div class="section-title">
+        <h2>📖 小説本文</h2>
+      </div>
+      <div class="novel-body">
+        <p>帝都科学大学、先端セキュリティ実習室の空気は、高機能なサーバーラックから発せられる微かな熱気と、電子機器の駆動音が混ざり合って独特の密度を保っていた。
+窓の外には夕刻の街並みが広がり、無数の灯りが点滅している。その光の一つひとつが、ネットワークに接続されたデバイスであること。神崎蓮はモニターを見つめながら、拳を握りしめた。</p>
+<p class="dialogue">「いいかい、結衣。このスマートシティのビジョンを実現するなら、正解はシンプルだ。すべての街灯、センサー、自動運転車に『デジタル証明書』を発行して配ればいい。PKI（公開鍵基盤）を徹底すれば、信頼の連鎖は完璧に構築できる」</p>
+<p>蓮の言葉には、技術に対する純粋なまでの楽観主義が宿っていた。彼はこのプロジェクトのIoT班として、数億台のデバイスが安全に通信するインフラの構築を夢見ていた。</p>
+<p>しかし、その隣で腕を組んでいた白石結衣は、氷のように冷ややかな視線を投げた。
+「……蓮、あなたの計算には『現実』という名の摩擦係数が抜けているわ」</p>
+<p>結衣は手元のタブレットを操作し、複雑なグラフを表示させた。
+「数十億のデバイスに証明書を発行するだけならいいわ。問題はその後の管理よ。失効した証明書や更新のタイミングをチェックするためのCRL（証明書失効リスト）の配布、あるいはOCSPによる問い合わせ。それらすべてを処理するサーバーが、数億台のデバイスからのリクエストに耐えられると思っているの？ インフラコストと通信遅延でシステムは瞬時にパンクするわ」</p>
+<p class="dialogue">「でも、証明書がないと身元確認ができないじゃないか」</p>
+<p class="dialogue">「だからこそ『IDベース暗号（IBE）』が必要なのよ。でもね……」
+結衣の声に、わずかな陰りが生じた。
+「今の主流であるペアリングを用いたIBEは、量子コンピュータの登場によって一瞬で無力化される。耐量子計算機暗号（PQC）への移行は避けられないけれど、格子暗号ベースのIBEをそのまま実装しようとすると、公開鍵のサイズが巨大化しすぎて実用性を失う。今のところ、それは『理論上の夢』でしかないのよ」</p>
+<p>✦ ✦ ✦</p>
+<p class="dialogue">「その『夢』を現実へと引きずり下ろしたのが、この論文です」</p>
+<p>静かな声が響いた。大学のTAである城崎悠真が、プロジェクターに映し出された最新の国際会議論文『Compact Post-Quantum Bounded-Collusion Identity-based Encryption』を指し示した。
+横浜国立大学SPIRALの四方順司教授と佐藤慎悟氏らによる研究成果だ。</p>
+<p class="dialogue">「蓮君、結衣さん。このCANS 2024で発表された論文は、IBEにおける最大のボトルネックを突破したんです」
+悠真はホワイトボードに数式を書き込みながら、熱を帯びた口調で解説を始めた。</p>
+<p class="dialogue">「従来の耐量子IBEは、エラー訂正符号の複雑な構造に依存していたため、公開パラメータが非常に大きくなっていました。しかし、四方教授たちはここで『群テスト（Group Testing）』という情報数学の理論を融合させたんです」</p>
+<p>悠真の説明に従い、蓮と結衣は数式の変遷を追った。
+「群テストとは、本来、不純物が混ざったサンプルの中から特定の個体を特定するための効率的な手法です。これを暗号の公開パラメータ構成に応用することで、悪意ある複数のユーザーによる共謀（Collusion）に耐えつつ、必要な情報を最小限のデータ量で表現することに成功したんです」</p>
+<p class="dialogue">「群テスト……？」
+蓮が呟く。</p>
+<p class="dialogue">「そうです。この数理的なブレークスルーによって、公開パラメータを劇的に小型化――つまり『コンパクト』にすることが可能になりました。これにより、格子暗号の安全性を保ちながら、IoTデバイスでも扱えるサイズでIDベース暗号を実現した。これが、論文にある『Compact BC-IBE』の意味です」</p>
+<p>結衣の瞳に、驚愕と歓喜の色が混ざり合った。
+「……群テストを融合させて、共謀耐性とコンパクトさを両立させたってこと？ それは、従来の証明書管理のオーバーヘッドを完全にバイパスできるってことじゃない……」</p>
+<p>✦ ✦ ✦</p>
+<p>実習室の扉が開き、凛とした足音が響いた。
+入ってきたのは、横浜国立大学SPIRALから視察に来ていた芹沢涼香准教授だった。彼女は学生たちの熱気を感じ取ったように、穏やかな笑みを浮かべた。</p>
+<p class="dialogue">「素晴らしい議論ね。特に結衣さん、あなたの指摘した『インフラの限界』こそが、現代のセキュリティが直面している最大の壁だわ」</p>
+<p>芹沢はモニターに映る論文の図解を指先でなぞった。
+「従来のPKIは、中央集権的な信頼の鎖を必要とした。しかし、この『Compact BC-IBE』がもたらすのは、証明書そのものを必要としない世界……『証明書レス社会』の到来よ」</p>
+<p>彼女は一歩前へ出た。その瞳には、数式を超えた先にある未来が見えているようだった。
+「想像してみて。スマートシティを駆け巡る無数の自動運転車や、空を舞うドローンたちが、通信のたびに中央サーバーへ『私は私です』という証明書を問い合わせる必要がない世界を。彼らは自分のID――例えば車両識別番号や機体固有のMACアドレスさえあれば、その瞬間に相手と安全な暗号鍵を共有できる。数学の幾何学的な美しさが、物理的な通信のボトルネックを鮮やかに解決するの」</p>
+<p>芹沢の声には、一種の詩的な響きがあった。
+「技術は、時に冷徹な道具だと思われがちだけど、高度な数理の極致は時として芸術に近い。この論文に刻まれた『群テスト』の知恵は、未来の巨大な社会を支えるための、見えない柱になる。数学という純粋な美しさが、現実の社会を動かす力へと昇華される瞬間……これこそがアカデミズムの醍醐味よ」</p>
+<p>✦ ✦ ✦</p>
+<p>実習室の照明の下、蓮と結衣はしばらく言葉を失っていた。
+プロジェクターに映る複雑な格子構造の数式。それは単なる記号の羅列ではなく、膨大なデータの海から秩序を見出し、安全な道筋を切り拓くための地図だった。</p>
+<p class="dialogue">「……すごいな」
+蓮が初めて、技術的なことよりも先に、その概念の純粋さに感動したことを口にした。
+「証明書なんていらない。IDがあるだけで、世界と繋がれる。俺たちが作ろうとしていた未来が、こんなにも美しい数学で支えられていたなんて……」</p>
+<p>結衣もまた、手元のタブレットを閉じ、深く息を吐いた。彼女の表情には、厳しい論理の裏側にあった情熱が溢れ出していた。
+「そうね。効率やコストの議論の先に、これほど鮮やかな解決策があるなんて。群テストという知恵が、量子コンピュータという脅威すら跳ね返す盾になる……」</p>
+<p>二人は顔を見合わせた。
+窓の外では、夜の帳が降り、街の灯りがより一層輝きを増している。その光の粒の一つひとつが、今この瞬間、数学の絆によって守られる未来へと繋がっている。
+蓮と結衣の顔には、技術への畏怖を超えた、新しい時代の幕開けを祝福するような笑顔が浮かんでいた。</p>
+<p>---</p>
+      </div>
+    </section>
+
+    <!-- TikZ 技術構造図解 -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>📊 セキュリティ構造図解 (TikZ LuaLaTeX生成)</h2>
+        <span class="visual-badge">国家安全基準・工学図解</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/fig35_pqc_identity_based_encryption.png" alt="第35話 セキュリティ構造図解" class="responsive-img">
+        <p class="caption">▲ 【技術構造図】IPAデジタルスキル標準・国際規格に準拠した仕組みのモデル化</p>
+      </div>
+    </section>
+
+    <!-- 深掘りコラム -->
+    <section class="column-section">
+      <div class="section-title">
+        <h2>💡 高校生のためのセキュリティ深掘りコラム ＆ 大学進路ガイド</h2>
+      </div>
+      
+            <div class="column-box">
+              <h3>💡 1. 「証明書の海」で溺れるIoT社会と公開鍵暗号基盤（PKI）の限界</h3>
+              <div class="column-content">
+                <ul><p>スマートシティ、自動運転車、ドローン、スマートグリッドなど、無数のIoT機器が瞬時に連携し合う現代社会において、長年サイバー空間を支えてきた<strong>「公開鍵基盤（PKI: Public Key Infrastructure）」</strong>が悲鳴を上げています。</p>
+<p>PKIでは、各機器が本物であることを証明するために、認証局（CA）が発行した「電子証明書」を保持し、通信相手に提示します。</p>
+<p>しかし、デバイスが数十億台規模に爆発すると、以下の深刻な問題に直面します。</p>
+<li><strong>証明書失効リスト（CRL / OCSP）のパンク</strong>: 万が一デバイスが故障やハッキングを受け、証明書を失効（Revocation）させた場合、世界中の通信端末がその最新失効情報を頻繁に問い合わせるため、ネットワーク帯域とCAサーバーが瞬時に飽和します。</li>
+<li><strong>証明書検証の遅延</strong>: コンマ数秒の遅れが人命に関わる自動運転（V2X通信）において、重厚な証明書チェーンを検証する処理時間は致命的なボトルネックとなります。</li></ul>
+              </div>
+            </div>
+            
+
+            <div class="column-box">
+              <h3>💡 2. 夢の「IDベース暗号（IBE）」と耐量子（PQC）の厚い壁</h3>
+              <div class="column-content">
+                <p>そこで1984年にシャミア（Shamir）によって提唱された究極の暗号技術が<strong>「IDベース暗号（IBE: Identity-Based Encryption）」</strong>です。</p>
+<p>IBEでは、相手の<strong>「メールアドレス」「IPアドレス」「MACアドレス」「ドメイン名」といった任意の識別子（ID）そのものが公開鍵</strong>になります。送信者は相手の証明書を取り寄せて検証する必要が一切なく、IDを指定するだけで暗号文を送信できます。</p>
+<p>しかし、従来のIBE（Boneh-Franklin等）は「楕円曲線上のペアリング暗号」に強く依存しており、<strong>量子コンピュータが実用化されるとショアのアルゴリズムによって完全に解読されてしまう</strong>という致命的な弱点を抱えていました。</p>
+<p>量子耐性を持つ「格子暗号（Lattice-based Cryptography）」を用いてIBEを構築する研究も進められてきましたが、悪意あるユーザー複数人が秘密鍵を持ち寄ってマスター鍵を不正に復元しようとする「共謀攻撃（Collusion Attack）」を防ぐため、<strong>公開パラメータのサイズが数ギガバイトにも巨大化してしまう</strong>という致命的な壁に阻まれていました。</p>
+              </div>
+            </div>
+            
+
+            <div class="column-box">
+              <h3>💡 3. 横浜国大・四方順司教授が証明した「群テスト×耐量子BC-IBE」（CANS 2024）</h3>
+              <div class="column-content">
+                <ul><p>横浜国立大学 SPIRALの次世代暗号ラボ（NexCrypt Lab）長を務める<strong>四方順司 教授</strong>と<strong>佐藤慎悟 氏</strong>は、暗号・ネットワークセキュリティの国際シンポジウム <strong>CANS 2024</strong>（Lecture Notes in Computer Science 14905）において、論文『*Compact Post-Quantum Bounded-Collusion Identity-based Encryption*』を発表しました。</p>
+<p>本研究は、共謀可能な攻撃者の上限数を設定した「有界共謀耐性IBE（BC-IBE）」において、公開鍵サイズを劇的に小型化する世界初の汎用理論を打ち立てました。</p>
+<li><strong>情報数学「群テスト（Group Testing）」の融合</strong>:</li>
+<p>従来のエラー訂正符号を用いるアプローチでは、パラメータサイズが共謀者数に対して指数関数的に肥大化していました。四方教授らは、多数の検体から少数の感染者を効率的に特定する組合せ数学理論である「非適応的群テスト（Non-Adaptive Group Testing）」の概念を暗号パラメータの設計に導入しました。</p>
+<li><strong>NIST標準の汎用PQC暗号から直接構成</strong>:</li>
+<p>格子暗号をはじめとするNIST選定の耐量子公開鍵暗号（PKE）をブラックボックスとして利用し、量子耐性を完全に維持しながら、公開パラメータサイズを従来比で劇的に圧縮（Compact化）することに成功しました。</p>
+<p>認証局（CA）への問い合わせを一切不要にし、相手のIDだけで瞬時に安全な暗号通信を可能にするこの数理のブレークスルーは、未来の超巨大スマート社会や宇宙通信インフラを根底から支える最強の防盾となります。</p></ul>
+              </div>
+            </div>
+            
+    </section>
+
+    <!-- 前後ナビゲーション -->
+    <nav class="episode-nav">
+      <a href="ep34.html" class="nav-btn">← 第34話: 潜入の影と倫理の光 〜Telegra...</a>
+      <a href="../index.html" class="nav-btn center">目次に戻る</a>
+      <a href="ep36.html" class="nav-btn next">第36話: 千の貌を持つ影と振る舞いの砦 〜生成... →</a>
+    </nav>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 放課後サイバーディフェンス・ラボ (Cybersecurity Novel Library)</p>
+    <p>Repository: <a href="https://github.com/k518-2026/cybersecurity-novel" target="_blank" rel="noopener" style="color: var(--primary);">k518-2026/cybersecurity-novel</a></p>
+  </footer>
+
+</body>
+</html>

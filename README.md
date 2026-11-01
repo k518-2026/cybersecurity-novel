@@ -19,7 +19,7 @@
 
 ---
 
-## 📚 収録エピソード一覧（第1部・第2部 全33話）
+## 📚 収録エピソード一覧（第1部・第2部 全36話）
 
 ### 第1部：高校情報科学部とサイバーセキュリティの基礎（第1話〜第15話 完結）
 
@@ -71,6 +71,9 @@
 | 31 | **隠された扉と影の合言葉** | 神崎 蓮, 白石 結衣, 城崎悠真TA, 芹沢准教授 | 吉岡克成教授・佐々木貴之准教授らの受賞論文『マニュアル非記載Telnet/SSHサービスの調査』（CSS 2025 エシカルプラクティス賞）、デバッグ残骸、ハードコード認証、エシカル研究倫理 | [図解](content/figures/fig31_undocumented_iot_backdoors.png) | [4コマ漫画](content/illustrations/ep31_4koma.png) | [第31話本文](content/2026-10-31_ep31_undocumented_iot_backdoors.md) |
 | 32 | **星の標識と消費者の砦** | 神崎 蓮, 白石 結衣, 城崎悠真TA, 芹沢准教授 | 吉岡克成教授（技術審議委員長）、経産省・IPAの国家制度JC-STAR（IoTセキュリティ適合性評価）、星ラベル（★1〜★4）、レモンの市場克服、ファームウェアSCA解析 | [図解](content/figures/fig32_jcstar_iot_labeling.png) | [4コマ漫画](content/illustrations/ep32_4koma.png) | [第32話本文](content/2026-10-31_ep32_jcstar_iot_labeling.md) |
 | 33 | **空間を翔ける乱数と量子の極致** | 白石 結衣, 神崎 蓮, 城崎悠真TA, 芹沢准教授 | 四方順司教授（NexCrypt Lab長）の先端論文『物理層セキュリティにおける量子アルゴリズム応用』（IEEE Access 2025）、電波フェージング秘密鍵生成（SKG）、情報理論的安全性、B5G/6G ISAC | [図解](content/figures/fig33_quantum_physical_layer_security.png) | [4コマ漫画](content/illustrations/ep33_4koma.png) | [第33話本文](content/2026-10-31_ep33_quantum_physical_layer_security.md) |
+| 34 | **潜入の影と倫理の光** | 神崎 蓮, 白石 結衣, 城崎悠真TA, 芹沢准教授 | 吉岡克成教授・インミンパパ特任准教授らの最新論文『Telegram上の人的情報収集（HUMINT）とインフォームド・コンセントの検証』（CSS 2025）、メンロレポート研究倫理、段階的合意形成、倫理監視LLM | [図解](content/figures/fig34_ethical_humint_telegram.png) | [4コマ漫画](content/illustrations/ep34_4koma.png) | [第34話本文](content/2026-11-01_ep34_ethical_humint_telegram.md) |
+| 35 | **証明書なき星群と格子の絆** | 神崎 蓮, 白石 結衣, 城崎悠真TA, 芹沢准教授 | 四方順司教授（NexCrypt Lab長）・佐藤慎悟氏の国際会議論文『超コンパクト耐量子有界共謀IDベース暗号』（CANS 2024 / LNCS 14905）、群テスト数理理論融合、PKI/CRL不要の証明書レス通信 | [図解](content/figures/fig35_pqc_identity_based_encryption.png) | [4コマ漫画](content/illustrations/ep35_4koma.png) | [第35話本文](content/2026-11-01_ep35_pqc_identity_based_encryption.md) |
+| 36 | **千の貌を持つ影と振る舞いの砦** | 神崎 蓮, 白石 結衣, 城崎悠真TA, 芹沢准教授 | 吉岡克成教授・インミンパパ特任准教授・松本勉名誉教授らの先端論文『生成AIを用いたマルウェア自動変種生成とAV回避の実態解明』（ICSS / IEEE DSC 2024）、動的挙動検知（EDR/振る舞い防御）への転換 | [図解](content/figures/fig36_llm_malware_polymorphism.png) | [4コマ漫画](content/illustrations/ep36_4koma.png) | [第36話本文](content/2026-11-01_ep36_llm_malware_polymorphism.md) |
 
 ---
 

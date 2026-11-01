@@ -394,5 +394,41 @@
     "protagonist": "白石 結衣＆神崎 蓮",
     "mentor": "城崎 悠真（TA）＆芹沢 涼香 准教授",
     "tikz_description": "電波の物理層セキュリティ（PLS / SKG）×量子アルゴリズム（アニーリング・QAOA）による情報理論的安全保障構造図"
+  },
+  {
+    "episode_num": 34,
+    "id": "ep34_ethical_humint_telegram",
+    "title": "潜入の影と倫理の光 〜Telegram犯罪捜査とインフォームド・コンセントのジレンマ〜",
+    "theme": "横浜国大SPIRAL吉岡克成教授・インミンパパ特任准教授・久保颯汰氏ら、CSS 2025論文、Telegram上の人的情報収集（HUMINT）、サイバー脅威インテリジェンス（CTI）、メンロレポート（Menlo Report）研究倫理、インフォームド・コンセント（事前説明と同意）のジレンマ、段階的合意形成、倫理監視LLM",
+    "dss_topic": "サイバー脅威インテリジェンス（CTI）・HUMINT・研究倫理・メンロレポート・インフォームドコンセント・LLM倫理ガードレール",
+    "news_context": "地下Telegramコミュニティでのサイバー犯罪調査において、逃亡防止と被験者の人権保護・倫理原則を両立する先駆的学術枠組み",
+    "university_connection": "横浜国立大学 SPIRAL・サイバー犯罪インテリジェンス研究室＆エシカルHUMINT調査チーム",
+    "protagonist": "神崎 蓮＆白石 結衣",
+    "mentor": "城崎 悠真（TA）＆芹沢 涼香 准教授",
+    "tikz_description": "Telegram上の人的情報収集（HUMINT）におけるインフォームド・コンセントと倫理監視LLMの構造図"
+  },
+  {
+    "episode_num": 35,
+    "id": "ep35_pqc_identity_based_encryption",
+    "title": "証明書なき星群と格子の絆 〜耐量子IDベース暗号と群テストの奇跡〜",
+    "theme": "横浜国大SPIRAL四方順司教授（NexCrypt Lab長）・佐藤慎悟氏、CANS 2024論文（LNCS 14905）、超コンパクト耐量子有界共謀IDベース暗号（Compact Post-Quantum BC-IBE）、大規模IoT・V2XにおけるPKI/CRLボトルネック解消、非適応的群テスト（Group Testing）数理理論融合、NIST標準PQC直接構成",
+    "dss_topic": "耐量子暗号（PQC）・IDベース暗号（IBE）・有界共謀耐性（BC-IBE）・群テスト理論・証明書レス通信",
+    "news_context": "数十億台のIoT・自動運転社会に向け、電子証明書不要でIDそのものを公開鍵として瞬時に暗号通信する耐量子新世代暗号数理",
+    "university_connection": "横浜国立大学 SPIRAL・次世代暗号ラボ（NexCrypt Lab）＆耐量子数理暗号グループ",
+    "protagonist": "神崎 蓮＆白石 結衣",
+    "mentor": "城崎 悠真（TA）＆芹沢 涼香 准教授",
+    "tikz_description": "耐量子有界共謀IDベース暗号（BC-IBE）と群テスト理論によるコンパクト公開パラメータ構造図"
+  },
+  {
+    "episode_num": 36,
+    "id": "ep36_llm_malware_polymorphism",
+    "title": "千の貌を持つ影と振る舞いの砦 〜生成AIマルウェア変種と動的防御の夜明け〜",
+    "theme": "横浜国大SPIRAL吉岡克成教授・インミンパパ特任准教授・松本勉名誉教授ら、ICSS / IEEE DSC 2024論文、生成AI（ChatGPT/LLM）を用いたマルウェア自動変種生成・ポリモーフィズム、アンチウイルス静的シグネチャ（ハッシュ値・パターン）検知回避の実態解明、動的挙動検知（振る舞い検知・EDR/XDR）への転換",
+    "dss_topic": "AIセーフティ・ポリモーフィックマルウェア・アンチウイルス回避・動的挙動検知・EDR/XDR",
+    "news_context": "生成AIが悪用され無限の変装コードを量産する脅威に対し、市販アンチウイルスの限界を実証し、振る舞い防御の重要性を暴いたSPIRALの最前線研究",
+    "university_connection": "横浜国立大学 SPIRAL・マルウェア解析・AIセキュリティ研究室＆動的挙動解析チーム",
+    "protagonist": "神崎 蓮＆白石 結衣",
+    "mentor": "城崎 悠真（TA）＆芹沢 涼香 准教授",
+    "tikz_description": "LLM支援型ポリモーフィック・マルウェアの自動変種生成と動的挙動防御（EDR）構造図"
   }
 ]
