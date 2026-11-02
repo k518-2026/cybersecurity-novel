@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第42話 極小の鍵と俊敏なる猫 〜超軽量認証付き暗号「Manx」とIoTの鼓動〜 | 放課後サイバーディフェンス・ラボ</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Shippori+Mincho:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="story-header">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">トップ (目次)</a> &gt; <span>第42話</span>
+      </div>
+      <div class="story-ep-tag">Episode 42</div>
+      <h1 class="story-main-title">極小の鍵と俊敏なる猫 〜超軽量認証付き暗号「Manx」とIoTの鼓動〜</h1>
+      <div class="story-meta">
+        <span>📚 学習テーマ: <strong>横浜国大SPIRAL四方順司教授（NexCrypt Lab長）・Alexandre Adomnicăi氏・峯松一彦氏ら、IEEE Internet of Things Journal 2024、超小型IoT機器・極短データ向け超軽量認証付き暗号方式「Manx」、最大2回のブロック暗号呼び出しとノンス再利用耐性</strong></span>
+        <span>🏫 登場人物: 城崎悠真（部長・高2）、橘葵（部員・高2）、芹沢涼香准教授（大学メンター）</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container story-container">
+
+    <!-- ストーリーイラスト (4コマ漫画) -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>🎨 4コマ漫画挿絵（文字なし）</h2>
+        <span class="visual-badge">AI高解像度生成</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/ep42_4koma.png" alt="第42話 ストーリーイラスト" class="responsive-img">
+        <p class="caption">▲ 【挿絵】青葉台高校 情報科学部＆帝都科学大学サイバーディフェンス・ラボでの実践シーン</p>
+      </div>
+    </section>
+
+    <!-- 4コマ漫画セリフ（日・英バイリンガル）※存在する場合 -->
+    
+            <div class="koma-script-box">
+              <div class="koma-script-header">
+                <h3>💬 4コマ漫画キャラクターセリフ (Story Dialogue Script)</h3>
+                <span class="lang-tag">日・英バイリンガル (JA / EN)</span>
+              </div>
+              <div class="koma-panels-list">
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">1コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">蓮がピンセットで米粒ほどの極小IoTセンサーチップをつまみ、悩ましげにため息をついている</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[蓮]</span>「小型スマート農業センサーの電池を数年間持たせたいんだけど、AES-GCM暗号を動かすと計算が重すぎて電池がすぐ切れちゃうよ……！」<br><span class="koma-char-name">[葵]</span>「えっ、暗号って動かすだけでそんなにバッテリーを食っちゃうの！？」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Ren]</span> "I want this tiny smart agriculture sensor's battery to last years, but running AES-GCM drains the battery way too fast!"<br><span class="koma-char-name">[Aoi]</span> "Wait, does running encryption really eat up that much battery!?"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">2コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">結衣がノートにブロック暗号の計算フローを書く。重たい初期化とパディング</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[結衣]</span>「一般的な認証付き暗号（AE）は、映画やWebサイトなど長大なデータ向けに設計されています。たった数バイトのセンサー値（温度など）を送るだけでも、初期化や認証子のために3回以上も暗号処理を回す無駄が生じるのです」<br><span class="koma-char-name">[蓮]</span>「しかも時計（RTC）を持たない安価なチップだと、ノンス（使い捨て番号）の再利用ミスで暗号が破られる危険もある……！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yui]</span> "Standard Authenticated Encryption (AE) is built for bulk data. For just a few bytes of sensor data, it wastes 3+ block cipher calls on padding and init!"<br><span class="koma-char-name">[Ren]</span> "And on cheap chips without real-time clocks, accidental nonce reuse completely shatters security...!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">3コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">悠真がマン島原産の尾のない猫「マンクス」のイラストが描かれた論文スライドを提示する</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[悠真]</span>「そこで登場したのが、横浜国大SPIRAL四方順司教授らの研究グループがIEEE IoT Journal 2024で発表した超軽量認証付き暗号『Manx（マンクス）』だ！」<br><span class="koma-char-name">[蓮]</span>「最大たった2回のブロック暗号呼び出しで暗号化と改ざん検知（MAC）を完了し、しかもノンス再利用に対しても安全（Nonce-Misuse Secure）！？」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yuma]</span> "That's why YNU SPIRAL's Prof. Shikata published the ultra-lightweight AE mode 'Manx' in IEEE IoT Journal 2024!"<br><span class="koma-char-name">[Ren]</span> "Encrypts and authenticates in at most 2 block cipher calls, AND provides proven Nonce-Misuse Security!?"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">4コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">マイコンのベンチマーク波形が激変。消費電力が半分になり、LEDが軽快に緑点滅する</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[葵]</span>「まるで尻尾のない敏捷な猫ちゃんみたいに、無駄をそぎ落として素早く跳び回るんだね！」<br><span class="koma-char-name">[結衣]</span>「数理の洗練が、世界中に散らばる何百億もの極小IoT機器に安全な命を吹き込むのです！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Aoi]</span> "Just like a nimble tail-less cat, shedding all excess baggage to leap gracefully!"<br><span class="koma-char-name">[Yui]</span> "Refined mathematical elegance breathes secure life into billions of micro-IoT devices worldwide!"</div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+
+    <!-- 小説本文 -->
+    <section class="novel-section">
+      <div class="section-title">
+        <h2>📖 小説本文</h2>
+      </div>
+      <div class="novel-body">
+        <p>冬の夕風が窓を揺らす青葉台高校の情報科学部室。ハンダごての微かな熱気が漂う作業机で、神崎蓮が顕微鏡を覗き込みながらピンセットで小さな電子部品をつまんでいた。</p>
+<p class="dialogue">「だめだ……またウォッチドッグタイマーでリセットがかかった。8ビットマイコンの処理能力じゃ、標準のAES-GCMを回すだけでクロックサイクルが限界突破しちゃうよ」</p>
+<p class="dialogue">「蓮くん、何を作ってるの？」</p>
+<p>橘葵がホットココアのマグカップを片手に覗き込む。ブレッドボードの上には、米粒ほどしかない超小型の温度・湿度センサーモジュールと、ボタン電池が載っていた。</p>
+<p class="dialogue">「校舎裏のビニールハウスで実証実験中の、スマート農業用土壌センサーだよ。山の中や畑に置くから、ボタン電池1個で最低でも3年間はノーメンテナンスで動かしたいんだ。土壌の温度や酸性度データを1時間に1回、暗号化してワイヤレス送信する設計なんだけど……」</p>
+<p class="dialogue">「暗号化するだけで、そんなに電池を消耗しちゃうの？」葵が不思議そうに首をかしげる。</p>
+<p class="dialogue">「ええ、葵先輩。そこには現代の暗号工学が直面する『極短データ（Short Inputs）のジレンマ』があるのです」</p>
+<p>白石結衣がホワイトボードの前に立ち、数式とブロック図を素早く描き出した。</p>
+<p class="dialogue">「現在、インターネット通信（TLS 1.3）などで世界標準として使われているのは『AES-GCM』などの**認証付き暗号（AEAD: Authenticated Encryption with Associated Data）**です。これはデータの盗聴を防ぐ『暗号化』と、途中で通信が改ざんされていないかを証明する『メッセージ認証子（MAC）』を同時に実現する素晴らしい技術です」</p>
+<p class="dialogue">「うん、葵先輩も第7話でデジタル署名やハッシュを習ったよね」蓮が頷く。</p>
+<p class="dialogue">「ですが」と結衣はペンの先で強調した。「一般的なAE方式は、ギガバイト単位の大容量ファイルをストリーミング送信するような『長大なデータ』の処理速度（漸近的レート）を重視して作られています。そのため、たとえ送りたいデータが『気温24.5度』というわずか数バイトであっても、内部のブロック暗号処理（128ビット単位）を初期化やパディング、認証子の生成のために最低でも3回〜4回以上呼び出さなければならないのです」</p>
+<p class="dialogue">「えっ！ たった1言伝えるために、挨拶と自己紹介と退室手続きで何往復も書類を書かされるお役所手続きみたいなもの！？」</p>
+<p class="dialogue">「あはは、葵ちゃんの例えは相変わらず的を射てるな」</p>
+<p>部室のドアを開けて入ってきた城崎悠真が、温かい笑顔で笑った。手には、大学の暗号数理研究室から持参した論文の別刷りが握られている。</p>
+<p class="dialogue">「さらに深刻なのが**『ノンス（Nonce: 使い捨ての初期化値）』の再利用問題**だ」と悠真は続ける。</p>
+<p class="dialogue">「標準的なAES-GCMでは、1回限りの使い捨て番号であるノンスを二度と重複させてはいけないという絶対の掟がある。もしバッテリー交換やリセット、あるいは時計（RTC）を持たない安価なセンサーの誤動作で同じノンスを使って二度暗号化してしまうと、暗号鍵や認証鍵が数学的に完全に暴露されてしまう致命的な脆弱性（Nonce-Misuse脆弱性）を抱えているんだ」</p>
+<p class="dialogue">「そんな……！ 極小センサーって、時計のバックアップ電池すら削ってコストダウンしてるのに、絶対に番号を重複させるなって言われても無理だよ……」</p>
+<p>蓮が頭を抱えた。その時、悠真がホワイトボードに一枚の愛らしい猫のイラストをマグネットで留めた。</p>
+<p class="dialogue">「そこで、このジレンマを鮮やかに解決したのが、僕が所属する横浜国立大学SPIRALの**四方順司教授（NexCrypt Lab長）**と、Alexandre Adomnicăi博士、峯松一彦博士らの国際共同研究グループが発表し、国際学術誌『IEEE Internet of Things Journal (2024年11月)』に掲載された超軽量認証付き暗号**『Manx（マンクス）』**なんだ」</p>
+<p class="dialogue">「マンクス……？ イギリスのマン島原産の、しっぽがない俊敏な猫ちゃんのこと！？」葵が目を輝かせる。</p>
+<p class="dialogue">「その通り！ 余分なしっぽ（無駄なオーバーヘッド）を徹底的に削ぎ落とした、俊敏で強靭な暗号方式だからこの名が付けられたんだ」</p>
+<p>悠真は誇らしげに論文の構造図をプロジェクターに映し出した。</p>
+<p class="dialogue">「Manx（マンクス）は、入力データ（ノンス・平文・付加情報）の合計が2ブロック（256ビット）未満という、まさにIoTセンサーの短い通信に特化して極限まで最適化されている。ブロック暗号の呼び出し回数を**『最大でもたった2回』**に抑え込んでいるんだ」</p>
+<p class="dialogue">「たったの2回！？」蓮が目を見張った。</p>
+<p class="dialogue">「従来の標準方式に比べて暗号処理の計算回数が半分になる。さらに驚異的なのは、数学的に**『ノンス再利用耐性（Nonce-Misuse Security）』**が厳密に証明されている点だ。万が一センサーがクラッシュして同じノンスを誤って使い回してしまったとしても、暗号の機密性と改ざん検知能力が破綻しない強固な数学的バリアが組み込まれているんだよ」</p>
+<p class="dialogue">「……なんて美しい設計でしょう」結衣が感嘆の息を漏らした。「8ビットマイコン（AVR）や32ビットARM Cortex-M0/M4でのベンチマーク測定でも、暗号化にかかる遅延時間（レイテンシ）と消費電力が劇的に半減したことが実証されています」</p>
+<p>蓮はすぐさまノートPCに向かい、ManxのC言語実装ライブラリを土壌センサーのマイコンボードへとフラッシュ書き込みした。</p>
+<p>オシロスコープに表示された消費電力のピーク波形が、目に見えてスリムに激減する。基板上の小さなLEDが、緑色の光をリズミカルに瞬かせた。</p>
+<p class="dialogue">「すごい……！ 計算が以前の2倍速で終わって、あっという間に超省電力スリープモードに入った！ これならボタン電池1個で5年以上持っちゃうよ！」</p>
+<p>蓮が満面の笑みでガッツポーズを作った。</p>
+<p class="dialogue">「目に見えないほど小さくても、地球環境や人々の命を見守るスマートセンサーの鼓動。それを数学の力で守るのが、暗号学者の情熱なんだね」</p>
+<p>葵が優しく微笑み、冬の夕暮れの部室に、新しい知の温もりが満ちていった。</p>
+<p>---</p>
+      </div>
+    </section>
+
+    <!-- TikZ 技術構造図解 -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>📊 セキュリティ構造図解 (TikZ LuaLaTeX生成)</h2>
+        <span class="visual-badge">国家安全基準・工学図解</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/fig42_manx_lightweight_authenticated_encryption.png" alt="第42話 セキュリティ構造図解" class="responsive-img">
+        <p class="caption">▲ 【技術構造図】IPAデジタルスキル標準・国際規格に準拠した仕組みのモデル化</p>
+      </div>
+    </section>
+
+    <!-- 深掘りコラム -->
+    <section class="column-section">
+      <div class="section-title">
+        <h2>💡 高校生のためのセキュリティ深掘りコラム ＆ 大学進路ガイド</h2>
+      </div>
+      
+    </section>
+
+    <!-- 前後ナビゲーション -->
+    <nav class="episode-nav">
+      <a href="ep41.html" class="nav-btn">← 第41話: 奪われた肖像と鏡の迷宮 〜画像逆引き...</a>
+      <a href="../index.html" class="nav-btn center">目次に戻る</a>
+      <span class="nav-disabled">最新エピソード</span>
+    </nav>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 放課後サイバーディフェンス・ラボ (Cybersecurity Novel Library)</p>
+    <p>Repository: <a href="https://github.com/k518-2026/cybersecurity-novel" target="_blank" rel="noopener" style="color: var(--primary);">k518-2026/cybersecurity-novel</a></p>
+  </footer>
+
+</body>
+</html>

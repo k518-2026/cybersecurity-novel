@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第40話 見えざる牙と夜空の罠 〜ハニーポットと新規エクスプロイト分類の夜明け〜 | 放課後サイバーディフェンス・ラボ</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Shippori+Mincho:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="story-header">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">トップ (目次)</a> &gt; <span>第40話</span>
+      </div>
+      <div class="story-ep-tag">Episode 40</div>
+      <h1 class="story-main-title">見えざる牙と夜空の罠 〜ハニーポットと新規エクスプロイト分類の夜明け〜</h1>
+      <div class="story-meta">
+        <span>📚 学習テーマ: <strong>横浜国大SPIRAL吉岡克成教授・インミンパパ特任准教授・佐々木貴之准教授・九鬼琉氏ら、CSS 2024 学生論文賞、ハニーポット観測による新規エクスプロイト自動分類、仮識別子付与と協調的脆弱性開示（CVD）</strong></span>
+        <span>🏫 登場人物: 城崎悠真（部長・高2）、橘葵（部員・高2）、芹沢涼香准教授（大学メンター）</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container story-container">
+
+    <!-- ストーリーイラスト (4コマ漫画) -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>🎨 4コマ漫画挿絵（文字なし）</h2>
+        <span class="visual-badge">AI高解像度生成</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/ep40_4koma.png" alt="第40話 ストーリーイラスト" class="responsive-img">
+        <p class="caption">▲ 【挿絵】青葉台高校 情報科学部＆帝都科学大学サイバーディフェンス・ラボでの実践シーン</p>
+      </div>
+    </section>
+
+    <!-- 4コマ漫画セリフ（日・英バイリンガル）※存在する場合 -->
+    
+            <div class="koma-script-box">
+              <div class="koma-script-header">
+                <h3>💬 4コマ漫画キャラクターセリフ (Story Dialogue Script)</h3>
+                <span class="lang-tag">日・英バイリンガル (JA / EN)</span>
+              </div>
+              <div class="koma-panels-list">
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">1コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">部室の巨大モニターに世界中から飛来する無数の攻撃リクエストがリアルタイム表示されている</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[葵]</span>「うわっ、ハニーポットのおとりサーバーに毎秒何千件も攻撃が届いてるよ！ これ全部人間が確認するの無理じゃない！？」<br><span class="koma-char-name">[悠真]</span>「ああ。既知のシグネチャに引っかかる攻撃は自動で弾けるが、本当に危険なのは『既存ルールをすり抜ける未知の攻撃』なんだ」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Aoi]</span> "Whoa, thousands of attack requests hitting our honeypot decoys every second! How could humans ever review this!?"<br><span class="koma-char-name">[Yuma]</span> "Exactly. Known attacks get filtered automatically, but the real threats are unknown payloads slipping through existing rules."</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">2コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">蓮が未分類ログを指差す。見慣れないシェルコマンドと未知のパス指定</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[蓮]</span>「これ、CVE番号も付いてないし、Snortのシグネチャにも該当しない……。ゼロデイエクスプロイトの可能性もあるんじゃ……？」<br><span class="koma-char-name">[結衣]</span>「リクエストの構文木とペイロードの構造パターンを特徴量として抽出して、クラスタリングしてみましょう！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Ren]</span> "Look, no CVE number and no Snort signature matches... Could this be an in-the-wild zero-day exploit!?"<br><span class="koma-char-name">[Yui]</span> "Let's extract syntax trees and structural payload patterns as feature vectors to run clustering!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">3コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">画面上で未知の攻撃群が自動分類され、それぞれに一時的な仮識別子（独自ID）がラベル付けされる</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[悠真]</span>「これこそ横浜国大SPIRALのCSS 2024学生論文賞の研究だ！ 8ヶ月の観測でゼロデイ攻撃3件を含む46件の新規エクスプロイトを即座に分類・同定した手法だよ」<br><span class="koma-char-name">[葵]</span>「すごい！ 名前がつくことで、世界中の研究者が『あの攻撃だ！』って即座に追跡・共有できるんだね！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yuma]</span> "This is YNU SPIRAL's CSS 2024 award-winning research! In 8 months, it accurately identified 46 novel exploits, including 3 zero-days!"<br><span class="koma-char-name">[Aoi]</span> "Incredible! By assigning temporary IDs, defenders worldwide can immediately track and share alerts!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">4コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">ベンダーへの迅速な通報（CVD）が完了し、部室のみんなでガッツポーズ</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[蓮]</span>「おとり（ハニーポット）にかかった獲物をただ眺めるんじゃなく、新種の牙を暴いて世界を守る……まさにデジタルの鑑識官だ！」<br><span class="koma-char-name">[結衣]</span>「闇雲なパニックではなく、数理とシグネチャで脅威に名前を与える科学ですね！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Ren]</span> "Instead of just watching decoy bait, we identify new fangs to shield the world... true digital forensics!"<br><span class="koma-char-name">[Yui]</span> "Not blind panic, but giving names to novel threats through math and structural signatures!"</div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+
+    <!-- 小説本文 -->
+    <section class="novel-section">
+      <div class="section-title">
+        <h2>📖 小説本文</h2>
+      </div>
+      <div class="novel-body">
+        <p>冬の気配が忍び寄る11月の放課後、青葉台高校の情報科学部室。大型モニターには、世界地図を模したサイバー脅威マップが投影され、無数の光線が網の目のように交差していた。</p>
+<p class="dialogue">「……毎分、約1万2000件のアクセス。その9割以上は、世界中に張り巡らされた『ハニーポット（おとりサーバー）』に吸い込まれた不正なプローブ通信です」</p>
+<p>白石結衣がキーボードを叩きながら、集計グラフをウィンドウに表示させた。</p>
+<p class="dialogue">「うへえ……！ まるで街中の街灯に群がる虫みたい。でも悠真先輩、これだけ大量の攻撃リクエストが届いていたら、どれが本当にヤバい攻撃なのか見分けるだけで日が暮れちゃいませんか？」</p>
+<p>部長の橘葵が頭を抱える。ハニーポットとは、攻撃者をわざとおびき寄せるために無防備を装ってインターネット上に公開された観測用サーバーだ。攻撃者がどのような手口を使い、どのようなマルウェアを送り込んでくるのかを安全に記録・収集するための貴重な砦である。</p>
+<p class="dialogue">「葵ちゃんの言う通りだ。既知の攻撃パターン――たとえば公開されたCVE（共通脆弱性識別子）に紐づくシグネチャがあるものは、SnortやSuricataのような検知エンジンが自動でラベルを貼って処理してくれる。だが、問題は『既存のルールに一切マッチしない未分類のペイロード』なんだよ」</p>
+<p>大学の講義を終えて駆けつけた城崎悠真が、モニターの端に赤く点滅する未分類キューを指差した。</p>
+<p class="dialogue">「未分類……つまり、世の中にまだ知られていないゼロデイ（0-day）攻撃かもしれないってことですか！？」</p>
+<p>神崎蓮が身を乗り出した。ハードウェアや組み込み機器のファームウェア解析を得意とする蓮にとって、未知の脆弱性を突くエクスプロイト（攻撃実証コード）の存在は常に最大の関心事だった。</p>
+<p class="dialogue">「その通りだ。毎日数千件単位で届く未知のペイロードの中から、単なる壊れた通信データやスキャンノイズを排除し、本当に新しい脆弱性を突いている攻撃だけを素早く見つけ出して優先度をつけること――これを『脆弱性トリアージ』と呼ぶ。だが、従来は熟練のセキュリティアナリストが手動でリクエストを目視解析していたため、膨大な時間がかかり、被害が拡大してからようやく気づくことも多かった」</p>
+<p class="dialogue">「そこで登場するのが、横浜国立大学SPIRAL（吉岡克成教授、インミンパパ特任准教授、佐々木貴之准教授、九鬼琉氏ら）が発表し、情報処理学会CSS 2024で学生論文賞を受賞した『新規エクスプロイト自動分類手法』なんですね」</p>
+<p>結衣が誇らしげに論文の概念図を開いた。</p>
+<p class="dialogue">「この研究の画期的なところは、ハニーポットで捕らえたHTTPリクエストの構造――URLパスの階層、パラメータの渡し方、注入されたシェルコマンド（インジェクション構文）の文脈を正規化して構造的シグネチャを自動抽出し、クラスタリング（群分け）を行う点です」</p>
+<p class="dialogue">「群分け……？ つまり、同じ脆弱性を狙っている仲間同士を、AIやアルゴリズムが自動でひとまとめにしてくれるってこと？」</p>
+<p>葵が尋ねる。</p>
+<p class="dialogue">「そうだ。さらに決定的に重要なのは、その新種クラスタに対して**『独自の仮識別子（Pseudo-CVE）』**をその場で発行し、即座に監視トラッキングを開始する仕組みを備えていることだ。公式なCVE番号が採番されるのには数日から数週間かかることもある。だが、仮識別子があれば『この仮IDの攻撃が昨日の3倍に急増している』『この機器の未公開エンドポイントを狙っている』と、即座に製品メーカー（ベンダー）へ協調的脆弱性開示（CVD: Coordinated Vulnerability Disclosure）を行える」</p>
+<p>悠真の説明に、蓮が目を見張った。</p>
+<p class="dialogue">「実際に、どれくらいの成果が出たんですか？」</p>
+<p class="dialogue">「8ヶ月間の実環境観測において、**3件のゼロデイ攻撃を含む46件の新規エクスプロイト**を高精度に検出・分類したんだ。中には実際に製品開発ベンダーへ通報され、正式なパッチが配布されるきっかけになったものもある」</p>
+<p>部室のモニター上で、先ほどまで「UNKNOWN」と表示されていた赤いログの塊が、綺麗なクラスタへと再編成され、緑色の追跡コードが付与されていく。</p>
+<p class="dialogue">「獲物をおびき寄せるだけじゃなく、その手口を科学的に解明して、全世界の盾に変える……。おとりサーバーって、ただの罠じゃなくて、インターネットの最前線にある気象観測所なんだね！」</p>
+<p>葵の言葉に、悠真と結衣、そして蓮が力強く頷いた。冷え込む夕暮れの部室で、若きディフェンダーたちの瞳には、世界を陰から支える先端サイバー科学の確かな光が宿っていた。</p>
+<p>---</p>
+      </div>
+    </section>
+
+    <!-- TikZ 技術構造図解 -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>📊 セキュリティ構造図解 (TikZ LuaLaTeX生成)</h2>
+        <span class="visual-badge">国家安全基準・工学図解</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/fig40_honeypot_novel_exploit_classification.png" alt="第40話 セキュリティ構造図解" class="responsive-img">
+        <p class="caption">▲ 【技術構造図】IPAデジタルスキル標準・国際規格に準拠した仕組みのモデル化</p>
+      </div>
+    </section>
+
+    <!-- 深掘りコラム -->
+    <section class="column-section">
+      <div class="section-title">
+        <h2>💡 高校生のためのセキュリティ深掘りコラム ＆ 大学進路ガイド</h2>
+      </div>
+      
+    </section>
+
+    <!-- 前後ナビゲーション -->
+    <nav class="episode-nav">
+      <a href="ep39.html" class="nav-btn">← 第39話: 託された演算と選ばれし証 〜指定評価...</a>
+      <a href="../index.html" class="nav-btn center">目次に戻る</a>
+      <a href="ep41.html" class="nav-btn next">第41話: 奪われた肖像と鏡の迷宮 〜画像逆引き... →</a>
+    </nav>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 放課後サイバーディフェンス・ラボ (Cybersecurity Novel Library)</p>
+    <p>Repository: <a href="https://github.com/k518-2026/cybersecurity-novel" target="_blank" rel="noopener" style="color: var(--primary);">k518-2026/cybersecurity-novel</a></p>
+  </footer>
+
+</body>
+</html>

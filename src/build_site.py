@@ -370,6 +370,33 @@ episodes = [
         "md_file": "2026-11-02_ep39_homomorphic_signature_designated_evaluator.md",
         "illust": "ep39_4koma.png",
         "figure": "fig39_homomorphic_signature_designated_evaluator.png"
+    },
+    {
+        "num": 40,
+        "id": "ep40",
+        "title": "見えざる牙と夜空の罠 〜ハニーポットと新規エクスプロイト分類の夜明け〜",
+        "theme": "横浜国大SPIRAL吉岡克成教授・インミンパパ特任准教授・佐々木貴之准教授・九鬼琉氏ら、CSS 2024 学生論文賞、ハニーポット観測による新規エクスプロイト自動分類、仮識別子付与と協調的脆弱性開示（CVD）",
+        "md_file": "2026-11-02_ep40_honeypot_novel_exploit_classification.md",
+        "illust": "ep40_4koma.png",
+        "figure": "fig40_honeypot_novel_exploit_classification.png"
+    },
+    {
+        "num": 41,
+        "id": "ep41",
+        "title": "奪われた肖像と鏡の迷宮 〜画像逆引きで暴く偽ショッピングサイトの罠〜",
+        "theme": "横浜国大SPIRAL吉岡克成教授・長谷川深都穂氏・田辺瑠偉氏・藤田彬氏ら、CSS 2024 学生論文賞、正規ECサイトの商品画像を盗用・転載する偽ショッピングサイトの能動的画像逆引きクローリング手法",
+        "md_file": "2026-11-02_ep41_rogue_ec_image_reverse_search.md",
+        "illust": "ep41_4koma.png",
+        "figure": "fig41_rogue_ec_image_reverse_search.png"
+    },
+    {
+        "num": 42,
+        "id": "ep42",
+        "title": "極小の鍵と俊敏なる猫 〜超軽量認証付き暗号「Manx」とIoTの鼓動〜",
+        "theme": "横浜国大SPIRAL四方順司教授（NexCrypt Lab長）・Alexandre Adomnicăi氏・峯松一彦氏ら、IEEE Internet of Things Journal 2024、超小型IoT機器・極短データ向け超軽量認証付き暗号方式「Manx」、最大2回のブロック暗号呼び出しとノンス再利用耐性",
+        "md_file": "2026-11-02_ep42_manx_lightweight_authenticated_encryption.md",
+        "illust": "ep42_4koma.png",
+        "figure": "fig42_manx_lightweight_authenticated_encryption.png"
     }
 ]
 
@@ -664,7 +691,7 @@ index_html = f"""<!DOCTYPE html>
         高校生がサイバーセキュリティの面白さや重要性に触れ、将来の情報科学系・工学系大学への進学やセキュリティ専門職を目指すための入門ライトノベルです。<br>
         <strong>第1部（第1話〜第15話）</strong>：橘 葵＆城崎 悠真が、パスワード認証から暗号、クラウド、AI防御までの基礎原理を習得して大学進学へ。<br>
         <strong>第2部 先端編（第16話〜第20話）</strong>：新入生の神崎 蓮＆白石 結衣が、IoT、ゼロトラスト、ハードウェア解析、社会重要インフラ防御に挑む！<br>
-        <strong>第2部 横浜国大SPIRAL探訪編（第21話〜第39話）</strong>：暗号数理（四方教授）、IoT・マルウェア解析（吉岡教授・イン特任准教授・佐々木准教授）など最新研究論文の知見を高校生向けにストーリー化！
+        <strong>第2部 横浜国大SPIRAL探訪編（第21話〜第42話）</strong>：暗号数理（四方教授）、IoT・マルウェア解析（吉岡教授・イン特任准教授・佐々木准教授）など最新研究論文の知見を高校生向けにストーリー化！
       </p>
     </section>
 
@@ -674,7 +701,7 @@ index_html = f"""<!DOCTYPE html>
         <!-- リアルタイム検索バー -->
         <div class="search-box-wrapper">
           <span class="search-icon">🔍</span>
-          <input type="search" id="searchInput" class="search-input" placeholder="キーワード検索 (例: 暗号, IoT, ルーター, 偽装, マルウェア, 第38話)..." autocomplete="off">
+          <input type="search" id="searchInput" class="search-input" placeholder="キーワード検索 (例: 暗号, IoT, ルーター, 偽装, マルウェア, 第40話)..." autocomplete="off">
         </div>
 
         <!-- 表示順序ソートセレクター -->
@@ -690,8 +717,8 @@ index_html = f"""<!DOCTYPE html>
       <!-- シリーズ・編別フィルタータブ -->
       <div class="filter-tabs-row">
         <span class="filter-tab-label">シリーズ絞り込み:</span>
-        <button type="button" class="filter-btn active" data-filter="all">すべて (全39話)</button>
-        <button type="button" class="filter-btn" data-filter="part2_spiral">SPIRAL論文探訪編 (第21〜39話)</button>
+        <button type="button" class="filter-btn active" data-filter="all">すべて (全42話)</button>
+        <button type="button" class="filter-btn" data-filter="part2_spiral">SPIRAL論文探訪編 (第21〜42話)</button>
         <button type="button" class="filter-btn" data-filter="part2_adv">先端セキュリティ編 (第16〜20話)</button>
         <button type="button" class="filter-btn" data-filter="part1">高校情報科学部編 (第1〜15話)</button>
       </div>
@@ -699,7 +726,7 @@ index_html = f"""<!DOCTYPE html>
       <!-- 件数表示 & リセットボタン -->
       <div class="controls-status-row">
         <div>
-          該当件数: <span id="resultsCount" class="results-count-badge">39</span> 件 / 全39話中
+          該当件数: <span id="resultsCount" class="results-count-badge">42</span> 件 / 全42話中
         </div>
         <div>
           <button type="button" id="resetFiltersBtn" class="reset-filters-btn">検索・条件をリセット</button>
