@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第43話 偽りの標榜と影の巣窟 〜IoT不正機能データセット「DarkWrt」〜 | 放課後サイバーディフェンス・ラボ</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Shippori+Mincho:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="story-header">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">トップ (目次)</a> &gt; <span>第43話</span>
+      </div>
+      <div class="story-ep-tag">Episode 43</div>
+      <h1 class="story-main-title">偽りの標榜と影の巣窟 〜IoT不正機能データセット「DarkWrt」〜</h1>
+      <div class="story-meta">
+        <span>📚 学習テーマ: <strong>横浜国大SPIRAL上園大智氏・原悟史氏・佐々木貴之准教授・吉岡克成教授ら、MWS 2024 ベストプラクティカル研究賞、IoT機器ファームウェアに潜むバックドア・不正機能の体系的分類（トリガーと機能の2軸）と検証用オープンソースデータセット「DarkWrt」の構築</strong></span>
+        <span>🏫 登場人物: 城崎悠真（部長・高2）、橘葵（部員・高2）、芹沢涼香准教授（大学メンター）</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container story-container">
+
+    <!-- ストーリーイラスト (4コマ漫画) -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>🎨 4コマ漫画挿絵（文字なし）</h2>
+        <span class="visual-badge">AI高解像度生成</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/ep43_4koma.png" alt="第43話 ストーリーイラスト" class="responsive-img">
+        <p class="caption">▲ 【挿絵】青葉台高校 情報科学部＆帝都科学大学サイバーディフェンス・ラボでの実践シーン</p>
+      </div>
+    </section>
+
+    <!-- 4コマ漫画セリフ（日・英バイリンガル）※存在する場合 -->
+    
+            <div class="koma-script-box">
+              <div class="koma-script-header">
+                <h3>💬 4コマ漫画キャラクターセリフ (Story Dialogue Script)</h3>
+                <span class="lang-tag">日・英バイリンガル (JA / EN)</span>
+              </div>
+              <div class="koma-panels-list">
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">1コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">蓮が部室の分解ルーターのファームウェアバイナリを画面に表示し、腕組みして唸っている</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[蓮]</span>「ルーターのOSSコードの中に、特定のポートに特定パケットを送ると管理者権限（root）でシェルが開く怪しい細工を見つけた……！ これって開発者のミス？ それとも……？」<br><span class="koma-char-name">[悠真]</span>「ミスじゃない。意図的に仕組まれた『不正機能（バックドア）』の典型例だ」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Ren]</span> "Look at this open-source router code! Sending a specific packet opens a root shell... Is this a developer bug, or...?"<br><span class="koma-char-name">[Yuma]</span> "Not a bug. It's a textbook intentional backdoor engineered into firmware."</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">2コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">結衣がノートPCで先行研究を調べるが、IoT向けのバックドア検証データが世の中にほとんど存在しない</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[結衣]</span>「Pythonやnpmの不正パッケージは研究が進んでいますが、IoTルーターや防犯カメラのファームウェアに仕組まれた不正機能は、公開データセットが世界的に不足しています！」<br><span class="koma-char-name">[葵]</span>「検証用のデータがないと、AIスキャナーや検知ツールの性能テストもできないじゃない！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yui]</span> "While malicious npm/PyPI packages have datasets, firmware backdoors in routers and IP cameras lack open benchmark datasets globally!"<br><span class="koma-char-name">[Aoi]</span> "Without test datasets, we can't even evaluate AI scanners or automated auditing tools!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">3コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">悠真が「DarkWrt」のアーキテクチャ図を展開する</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[悠真]</span>「そこで横浜国大SPIRALが開発し、MWS 2024でベストプラクティカル研究賞を受賞したのが『DarkWrt』だ！ ルーター用OS（OpenWrt）に過去の実在事例23件から抽出した不正機能を再現注入したデータセットなんだ」<br><span class="koma-char-name">[蓮]</span>「起動条件（トリガー）と機能（目的）の2軸で分類されていて、あらゆる手口が網羅されてる！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yuma]</span> "That's why YNU SPIRAL built 'DarkWrt', winning MWS 2024 Best Practical Research Award! Injecting real-world backdoors into OpenWrt!"<br><span class="koma-char-name">[Ren]</span> "Classified by Trigger and Function, systematically covering every rogue mechanism!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">4コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">部室のみんなでファームウェアの自動検知ベンチマークを実行し、見事に不正コードを検出</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[葵]</span>「影の巣窟（ダーク）を照らすための基準物差し（ものさし）を作ったんだね！」<br><span class="koma-char-name">[結衣]</span>「悪を再現し科学的に検証することで、何億台ものIoT機器のサプライチェーンを守る……最高の防衛工学です！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Aoi]</span> "They built a gold-standard ruler to illuminate dark shadows!"<br><span class="koma-char-name">[Yui]</span> "Reproducing threats under controlled lab conditions to safeguard global supply chains... peak defensive engineering!"</div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+
+    <!-- 小説本文 -->
+    <section class="novel-section">
+      <div class="section-title">
+        <h2>📖 小説本文</h2>
+      </div>
+      <div class="novel-body">
+        <p>冬晴れの青葉台高校、情報科学部室。ハンダ付けの匂いが残る机で、神崎蓮がシリアルコンソール経由で吸い出した家庭用ルーターのファームウェアC言語ソースコードを凝視していた。</p>
+<p class="dialogue">「……悠真先輩、ちょっとこの `rc.local` とネットワークデーモンのコードを見てください」</p>
+<p>蓮が画面を指差す。大学の実験レポートをまとめていた城崎悠真がデスクに歩み寄った。</p>
+<p class="dialogue">「これは……ポート番号8888宛てに特定の文字列マジックバイトを受信したら、認証をバイパスして秘密のtelnetdをバックグラウンド起動するルーチンか？」</p>
+<p class="dialogue">「はい。マニュアルやWeb設定画面にはこんなポートの記述は一行もありません。単なるバグや設定ミスなんじゃなくて、最初から開発者かサプライチェーンの何者かが『意図して仕込んだ裏口（バックドア）』に見えます」</p>
+<p class="dialogue">「蓮くん、その直感は正しいよ」悠真が頷いた。</p>
+<p>橘葵がマグカップを置いて不思議そうに首をかしげた。</p>
+<p class="dialogue">「でも先輩、世の中にウイルス対策ソフトやAI脆弱性スキャナーがたくさんあるのに、どうしてルーターの裏口は見逃されちゃうの？」</p>
+<p>白石結衣がホワイトボードにペンを走らせながら答えた。</p>
+<p class="dialogue">「葵先輩、そこにはセキュリティ研究における深刻な『データセット不足』の壁があったのです。PythonのPyPIやJavaScriptのnpmといったWeb系の言語では、悪意あるコードを仕込んだ不正パッケージの公開データセットが整備され、AIによる自動検知の研究が盛んに行われてきました。しかし、ルーターやNAS、ネットワークカメラなどの組み込み機器（IoTファームウェア）に関しては、世界中を見渡しても標準化された検証用データセットがほぼ皆無だったのです」</p>
+<p class="dialogue">「検査するための『正解データ（模範解答）』がないから、せっかく開発したAIスキャナーが本当に裏口を見破れるのかテストすらできなかった、ってこと！？」葵が目を丸くする。</p>
+<p class="dialogue">「その通りだ」悠真が力強く頷いた。「そこで、この分厚い壁を打ち破ったのが、横浜国立大学SPIRALの**上園大智氏、原悟史氏、佐々木貴之准教授、吉岡克成教授ら**の研究グループなんだ。情報処理学会のコンピュータセキュリティシンポジウム（CSS 2024）併催のマルウェアワークショップ（MWS 2024）において、**『DarkWrt: IoT機器における不正機能のデータセット作成に向けた事例調査と分類』**を発表し、見事**ベストプラクティカル研究賞**を受賞したんだよ」</p>
+<p class="dialogue">「DarkWrt……！ オープンソースルーターOSのOpenWrtをもじった名前ですね！」蓮が身を乗り出す。</p>
+<p class="dialogue">「ああ。研究グループは、過去にルーターやVPN機器、監視カメラなどで実際に発覚した23件の不正機能事例を徹底的に解剖した。そして、不正機能を**『トリガー（起動条件）』**と**『機能（目的）』**という2つの軸で科学的に体系化したんだ」</p>
+<p>悠真はプロジェクターに分類表を映し出した。</p>
+<p>* **トリガー（どうやって動くか）**:
+  1. 正規認証の回避（ハードコードされた秘密パスワードなど）
+  2. 隠しネットワークサービス（ポートノッキングや未公開ポート）
+  3. 隠しコマンド（特定パラメータによる不正呼び出し）
+  4. 時間・タイマー（特定日時に作動するロジックボム）
+* **機能（何をしでかすか）**:
+  1. 権限昇格（一般権限からrootへ奪取）
+  2. 機密情報の窃取・外部送信（パスワードや暗号鍵漏洩）
+  3. 設定改ざん（DNS変更やファイアウォール無効化）
+  4. リモートキルスイッチ（機器の文鎮化・停止）</p>
+<p class="dialogue">「そして研究チームは、世界中で広く使われているオープンソースのルーター基盤『OpenWrt』のコード上に、これら分類された不正機能を制御された安全な形で再現注入したんだ。これによって、世界中の研究者が共通の土俵でバックドア検知AIや静的解析ツールの性能を競い合える**オープンな評価基盤『DarkWrt』**が誕生したんだよ」</p>
+<p class="dialogue">「すごい……！ 影に隠れていた手口を実験室で再現して、世界中のディフェンダーに『これが敵の手口だ！』って物差しを配ったんだ！」葵が感嘆の声を上げた。</p>
+<p class="dialogue">「これがあれば」と蓮が目を輝かせた。「僕が開発しているファームウェア監査スクリプトも、どのパターンの裏口を見逃してしまうのか一発でベンチマークできます！」</p>
+<p class="dialogue">「ええ。悪意を闇に葬るのではなく、科学の光の下で解剖し、盤石な盾に変える。まさにサイバーセキュリティ工学の真髄ですね」</p>
+<p>結衣の言葉に、部室の全員が誇らしげに頷き合った。手元の端末では、DarkWrtのテストスイートが走り、隠された不正機能が緑色の警告灯とともに次々と白日の下に晒されていった。</p>
+<p>---</p>
+      </div>
+    </section>
+
+    <!-- TikZ 技術構造図解 -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>📊 セキュリティ構造図解 (TikZ LuaLaTeX生成)</h2>
+        <span class="visual-badge">国家安全基準・工学図解</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/fig43_darkwrt_iot_backdoors.png" alt="第43話 セキュリティ構造図解" class="responsive-img">
+        <p class="caption">▲ 【技術構造図】IPAデジタルスキル標準・国際規格に準拠した仕組みのモデル化</p>
+      </div>
+    </section>
+
+    <!-- 深掘りコラム -->
+    <section class="column-section">
+      <div class="section-title">
+        <h2>💡 高校生のためのセキュリティ深掘りコラム ＆ 大学進路ガイド</h2>
+      </div>
+      
+    </section>
+
+    <!-- 前後ナビゲーション -->
+    <nav class="episode-nav">
+      <a href="ep42.html" class="nav-btn">← 第42話: 極小の鍵と俊敏なる猫 〜超軽量認証付...</a>
+      <a href="../index.html" class="nav-btn center">目次に戻る</a>
+      <a href="ep44.html" class="nav-btn next">第44話: 語られぬ警鐘と眠る小箱 〜スマホ連携... →</a>
+    </nav>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 放課後サイバーディフェンス・ラボ (Cybersecurity Novel Library)</p>
+    <p>Repository: <a href="https://github.com/k518-2026/cybersecurity-novel" target="_blank" rel="noopener" style="color: var(--primary);">k518-2026/cybersecurity-novel</a></p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第44話 語られぬ警鐘と眠る小箱 〜スマホ連携アプリが招くIoTの死角〜 | 放課後サイバーディフェンス・ラボ</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Shippori+Mincho:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="story-header">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">トップ (目次)</a> &gt; <span>第44話</span>
+      </div>
+      <div class="story-ep-tag">Episode 44</div>
+      <h1 class="story-main-title">語られぬ警鐘と眠る小箱 〜スマホ連携アプリが招くIoTの死角〜</h1>
+      <div class="story-meta">
+        <span>📚 学習テーマ: <strong>横浜国大SPIRAL本多凌大氏・櫛引淳之介氏・佐々木貴之准教授・吉岡克成教授ら、CSS 2024、IoT機器付属スマートフォン連携アプリを通じたセキュリティアドバイス提供状況の大規模調査、Android APKリバースエンジニアリング解析、更新推奨メッセージ欠如の現状とヒューマンファクター改善</strong></span>
+        <span>🏫 登場人物: 城崎悠真（部長・高2）、橘葵（部員・高2）、芹沢涼香准教授（大学メンター）</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container story-container">
+
+    <!-- ストーリーイラスト (4コマ漫画) -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>🎨 4コマ漫画挿絵（文字なし）</h2>
+        <span class="visual-badge">AI高解像度生成</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/ep44_4koma.png" alt="第44話 ストーリーイラスト" class="responsive-img">
+        <p class="caption">▲ 【挿絵】青葉台高校 情報科学部＆帝都科学大学サイバーディフェンス・ラボでの実践シーン</p>
+      </div>
+    </section>
+
+    <!-- 4コマ漫画セリフ（日・英バイリンガル）※存在する場合 -->
+    
+            <div class="koma-script-box">
+              <div class="koma-script-header">
+                <h3>💬 4コマ漫画キャラクターセリフ (Story Dialogue Script)</h3>
+                <span class="lang-tag">日・英バイリンガル (JA / EN)</span>
+              </div>
+              <div class="koma-panels-list">
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">1コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">葵がスマートフォンで最新スマート防犯カメラのWi-Fi初期設定を完了させ、満足そうに微笑む</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[葵]</span>「スマホアプリの指示通りにタップしたら、1分でペット見守りカメラの設定完了！ 最近のIoTって本当に親切で簡単〜！」<br><span class="koma-char-name">[蓮]</span>「葵先輩、設定の途中でファームウェアの更新や初期パスワードの変更を促す警告って出ました？」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Aoi]</span> "Tapping through this smartphone app took just 1 minute to set up my smart pet cam! Modern IoT is so user-friendly!"<br><span class="koma-char-name">[Ren]</span> "Aoi, did the app ever prompt you to update the firmware or change default credentials during setup?"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">2コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">葵がスマホの画面を見返す。可愛いアイコンばかりで警告やアドバイスの文字が一切ない</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[葵]</span>「えっ……？ 『接続成功！』って出ただけで、アップデートなんて一言も言われなかったよ……？」<br><span class="koma-char-name">[結衣]</span>「紙のマニュアルを読む一般ユーザーはごくわずかです。動的な通知が可能なスマホアプリこそ、最大の防衛チャネルのはずなのに……！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Aoi]</span> "Wait... it just said 'Connected Successfully!'. Not a single word about updates...?"<br><span class="koma-char-name">[Yui]</span> "Almost no consumers read paper manuals. Dynamic companion apps should be the primary channel for security guidance!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">3コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">悠真と蓮がAndroidアプリ（APK）のリバースエンジニアリング画面を開いて見せる</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[悠真]</span>「横浜国大SPIRALのCSS 2024研究で、33社41個のIoTコンパニオンアプリを網羅解析したんだ。自動更新機能がない機器のアプリ24個中、なんと13個が更新を促すメッセージを一切実装していなかった！」<br><span class="koma-char-name">[蓮]</span>「ユーザーに責任を押し付ける前に、アプリ側が伝えるべき警告を怠っていたんだ！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yuma]</span> "In YNU SPIRAL's CSS 2024 study of 41 apps from 33 vendors, 13 out of 24 apps lacking auto-updates NEVER prompted users to update!"<br><span class="koma-char-name">[Ren]</span> "Before blaming users, companion apps failed to deliver essential warnings in the first place!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">4コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">部室でアプリのセキュリティ通知UI（セキュリティUX）改善ガイドラインを作成する</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[葵]</span>「親切に見えて、大事な注意を教えてくれない『過保護の落とし穴』だったんだね！」<br><span class="koma-char-name">[結衣]</span>「人とテクノロジーを繋ぐインターフェースにこそ、命を守るセキュリティの優しさが求められますね！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Aoi]</span> "Seemingly convenient, but hiding the vital warnings... a trap of false simplicity!"<br><span class="koma-char-name">[Yui]</span> "The interface bridging humans and tech must embrace thoughtful security UX to protect our lives!"</div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+
+    <!-- 小説本文 -->
+    <section class="novel-section">
+      <div class="section-title">
+        <h2>📖 小説本文</h2>
+      </div>
+      <div class="novel-body">
+        <p>冬休みの気配が近づく放課後の部室。橘葵がスマートフォンを両手で持ち、満足そうに歓声をあげた。</p>
+<p class="dialogue">「できたー！ 自宅のリビングに設置するネットワーク見守りカメラ、スマホの専用アプリからWi-Fiパスワードを入れたら、たったの1分で設定終わっちゃった！ QRコードをかざすだけでカメラとペアリングできちゃうなんて、最近のスマート家電って本当に親切で使いやすいよね！」</p>
+<p>葵が嬉しそうに画面を揺らす。だが、隣でノートPCに向かっていた神崎蓮が、ふと眉を寄せて尋ねた。</p>
+<p class="dialogue">「葵先輩、そのセットアップの手順の中で、ファームウェアのバージョン確認や、初期管理者パスワードの変更を促す画面って出ました？」</p>
+<p class="dialogue">「え？ ……ううん？ 『Wi-Fiに接続されました！ お部屋の映像をお楽しみください』って可愛いキャラクターのイラストが出ただけだよ。パスワードの変更？ そんなの聞かれなかったけど……」</p>
+<p class="dialogue">「やっぱりか……」</p>
+<p>蓮が深いため息をついた。白石結衣も眼鏡を押し上げながら神妙な面持ちで口を開いた。</p>
+<p class="dialogue">「葵先輩、箱の中に入っている分厚い紙の取扱説明書を隅々まで読む一般の消費者は、全体の数パーセントにも満たないと言われています。現代のIoT機器において、ユーザーが唯一必ず目を通す画面――それこそが、初期設定に使われるスマートフォンの連携アプリ（コンパニオンアプリ）なのです」</p>
+<p class="dialogue">「そうだよね。アプリの言う通りに『次へ』を押すだけで、紙の説明書なんて開けもしないよ」</p>
+<p class="dialogue">「だからこそ」と、部室に入ってきた城崎悠真が言葉を継いだ。「機器の状態に合わせてリアルタイムに注意喚起できるスマートフォンアプリは、セキュリティの最前線にある『命の防波堤』でなければならないんだ」</p>
+<p>悠真はホワイトボードにスマートフォンとルーター、カメラの絵を描いた。</p>
+<p class="dialogue">「ユーザーがセキュリティ対策を怠るのは、ユーザーが無頓着だからではない。メーカーが提供するアプリのUI/UX（ユーザー体験）が、必要なセキュリティ行動を促していないからではないか――このヒューマンファクターの核心に切り込んだのが、横浜国立大学SPIRALの**本多凌大氏、櫛引淳之介氏、佐々木貴之准教授、吉岡克成教授ら**によるCSS 2024の研究なんだ」</p>
+<p class="dialogue">「メーカーのアプリを調べたんですか？」葵が興味深そうに身を乗り出す。</p>
+<p class="dialogue">「ああ。一般家庭で広く使われているルーター、NAS、プリンター、ネットワークカメラを製造する国内外主要33社、計41個のAndroid公式連携アプリを収集した。そして、各アプリのAPK（実行パッケージ）をリバースエンジニアリングし、内部に埋め込まれているUI文字列やリソースファイルを網羅的に解析したんだ」</p>
+<p>蓮がモニターに論文の分析グラフを表示した。</p>
+<p class="dialogue">「調査結果は驚くべきものでした。調査対象のアプリのうち、ファームウェアの自動更新機能を持たず、手動で更新しなければ脆弱性が放置されてしまう機器のアプリ24個を調べたところ……なんと**過半数を超える13個のアプリにおいて、ユーザーにアップデートを推奨するメッセージが一行も存在しなかった**んです」</p>
+<p class="dialogue">「ええっ！？ 半分以上のメーカーが、アプリの中で『アップデートしてね』とすら言ってくれなかったの！？」葵が息を呑んだ。</p>
+<p class="dialogue">「さらに、初期設定のデフォルトパスワードを使い続ける危険性を警告したり、推測されやすい単純なパスワードを弾くチェック機能を持たないアプリも多数見つかった。メーカー側は『初期設定の手間を減らしてユーザーの離脱を防ぎたい』という利便性を優先するあまり、ユーザーを危険に晒すセキュリティアドバイスを丸ごと削ぎ落としてしまっていたんだ」</p>
+<p>悠真の言葉に、葵は手元のスマートフォンを見つめ直した。</p>
+<p class="dialogue">「便利で簡単だと思っていた親切さの裏に、そんな落とし穴があったなんて……。私、知らず知らずのうちに無防備なカメラをネットに晒すところだったんだ」</p>
+<p class="dialogue">「ええ。セキュリティとは、強固な暗号数理やファイアウォールだけでなく、使う人間が迷わず安全な選択を取れるように誘導する『セキュリティUX（ヒューマンファクター）』が揃って初めて完成するものです」結衣が静かに微笑んだ。</p>
+<p class="dialogue">「よし！」葵がスマートフォンを操作し始めた。「アプリの設定の奥深くを探して、強固なパスワードに変更してファームウェアも最新に更新するよ！ そして、アプリ任せにせず安全を確かめる知恵を、部活のみんなにも伝えなくちゃね！」</p>
+<p>夕焼けに染まる部室で、若きディフェンダーたちは人と技術が真に手を取り合うための「優しきサイバー防衛」の在り方を胸に刻んでいた。</p>
+<p>---</p>
+      </div>
+    </section>
+
+    <!-- TikZ 技術構造図解 -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>📊 セキュリティ構造図解 (TikZ LuaLaTeX生成)</h2>
+        <span class="visual-badge">国家安全基準・工学図解</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/fig44_iot_companion_app_advisory_gap.png" alt="第44話 セキュリティ構造図解" class="responsive-img">
+        <p class="caption">▲ 【技術構造図】IPAデジタルスキル標準・国際規格に準拠した仕組みのモデル化</p>
+      </div>
+    </section>
+
+    <!-- 深掘りコラム -->
+    <section class="column-section">
+      <div class="section-title">
+        <h2>💡 高校生のためのセキュリティ深掘りコラム ＆ 大学進路ガイド</h2>
+      </div>
+      
+    </section>
+
+    <!-- 前後ナビゲーション -->
+    <nav class="episode-nav">
+      <a href="ep43.html" class="nav-btn">← 第43話: 偽りの標榜と影の巣窟 〜IoT不正機...</a>
+      <a href="../index.html" class="nav-btn center">目次に戻る</a>
+      <a href="ep45.html" class="nav-btn next">第45話: 託されぬ秘密と白の掲示板 〜CCA安... →</a>
+    </nav>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 放課後サイバーディフェンス・ラボ (Cybersecurity Novel Library)</p>
+    <p>Repository: <a href="https://github.com/k518-2026/cybersecurity-novel" target="_blank" rel="noopener" style="color: var(--primary);">k518-2026/cybersecurity-novel</a></p>
+  </footer>
+
+</body>
+</html>

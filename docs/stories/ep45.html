@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第45話 託されぬ秘密と白の掲示板 〜CCA安全な登録ベース暗号とFO変換の奇跡〜 | 放課後サイバーディフェンス・ラボ</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Shippori+Mincho:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="story-header">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">トップ (目次)</a> &gt; <span>第45話</span>
+      </div>
+      <div class="story-ep-tag">Episode 45</div>
+      <h1 class="story-main-title">託されぬ秘密と白の掲示板 〜CCA安全な登録ベース暗号とFO変換の奇跡〜</h1>
+      <div class="story-meta">
+        <span>📚 学習テーマ: <strong>横浜国大SPIRAL四方順司教授（NexCrypt Lab長）・知久奏斗氏・原啓祐氏・橋本啓太郎氏・冨田斗威氏ら、CANS 2024 / CSS 2024 優秀論文賞、IDベース暗号（IBE）の鍵預託問題を克服する登録ベース暗号（RBE）への藤崎・岡本（FO）変換の厳密な構成法と最強の選択暗号文攻撃（IND-CCA）安全性証明</strong></span>
+        <span>🏫 登場人物: 城崎悠真（部長・高2）、橘葵（部員・高2）、芹沢涼香准教授（大学メンター）</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container story-container">
+
+    <!-- ストーリーイラスト (4コマ漫画) -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>🎨 4コマ漫画挿絵（文字なし）</h2>
+        <span class="visual-badge">AI高解像度生成</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/ep45_4koma.png" alt="第45話 ストーリーイラスト" class="responsive-img">
+        <p class="caption">▲ 【挿絵】青葉台高校 情報科学部＆帝都科学大学サイバーディフェンス・ラボでの実践シーン</p>
+      </div>
+    </section>
+
+    <!-- 4コマ漫画セリフ（日・英バイリンガル）※存在する場合 -->
+    
+            <div class="koma-script-box">
+              <div class="koma-script-header">
+                <h3>💬 4コマ漫画キャラクターセリフ (Story Dialogue Script)</h3>
+                <span class="lang-tag">日・英バイリンガル (JA / EN)</span>
+              </div>
+              <div class="koma-panels-list">
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">1コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">結衣がノートにIDベース暗号（IBE）の構造式を書きながら、深いため息をついている</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[結衣]</span>「メールアドレスを受信鍵にするIDベース暗号（IBE）は証明書が不要で便利ですが……鍵発行局（KGC）が全員の秘密鍵を生成するため、管理者が勝手に盗聴できてしまう『鍵預託問題』が残るのです」<br><span class="koma-char-name">[葵]</span>「えっ、暗号の元締めがみんなの秘密を覗き見できちゃうの！？」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yui]</span> "Identity-Based Encryption is certificate-less, but the central Key Generation Center knows everyone's secret keys—the classic 'Key Escrow Dilemma'!"<br><span class="koma-char-name">[Aoi]</span> "Wait, the master key authority can peek at everyone's secrets!?"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">2コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">蓮が「登録ベース暗号（RBE）」の仕組みを提示する。各ユーザーが自分で鍵を作り、公開掲示板に登録する</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[蓮]</span>「それを解決したのが『登録ベース暗号（RBE）』だ！ ユーザー自身が秘密鍵を作り、公開台帳に登録するから元締めも鍵を盗めない！」<br><span class="koma-char-name">[結衣]</span>「ですが従来のRBEは受動的攻撃（CPA）しか防げず、実用通信で必須の能動的攻撃耐性（CCA安全性）の証明が未解決だったのです……」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Ren]</span> "That led to 'Registration-Based Encryption (RBE)'! Users generate keys locally and register to a public board—zero key escrow!"<br><span class="koma-char-name">[Yui]</span> "However, existing RBE was only CPA-secure; proving IND-CCA security against active tampering remained an open hurdle...!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">3コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">悠真が数理変換の魔導書のようなスライドを開く。FO変換の数式が美しく光る</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[悠真]</span>「そこで横浜国大SPIRAL四方順司教授らの研究グループが国際会議CANS 2024で発表し、CSS 2024で優秀論文賞に輝いたのが『RBEに対する藤崎・岡本（FO）変換の厳密適用手法』だ！」<br><span class="koma-char-name">[結衣]</span>「古典的なFO変換をそのまま使うと破綻する盲点を突き止め、動的な複数ユーザー環境でも最強のIND-CCA安全性を数学的に証明したのですね！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yuma]</span> "That's why YNU SPIRAL's Prof. Shikata solved it at CANS 2024 & CSS 2024 with rigorous Fujisaki-Okamoto (FO) Transformation for RBE!"<br><span class="koma-char-name">[Yui]</span> "Proving naive FO fails under dynamic multi-user registration, they constructed the first provably IND-CCA-secure RBE!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">4コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">部室に広がる完全なゼロトラスト公開鍵インフラの光。みんなで未来を確信する</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[葵]</span>「誰にも秘密を預けず、悪意ある改ざん攻撃も完全に跳ね返す……暗号学者の数理って本当に無敵の魔法だね！」<br><span class="koma-char-name">[蓮]</span>「中央の権力に依存しない、真の分散インターネットの夜明けだ！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Aoi]</span> "Trusting no central master, deflecting active tampering... cryptographers' math truly is an invincible shield!"<br><span class="koma-char-name">[Ren]</span> "The dawn of a truly decentralized internet free from centralized overlords!"</div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+
+    <!-- 小説本文 -->
+    <section class="novel-section">
+      <div class="section-title">
+        <h2>📖 小説本文</h2>
+      </div>
+      <div class="novel-body">
+        <p>冬の澄み切った空気が差し込む放課後の情報科学部室。黒板には、白石結衣の美しい筆跡で複雑な楕円曲線と準同型代数の数式がびっしりと書き込まれていた。</p>
+<p class="dialogue">「……第35話で、私たちが学んだ『IDベース暗号（IBE）』を覚えていますか、葵先輩？」</p>
+<p>黒板の数式を指しながら、結衣が振り返った。橘葵が記憶をたどりながら答える。</p>
+<p class="dialogue">「もちろん！ デジタル証明書（PKI）の面倒な認証局を使わずに、相手のメールアドレスや社員番号をそのまま公開鍵にして暗号化できる画期的な仕組みだよね？」</p>
+<p class="dialogue">「はい。ですが、IBEには誕生以来40年間、数学者たちを悩ませ続けてきた最大の構造的ジレンマ――**『鍵預託問題（Key Escrow Dilemma）』**が存在するのです」</p>
+<p>神崎蓮が頷きながら、ノートPCのキーを叩いた。</p>
+<p class="dialogue">「IBEでは、システムを管理する『鍵発行局（KGC: Key Generation Center）』がマスター秘密鍵を使って全ユーザーの秘密鍵を計算・配布する。つまり、KGCの管理者やサーバーをハッキングした攻撃者は、世界中の全通信を一切痕跡を残さずに盗聴・復号できてしまうし、誰にでもなりすませるんだ」</p>
+<p class="dialogue">「ええっ！？ 『私を信じて秘密鍵を受け取ってください』って言ってる元締めが、実は全員の合鍵をポケットに入れてるようなものじゃない！」葵が目を見開く。</p>
+<p class="dialogue">「その通りです」結衣が頷く。「この中央集権の危険を根本から解決するために近年考案されたのが、**『登録ベース暗号（RBE: Registration-Based Encryption）』**です」</p>
+<p class="dialogue">「登録ベース暗号……？」</p>
+<p class="dialogue">「はい。RBEでは、各ユーザーが自分自身の手元（セキュアエレメントなど）でランダムに秘密鍵と公開鍵のペアを独立に生成します。鍵発行局は存在せず、代わりに用意された『公開掲示板（Untrusted Registry）』に、自分のIDと公開鍵を登録するだけです。掲示板はマークル木のような圧縮構造（ダイジェスト）を公開し、誰も他人の秘密鍵を知ることはできません」</p>
+<p class="dialogue">「すごい！ それなら誰も合鍵を盗み見できない完全なゼロトラスト暗号になるじゃん！」葵が歓声をあげた。</p>
+<p>しかし、部室の奥から歩み出てきた城崎悠真が、静かに首を横に振った。</p>
+<p class="dialogue">「ところが葵ちゃん、理論上は完璧に見えるRBEにも、現実世界に配備するための『巨大な壁』が立ちはだかっていたんだ」</p>
+<p class="dialogue">「巨大な壁……？」</p>
+<p class="dialogue">「**『選択暗号文攻撃（CCA: Chosen-Ciphertext Attack）』に対する安全性**だ」と悠真は言った。</p>
+<p class="dialogue">「従来の多くのRBE方式は、攻撃者が盗聴するだけの受動的な『選択平文攻撃（CPA）』に対してしか安全性が証明されていなかった。しかし現実のサイバー攻撃者は、暗号文の一部を巧妙に改ざんして復号サーバーに送りつけ、エラーの反応から秘密鍵を特定しようとする（CCA攻撃）。実用的な暗号システムとして国際標準になるには、最強の安全性指標である『IND-CCA安全性』が絶対条件なんだ」</p>
+<p class="dialogue">「古典的な公開鍵暗号では、CPA安全な暗号をCCA安全へと昇華させるための有名な魔法陣**『藤崎・岡本変換（FO変換: Fujisaki-Okamoto Transformation）』**がありますよね」結衣が目を輝かせた。</p>
+<p class="dialogue">「その通りだ、結衣ちゃん」悠真が誇らしげに論文を開いた。「先行研究では『RBEにもFO変換を適用すればCCA安全になるはずだ』と直感的に言われていた。だが、それを厳密に検証した者はいなかったんだ。そこで、横浜国立大学SPIRALの**四方順司教授（NexCrypt Lab長）、知久奏斗氏、原啓祐氏、橋本啓太郎氏、冨田斗威氏ら**の研究グループが立ち上がった」</p>
+<p>悠真は論文の核心をスクリーンに映し出した。</p>
+<p class="dialogue">「研究チームは、国際暗号学会議『CANS 2024』および情報処理学会『CSS 2024』において、**『従来のFO変換を登録ベース暗号にそのまま適用すると、マルチユーザー登録の特殊な力学によってセキュリティ証明が破綻する』という致命的な落とし穴を世界で初めて暴き出した**んだ。そして、RBE特有のダイジェスト圧縮と登録メカニズムに適合させた、**『厳密に安全性が証明されたFO変換の新しい構成法』**を確立し、CSS 2024で見事**優秀論文賞**を受賞したんだよ」</p>
+<p class="dialogue">「ただの思い込みを排して、数理の底にある歪みを暴き、完璧な安全性の証明を創り上げたんだ……！」蓮が息を呑んだ。</p>
+<p>黒板の上に、新しく定義されたFO変換の美しい代数アルゴリズムが広がる。</p>
+<p class="dialogue">「中央の管理者に秘密を委ねる必要もなく、悪意ある改ざんパケットも数学の力で完全に弾き返す。真の自由と安全を両立する未来のインターネットの鍵が、いまここにあるのですね」</p>
+<p>結衣の透き通った声に、葵も蓮も静かに頷いた。見えない数理の盾が、世界を縛る鎖を解き放ち、新しいデジタルの地平線を照らし出していた。</p>
+<p>---</p>
+      </div>
+    </section>
+
+    <!-- TikZ 技術構造図解 -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>📊 セキュリティ構造図解 (TikZ LuaLaTeX生成)</h2>
+        <span class="visual-badge">国家安全基準・工学図解</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/fig45_rbe_fujisaki_okamoto_transformation.png" alt="第45話 セキュリティ構造図解" class="responsive-img">
+        <p class="caption">▲ 【技術構造図】IPAデジタルスキル標準・国際規格に準拠した仕組みのモデル化</p>
+      </div>
+    </section>
+
+    <!-- 深掘りコラム -->
+    <section class="column-section">
+      <div class="section-title">
+        <h2>💡 高校生のためのセキュリティ深掘りコラム ＆ 大学進路ガイド</h2>
+      </div>
+      
+    </section>
+
+    <!-- 前後ナビゲーション -->
+    <nav class="episode-nav">
+      <a href="ep44.html" class="nav-btn">← 第44話: 語られぬ警鐘と眠る小箱 〜スマホ連携...</a>
+      <a href="../index.html" class="nav-btn center">目次に戻る</a>
+      <span class="nav-disabled">最新エピソード</span>
+    </nav>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 放課後サイバーディフェンス・ラボ (Cybersecurity Novel Library)</p>
+    <p>Repository: <a href="https://github.com/k518-2026/cybersecurity-novel" target="_blank" rel="noopener" style="color: var(--primary);">k518-2026/cybersecurity-novel</a></p>
+  </footer>
+
+</body>
+</html>

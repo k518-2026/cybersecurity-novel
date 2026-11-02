@@ -397,6 +397,33 @@ episodes = [
         "md_file": "2026-11-02_ep42_manx_lightweight_authenticated_encryption.md",
         "illust": "ep42_4koma.png",
         "figure": "fig42_manx_lightweight_authenticated_encryption.png"
+    },
+    {
+        "num": 43,
+        "id": "ep43",
+        "title": "偽りの標榜と影の巣窟 〜IoT不正機能データセット「DarkWrt」〜",
+        "theme": "横浜国大SPIRAL上園大智氏・原悟史氏・佐々木貴之准教授・吉岡克成教授ら、MWS 2024 ベストプラクティカル研究賞、IoT機器ファームウェアに潜むバックドア・不正機能の体系的分類（トリガーと機能の2軸）と検証用オープンソースデータセット「DarkWrt」の構築",
+        "md_file": "2026-11-03_ep43_darkwrt_iot_backdoors.md",
+        "illust": "ep43_4koma.png",
+        "figure": "fig43_darkwrt_iot_backdoors.png"
+    },
+    {
+        "num": 44,
+        "id": "ep44",
+        "title": "語られぬ警鐘と眠る小箱 〜スマホ連携アプリが招くIoTの死角〜",
+        "theme": "横浜国大SPIRAL本多凌大氏・櫛引淳之介氏・佐々木貴之准教授・吉岡克成教授ら、CSS 2024、IoT機器付属スマートフォン連携アプリを通じたセキュリティアドバイス提供状況の大規模調査、Android APKリバースエンジニアリング解析、更新推奨メッセージ欠如の現状とヒューマンファクター改善",
+        "md_file": "2026-11-03_ep44_iot_companion_app_advisory_gap.md",
+        "illust": "ep44_4koma.png",
+        "figure": "fig44_iot_companion_app_advisory_gap.png"
+    },
+    {
+        "num": 45,
+        "id": "ep45",
+        "title": "託されぬ秘密と白の掲示板 〜CCA安全な登録ベース暗号とFO変換の奇跡〜",
+        "theme": "横浜国大SPIRAL四方順司教授（NexCrypt Lab長）・知久奏斗氏・原啓祐氏・橋本啓太郎氏・冨田斗威氏ら、CANS 2024 / CSS 2024 優秀論文賞、IDベース暗号（IBE）の鍵預託問題を克服する登録ベース暗号（RBE）への藤崎・岡本（FO）変換の厳密な構成法と最強の選択暗号文攻撃（IND-CCA）安全性証明",
+        "md_file": "2026-11-03_ep45_rbe_fujisaki_okamoto_transformation.md",
+        "illust": "ep45_4koma.png",
+        "figure": "fig45_rbe_fujisaki_okamoto_transformation.png"
     }
 ]
 
@@ -691,7 +718,7 @@ index_html = f"""<!DOCTYPE html>
         高校生がサイバーセキュリティの面白さや重要性に触れ、将来の情報科学系・工学系大学への進学やセキュリティ専門職を目指すための入門ライトノベルです。<br>
         <strong>第1部（第1話〜第15話）</strong>：橘 葵＆城崎 悠真が、パスワード認証から暗号、クラウド、AI防御までの基礎原理を習得して大学進学へ。<br>
         <strong>第2部 先端編（第16話〜第20話）</strong>：新入生の神崎 蓮＆白石 結衣が、IoT、ゼロトラスト、ハードウェア解析、社会重要インフラ防御に挑む！<br>
-        <strong>第2部 横浜国大SPIRAL探訪編（第21話〜第42話）</strong>：暗号数理（四方教授）、IoT・マルウェア解析（吉岡教授・イン特任准教授・佐々木准教授）など最新研究論文の知見を高校生向けにストーリー化！
+        <strong>第2部 横浜国大SPIRAL探訪編（第21話〜第45話）</strong>：暗号数理（四方教授）、IoT・マルウェア解析（吉岡教授・イン特任准教授・佐々木准教授）など最新研究論文の知見を高校生向けにストーリー化！
       </p>
     </section>
 
@@ -701,7 +728,7 @@ index_html = f"""<!DOCTYPE html>
         <!-- リアルタイム検索バー -->
         <div class="search-box-wrapper">
           <span class="search-icon">🔍</span>
-          <input type="search" id="searchInput" class="search-input" placeholder="キーワード検索 (例: 暗号, IoT, ルーター, 偽装, マルウェア, 第40話)..." autocomplete="off">
+          <input type="search" id="searchInput" class="search-input" placeholder="キーワード検索 (例: 暗号, IoT, ルーター, 偽装, マルウェア, 第43話)..." autocomplete="off">
         </div>
 
         <!-- 表示順序ソートセレクター -->
@@ -717,8 +744,8 @@ index_html = f"""<!DOCTYPE html>
       <!-- シリーズ・編別フィルタータブ -->
       <div class="filter-tabs-row">
         <span class="filter-tab-label">シリーズ絞り込み:</span>
-        <button type="button" class="filter-btn active" data-filter="all">すべて (全42話)</button>
-        <button type="button" class="filter-btn" data-filter="part2_spiral">SPIRAL論文探訪編 (第21〜42話)</button>
+        <button type="button" class="filter-btn active" data-filter="all">すべて (全45話)</button>
+        <button type="button" class="filter-btn" data-filter="part2_spiral">SPIRAL論文探訪編 (第21〜45話)</button>
         <button type="button" class="filter-btn" data-filter="part2_adv">先端セキュリティ編 (第16〜20話)</button>
         <button type="button" class="filter-btn" data-filter="part1">高校情報科学部編 (第1〜15話)</button>
       </div>
@@ -726,7 +753,7 @@ index_html = f"""<!DOCTYPE html>
       <!-- 件数表示 & リセットボタン -->
       <div class="controls-status-row">
         <div>
-          該当件数: <span id="resultsCount" class="results-count-badge">42</span> 件 / 全42話中
+          該当件数: <span id="resultsCount" class="results-count-badge">45</span> 件 / 全45話中
         </div>
         <div>
           <button type="button" id="resetFiltersBtn" class="reset-filters-btn">検索・条件をリセット</button>
