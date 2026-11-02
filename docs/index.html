@@ -19,6 +19,7 @@
       <span class="badge">国家サイバー統括室 (cyber.go.jp) 啓発方針</span>
       <span class="badge">デジタル庁・総務省ガイドライン</span>
       <span class="badge">米CISA / 国際セキュリティ基準</span>
+      <span class="badge">横浜国大 SPIRAL 論文探訪</span>
       <span class="badge">大学情報科学・工学進学ガイド</span>
     </div>
   </header>
@@ -29,398 +30,560 @@
       <p style="color: #475569; font-size: 0.98rem; line-height: 1.8;">
         高校生がサイバーセキュリティの面白さや重要性に触れ、将来の情報科学系・工学系大学への進学やセキュリティ専門職を目指すための入門ライトノベルです。<br>
         <strong>第1部（第1話〜第15話）</strong>：橘 葵＆城崎 悠真が、パスワード認証から暗号、クラウド、AI防御までの基礎原理を習得して大学進学へ。<br>
-        <strong>第2部（第16話〜第20話）</strong>：新入生の神崎 蓮（ハードウェア・IoT班）＆白石 結衣（暗号数理班）が、大学1年となった悠真TAや芹沢准教授と共に、IoT、ゼロトラスト、ハードウェア解析、プライバシー強化技術、社会重要インフラ（自動車・電力）の先端セキュリティに挑みます！
+        <strong>第2部 先端編（第16話〜第20話）</strong>：新入生の神崎 蓮＆白石 結衣が、IoT、ゼロトラスト、ハードウェア解析、社会重要インフラ防御に挑む！<br>
+        <strong>第2部 横浜国大SPIRAL探訪編（第21話〜第39話）</strong>：暗号数理（四方教授）、IoT・マルウェア解析（吉岡教授・イン特任准教授・佐々木准教授）など最新研究論文の知見を高校生向けにストーリー化！
       </p>
     </section>
 
-    <h2 style="font-size: 1.5rem; color: var(--secondary); margin-bottom: 1.5rem; border-left: 4px solid var(--primary); padding-left: 0.8rem;">📑 収録エピソード一覧（第1部・第2部 全20話）</h2>
+    <!-- 検索・ソート・絞り込みコントロールパネル -->
+    <section class="controls-panel" aria-label="エピソード検索・絞り込み操作">
+      <div class="controls-top-row">
+        <!-- リアルタイム検索バー -->
+        <div class="search-box-wrapper">
+          <span class="search-icon">🔍</span>
+          <input type="search" id="searchInput" class="search-input" placeholder="キーワード検索 (例: 暗号, IoT, ルーター, 偽装, マルウェア, 第38話)..." autocomplete="off">
+        </div>
 
-    <div class="episodes-grid">
+        <!-- 表示順序ソートセレクター -->
+        <div class="sort-box-wrapper">
+          <label for="sortOrderSelect" class="sort-label">表示順序:</label>
+          <select id="sortOrderSelect" class="sort-select">
+            <option value="ep-asc">第1話から順（昇順）</option>
+            <option value="ep-desc">最新話から順（降順）</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- シリーズ・編別フィルタータブ -->
+      <div class="filter-tabs-row">
+        <span class="filter-tab-label">シリーズ絞り込み:</span>
+        <button type="button" class="filter-btn active" data-filter="all">すべて (全39話)</button>
+        <button type="button" class="filter-btn" data-filter="part2_spiral">SPIRAL論文探訪編 (第21〜39話)</button>
+        <button type="button" class="filter-btn" data-filter="part2_adv">先端セキュリティ編 (第16〜20話)</button>
+        <button type="button" class="filter-btn" data-filter="part1">高校情報科学部編 (第1〜15話)</button>
+      </div>
+
+      <!-- 件数表示 & リセットボタン -->
+      <div class="controls-status-row">
+        <div>
+          該当件数: <span id="resultsCount" class="results-count-badge">39</span> 件 / 全39話中
+        </div>
+        <div>
+          <button type="button" id="resetFiltersBtn" class="reset-filters-btn">検索・条件をリセット</button>
+        </div>
+      </div>
+    </section>
+
+    <div id="noResultsBox" class="no-results-box">
+      <div class="no-results-icon">🔎</div>
+      <div class="no-results-text">該当するエピソードが見つかりませんでした</div>
+      <div class="no-results-sub">検索キーワードを変更するか、フィルター条件をリセットしてお試しください。</div>
+      <button type="button" id="noResultsResetBtn" class="filter-btn active" style="display: inline-block;">条件をすべてリセット</button>
+    </div>
+
+    <div class="episodes-grid" id="episodesGrid">
       
-    <div class="card">
+    <div class="card" data-num="1" data-arc="part1" data-search="episode 01 第1話 秘密の合言葉と見えない壁 〜パスワード認証と多要素認証の仕組み〜 認証の3要素（知識・所持・生体）、多要素認証（mfa）、アカウントリスト攻撃 第1部: 高校編">
       <img src="assets/images/ep01_4koma.png" alt="第01話 挿絵" class="card-thumb" loading="lazy">
       <div class="card-body">
-        <div class="card-ep">Episode 01</div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <div class="card-ep">Episode 01</div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 0.15rem 0.5rem; border-radius: 9999px;">第1部: 高校編</span>
+        </div>
         <h2 class="card-title">秘密の合言葉と見えない壁 〜パスワード認証と多要素認証の仕組み〜</h2>
         <p class="card-theme"><strong>学習テーマ:</strong> 認証の3要素（知識・所持・生体）、多要素認証（MFA）、アカウントリスト攻撃</p>
         <a href="stories/ep01.html" class="card-btn">小説と図解を読む →</a>
       </div>
     </div>
     
-    <div class="card">
+    <div class="card" data-num="2" data-arc="part1" data-search="episode 02 第2話 偽りの手紙と本物の目印 〜フィッシング詐欺の見抜き方とurlの秘密〜 スミッシング、ソーシャルエンジニアリング、url階層構造、電子証明書（https）の真実 第1部: 高校編">
       <img src="assets/images/ep02_4koma.png" alt="第02話 挿絵" class="card-thumb" loading="lazy">
       <div class="card-body">
-        <div class="card-ep">Episode 02</div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <div class="card-ep">Episode 02</div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 0.15rem 0.5rem; border-radius: 9999px;">第1部: 高校編</span>
+        </div>
         <h2 class="card-title">偽りの手紙と本物の目印 〜フィッシング詐欺の見抜き方とURLの秘密〜</h2>
         <p class="card-theme"><strong>学習テーマ:</strong> スミッシング、ソーシャルエンジニアリング、URL階層構造、電子証明書（HTTPS）の真実</p>
         <a href="stories/ep02.html" class="card-btn">小説と図解を読む →</a>
       </div>
     </div>
     
-    <div class="card">
+    <div class="card" data-num="3" data-arc="part1" data-search="episode 03 第3話 街角の電波は誰のもの？ 〜公衆無線lanの危険性と通信の暗号化（https）〜 フリーwi-fi、盗聴と中間者攻撃（mitm）、tls暗号化トンネル、vpn 第1部: 高校編">
       <img src="assets/images/ep03_4koma.png" alt="第03話 挿絵" class="card-thumb" loading="lazy">
       <div class="card-body">
-        <div class="card-ep">Episode 03</div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <div class="card-ep">Episode 03</div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 0.15rem 0.5rem; border-radius: 9999px;">第1部: 高校編</span>
+        </div>
         <h2 class="card-title">街角の電波は誰のもの？ 〜公衆無線LANの危険性と通信の暗号化（HTTPS）〜</h2>
         <p class="card-theme"><strong>学習テーマ:</strong> フリーWi-Fi、盗聴と中間者攻撃（MitM）、TLS暗号化トンネル、VPN</p>
         <a href="stories/ep03.html" class="card-btn">小説と図解を読む →</a>
       </div>
     </div>
     
-    <div class="card">
+    <div class="card" data-num="4" data-arc="part1" data-search="episode 04 第4話 忍び寄るトロイの木馬 〜マルウェアの種類とソフトウェア更新の真実〜 マルウェア4分類（ウイルス・ワーム・トロイ・ランサムウェア）、脆弱性とパッチ適用 第1部: 高校編">
       <img src="assets/images/ep04_4koma.png" alt="第04話 挿絵" class="card-thumb" loading="lazy">
       <div class="card-body">
-        <div class="card-ep">Episode 04</div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <div class="card-ep">Episode 04</div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 0.15rem 0.5rem; border-radius: 9999px;">第1部: 高校編</span>
+        </div>
         <h2 class="card-title">忍び寄るトロイの木馬 〜マルウェアの種類とソフトウェア更新の真実〜</h2>
         <p class="card-theme"><strong>学習テーマ:</strong> マルウェア4分類（ウイルス・ワーム・トロイ・ランサムウェア）、脆弱性とパッチ適用</p>
         <a href="stories/ep04.html" class="card-btn">小説と図解を読む →</a>
       </div>
     </div>
     
-    <div class="card">
+    <div class="card" data-num="5" data-arc="part1" data-search="episode 05 第5話 三つの宝玉を守る城壁 〜情報セキュリティの3大要素（cia）と多層防御〜 cia（機密性・完全性・可用性）、ddos攻撃、多層防御の同心円モデル 第1部: 高校編">
       <img src="assets/images/ep05_4koma.png" alt="第05話 挿絵" class="card-thumb" loading="lazy">
       <div class="card-body">
-        <div class="card-ep">Episode 05</div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <div class="card-ep">Episode 05</div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 0.15rem 0.5rem; border-radius: 9999px;">第1部: 高校編</span>
+        </div>
         <h2 class="card-title">三つの宝玉を守る城壁 〜情報セキュリティの3大要素（CIA）と多層防御〜</h2>
         <p class="card-theme"><strong>学習テーマ:</strong> CIA（機密性・完全性・可用性）、DDoS攻撃、多層防御の同心円モデル</p>
         <a href="stories/ep05.html" class="card-btn">小説と図解を読む →</a>
       </div>
     </div>
     
-    <div class="card">
+    <div class="card" data-num="6" data-arc="part1" data-search="episode 06 第6話 データベースの合言葉と呪文の罠 〜sqlインジェクションと安全なプログラミング〜 sqlインジェクション攻撃、文字列連結の脆弱性、プレースホルダ（バインド機構） 第1部: 高校編">
       <img src="assets/images/ep06_4koma.png" alt="第06話 挿絵" class="card-thumb" loading="lazy">
       <div class="card-body">
-        <div class="card-ep">Episode 06</div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <div class="card-ep">Episode 06</div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 0.15rem 0.5rem; border-radius: 9999px;">第1部: 高校編</span>
+        </div>
         <h2 class="card-title">データベースの合言葉と呪文の罠 〜SQLインジェクションと安全なプログラミング〜</h2>
         <p class="card-theme"><strong>学習テーマ:</strong> SQLインジェクション攻撃、文字列連結の脆弱性、プレースホルダ（バインド機構）</p>
         <a href="stories/ep06.html" class="card-btn">小説と図解を読む →</a>
       </div>
     </div>
     
-    <div class="card">
+    <div class="card" data-num="7" data-arc="part1" data-search="episode 07 第7話 割れない南京錠と魔法の印鑑 〜公開鍵暗号とデジタル署名の数理〜 鍵配送問題、公開鍵暗号の鍵ペア、デジタル署名（電子署名）、sha-256ハッシュ関数 第1部: 高校編">
       <img src="assets/images/ep07_4koma.png" alt="第07話 挿絵" class="card-thumb" loading="lazy">
       <div class="card-body">
-        <div class="card-ep">Episode 07</div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <div class="card-ep">Episode 07</div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 0.15rem 0.5rem; border-radius: 9999px;">第1部: 高校編</span>
+        </div>
         <h2 class="card-title">割れない南京錠と魔法の印鑑 〜公開鍵暗号とデジタル署名の数理〜</h2>
         <p class="card-theme"><strong>学習テーマ:</strong> 鍵配送問題、公開鍵暗号の鍵ペア、デジタル署名（電子署名）、SHA-256ハッシュ関数</p>
         <a href="stories/ep07.html" class="card-btn">小説と図解を読む →</a>
       </div>
     </div>
     
-    <div class="card">
+    <div class="card" data-num="8" data-arc="part1" data-search="episode 08 第8話 パスワードを捨てる日 〜生体認証とパスキー（fido2）が拓く未来〜 パスキー（passkey）、fido2 / webauthn、公開鍵認証、secure enclave、パスワードレス認証 第1部: 高校編">
       <img src="assets/images/ep08_4koma.png" alt="第08話 挿絵" class="card-thumb" loading="lazy">
       <div class="card-body">
-        <div class="card-ep">Episode 08</div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <div class="card-ep">Episode 08</div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 0.15rem 0.5rem; border-radius: 9999px;">第1部: 高校編</span>
+        </div>
         <h2 class="card-title">パスワードを捨てる日 〜生体認証とパスキー（FIDO2）が拓く未来〜</h2>
         <p class="card-theme"><strong>学習テーマ:</strong> パスキー（Passkey）、FIDO2 / WebAuthn、公開鍵認証、Secure Enclave、パスワードレス認証</p>
         <a href="stories/ep08.html" class="card-btn">小説と図解を読む →</a>
       </div>
     </div>
     
-    <div class="card">
+    <div class="card" data-num="9" data-arc="part1" data-search="episode 09 第9話 見えない鎖の綻び 〜サプライチェーン攻撃とソフトウェアの原材料表示（sbom）〜 サプライチェーン攻撃、委託先経由侵入、オープンソース汚染、sbom（ソフトウェア部品構成表） 第1部: 高校編">
       <img src="assets/images/ep09_4koma.png" alt="第09話 挿絵" class="card-thumb" loading="lazy">
       <div class="card-body">
-        <div class="card-ep">Episode 09</div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <div class="card-ep">Episode 09</div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 0.15rem 0.5rem; border-radius: 9999px;">第1部: 高校編</span>
+        </div>
         <h2 class="card-title">見えない鎖の綻び 〜サプライチェーン攻撃とソフトウェアの原材料表示（SBOM）〜</h2>
         <p class="card-theme"><strong>学習テーマ:</strong> サプライチェーン攻撃、委託先経由侵入、オープンソース汚染、SBOM（ソフトウェア部品構成表）</p>
         <a href="stories/ep09.html" class="card-btn">小説と図解を読む →</a>
       </div>
     </div>
     
-    <div class="card">
+    <div class="card" data-num="10" data-arc="part1" data-search="episode 10 第10話 ゼロの日を越える翼 〜ゼロデイ脆弱性と世界を守るホワイトハッカー〜 ゼロデイ攻撃（0-day）、協調的脆弱性開示（cvd）、cve番号、米cisa kevカタログ、倫理的ハッカー 第1部: 高校編">
       <img src="assets/images/ep10_4koma.png" alt="第10話 挿絵" class="card-thumb" loading="lazy">
       <div class="card-body">
-        <div class="card-ep">Episode 10</div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <div class="card-ep">Episode 10</div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 0.15rem 0.5rem; border-radius: 9999px;">第1部: 高校編</span>
+        </div>
         <h2 class="card-title">ゼロの日を越える翼 〜ゼロデイ脆弱性と世界を守るホワイトハッカー〜</h2>
         <p class="card-theme"><strong>学習テーマ:</strong> ゼロデイ攻撃（0-day）、協調的脆弱性開示（CVD）、CVE番号、米CISA KEVカタログ、倫理的ハッカー</p>
         <a href="stories/ep10.html" class="card-btn">小説と図解を読む →</a>
       </div>
     </div>
     
-    <div class="card">
+    <div class="card" data-num="11" data-arc="part1" data-search="episode 11 第11話 砂浜の足跡と電子の鑑識官 〜デジタル・フォレンジックと不正アクセス禁止法〜 デジタル・フォレンジック、ライトブロッカー、ハッシュ値照合、不正アクセス禁止法、サイバー警察・csirt 第1部: 高校編">
       <img src="assets/images/ep11_4koma.png" alt="第11話 挿絵" class="card-thumb" loading="lazy">
       <div class="card-body">
-        <div class="card-ep">Episode 11</div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <div class="card-ep">Episode 11</div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 0.15rem 0.5rem; border-radius: 9999px;">第1部: 高校編</span>
+        </div>
         <h2 class="card-title">砂浜の足跡と電子の鑑識官 〜デジタル・フォレンジックと不正アクセス禁止法〜</h2>
         <p class="card-theme"><strong>学習テーマ:</strong> デジタル・フォレンジック、ライトブロッカー、ハッシュ値照合、不正アクセス禁止法、サイバー警察・CSIRT</p>
         <a href="stories/ep11.html" class="card-btn">小説と図解を読む →</a>
       </div>
     </div>
     
-    <div class="card">
+    <div class="card" data-num="12" data-arc="part1" data-search="episode 12 第12話 世界を繋ぐバケツリレー 〜家庭・学校のlan、ルーターとdnsの秘密〜 lanとwan、プライベートipとグローバルip、ルーター（nat/napt）、dns名前解決、初期ファイアウォール 第1部: 高校編">
       <img src="assets/images/ep12_4koma.png" alt="第12話 挿絵" class="card-thumb" loading="lazy">
       <div class="card-body">
-        <div class="card-ep">Episode 12</div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <div class="card-ep">Episode 12</div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 0.15rem 0.5rem; border-radius: 9999px;">第1部: 高校編</span>
+        </div>
         <h2 class="card-title">世界を繋ぐバケツリレー 〜家庭・学校のLAN、ルーターとDNSの秘密〜</h2>
         <p class="card-theme"><strong>学習テーマ:</strong> LANとWAN、プライベートIPとグローバルIP、ルーター（NAT/NAPT）、DNS名前解決、初期ファイアウォール</p>
         <a href="stories/ep12.html" class="card-btn">小説と図解を読む →</a>
       </div>
     </div>
     
-    <div class="card">
+    <div class="card" data-num="13" data-arc="part1" data-search="episode 13 第13話 旗を掲げる守護者たち 〜サイバーセキュリティ競技（ctf）と未来への扉〜 ctf（capture the flag）競技、5大ジャンル（web, crypto, reversing, forensics, pwn）、大学情報学部進路、ciso 第1部: 高校編">
       <img src="assets/images/ep13_4koma.png" alt="第13話 挿絵" class="card-thumb" loading="lazy">
       <div class="card-body">
-        <div class="card-ep">Episode 13</div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <div class="card-ep">Episode 13</div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 0.15rem 0.5rem; border-radius: 9999px;">第1部: 高校編</span>
+        </div>
         <h2 class="card-title">旗を掲げる守護者たち 〜サイバーセキュリティ競技（CTF）と未来への扉〜</h2>
         <p class="card-theme"><strong>学習テーマ:</strong> CTF（Capture The Flag）競技、5大ジャンル（Web, Crypto, Reversing, Forensics, Pwn）、大学情報学部進路、CISO</p>
         <a href="stories/ep13.html" class="card-btn">小説と図解を読む →</a>
       </div>
     </div>
     
-    <div class="card">
+    <div class="card" data-num="14" data-arc="part1" data-search="episode 14 第14話 見えない空の保管庫 〜クラウドセキュリティと責任共有モデル〜 クラウドサービス（iaas/paas/saas）、責任共有モデル、iam最小権限の原則、公開バケット設定ミス防止 第1部: 高校編">
       <img src="assets/images/ep14_4koma.png" alt="第14話 挿絵" class="card-thumb" loading="lazy">
       <div class="card-body">
-        <div class="card-ep">Episode 14</div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <div class="card-ep">Episode 14</div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 0.15rem 0.5rem; border-radius: 9999px;">第1部: 高校編</span>
+        </div>
         <h2 class="card-title">見えない空の保管庫 〜クラウドセキュリティと責任共有モデル〜</h2>
         <p class="card-theme"><strong>学習テーマ:</strong> クラウドサービス（IaaS/PaaS/SaaS）、責任共有モデル、IAM最小権限の原則、公開バケット設定ミス防止</p>
         <a href="stories/ep14.html" class="card-btn">小説と図解を読む →</a>
       </div>
     </div>
     
-    <div class="card">
+    <div class="card" data-num="15" data-arc="part1" data-search="episode 15 第15話 知性をまとう盾と矛 〜人工知能（ai）の悪用脅威と防衛の未来（第1部 完結）〜 ai時代の脅威（プロンプト注入・ディープフェイク・データ汚染） vs ai自律防御、人間の倫理と知性、第1部堂々完結 第1部: 高校編">
       <img src="assets/images/ep15_4koma.png" alt="第15話 挿絵" class="card-thumb" loading="lazy">
       <div class="card-body">
-        <div class="card-ep">Episode 15</div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <div class="card-ep">Episode 15</div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 0.15rem 0.5rem; border-radius: 9999px;">第1部: 高校編</span>
+        </div>
         <h2 class="card-title">知性をまとう盾と矛 〜人工知能（AI）の悪用脅威と防衛の未来（第1部 完結）〜</h2>
         <p class="card-theme"><strong>学習テーマ:</strong> AI時代の脅威（プロンプト注入・ディープフェイク・データ汚染） vs AI自律防御、人間の倫理と知性、第1部堂々完結</p>
         <a href="stories/ep15.html" class="card-btn">小説と図解を読む →</a>
       </div>
     </div>
     
-    <div class="card">
+    <div class="card" data-num="16" data-arc="part2_adv" data-search="episode 16 第16話 街角の監視者たち 〜スマート家電の隙と見えないボットネット〜 第2部開幕、iot初期パスワード放置、miraiボットネット、noticeプロジェクト、vlanセグメント分離 第2部: 先端編">
       <img src="assets/images/ep16_4koma.png" alt="第16話 挿絵" class="card-thumb" loading="lazy">
       <div class="card-body">
-        <div class="card-ep">Episode 16</div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <div class="card-ep">Episode 16</div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 0.15rem 0.5rem; border-radius: 9999px;">第2部: 先端編</span>
+        </div>
         <h2 class="card-title">街角の監視者たち 〜スマート家電の隙と見えないボットネット〜</h2>
         <p class="card-theme"><strong>学習テーマ:</strong> 第2部開幕、IoT初期パスワード放置、Miraiボットネット、NOTICEプロジェクト、VLANセグメント分離</p>
         <a href="stories/ep16.html" class="card-btn">小説と図解を読む →</a>
       </div>
     </div>
     
-    <div class="card">
+    <div class="card" data-num="17" data-arc="part2_adv" data-search="episode 17 第17話 城壁のない砦 〜ゼロトラストと「決して信頼しない」約束〜 境界型防御の破綻、内部横展開（ラテラルムーブメント）、nist sp 800-207ゼロトラスト原則、マイクロセグメンテーション 第2部: 先端編">
       <img src="assets/images/ep17_4koma.png" alt="第17話 挿絵" class="card-thumb" loading="lazy">
       <div class="card-body">
-        <div class="card-ep">Episode 17</div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <div class="card-ep">Episode 17</div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 0.15rem 0.5rem; border-radius: 9999px;">第2部: 先端編</span>
+        </div>
         <h2 class="card-title">城壁のない砦 〜ゼロトラストと「決して信頼しない」約束〜</h2>
         <p class="card-theme"><strong>学習テーマ:</strong> 境界型防御の破綻、内部横展開（ラテラルムーブメント）、NIST SP 800-207ゼロトラスト原則、マイクロセグメンテーション</p>
         <a href="stories/ep17.html" class="card-btn">小説と図解を読む →</a>
       </div>
     </div>
     
-    <div class="card">
+    <div class="card" data-num="18" data-arc="part2_adv" data-search="episode 18 第18話 基板の上の囁き 〜物理端子ハッキングと差分電力解析の罠〜 物理デバッグ端子（uart/jtag）、root権限奪取、サイドチャネル攻撃（差分電力解析 dpa）、セキュアブート 第2部: 先端編">
       <img src="assets/images/ep18_4koma.png" alt="第18話 挿絵" class="card-thumb" loading="lazy">
       <div class="card-body">
-        <div class="card-ep">Episode 18</div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <div class="card-ep">Episode 18</div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 0.15rem 0.5rem; border-radius: 9999px;">第2部: 先端編</span>
+        </div>
         <h2 class="card-title">基板の上の囁き 〜物理端子ハッキングと差分電力解析の罠〜</h2>
         <p class="card-theme"><strong>学習テーマ:</strong> 物理デバッグ端子（UART/JTAG）、Root権限奪取、サイドチャネル攻撃（差分電力解析 DPA）、セキュアブート</p>
         <a href="stories/ep18.html" class="card-btn">小説と図解を読む →</a>
       </div>
     </div>
     
-    <div class="card">
+    <div class="card" data-num="19" data-arc="part2_adv" data-search="episode 19 第19話 秘密を明かさぬ計算 〜完全準同型暗号と差分プライバシーの魔法〜 プライバシー強化技術（pets）、完全準同型暗号（fhe：暗号化したまま演算）、差分プライバシー（dp）、秘密計算 第2部: 先端編">
       <img src="assets/images/ep19_4koma.png" alt="第19話 挿絵" class="card-thumb" loading="lazy">
       <div class="card-body">
-        <div class="card-ep">Episode 19</div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <div class="card-ep">Episode 19</div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 0.15rem 0.5rem; border-radius: 9999px;">第2部: 先端編</span>
+        </div>
         <h2 class="card-title">秘密を明かさぬ計算 〜完全準同型暗号と差分プライバシーの魔法〜</h2>
         <p class="card-theme"><strong>学習テーマ:</strong> プライバシー強化技術（PETs）、完全準同型暗号（FHE：暗号化したまま演算）、差分プライバシー（DP）、秘密計算</p>
         <a href="stories/ep19.html" class="card-btn">小説と図解を読む →</a>
       </div>
     </div>
     
-    <div class="card">
+    <div class="card" data-num="20" data-arc="part2_adv" data-search="episode 20 第20話 走るネットワークと灯火の防衛 〜制御システム（ot）と自動車セキュリティ〜 第2部前半完結、産業制御システム（ot/scada）可用性最優先、コネクテッドカー（canバス）、国連un-r155、secoc 第2部: 先端編">
       <img src="assets/images/ep20_4koma.png" alt="第20話 挿絵" class="card-thumb" loading="lazy">
       <div class="card-body">
-        <div class="card-ep">Episode 20</div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <div class="card-ep">Episode 20</div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 0.15rem 0.5rem; border-radius: 9999px;">第2部: 先端編</span>
+        </div>
         <h2 class="card-title">走るネットワークと灯火の防衛 〜制御システム（OT）と自動車セキュリティ〜</h2>
         <p class="card-theme"><strong>学習テーマ:</strong> 第2部前半完結、産業制御システム（OT/SCADA）可用性最優先、コネクテッドカー（CANバス）、国連UN-R155、SecOC</p>
         <a href="stories/ep20.html" class="card-btn">小説と図解を読む →</a>
       </div>
     </div>
     
-    <div class="card">
+    <div class="card" data-num="21" data-arc="part2_spiral" data-search="episode 21 第21話 甘い偽指の衝撃 〜松本論文「グミ指」と生体検知（liveness detection）〜 横浜国大spiral松本勉教授、グミ指（人工指）による生体認証突破、生体情報revoke不能性、liveness detection（pad）、iso/iec 30107 第2部: spiral編">
       <img src="assets/images/ep21_4koma.png" alt="第21話 挿絵" class="card-thumb" loading="lazy">
       <div class="card-body">
-        <div class="card-ep">Episode 21</div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <div class="card-ep">Episode 21</div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 0.15rem 0.5rem; border-radius: 9999px;">第2部: SPIRAL編</span>
+        </div>
         <h2 class="card-title">甘い偽指の衝撃 〜松本論文「グミ指」と生体検知（Liveness Detection）〜</h2>
         <p class="card-theme"><strong>学習テーマ:</strong> 横浜国大SPIRAL松本勉教授、グミ指（人工指）による生体認証突破、生体情報Revoke不能性、Liveness Detection（PAD）、ISO/IEC 30107</p>
         <a href="stories/ep21.html" class="card-btn">小説と図解を読む →</a>
       </div>
     </div>
     
-    <div class="card">
+    <div class="card" data-num="22" data-arc="part2_spiral" data-search="episode 22 第22話 蜜壺が暴く暗黒生態系 〜吉岡研「iotpot」とiotマルウェアの進化〜 横浜国大spiral吉岡克成教授、iotpot、異種cpuアーキテクチャ（arm/mips）サンドボックス、iotマルウェア生態系解明、脅威インテリジェンス 第2部: spiral編">
       <img src="assets/images/ep22_4koma.png" alt="第22話 挿絵" class="card-thumb" loading="lazy">
       <div class="card-body">
-        <div class="card-ep">Episode 22</div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <div class="card-ep">Episode 22</div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 0.15rem 0.5rem; border-radius: 9999px;">第2部: SPIRAL編</span>
+        </div>
         <h2 class="card-title">蜜壺が暴く暗黒生態系 〜吉岡研「IoTPOT」とIoTマルウェアの進化〜</h2>
         <p class="card-theme"><strong>学習テーマ:</strong> 横浜国大SPIRAL吉岡克成教授、IoTPOT、異種CPUアーキテクチャ（ARM/MIPS）サンドボックス、IoTマルウェア生態系解明、脅威インテリジェンス</p>
         <a href="stories/ep22.html" class="card-btn">小説と図解を読む →</a>
       </div>
     </div>
     
-    <div class="card">
+    <div class="card" data-num="23" data-arc="part2_spiral" data-search="episode 23 第23話 闇夜の反射鏡を砕け 〜ダークネットとdnsアンプ攻撃事前観測〜 横浜国大spiral牧田大佑准教授・吉岡克成教授、情報処理学会特選論文、dnsアンプddos、udp送信元ip偽装、ダークネット事前探索スキャン相関分析 第2部: spiral編">
       <img src="assets/images/ep23_4koma.png" alt="第23話 挿絵" class="card-thumb" loading="lazy">
       <div class="card-body">
-        <div class="card-ep">Episode 23</div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <div class="card-ep">Episode 23</div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 0.15rem 0.5rem; border-radius: 9999px;">第2部: SPIRAL編</span>
+        </div>
         <h2 class="card-title">闇夜の反射鏡を砕け 〜ダークネットとDNSアンプ攻撃事前観測〜</h2>
         <p class="card-theme"><strong>学習テーマ:</strong> 横浜国大SPIRAL牧田大佑准教授・吉岡克成教授、情報処理学会特選論文、DNSアンプDDoS、UDP送信元IP偽装、ダークネット事前探索スキャン相関分析</p>
         <a href="stories/ep23.html" class="card-btn">小説と図解を読む →</a>
       </div>
     </div>
     
-    <div class="card">
+    <div class="card" data-num="24" data-arc="part2_spiral" data-search="episode 24 第24話 量子の嵐と格子の盾 〜四方研究室と耐量子計算機暗号数理〜 横浜国大spiral四方順司教授（nexcrypt）、ショアのアルゴリズム、耐量子計算機暗号（pqc）、格子暗号（ml-kem/ml-dsa）、hndl脅威、匿名同報認証、集約mac 第2部: spiral編">
       <img src="assets/images/ep24_4koma.png" alt="第24話 挿絵" class="card-thumb" loading="lazy">
       <div class="card-body">
-        <div class="card-ep">Episode 24</div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <div class="card-ep">Episode 24</div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 0.15rem 0.5rem; border-radius: 9999px;">第2部: SPIRAL編</span>
+        </div>
         <h2 class="card-title">量子の嵐と格子の盾 〜四方研究室と耐量子計算機暗号数理〜</h2>
         <p class="card-theme"><strong>学習テーマ:</strong> 横浜国大SPIRAL四方順司教授（NexCrypt）、ショアのアルゴリズム、耐量子計算機暗号（PQC）、格子暗号（ML-KEM/ML-DSA）、HNDL脅威、匿名同報認証、集約MAC</p>
         <a href="stories/ep24.html" class="card-btn">小説と図解を読む →</a>
       </div>
     </div>
     
-    <div class="card">
+    <div class="card" data-num="25" data-arc="part2_spiral" data-search="episode 25 第25話 賢者の檻と化かす影 〜llmが暴くサンドボックス回避の迷宮〜 横浜国大spiral伊藤曜助教・吉岡克成教授、css 2025 icss研究賞、マルウェアのサンドボックス検出・環境擬態（evasion）、llmによる設定アーティファクト自動探索・自律的耐性強化 第2部: spiral編">
       <img src="assets/images/ep25_4koma.png" alt="第25話 挿絵" class="card-thumb" loading="lazy">
       <div class="card-body">
-        <div class="card-ep">Episode 25</div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <div class="card-ep">Episode 25</div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 0.15rem 0.5rem; border-radius: 9999px;">第2部: SPIRAL編</span>
+        </div>
         <h2 class="card-title">賢者の檻と化かす影 〜LLMが暴くサンドボックス回避の迷宮〜</h2>
         <p class="card-theme"><strong>学習テーマ:</strong> 横浜国大SPIRAL伊藤曜助教・吉岡克成教授、CSS 2025 ICSS研究賞、マルウェアのサンドボックス検出・環境擬態（Evasion）、LLMによる設定アーティファクト自動探索・自律的耐性強化</p>
         <a href="stories/ep25.html" class="card-btn">小説と図解を読む →</a>
       </div>
     </div>
     
-    <div class="card">
+    <div class="card" data-num="26" data-arc="part2_spiral" data-search="episode 26 第26話 身代金ビジネスの暗雲 〜lockbit 3.0の脅迫ライフサイクルと国際捜査の追跡〜 横浜国大spiral吉岡克成教授・インミンパパ特任准教授、raid 2025、lockbit 3.0、raas、二重脅迫（dls）、tor交渉ログ追跡、国際捜査operation cronosへの対抗動態、サイバー犯罪学 第2部: spiral編">
       <img src="assets/images/ep26_4koma.png" alt="第26話 挿絵" class="card-thumb" loading="lazy">
       <div class="card-body">
-        <div class="card-ep">Episode 26</div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <div class="card-ep">Episode 26</div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 0.15rem 0.5rem; border-radius: 9999px;">第2部: SPIRAL編</span>
+        </div>
         <h2 class="card-title">身代金ビジネスの暗雲 〜LockBit 3.0の脅迫ライフサイクルと国際捜査の追跡〜</h2>
         <p class="card-theme"><strong>学習テーマ:</strong> 横浜国大SPIRAL吉岡克成教授・インミンパパ特任准教授、RAID 2025、LockBit 3.0、RaaS、二重脅迫（DLS）、Tor交渉ログ追跡、国際捜査Operation Cronosへの対抗動態、サイバー犯罪学</p>
         <a href="stories/ep26.html" class="card-btn">小説と図解を読む →</a>
       </div>
     </div>
     
-    <div class="card">
+    <div class="card" data-num="27" data-arc="part2_spiral" data-search="episode 27 第27話 届かぬ警告と目覚める砦 〜大規模iot診断サービス「am i infected?」の真実〜 横浜国大spiral佐々木貴之准教授・吉岡克成教授・松本勉上席特別教授、usenix security 2025、「am i infected?」、notice、ヒューマンファクター（難解ui・パッチ手順・eol）、secure-by-design 第2部: spiral編">
       <img src="assets/images/ep27_4koma.png" alt="第27話 挿絵" class="card-thumb" loading="lazy">
       <div class="card-body">
-        <div class="card-ep">Episode 27</div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <div class="card-ep">Episode 27</div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 0.15rem 0.5rem; border-radius: 9999px;">第2部: SPIRAL編</span>
+        </div>
         <h2 class="card-title">届かぬ警告と目覚める砦 〜大規模IoT診断サービス「Am I Infected?」の真実〜</h2>
         <p class="card-theme"><strong>学習テーマ:</strong> 横浜国大SPIRAL佐々木貴之准教授・吉岡克成教授・松本勉上席特別教授、USENIX Security 2025、「Am I Infected?」、NOTICE、ヒューマンファクター（難解UI・パッチ手順・EOL）、Secure-by-Design</p>
         <a href="stories/ep27.html" class="card-btn">小説と図解を読む →</a>
       </div>
     </div>
     
-    <div class="card">
+    <div class="card" data-num="28" data-arc="part2_spiral" data-search="episode 28 第28話 潜む裏口と社会インフラの防壁 〜制御システム遠隔管理機器の死角を暴け〜 横浜国大spiral佐々木貴之准教授・吉岡克成教授・松本勉上席特別教授、ieee s&amp;p 2022、重要インフラ遠隔管理webuiゲートウェイ露見、従来icsスキャンの死角、13件のゼロデイ、責任ある開示（58%是正） 第2部: spiral編">
       <img src="assets/images/ep28_4koma.png" alt="第28話 挿絵" class="card-thumb" loading="lazy">
       <div class="card-body">
-        <div class="card-ep">Episode 28</div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <div class="card-ep">Episode 28</div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 0.15rem 0.5rem; border-radius: 9999px;">第2部: SPIRAL編</span>
+        </div>
         <h2 class="card-title">潜む裏口と社会インフラの防壁 〜制御システム遠隔管理機器の死角を暴け〜</h2>
         <p class="card-theme"><strong>学習テーマ:</strong> 横浜国大SPIRAL佐々木貴之准教授・吉岡克成教授・松本勉上席特別教授、IEEE S&amp;P 2022、重要インフラ遠隔管理WebUIゲートウェイ露見、従来ICSスキャンの死角、13件のゼロデイ、責任ある開示（58%是正）</p>
         <a href="stories/ep28.html" class="card-btn">小説と図解を読む →</a>
       </div>
     </div>
     
-    <div class="card">
+    <div class="card" data-num="29" data-arc="part2_spiral" data-search="episode 29 第29話 悪のiotを浄化せよ 〜isp隔離砦（walled garden）とmirai駆除の真実〜 横浜国大spiral吉岡克成教授・松本勉上席特別教授、ndss 2019 distinguished paper award（最優秀論文賞）、mirai除染実験、実網rct、メール効果ゼロ vs walled garden隔離（14日で92%駆除） 第2部: spiral編">
       <img src="assets/images/ep29_4koma.png" alt="第29話 挿絵" class="card-thumb" loading="lazy">
       <div class="card-body">
-        <div class="card-ep">Episode 29</div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <div class="card-ep">Episode 29</div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 0.15rem 0.5rem; border-radius: 9999px;">第2部: SPIRAL編</span>
+        </div>
         <h2 class="card-title">悪のIoTを浄化せよ 〜ISP隔離砦（Walled Garden）とMirai駆除の真実〜</h2>
         <p class="card-theme"><strong>学習テーマ:</strong> 横浜国大SPIRAL吉岡克成教授・松本勉上席特別教授、NDSS 2019 Distinguished Paper Award（最優秀論文賞）、Mirai除染実験、実網RCT、メール効果ゼロ vs Walled Garden隔離（14日で92%駆除）</p>
         <a href="stories/ep29.html" class="card-btn">小説と図解を読む →</a>
       </div>
     </div>
     
-    <div class="card">
+    <div class="card" data-num="30" data-arc="part2_spiral" data-search="episode 30 第30話 消えゆく足跡と鎖の記憶 〜defiトークン詐欺とオン・オフチェーン統合インテリジェンス〜 横浜国大spiralインミンパパ特任准教授・吉岡克成教授、ndss madweb 2025、defiトークン詐欺・rug pull、オンチェーン×オフチェーン統合、defiintelデータセット（3.2万トークン×55万データ） 第2部: spiral編">
       <img src="assets/images/ep30_4koma.png" alt="第30話 挿絵" class="card-thumb" loading="lazy">
       <div class="card-body">
-        <div class="card-ep">Episode 30</div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <div class="card-ep">Episode 30</div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 0.15rem 0.5rem; border-radius: 9999px;">第2部: SPIRAL編</span>
+        </div>
         <h2 class="card-title">消えゆく足跡と鎖の記憶 〜DeFiトークン詐欺とオン・オフチェーン統合インテリジェンス〜</h2>
         <p class="card-theme"><strong>学習テーマ:</strong> 横浜国大SPIRALインミンパパ特任准教授・吉岡克成教授、NDSS MADWeb 2025、DeFiトークン詐欺・Rug Pull、オンチェーン×オフチェーン統合、DeFiIntelデータセット（3.2万トークン×55万データ）</p>
         <a href="stories/ep30.html" class="card-btn">小説と図解を読む →</a>
       </div>
     </div>
     
-    <div class="card">
+    <div class="card" data-num="31" data-arc="part2_spiral" data-search="episode 31 第31話 隠された扉と影の合言葉 〜マニュアルにない裏口（バックドア）の真実〜 横浜国大spiral吉岡克成教授・佐々木貴之准教授・宮本岩麒氏ら、css 2025 エシカルプラクティス賞、市販iot機器のマニュアル非記載telnet/ssh調査、デバッグ残骸、ハードコード認証 第2部: spiral編">
       <img src="assets/images/ep31_4koma.png" alt="第31話 挿絵" class="card-thumb" loading="lazy">
       <div class="card-body">
-        <div class="card-ep">Episode 31</div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <div class="card-ep">Episode 31</div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 0.15rem 0.5rem; border-radius: 9999px;">第2部: SPIRAL編</span>
+        </div>
         <h2 class="card-title">隠された扉と影の合言葉 〜マニュアルにない裏口（バックドア）の真実〜</h2>
         <p class="card-theme"><strong>学習テーマ:</strong> 横浜国大SPIRAL吉岡克成教授・佐々木貴之准教授・宮本岩麒氏ら、CSS 2025 エシカルプラクティス賞、市販IoT機器のマニュアル非記載Telnet/SSH調査、デバッグ残骸、ハードコード認証</p>
         <a href="stories/ep31.html" class="card-btn">小説と図解を読む →</a>
       </div>
     </div>
     
-    <div class="card">
+    <div class="card" data-num="32" data-arc="part2_spiral" data-search="episode 32 第32話 星の標識と消費者の砦 〜国家基準「jc-star」と安全の証明〜 横浜国大spiral吉岡克成教授（技術審議委員長）、経産省・ipaの国家iotセキュリティ適合性評価制度jc-star、星ラベル（★1〜★4）、レモンの市場克服、ファームウェアsca解析 第2部: spiral編">
       <img src="assets/images/ep32_4koma.png" alt="第32話 挿絵" class="card-thumb" loading="lazy">
       <div class="card-body">
-        <div class="card-ep">Episode 32</div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <div class="card-ep">Episode 32</div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 0.15rem 0.5rem; border-radius: 9999px;">第2部: SPIRAL編</span>
+        </div>
         <h2 class="card-title">星の標識と消費者の砦 〜国家基準「JC-STAR」と安全の証明〜</h2>
         <p class="card-theme"><strong>学習テーマ:</strong> 横浜国大SPIRAL吉岡克成教授（技術審議委員長）、経産省・IPAの国家IoTセキュリティ適合性評価制度JC-STAR、星ラベル（★1〜★4）、レモンの市場克服、ファームウェアSCA解析</p>
         <a href="stories/ep32.html" class="card-btn">小説と図解を読む →</a>
       </div>
     </div>
     
-    <div class="card">
+    <div class="card" data-num="33" data-arc="part2_spiral" data-search="episode 33 第33話 空間を翔ける乱数と量子の極致 〜電波の物理現象で紡ぐ破られない暗号〜 横浜国大spiral四方順司教授（nexcrypt lab長）、ieee access 2025、物理層セキュリティ（pls）、電波フェージング・マルチパス秘密鍵生成（skg）、量子アルゴリズム、情報理論的安全性 第2部: spiral編">
       <img src="assets/images/ep33_4koma.png" alt="第33話 挿絵" class="card-thumb" loading="lazy">
       <div class="card-body">
-        <div class="card-ep">Episode 33</div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <div class="card-ep">Episode 33</div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 0.15rem 0.5rem; border-radius: 9999px;">第2部: SPIRAL編</span>
+        </div>
         <h2 class="card-title">空間を翔ける乱数と量子の極致 〜電波の物理現象で紡ぐ破られない暗号〜</h2>
         <p class="card-theme"><strong>学習テーマ:</strong> 横浜国大SPIRAL四方順司教授（NexCrypt Lab長）、IEEE Access 2025、物理層セキュリティ（PLS）、電波フェージング・マルチパス秘密鍵生成（SKG）、量子アルゴリズム、情報理論的安全性</p>
         <a href="stories/ep33.html" class="card-btn">小説と図解を読む →</a>
       </div>
     </div>
     
-    <div class="card">
+    <div class="card" data-num="34" data-arc="part2_spiral" data-search="episode 34 第34話 潜入の影と倫理の光 〜telegram犯罪捜査とインフォームド・コンセントのジレンマ〜 横浜国大spiral吉岡克成教授・インミンパパ特任准教授・久保颯汰氏ら、css 2025、telegram上の人的情報収集（humint）、メンロレポート研究倫理、インフォームド・コンセントのジレンマ、倫理監視llm 第2部: spiral編">
       <img src="assets/images/ep34_4koma.png" alt="第34話 挿絵" class="card-thumb" loading="lazy">
       <div class="card-body">
-        <div class="card-ep">Episode 34</div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <div class="card-ep">Episode 34</div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 0.15rem 0.5rem; border-radius: 9999px;">第2部: SPIRAL編</span>
+        </div>
         <h2 class="card-title">潜入の影と倫理の光 〜Telegram犯罪捜査とインフォームド・コンセントのジレンマ〜</h2>
         <p class="card-theme"><strong>学習テーマ:</strong> 横浜国大SPIRAL吉岡克成教授・インミンパパ特任准教授・久保颯汰氏ら、CSS 2025、Telegram上の人的情報収集（HUMINT）、メンロレポート研究倫理、インフォームド・コンセントのジレンマ、倫理監視LLM</p>
         <a href="stories/ep34.html" class="card-btn">小説と図解を読む →</a>
       </div>
     </div>
     
-    <div class="card">
+    <div class="card" data-num="35" data-arc="part2_spiral" data-search="episode 35 第35話 証明書なき星群と格子の絆 〜耐量子idベース暗号と群テストの奇跡〜 横浜国大spiral四方順司教授（nexcrypt lab長）・佐藤慎悟氏、cans 2024、超コンパクト耐量子有界共謀idベース暗号（compact post-quantum bc-ibe）、群テスト数理理論融合、pki/crl不要の証明書レス通信 第2部: spiral編">
       <img src="assets/images/ep35_4koma.png" alt="第35話 挿絵" class="card-thumb" loading="lazy">
       <div class="card-body">
-        <div class="card-ep">Episode 35</div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <div class="card-ep">Episode 35</div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 0.15rem 0.5rem; border-radius: 9999px;">第2部: SPIRAL編</span>
+        </div>
         <h2 class="card-title">証明書なき星群と格子の絆 〜耐量子IDベース暗号と群テストの奇跡〜</h2>
         <p class="card-theme"><strong>学習テーマ:</strong> 横浜国大SPIRAL四方順司教授（NexCrypt Lab長）・佐藤慎悟氏、CANS 2024、超コンパクト耐量子有界共謀IDベース暗号（Compact Post-Quantum BC-IBE）、群テスト数理理論融合、PKI/CRL不要の証明書レス通信</p>
         <a href="stories/ep35.html" class="card-btn">小説と図解を読む →</a>
       </div>
     </div>
     
-    <div class="card">
+    <div class="card" data-num="36" data-arc="part2_spiral" data-search="episode 36 第36話 千の貌を持つ影と振る舞いの砦 〜生成aiマルウェア変種と動的防御の夜明け〜 横浜国大spiral吉岡克成教授・インミンパパ特任准教授・松本勉名誉教授ら、icss / ieee dsc 2024、生成ai（llm）によるポリモーフィック変種量産とav静的シグネチャ回避、動的挙動検知（振る舞い・edr）へのパラダイムシフト 第2部: spiral編">
       <img src="assets/images/ep36_4koma.png" alt="第36話 挿絵" class="card-thumb" loading="lazy">
       <div class="card-body">
-        <div class="card-ep">Episode 36</div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <div class="card-ep">Episode 36</div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 0.15rem 0.5rem; border-radius: 9999px;">第2部: SPIRAL編</span>
+        </div>
         <h2 class="card-title">千の貌を持つ影と振る舞いの砦 〜生成AIマルウェア変種と動的防御の夜明け〜</h2>
         <p class="card-theme"><strong>学習テーマ:</strong> 横浜国大SPIRAL吉岡克成教授・インミンパパ特任准教授・松本勉名誉教授ら、ICSS / IEEE DSC 2024、生成AI（LLM）によるポリモーフィック変種量産とAV静的シグネチャ回避、動的挙動検知（振る舞い・EDR）へのパラダイムシフト</p>
         <a href="stories/ep36.html" class="card-btn">小説と図解を読む →</a>
       </div>
     </div>
     
-    <div class="card">
+    <div class="card" data-num="37" data-arc="part2_spiral" data-search="episode 37 第37話 巡る古城と消えぬ記憶 〜中古ルーター流通とサポート終了の落とし穴〜 横浜国大spiral佐々木貴之准教授・吉岡克成教授・新堀寛大氏ら、css 2025 学生論文賞、国内主要フリマにおけるサポート終了（eol）中古ルーター流通、既知脆弱性放置、出品者初期化不徹底による設定残存 第2部: spiral編">
       <img src="assets/images/ep37_4koma.png" alt="第37話 挿絵" class="card-thumb" loading="lazy">
       <div class="card-body">
-        <div class="card-ep">Episode 37</div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <div class="card-ep">Episode 37</div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 0.15rem 0.5rem; border-radius: 9999px;">第2部: SPIRAL編</span>
+        </div>
         <h2 class="card-title">巡る古城と消えぬ記憶 〜中古ルーター流通とサポート終了の落とし穴〜</h2>
         <p class="card-theme"><strong>学習テーマ:</strong> 横浜国大SPIRAL佐々木貴之准教授・吉岡克成教授・新堀寛大氏ら、CSS 2025 学生論文賞、国内主要フリマにおけるサポート終了（EOL）中古ルーター流通、既知脆弱性放置、出品者初期化不徹底による設定残存</p>
         <a href="stories/ep37.html" class="card-btn">小説と図解を読む →</a>
       </div>
     </div>
     
-    <div class="card">
+    <div class="card" data-num="38" data-arc="part2_spiral" data-search="episode 38 第38話 闇市を支える蜘蛛の糸 〜ダークネットの外部依存性とllmシグネチャ〜 横浜国大spiralインミンパパ特任准教授・吉岡克成教授・内野彰紀氏ら、css 2025、ダークネットマーケットの外部第三者サービス依存性調査、tor onionの単一障害点（spof）、llmによるdom自動解析とシグネチャ生成 第2部: spiral編">
       <img src="assets/images/ep38_4koma.png" alt="第38話 挿絵" class="card-thumb" loading="lazy">
       <div class="card-body">
-        <div class="card-ep">Episode 38</div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <div class="card-ep">Episode 38</div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 0.15rem 0.5rem; border-radius: 9999px;">第2部: SPIRAL編</span>
+        </div>
         <h2 class="card-title">闇市を支える蜘蛛の糸 〜ダークネットの外部依存性とLLMシグネチャ〜</h2>
         <p class="card-theme"><strong>学習テーマ:</strong> 横浜国大SPIRALインミンパパ特任准教授・吉岡克成教授・内野彰紀氏ら、CSS 2025、ダークネットマーケットの外部第三者サービス依存性調査、Tor Onionの単一障害点（SPOF）、LLMによるDOM自動解析とシグネチャ生成</p>
         <a href="stories/ep38.html" class="card-btn">小説と図解を読む →</a>
       </div>
     </div>
     
-    <div class="card">
+    <div class="card" data-num="39" data-arc="part2_spiral" data-search="episode 39 第39話 託された演算と選ばれし証 〜指定評価者付き準同型署名の奇跡〜 横浜国大spiral四方順司教授（nexcrypt lab長）・白石和真氏・原啓祐氏ら、ieee access 2025、クラウド計算委託における署名破壊ジレンマの克服、指定評価者付き準同型署名（hs-de）、真正性と機密性の両立 第2部: spiral編">
       <img src="assets/images/ep39_4koma.png" alt="第39話 挿絵" class="card-thumb" loading="lazy">
       <div class="card-body">
-        <div class="card-ep">Episode 39</div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <div class="card-ep">Episode 39</div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 0.15rem 0.5rem; border-radius: 9999px;">第2部: SPIRAL編</span>
+        </div>
         <h2 class="card-title">託された演算と選ばれし証 〜指定評価者付き準同型署名の奇跡〜</h2>
         <p class="card-theme"><strong>学習テーマ:</strong> 横浜国大SPIRAL四方順司教授（NexCrypt Lab長）・白石和真氏・原啓祐氏ら、IEEE Access 2025、クラウド計算委託における署名破壊ジレンマの克服、指定評価者付き準同型署名（HS-DE）、真正性と機密性の両立</p>
         <a href="stories/ep39.html" class="card-btn">小説と図解を読む →</a>
@@ -434,6 +597,112 @@
     <p>© 2026 放課後サイバーディフェンス・ラボ (Cybersecurity Novel Library)</p>
     <p>Repository: <a href="https://github.com/k518-2026/cybersecurity-novel" target="_blank" rel="noopener" style="color: var(--primary);">k518-2026/cybersecurity-novel</a></p>
   </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchInput = document.getElementById('searchInput');
+      const sortSelect = document.getElementById('sortOrderSelect');
+      const filterBtns = document.querySelectorAll('.filter-btn[data-filter]');
+      const resetBtn = document.getElementById('resetFiltersBtn');
+      const noResultsResetBtn = document.getElementById('noResultsResetBtn');
+      const resultsCountEl = document.getElementById('resultsCount');
+      const noResultsBox = document.getElementById('noResultsBox');
+      const grid = document.getElementById('episodesGrid');
+      const cards = Array.from(grid.querySelectorAll('.card'));
+
+      let currentFilter = 'all';
+      let currentQuery = '';
+      let currentSort = 'ep-asc';
+
+      function updateGrid() {
+        const query = currentQuery.trim().toLowerCase();
+        let visibleCount = 0;
+
+        cards.forEach(card => {
+          const num = parseInt(card.dataset.num, 10);
+          const arc = card.dataset.arc;
+          const searchContent = card.dataset.search || '';
+
+          // Check arc filter
+          const matchesFilter = (currentFilter === 'all') || (arc === currentFilter);
+
+          // Check search query
+          const matchesQuery = !query || searchContent.includes(query);
+
+          if (matchesFilter && matchesQuery) {
+            card.style.display = '';
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        // Sort cards
+        cards.sort((a, b) => {
+          const numA = parseInt(a.dataset.num, 10);
+          const numB = parseInt(b.dataset.num, 10);
+          return currentSort === 'ep-desc' ? (numB - numA) : (numA - numB);
+        });
+
+        // Re-append to preserve sorted order in DOM
+        cards.forEach(card => grid.appendChild(card));
+
+        // Update counter & empty state
+        resultsCountEl.textContent = visibleCount;
+        if (visibleCount === 0) {
+          noResultsBox.style.display = 'block';
+        } else {
+          noResultsBox.style.display = 'none';
+        }
+      }
+
+      // Search input handler with debounce
+      let debounceTimer = null;
+      searchInput.addEventListener('input', (e) => {
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(() => {
+          currentQuery = e.target.value;
+          updateGrid();
+        }, 80);
+      });
+
+      // Sort change handler
+      sortSelect.addEventListener('change', (e) => {
+        currentSort = e.target.value;
+        updateGrid();
+      });
+
+      // Filter button click handler
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentFilter = btn.dataset.filter;
+          updateGrid();
+        });
+      });
+
+      // Reset handler
+      function resetAll() {
+        currentFilter = 'all';
+        currentQuery = '';
+        currentSort = 'ep-asc';
+        searchInput.value = '';
+        sortSelect.value = 'ep-asc';
+        filterBtns.forEach(b => {
+          if (b.dataset.filter === 'all') b.classList.add('active');
+          else b.classList.remove('active');
+        });
+        updateGrid();
+      }
+
+      if (resetBtn) resetBtn.addEventListener('click', resetAll);
+      if (noResultsResetBtn) noResultsResetBtn.addEventListener('click', resetAll);
+
+      // Initial run
+      updateGrid();
+    });
+  </script>
 
 </body>
 </html>

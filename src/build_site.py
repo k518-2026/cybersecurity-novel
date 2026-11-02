@@ -602,11 +602,27 @@ for idx, ep in enumerate(episodes):
 # Build Top Index Page (docs/index.html)
 cards_html = []
 for ep in episodes:
+    # Determine arc classification
+    if ep['num'] <= 15:
+        arc = "part1"
+        arc_label = "第1部: 高校編"
+    elif ep['num'] <= 20:
+        arc = "part2_adv"
+        arc_label = "第2部: 先端編"
+    else:
+        arc = "part2_spiral"
+        arc_label = "第2部: SPIRAL編"
+
+    searchable_text = f"Episode {ep['num']:02d} 第{ep['num']}話 {ep['title']} {ep['theme']} {arc_label}".lower()
+
     card = f"""
-    <div class="card">
+    <div class="card" data-num="{ep['num']}" data-arc="{arc}" data-search="{html.escape(searchable_text)}">
       <img src="assets/images/{ep['illust']}" alt="第{ep['num']:02d}話 挿絵" class="card-thumb" loading="lazy">
       <div class="card-body">
-        <div class="card-ep">Episode {ep['num']:02d}</div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <div class="card-ep">Episode {ep['num']:02d}</div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 0.15rem 0.5rem; border-radius: 9999px;">{arc_label}</span>
+        </div>
         <h2 class="card-title">{html.escape(ep['title'])}</h2>
         <p class="card-theme"><strong>学習テーマ:</strong> {html.escape(ep['theme'])}</p>
         <a href="stories/{ep['id']}.html" class="card-btn">小説と図解を読む →</a>
@@ -636,6 +652,7 @@ index_html = f"""<!DOCTYPE html>
       <span class="badge">国家サイバー統括室 (cyber.go.jp) 啓発方針</span>
       <span class="badge">デジタル庁・総務省ガイドライン</span>
       <span class="badge">米CISA / 国際セキュリティ基準</span>
+      <span class="badge">横浜国大 SPIRAL 論文探訪</span>
       <span class="badge">大学情報科学・工学進学ガイド</span>
     </div>
   </header>
@@ -646,13 +663,58 @@ index_html = f"""<!DOCTYPE html>
       <p style="color: #475569; font-size: 0.98rem; line-height: 1.8;">
         高校生がサイバーセキュリティの面白さや重要性に触れ、将来の情報科学系・工学系大学への進学やセキュリティ専門職を目指すための入門ライトノベルです。<br>
         <strong>第1部（第1話〜第15話）</strong>：橘 葵＆城崎 悠真が、パスワード認証から暗号、クラウド、AI防御までの基礎原理を習得して大学進学へ。<br>
-        <strong>第2部（第16話〜第20話）</strong>：新入生の神崎 蓮（ハードウェア・IoT班）＆白石 結衣（暗号数理班）が、大学1年となった悠真TAや芹沢准教授と共に、IoT、ゼロトラスト、ハードウェア解析、プライバシー強化技術、社会重要インフラ（自動車・電力）の先端セキュリティに挑みます！
+        <strong>第2部 先端編（第16話〜第20話）</strong>：新入生の神崎 蓮＆白石 結衣が、IoT、ゼロトラスト、ハードウェア解析、社会重要インフラ防御に挑む！<br>
+        <strong>第2部 横浜国大SPIRAL探訪編（第21話〜第39話）</strong>：暗号数理（四方教授）、IoT・マルウェア解析（吉岡教授・イン特任准教授・佐々木准教授）など最新研究論文の知見を高校生向けにストーリー化！
       </p>
     </section>
 
-    <h2 style="font-size: 1.5rem; color: var(--secondary); margin-bottom: 1.5rem; border-left: 4px solid var(--primary); padding-left: 0.8rem;">📑 収録エピソード一覧（第1部・第2部 全20話）</h2>
+    <!-- 検索・ソート・絞り込みコントロールパネル -->
+    <section class="controls-panel" aria-label="エピソード検索・絞り込み操作">
+      <div class="controls-top-row">
+        <!-- リアルタイム検索バー -->
+        <div class="search-box-wrapper">
+          <span class="search-icon">🔍</span>
+          <input type="search" id="searchInput" class="search-input" placeholder="キーワード検索 (例: 暗号, IoT, ルーター, 偽装, マルウェア, 第38話)..." autocomplete="off">
+        </div>
 
-    <div class="episodes-grid">
+        <!-- 表示順序ソートセレクター -->
+        <div class="sort-box-wrapper">
+          <label for="sortOrderSelect" class="sort-label">表示順序:</label>
+          <select id="sortOrderSelect" class="sort-select">
+            <option value="ep-asc">第1話から順（昇順）</option>
+            <option value="ep-desc">最新話から順（降順）</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- シリーズ・編別フィルタータブ -->
+      <div class="filter-tabs-row">
+        <span class="filter-tab-label">シリーズ絞り込み:</span>
+        <button type="button" class="filter-btn active" data-filter="all">すべて (全39話)</button>
+        <button type="button" class="filter-btn" data-filter="part2_spiral">SPIRAL論文探訪編 (第21〜39話)</button>
+        <button type="button" class="filter-btn" data-filter="part2_adv">先端セキュリティ編 (第16〜20話)</button>
+        <button type="button" class="filter-btn" data-filter="part1">高校情報科学部編 (第1〜15話)</button>
+      </div>
+
+      <!-- 件数表示 & リセットボタン -->
+      <div class="controls-status-row">
+        <div>
+          該当件数: <span id="resultsCount" class="results-count-badge">39</span> 件 / 全39話中
+        </div>
+        <div>
+          <button type="button" id="resetFiltersBtn" class="reset-filters-btn">検索・条件をリセット</button>
+        </div>
+      </div>
+    </section>
+
+    <div id="noResultsBox" class="no-results-box">
+      <div class="no-results-icon">🔎</div>
+      <div class="no-results-text">該当するエピソードが見つかりませんでした</div>
+      <div class="no-results-sub">検索キーワードを変更するか、フィルター条件をリセットしてお試しください。</div>
+      <button type="button" id="noResultsResetBtn" class="filter-btn active" style="display: inline-block;">条件をすべてリセット</button>
+    </div>
+
+    <div class="episodes-grid" id="episodesGrid">
       {''.join(cards_html)}
     </div>
   </main>
@@ -662,6 +724,112 @@ index_html = f"""<!DOCTYPE html>
     <p>Repository: <a href="https://github.com/k518-2026/cybersecurity-novel" target="_blank" rel="noopener" style="color: var(--primary);">k518-2026/cybersecurity-novel</a></p>
   </footer>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {{
+      const searchInput = document.getElementById('searchInput');
+      const sortSelect = document.getElementById('sortOrderSelect');
+      const filterBtns = document.querySelectorAll('.filter-btn[data-filter]');
+      const resetBtn = document.getElementById('resetFiltersBtn');
+      const noResultsResetBtn = document.getElementById('noResultsResetBtn');
+      const resultsCountEl = document.getElementById('resultsCount');
+      const noResultsBox = document.getElementById('noResultsBox');
+      const grid = document.getElementById('episodesGrid');
+      const cards = Array.from(grid.querySelectorAll('.card'));
+
+      let currentFilter = 'all';
+      let currentQuery = '';
+      let currentSort = 'ep-asc';
+
+      function updateGrid() {{
+        const query = currentQuery.trim().toLowerCase();
+        let visibleCount = 0;
+
+        cards.forEach(card => {{
+          const num = parseInt(card.dataset.num, 10);
+          const arc = card.dataset.arc;
+          const searchContent = card.dataset.search || '';
+
+          // Check arc filter
+          const matchesFilter = (currentFilter === 'all') || (arc === currentFilter);
+
+          // Check search query
+          const matchesQuery = !query || searchContent.includes(query);
+
+          if (matchesFilter && matchesQuery) {{
+            card.style.display = '';
+            visibleCount++;
+          }} else {{
+            card.style.display = 'none';
+          }}
+        }});
+
+        // Sort cards
+        cards.sort((a, b) => {{
+          const numA = parseInt(a.dataset.num, 10);
+          const numB = parseInt(b.dataset.num, 10);
+          return currentSort === 'ep-desc' ? (numB - numA) : (numA - numB);
+        }});
+
+        // Re-append to preserve sorted order in DOM
+        cards.forEach(card => grid.appendChild(card));
+
+        // Update counter & empty state
+        resultsCountEl.textContent = visibleCount;
+        if (visibleCount === 0) {{
+          noResultsBox.style.display = 'block';
+        }} else {{
+          noResultsBox.style.display = 'none';
+        }}
+      }}
+
+      // Search input handler with debounce
+      let debounceTimer = null;
+      searchInput.addEventListener('input', (e) => {{
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(() => {{
+          currentQuery = e.target.value;
+          updateGrid();
+        }}, 80);
+      }});
+
+      // Sort change handler
+      sortSelect.addEventListener('change', (e) => {{
+        currentSort = e.target.value;
+        updateGrid();
+      }});
+
+      // Filter button click handler
+      filterBtns.forEach(btn => {{
+        btn.addEventListener('click', () => {{
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentFilter = btn.dataset.filter;
+          updateGrid();
+        }});
+      }});
+
+      // Reset handler
+      function resetAll() {{
+        currentFilter = 'all';
+        currentQuery = '';
+        currentSort = 'ep-asc';
+        searchInput.value = '';
+        sortSelect.value = 'ep-asc';
+        filterBtns.forEach(b => {{
+          if (b.dataset.filter === 'all') b.classList.add('active');
+          else b.classList.remove('active');
+        }});
+        updateGrid();
+      }}
+
+      if (resetBtn) resetBtn.addEventListener('click', resetAll);
+      if (noResultsResetBtn) noResultsResetBtn.addEventListener('click', resetAll);
+
+      // Initial run
+      updateGrid();
+    }});
+  </script>
+
 </body>
 </html>
 """
@@ -669,4 +837,4 @@ index_html = f"""<!DOCTYPE html>
 index_path = os.path.join(DOCS_DIR, "index.html")
 with open(index_path, "w", encoding="utf-8") as f:
     f.write(index_html)
-print("Updated top index page and story pages for all 13 episodes:", index_path)
+print("Updated top index page and story pages for all episodes:", index_path)
