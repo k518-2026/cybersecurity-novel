@@ -19,7 +19,7 @@
 
 ---
 
-## 📚 収録エピソード一覧（第1部・第2部 全36話）
+## 📚 収録エピソード一覧（第1部・第2部 全39話）
 
 ### 第1部：高校情報科学部とサイバーセキュリティの基礎（第1話〜第15話 完結）
 
@@ -74,6 +74,9 @@
 | 34 | **潜入の影と倫理の光** | 神崎 蓮, 白石 結衣, 城崎悠真TA, 芹沢准教授 | 吉岡克成教授・インミンパパ特任准教授らの最新論文『Telegram上の人的情報収集（HUMINT）とインフォームド・コンセントの検証』（CSS 2025）、メンロレポート研究倫理、段階的合意形成、倫理監視LLM | [図解](content/figures/fig34_ethical_humint_telegram.png) | [4コマ漫画](content/illustrations/ep34_4koma.png) | [第34話本文](content/2026-11-01_ep34_ethical_humint_telegram.md) |
 | 35 | **証明書なき星群と格子の絆** | 神崎 蓮, 白石 結衣, 城崎悠真TA, 芹沢准教授 | 四方順司教授（NexCrypt Lab長）・佐藤慎悟氏の国際会議論文『超コンパクト耐量子有界共謀IDベース暗号』（CANS 2024 / LNCS 14905）、群テスト数理理論融合、PKI/CRL不要の証明書レス通信 | [図解](content/figures/fig35_pqc_identity_based_encryption.png) | [4コマ漫画](content/illustrations/ep35_4koma.png) | [第35話本文](content/2026-11-01_ep35_pqc_identity_based_encryption.md) |
 | 36 | **千の貌を持つ影と振る舞いの砦** | 神崎 蓮, 白石 結衣, 城崎悠真TA, 芹沢准教授 | 吉岡克成教授・インミンパパ特任准教授・松本勉名誉教授らの先端論文『生成AIを用いたマルウェア自動変種生成とAV回避の実態解明』（ICSS / IEEE DSC 2024）、動的挙動検知（EDR/振る舞い防御）への転換 | [図解](content/figures/fig36_llm_malware_polymorphism.png) | [4コマ漫画](content/illustrations/ep36_4koma.png) | [第36話本文](content/2026-11-01_ep36_llm_malware_polymorphism.md) |
+| 37 | **巡る古城と消えぬ記憶** | 神崎 蓮, 白石 結衣, 城崎悠真TA, 芹沢准教授 | 佐々木貴之准教授・吉岡克成教授らの受賞論文『国内フリマにおけるサポート終了（EOL）中古ルーター流通調査』（CSS 2025 学生論文賞）、既知脆弱性放置、出品者初期化不徹底による設定残存 | [図解](content/figures/fig37_eol_secondhand_routers.png) | [4コマ漫画](content/illustrations/ep37_4koma.png) | [第37話本文](content/2026-11-02_ep37_eol_secondhand_routers.md) |
+| 38 | **闇市を支える蜘蛛の糸** | 神崎 蓮, 白石 結衣, 城崎悠真TA, 芹沢准教授 | インミンパパ特任准教授・吉岡克成教授らの最新論文『ダークネットマーケットの第三者サービス依存性調査：LLMによる検知とシグネチャ生成』（CSS 2025）、Tor Onion単一障害点（SPOF）、LLM自動解析 | [図解](content/figures/fig38_darknet_thirdparty_dependencies.png) | [4コマ漫画](content/illustrations/ep38_4koma.png) | [第38話本文](content/2026-11-02_ep38_darknet_thirdparty_dependencies.md) |
+| 39 | **託された演算と選ばれし証** | 神崎 蓮, 白石 結衣, 城崎悠真TA, 芹沢准教授 | 四方順司教授（NexCrypt Lab長）らの国際論文『指定評価者付き準同型署名（HS-DE）』（IEEE Access 2025）、クラウド計算委託における署名破壊ジレンマの克服、プライバシーと真正性の両立 | [図解](content/figures/fig39_homomorphic_signature_designated_evaluator.png) | [4コマ漫画](content/illustrations/ep39_4koma.png) | [第39話本文](content/2026-11-02_ep39_homomorphic_signature_designated_evaluator.md) |
 
 ---
 

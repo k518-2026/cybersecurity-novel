@@ -343,6 +343,33 @@ episodes = [
         "md_file": "2026-11-01_ep36_llm_malware_polymorphism.md",
         "illust": "ep36_4koma.png",
         "figure": "fig36_llm_malware_polymorphism.png"
+    },
+    {
+        "num": 37,
+        "id": "ep37",
+        "title": "巡る古城と消えぬ記憶 〜中古ルーター流通とサポート終了の落とし穴〜",
+        "theme": "横浜国大SPIRAL佐々木貴之准教授・吉岡克成教授・新堀寛大氏ら、CSS 2025 学生論文賞、国内主要フリマにおけるサポート終了（EOL）中古ルーター流通、既知脆弱性放置、出品者初期化不徹底による設定残存",
+        "md_file": "2026-11-02_ep37_eol_secondhand_routers.md",
+        "illust": "ep37_4koma.png",
+        "figure": "fig37_eol_secondhand_routers.png"
+    },
+    {
+        "num": 38,
+        "id": "ep38",
+        "title": "闇市を支える蜘蛛の糸 〜ダークネットの外部依存性とLLMシグネチャ〜",
+        "theme": "横浜国大SPIRALインミンパパ特任准教授・吉岡克成教授・内野彰紀氏ら、CSS 2025、ダークネットマーケットの外部第三者サービス依存性調査、Tor Onionの単一障害点（SPOF）、LLMによるDOM自動解析とシグネチャ生成",
+        "md_file": "2026-11-02_ep38_darknet_thirdparty_dependencies.md",
+        "illust": "ep38_4koma.png",
+        "figure": "fig38_darknet_thirdparty_dependencies.png"
+    },
+    {
+        "num": 39,
+        "id": "ep39",
+        "title": "託された演算と選ばれし証 〜指定評価者付き準同型署名の奇跡〜",
+        "theme": "横浜国大SPIRAL四方順司教授（NexCrypt Lab長）・白石和真氏・原啓祐氏ら、IEEE Access 2025、クラウド計算委託における署名破壊ジレンマの克服、指定評価者付き準同型署名（HS-DE）、真正性と機密性の両立",
+        "md_file": "2026-11-02_ep39_homomorphic_signature_designated_evaluator.md",
+        "illust": "ep39_4koma.png",
+        "figure": "fig39_homomorphic_signature_designated_evaluator.png"
     }
 ]
 
