@@ -424,6 +424,33 @@ episodes = [
         "md_file": "2026-11-03_ep45_rbe_fujisaki_okamoto_transformation.md",
         "illust": "ep45_4koma.png",
         "figure": "fig45_rbe_fujisaki_okamoto_transformation.png"
+    },
+    {
+        "num": 46,
+        "id": "ep46",
+        "title": "鏡面のファサードと自動化の眼 〜WebUIを狙う広域スキャンとIoTプロファイリング〜",
+        "theme": "横浜国大SPIRAL林嘉乃氏・合屋琴江氏・九鬼琉氏・藤井翔太氏・佐々木貴之准教授・吉岡克成教授ら、CSS 2025、WebUIを対象とした広域スキャンにおけるIoT機器プロファイリング自動化、ヘッドレスブラウザによる動的レンダリング解析、重要インフラと家庭用機器の非侵襲的特定",
+        "md_file": "2026-11-04_ep46_webui_iot_profiling.md",
+        "illust": "ep46_4koma.png",
+        "figure": "fig46_webui_iot_profiling.png"
+    },
+    {
+        "num": 47,
+        "id": "ep47",
+        "title": "禁制の扉と知性の解読 〜Basic認証応答とLLMによる大規模IoT識別〜",
+        "theme": "三菱電機／横浜国大SPIRAL大塚瑠莉氏・インミンパパ特任准教授・吉岡克成教授ら、CSS 2025、HTTP 401 Basic認証応答（WWW-Authenticateヘッダのrealm文字列）に着目したIoT機器識別技術、大規模スキャンデータ（Censys）への適用とLLMによる未知バナーの文脈解読",
+        "md_file": "2026-11-04_ep47_basic_auth_iot_identification.md",
+        "illust": "ep47_4koma.png",
+        "figure": "fig47_basic_auth_iot_identification.png"
+    },
+    {
+        "num": 48,
+        "id": "ep48",
+        "title": "惑いの風潮と確証の盾 〜偽誤情報に抗う予防（プレバンキング）と訂正（デバンキング）の科学〜",
+        "theme": "情報通信研究機構（NICT）／横浜国大SPIRAL松田美慧氏・鈴木悠氏・藤田彬氏・吉岡克成教授・笠間貴弘氏ら、CSS 2025 奨励賞、ソーシャルメディア上の偽誤情報拡散に対する予防（Pre-bunking）と事後訂正（Debunking）の大規模被験者実験（N=723）、具体的な反証提示による誤認訂正効果の実証と認知セキュリティ",
+        "md_file": "2026-11-04_ep48_prebunking_debunking_misinformation.md",
+        "illust": "ep48_4koma.png",
+        "figure": "fig48_prebunking_debunking_misinformation.png"
     }
 ]
 
@@ -718,7 +745,7 @@ index_html = f"""<!DOCTYPE html>
         高校生がサイバーセキュリティの面白さや重要性に触れ、将来の情報科学系・工学系大学への進学やセキュリティ専門職を目指すための入門ライトノベルです。<br>
         <strong>第1部（第1話〜第15話）</strong>：橘 葵＆城崎 悠真が、パスワード認証から暗号、クラウド、AI防御までの基礎原理を習得して大学進学へ。<br>
         <strong>第2部 先端編（第16話〜第20話）</strong>：新入生の神崎 蓮＆白石 結衣が、IoT、ゼロトラスト、ハードウェア解析、社会重要インフラ防御に挑む！<br>
-        <strong>第2部 横浜国大SPIRAL探訪編（第21話〜第45話）</strong>：暗号数理（四方教授）、IoT・マルウェア解析（吉岡教授・イン特任准教授・佐々木准教授）など最新研究論文の知見を高校生向けにストーリー化！
+        <strong>第2部 横浜国大SPIRAL探訪編（第21話〜第48話）</strong>：暗号数理（四方教授）、IoT・マルウェア解析（吉岡教授・イン特任准教授・佐々木准教授）、認知セキュリティ（NICT連携）など最新研究論文の知見を高校生向けにストーリー化！
       </p>
     </section>
 
@@ -728,7 +755,7 @@ index_html = f"""<!DOCTYPE html>
         <!-- リアルタイム検索バー -->
         <div class="search-box-wrapper">
           <span class="search-icon">🔍</span>
-          <input type="search" id="searchInput" class="search-input" placeholder="キーワード検索 (例: 暗号, IoT, ルーター, 偽装, マルウェア, 第43話)..." autocomplete="off">
+          <input type="search" id="searchInput" class="search-input" placeholder="キーワード検索 (例: 暗号, IoT, ルーター, 偽装, マルウェア, 第46話)..." autocomplete="off">
         </div>
 
         <!-- 表示順序ソートセレクター -->
@@ -744,8 +771,8 @@ index_html = f"""<!DOCTYPE html>
       <!-- シリーズ・編別フィルタータブ -->
       <div class="filter-tabs-row">
         <span class="filter-tab-label">シリーズ絞り込み:</span>
-        <button type="button" class="filter-btn active" data-filter="all">すべて (全45話)</button>
-        <button type="button" class="filter-btn" data-filter="part2_spiral">SPIRAL論文探訪編 (第21〜45話)</button>
+        <button type="button" class="filter-btn active" data-filter="all">すべて (全48話)</button>
+        <button type="button" class="filter-btn" data-filter="part2_spiral">SPIRAL論文探訪編 (第21〜48話)</button>
         <button type="button" class="filter-btn" data-filter="part2_adv">先端セキュリティ編 (第16〜20話)</button>
         <button type="button" class="filter-btn" data-filter="part1">高校情報科学部編 (第1〜15話)</button>
       </div>
@@ -753,7 +780,7 @@ index_html = f"""<!DOCTYPE html>
       <!-- 件数表示 & リセットボタン -->
       <div class="controls-status-row">
         <div>
-          該当件数: <span id="resultsCount" class="results-count-badge">45</span> 件 / 全45話中
+          該当件数: <span id="resultsCount" class="results-count-badge">48</span> 件 / 全48話中
         </div>
         <div>
           <button type="button" id="resetFiltersBtn" class="reset-filters-btn">検索・条件をリセット</button>

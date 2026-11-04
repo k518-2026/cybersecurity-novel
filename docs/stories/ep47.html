@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第47話 禁制の扉と知性の解読 〜Basic認証応答とLLMによる大規模IoT識別〜 | 放課後サイバーディフェンス・ラボ</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Shippori+Mincho:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="story-header">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">トップ (目次)</a> &gt; <span>第47話</span>
+      </div>
+      <div class="story-ep-tag">Episode 47</div>
+      <h1 class="story-main-title">禁制の扉と知性の解読 〜Basic認証応答とLLMによる大規模IoT識別〜</h1>
+      <div class="story-meta">
+        <span>📚 学習テーマ: <strong>三菱電機／横浜国大SPIRAL大塚瑠莉氏・インミンパパ特任准教授・吉岡克成教授ら、CSS 2025、HTTP 401 Basic認証応答（WWW-Authenticateヘッダのrealm文字列）に着目したIoT機器識別技術、大規模スキャンデータ（Censys）への適用とLLMによる未知バナーの文脈解読</strong></span>
+        <span>🏫 登場人物: 城崎悠真（部長・高2）、橘葵（部員・高2）、芹沢涼香准教授（大学メンター）</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container story-container">
+
+    <!-- ストーリーイラスト (4コマ漫画) -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>🎨 4コマ漫画挿絵（文字なし）</h2>
+        <span class="visual-badge">AI高解像度生成</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/ep47_4koma.png" alt="第47話 ストーリーイラスト" class="responsive-img">
+        <p class="caption">▲ 【挿絵】青葉台高校 情報科学部＆帝都科学大学サイバーディフェンス・ラボでの実践シーン</p>
+      </div>
+    </section>
+
+    <!-- 4コマ漫画セリフ（日・英バイリンガル）※存在する場合 -->
+    
+            <div class="koma-script-box">
+              <div class="koma-script-header">
+                <h3>💬 4コマ漫画キャラクターセリフ (Story Dialogue Script)</h3>
+                <span class="lang-tag">日・英バイリンガル (JA / EN)</span>
+              </div>
+              <div class="koma-panels-list">
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">1コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">蓮が世界スキャンの巨大ログ（Censysデータ）を開き、無数に並ぶ暗号のような文字列に頭を抱える</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[蓮]</span>「Webアクセスすると `401 Unauthorized` で弾かれるIoT機器が世界中に数百万台もある……。返ってくるヒントは `realm="NET_DVR_DVR"` みたいな謎の単語だけだよ！」<br><span class="koma-char-name">[葵]</span>「門前払いされたときの捨て台詞（レルム文字列）だけじゃ、何の機械かわからないよね！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Ren]</span> "Millions of IoT nodes block us with `HTTP 401 Unauthorized` worldwide... returning only cryptic realm strings like `NET_DVR_DVR`!"<br><span class="koma-char-name">[Aoi]</span> "How could anyone identify the hardware from just a cryptic door-slamming realm string!?"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">2コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">結衣が従来の正規表現マッチングの限界を指摘する</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[結衣]</span>「世界中に数万社もある中小メーカーの機器は、正規表現の手動ルール（Regex）では追いつきません。略称や製品型番の文脈を理解する力が必要です！」<br><span class="koma-char-name">[悠真]</span>「そこで登場したのが、三菱電機と横浜国大SPIRALのCSS 2025共同研究なんだ！ 大規模言語モデル（LLM）でレルム文字列を意味解読するんだよ」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yui]</span> "Handcrafted regular expressions fail against tens of thousands of obscure global vendors. We need context-aware semantic reasoning!"<br><span class="koma-char-name">[Yuma]</span> "That's why Mitsubishi Electric and YNU SPIRAL presented this CSS 2025 breakthrough! Decoding realm strings with LLMs!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">3コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">LLMの推論パイプラインが起動し、断片的な文字列から「特定防犯カメラ（HIKVISION製OEM）ファームウェアv4.2」と正確に特定される</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[蓮]</span>「すげえ！ たった1行の認証ヘッダから、メーカー、機器カテゴリ、モデル名まで芋づる式に特定された！」<br><span class="koma-char-name">[葵]</span>「AIがデジタルの古文書解読者みたいに、エンジニアのつけた暗号を読み解いちゃった！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Ren]</span> "Amazing! From a single-line HTTP banner, it extracted the exact vendor, device type, and model family!"<br><span class="koma-char-name">[Aoi]</span> "The LLM acted like an archeologist deciphering ancient cryptic inscriptions!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">4コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">世界中の何百万台もの無名IoT機器が、綺麗な脅威カタログへと整理されていく</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[結衣]</span>「たった1往復の軽量通信で、ネットの死角にある機器の正体を暴く……効率と知性の極致ですね！」<br><span class="koma-char-name">[悠真]</span>「新しい脆弱性が出た瞬間、世界中のどこに影響があるか即座に判定できる最強の盾だよ」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yui]</span> "Revealing obscure edge devices across the planet with a single lightweight round-trip... peak efficiency and intelligence!"<br><span class="koma-char-name">[Yuma]</span> "The moment a new CVE drops, we can instantly map its global blast radius to shield society!"</div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+
+    <!-- 小説本文 -->
+    <section class="novel-section">
+      <div class="section-title">
+        <h2>📖 小説本文</h2>
+      </div>
+      <div class="novel-body">
+        <p>冬の夕闇が迫る情報科学部室。大型モニターには、世界規模のインターネット検索エンジン（Censys）から取得された数百ギガバイトのネットワーク観測データセットが展開されていた。</p>
+<p class="dialogue">「……HTTPステータスコード `401 Unauthorized`。認証が必要な保護されたページにアクセスした際、Webサーバーがクライアントに対して『アクセス権がありません』と返す標準的なエラー応答です」</p>
+<p>白石結衣がカーソルを動かす。画面には、世界中から集められた数百万件もの `401` エラーログがズラリと並んでいた。</p>
+<p class="dialogue">「ログイン画面の本体まで見せてくれない『門前払い』の機器が、世界中にこんなにあるんだ……！」橘葵が目を丸くする。</p>
+<p>神崎蓮がログの一行をハイライトした。</p>
+<p class="dialogue">「そうなんです葵先輩。でも注目してほしいのは、このヘッダに含まれている `WWW-Authenticate: Basic realm=&quot;...&quot;` という一行です。Basic認証では、ブラウザのポップアップに『この領域の名前（レルム: Realm）』を表示するために、開発者が設定した文字列がそのまま平文で返ってくるんです」</p>
+<p class="dialogue">「レルム……？ どんな文字が書いてあるの？」</p>
+<p class="dialogue">「それが問題なんです。たとえば `realm=&quot;Broadband Router&quot;` のように親切なものならルーターだと推測できますが、大半の機器は `realm=&quot;NET_DVR_IPC&quot;` とか `realm=&quot;TL-WR841N-V13&quot;`、あるいは `realm=&quot;Archer_C7_v5_ap&quot;` のような、メーカーの開発者しか理解できないような略語や社内コードネームが書かれているんです」</p>
+<p>蓮が深いため息をついた。</p>
+<p class="dialogue">「これまでは、セキュリティ技術者が手作業で正規表現（Regex）の辞書ルールを書いて分類していました。でも、世界中には中国や台湾、東欧などの中小メーカーが無数に存在し、毎年新しい型番が生まれています。手動ルールでは全体の2割も識別できず、残りの8割は『正体不明の機器』として放置されていたんです」</p>
+<p class="dialogue">「正体不明の機器がネット上に何百万台もあるなんて、まるで名前の分からない地雷が埋まっているみたいで怖いよ……」葵が身震いする。</p>
+<p class="dialogue">「その分厚い壁を、最新の人工知能の知性で打ち破ったのが、三菱電機と横浜国立大学SPIRALの**大塚瑠莉氏、インミンパパ特任准教授、吉岡克成教授ら**によるCSS 2025の研究なんだよ」</p>
+<p>城崎悠真が笑顔でホワイトボードの前に進み出た。</p>
+<p class="dialogue">「研究チームは、ハードウェアの知識を豊富に学習した大規模言語モデル（LLM）を活用し、この謎めいた『Basic realm文字列』を意味的に推論・分類する自動化エンジンを開発したんだ」</p>
+<p class="dialogue">「LLMを使う……？ ChatGPTのようなAIに、あの暗号みたいな文字列を読ませるってことですか？」蓮が尋ねる。</p>
+<p class="dialogue">「そうだ。LLMは世界中の技術仕様書、マニュアル、GitHubのリポジトリ、パーツリストを網羅的に学習している。だから人間には意味不明な `NET_DVR` という単語を見ても、『これは大手監視カメラメーカーがDVR/NVR機器の内部ファームウェアで伝統的に用いている識別子である』と文脈を瞬時に理解できるんだ。メーカー名、機器種別（ルーター、IPカメラ、NAS、VoIPなど）、そしてモデル番号まで正確に構造化データとして抽出してくれる」</p>
+<p>部室の端末で、推論パイプラインのデモが実行された。</p>
+<p>先ほどまで「未知のホスト」と分類されていた謎の文字列群が、LLMの推論によって次々と『〇〇社製スマートネットワークカメラ（型番XXX）』『〇〇社製産業用シリアル変換ゲートウェイ』と鮮やかにラベリングされていく。</p>
+<p class="dialogue">「わあ……！ まるで古代文字の石碑を考古学者がすらすら解読していくみたい！」葵が手を叩いて喜んだ。</p>
+<p class="dialogue">「この手法の最も素晴らしいところは**『極めて低負荷で高速』**という点です」結衣が熱っぽく語った。</p>
+<p class="dialogue">「前話のWebUIスキャンでは画面全体を描画する必要がありましたが、この方式ならわずか数ミリ秒のHTTPヘッダ1往復（401応答）だけで、機器の正体が判明します。Censysなどの既存の巨大な公開観測データにそのまま適用できるため、地球規模のIoTエコシステムを即座に可視化できるのです」</p>
+<p class="dialogue">「これがあれば」と悠真が力強く締めくくった。「もし明日、あるメーカーのルーターに重大な脆弱性が見つかっても、『世界中のどのIPアドレスの機器が該当するか』を数分で特定し、世界規模の被害拡大を未然に防ぐことができる。AIの知性とサイバー観測工学が融合した、未来の盾なんだよ」</p>
+<p>夕暮れの光が差し込む部室で、高校生たちはデジタルの深淵に潜む声なき機器たちを解読する知の力に、深く胸を打たれていた。</p>
+<p>---</p>
+      </div>
+    </section>
+
+    <!-- TikZ 技術構造図解 -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>📊 セキュリティ構造図解 (TikZ LuaLaTeX生成)</h2>
+        <span class="visual-badge">国家安全基準・工学図解</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/fig47_basic_auth_iot_identification.png" alt="第47話 セキュリティ構造図解" class="responsive-img">
+        <p class="caption">▲ 【技術構造図】IPAデジタルスキル標準・国際規格に準拠した仕組みのモデル化</p>
+      </div>
+    </section>
+
+    <!-- 深掘りコラム -->
+    <section class="column-section">
+      <div class="section-title">
+        <h2>💡 高校生のためのセキュリティ深掘りコラム ＆ 大学進路ガイド</h2>
+      </div>
+      
+    </section>
+
+    <!-- 前後ナビゲーション -->
+    <nav class="episode-nav">
+      <a href="ep46.html" class="nav-btn">← 第46話: 鏡面のファサードと自動化の眼 〜We...</a>
+      <a href="../index.html" class="nav-btn center">目次に戻る</a>
+      <a href="ep48.html" class="nav-btn next">第48話: 惑いの風潮と確証の盾 〜偽誤情報に抗... →</a>
+    </nav>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 放課後サイバーディフェンス・ラボ (Cybersecurity Novel Library)</p>
+    <p>Repository: <a href="https://github.com/k518-2026/cybersecurity-novel" target="_blank" rel="noopener" style="color: var(--primary);">k518-2026/cybersecurity-novel</a></p>
+  </footer>
+
+</body>
+</html>

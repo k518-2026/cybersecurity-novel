@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第46話 鏡面のファサードと自動化の眼 〜WebUIを狙う広域スキャンとIoTプロファイリング〜 | 放課後サイバーディフェンス・ラボ</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Shippori+Mincho:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="story-header">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">トップ (目次)</a> &gt; <span>第46話</span>
+      </div>
+      <div class="story-ep-tag">Episode 46</div>
+      <h1 class="story-main-title">鏡面のファサードと自動化の眼 〜WebUIを狙う広域スキャンとIoTプロファイリング〜</h1>
+      <div class="story-meta">
+        <span>📚 学習テーマ: <strong>横浜国大SPIRAL林嘉乃氏・合屋琴江氏・九鬼琉氏・藤井翔太氏・佐々木貴之准教授・吉岡克成教授ら、CSS 2025、WebUIを対象とした広域スキャンにおけるIoT機器プロファイリング自動化、ヘッドレスブラウザによる動的レンダリング解析、重要インフラと家庭用機器の非侵襲的特定</strong></span>
+        <span>🏫 登場人物: 城崎悠真（部長・高2）、橘葵（部員・高2）、芹沢涼香准教授（大学メンター）</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container story-container">
+
+    <!-- ストーリーイラスト (4コマ漫画) -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>🎨 4コマ漫画挿絵（文字なし）</h2>
+        <span class="visual-badge">AI高解像度生成</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/ep46_4koma.png" alt="第46話 ストーリーイラスト" class="responsive-img">
+        <p class="caption">▲ 【挿絵】青葉台高校 情報科学部＆帝都科学大学サイバーディフェンス・ラボでの実践シーン</p>
+      </div>
+    </section>
+
+    <!-- 4コマ漫画セリフ（日・英バイリンガル）※存在する場合 -->
+    
+            <div class="koma-script-box">
+              <div class="koma-script-header">
+                <h3>💬 4コマ漫画キャラクターセリフ (Story Dialogue Script)</h3>
+                <span class="lang-tag">日・英バイリンガル (JA / EN)</span>
+              </div>
+              <div class="koma-panels-list">
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">1コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">部室のモニターに広大なIPアドレス空間のポート80/443探索マップが表示されている</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[蓮]</span>「インターネット全体をスキャンすると、何百万ものWeb管理画面（WebUI）が見つかるけど……単純なHTML取得だけじゃJavaScriptで動く最新機器の正体が真っ白で全然わからないよ！」<br><span class="koma-char-name">[葵]</span>「管理画面が見えてるのに、どこの誰の機器か分からないの！？」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Ren]</span> "Scanning the global internet reveals millions of open WebUIs, but simple HTTP GETs render blank on dynamic JavaScript-based devices!"<br><span class="koma-char-name">[Aoi]</span> "Even with exposed admin panels, we can't tell what device it actually is!?"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">2コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">結衣がヘッドレスブラウザ（画面を持たない自動化ブラウザ）のアーキテクチャ図を展開する</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[結衣]</span>「人間と同じようにDOMを描画し、ログインフォームやタイトル、ファビコン、画面レイアウトの特徴量を多角的に自動抽出する『プロファイリングの自動化』が必要です！」<br><span class="koma-char-name">[悠真]</span>「まさにそれが横浜国大SPIRALのCSS 2025研究だ！ 複数ASの広域空間でIoT機器を完全自動同定する手法だよ」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yui]</span> "We need automated profiling using headless browsers to render DOM, extracting forms, titles, favicons, and layout hashes!"<br><span class="koma-char-name">[Yuma]</span> "That's exactly YNU SPIRAL's CSS 2025 paper! Automated IoT device profiling across multiple Autonomous Systems!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">3コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">自動化パイプラインが稼働し、太陽光発電監視パネルや浄水場ポンプ、ネットワークカメラが次々と特定される</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[蓮]</span>「すごい！ 攻撃的な侵入コードを一切送らずに、安全な画面解析だけで重要施設やルーターの機種・バージョンを正確に暴き出してる！」<br><span class="koma-char-name">[葵]</span>「悪者に乗っ取られる前に、管理者へ『画面が外から丸見えですよ！』ってお知らせできるね！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Ren]</span> "Incredible! Without sending intrusive exploit payloads, safe visual analysis pins down device models across critical sites!"<br><span class="koma-char-name">[Aoi]</span> "We can alert facility admins that their panels are wide open before hackers hijack them!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">4コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">部室のみんなで地域インフラの健全性マップを確認しながら笑顔で頷き合う</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[結衣]</span>「ネットの海に浮かぶ無防備な扉を、科学の光で優しく照らす……能動的サイバー衛生（ASM）の勝利ですね！」<br><span class="koma-char-name">[悠真]</span>「社会インフラを守る第一歩は、自分たちの姿を正しく知ることから始まるんだ」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yui]</span> "Shining scientific clarity upon exposed doors adrift on the web... a triumph of Attack Surface Management!"<br><span class="koma-char-name">[Yuma]</span> "Protecting societal infrastructure begins by seeing our true reflection clearly."</div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+
+    <!-- 小説本文 -->
+    <section class="novel-section">
+      <div class="section-title">
+        <h2>📖 小説本文</h2>
+      </div>
+      <div class="novel-body">
+        <p>初冬の青空が広がる放課後、青葉台高校の情報科学部室。大型スクリーンには、日本全国の自律システム（AS: Autonomous System）に割り当てられたIPアドレス空間を可視化したヒートマップが揺らめいていた。</p>
+<p class="dialogue">「……ポート80番、および443番。いわゆるWebサーバー用のポートが開いているホストは、一つのプロバイダ内だけでも数十万件に上ります」</p>
+<p>白石結衣がキーボードを叩き、集計データを更新する。</p>
+<p class="dialogue">「うわあ……！ 世界中がWebサイトだらけだね。でも蓮くん、この開いているポートの中身って、普通のホームページとどう違うの？」</p>
+<p>橘葵が温かいほうじ茶の湯気を眺めながら尋ねた。</p>
+<p class="dialogue">「葵先輩、実はこの開いているポートの多くは、企業や個人のWebサイトじゃありません。家庭用ルーター、Wi-Fiアクセスポイント、監視カメラ、さらには太陽光発電所の監視パネルや工場の空調制御装置といった**『IoT機器のWeb管理画面（WebUI）』**が、設定ミスや初期値のままインターネットへ直接露出してしまっているんです」</p>
+<p>神崎蓮が渋い表情でノートPCの画面を見せた。</p>
+<p class="dialogue">「しかも厄介なのは、昔の機器なら単純なHTTP GETリクエストで返ってくるHTMLテキストを見れば『〇〇社製ルーター』と簡単に判別できたんですが、最近のIoT機器はReactやVueなどで作られた動的なシングルページアプリケーション（SPA）が増えていることです。単純なクローラーでアクセスしても、JavaScriptが実行される前の『真っ白なローディング画面』しか返ってこず、どんなメーカーの何という機器なのか全く特定できないんです」</p>
+<p class="dialogue">「中身が分からないと、もしその機器に重大なゼロデイ脆弱性が見つかったとしても、どこに危険な機器があるのか国や管理者に警告することすらできないわね……」葵が心配そうに呟く。</p>
+<p class="dialogue">「そこで、この課題を根本から解決したのが、僕たちの研究室――横浜国立大学SPIRALの**林嘉乃氏、合屋琴江氏、九鬼琉氏、藤井翔太氏、佐々木貴之准教授、吉岡克成教授ら**が情報処理学会CSS 2025で発表した**『WebUIを対象とした広域スキャンにおけるIoT機器プロファイリングの自動化』**なんだ」</p>
+<p>大学のゼミを終えて部室に現れた城崎悠真が、頼もしい声でホワイトボードの前に立った。</p>
+<p class="dialogue">「研究チームは、人間がブラウザを開くのと同じようにJavaScriptを実行・描画できる『ヘッドレスブラウザ』をクラスター化し、広域スキャンと統合した自動プロファイリングパイプラインを構築したんだ。アクセスしたWebUIの完全なDOM構造ツリー、フォームの入力項目、タイトルタグ、ファビコンの画像ハッシュ値、そして画面全体のビジュアルレイアウト特徴量を数秒で自動抽出する」</p>
+<p class="dialogue">「画面の見え方まで特徴量にするんですか！？」蓮が身を乗り出した。</p>
+<p class="dialogue">「そうだ。攻撃的なエクスプロイト（侵入コード）を一切送り込まず、単にブラウザでトップページを表示させるだけの『完全に安全・非侵襲な通信』だけで、その機器がルーターなのか、ネットワークカメラなのか、あるいは水道局や変電所の産業用コントローラーなのかを高精度に特定できるんだよ」</p>
+<p>結衣が論文の実証結果をプロジェクターに映し出した。</p>
+<p class="dialogue">「国内の複数ASにまたがる広大なIPアドレス空間への大規模適用実験において、これまで未知だった数万台のIoT機器の正確な機種名・ファームウェア世代が自動プロファイリングされ、中には外部公開を想定していない重要インフラの監視パネルも発見・特定されました」</p>
+<p class="dialogue">「すごい……！ 攻撃者が悪用する前に、サイバー安全保障の担当者やプロバイダが『お宅の管理画面がパスワードなしで世界中に公開されてしまっていますよ！』とピンポイントで安全指導できるんだね！」葵が瞳を輝かせる。</p>
+<p class="dialogue">「その通りだ。インターネットという広大な夜の海で、どこに無防備な灯台や小舟があるのかを正確に測量する技術――これこそが、現代の国家安全保障で最も重視されている**『アタックサーフェス管理（ASM: Attack Surface Management）』**の最前線なんだよ」</p>
+<p>悠真が力強く頷く。モニター上では、自動化された知性の眼が、見えざるデジタルの街並みを一つひとつ丁寧に優しく照らし出していた。</p>
+<p>---</p>
+      </div>
+    </section>
+
+    <!-- TikZ 技術構造図解 -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>📊 セキュリティ構造図解 (TikZ LuaLaTeX生成)</h2>
+        <span class="visual-badge">国家安全基準・工学図解</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/fig46_webui_iot_profiling.png" alt="第46話 セキュリティ構造図解" class="responsive-img">
+        <p class="caption">▲ 【技術構造図】IPAデジタルスキル標準・国際規格に準拠した仕組みのモデル化</p>
+      </div>
+    </section>
+
+    <!-- 深掘りコラム -->
+    <section class="column-section">
+      <div class="section-title">
+        <h2>💡 高校生のためのセキュリティ深掘りコラム ＆ 大学進路ガイド</h2>
+      </div>
+      
+    </section>
+
+    <!-- 前後ナビゲーション -->
+    <nav class="episode-nav">
+      <a href="ep45.html" class="nav-btn">← 第45話: 託されぬ秘密と白の掲示板 〜CCA安...</a>
+      <a href="../index.html" class="nav-btn center">目次に戻る</a>
+      <a href="ep47.html" class="nav-btn next">第47話: 禁制の扉と知性の解読 〜Basic認... →</a>
+    </nav>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 放課後サイバーディフェンス・ラボ (Cybersecurity Novel Library)</p>
+    <p>Repository: <a href="https://github.com/k518-2026/cybersecurity-novel" target="_blank" rel="noopener" style="color: var(--primary);">k518-2026/cybersecurity-novel</a></p>
+  </footer>
+
+</body>
+</html>
