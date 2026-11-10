@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第54話 奪われぬ署名と格子の誓い 〜キーエスクローなき耐量子IDベース署名〜 | 放課後サイバーディフェンス・ラボ</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Shippori+Mincho:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="story-header">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">トップ (目次)</a> &gt; <span>第54話</span>
+      </div>
+      <div class="story-ep-tag">Episode 54</div>
+      <h1 class="story-main-title">奪われぬ署名と格子の誓い 〜キーエスクローなき耐量子IDベース署名〜</h1>
+      <div class="story-meta">
+        <span>📚 学習テーマ: <strong>横浜国大SPIRAL中村祐輝氏・原啓祐氏・佐藤慎悟准教授・四方順司教授（NexCrypt Lab長）、SCIS 2025、鍵発行局（KGC）による署名偽造の脅威（キーエスクロー問題）を排除した格子に基づく耐量子IDベース署名（IBS）の構成と厳密な否認防止性</strong></span>
+        <span>🏫 登場人物: 城崎悠真（部長・高2）、橘葵（部員・高2）、芹沢涼香准教授（大学メンター）</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container story-container">
+
+    <!-- ストーリーイラスト (4コマ漫画) -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>🎨 4コマ漫画挿絵（文字なし）</h2>
+        <span class="visual-badge">AI高解像度生成</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/ep54_4koma.png" alt="第54話 ストーリーイラスト" class="responsive-img">
+        <p class="caption">▲ 【挿絵】青葉台高校 情報科学部＆帝都科学大学サイバーディフェンス・ラボでの実践シーン</p>
+      </div>
+    </section>
+
+    <!-- 4コマ漫画セリフ（日・英バイリンガル）※存在する場合 -->
+    
+            <div class="koma-script-box">
+              <div class="koma-script-header">
+                <h3>💬 4コマ漫画キャラクターセリフ (Story Dialogue Script)</h3>
+                <span class="lang-tag">日・英バイリンガル (JA / EN)</span>
+              </div>
+              <div class="koma-panels-list">
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">1コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">葵が電子契約アプリの画面を見て首をかしげる。証明書不要のIDベース署名の説明文</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[葵]</span>「メールアドレスだけで電子署名ができるIDベース署名（IBS）って超便利だけど……鍵を発行してくれる中央のセンター（KGC）が、私の名前で勝手に契約書にサインできちゃうの！？」<br><span class="koma-char-name">[悠真]</span>「そうなんだ。それがIDベース暗号技術に長年つきまとってきた『キーエスクロー問題』だよ」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Aoi]</span> "Identity-Based Signatures (IBS) let us sign with just an email, but can the central key center (KGC) secretly forge signatures under my name!?"<br><span class="koma-char-name">[Yuma]</span> "Indeed. That's the notorious 'Key Escrow Dilemma' haunting identity-based schemes for decades."</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">2コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">結衣がノートに高次元格子の数式を描く。量子計算機にも耐える構造</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[結衣]</span>「量子コンピュータ時代を迎え、格子理論に基づきつつ、KGCが署名を一切偽造できない『キーエスクロー耐性』を持つ新署名が必要です！」<br><span class="koma-char-name">[蓮]</span>「鍵の生成にユーザー本人のランダムな秘密を混ぜれば、中央の管理者でも合鍵を作れなくなるはずだ！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yui]</span> "Facing the quantum era, we need lattice-based signatures where the KGC is mathematically incapable of forging user signatures!"<br><span class="koma-char-name">[Ren]</span> "If users blend their own local randomness into key generation, not even the central master can forge it!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">3コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">悠真がSCIS 2025で発表された四方研究室（中村・原・佐藤・四方）の最新論文スライドを提示する</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[悠真]</span>「まさにそれを数理的に実現したのが、横浜国大SPIRALのSCIS 2025研究だ！ 格子問題（SIS）の困難性を土台に、KGCによる偽造を完全に封じ込めたんだ」<br><span class="koma-char-name">[結衣]</span>「証明書の管理コストをゼロに保ちながら、完全な法的否認防止（Non-repudiation）が量子耐性とともに成立します！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yuma]</span> "Achieving that exact math is YNU SPIRAL's SCIS 2025 paper! Grounded in lattice SIS hardness, strictly neutralizing KGC forgery!"<br><span class="koma-char-name">[Yui]</span> "Retaining zero PKI certificate overhead while guaranteeing absolute non-repudiation and quantum resilience!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">4コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">スマート自治体の電子契約書に葵がタップでサイン。偽造不可の緑の電子印鑑が輝く</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[葵]</span>「権力者にも真似できない、私だけの真実の証……！ 数学が個人の尊厳を守ってくれるんだね！」<br><span class="koma-char-name">[蓮]</span>「誰も不正ができない、真に公正なデジタル社会への大きな一歩だ！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Aoi]</span> "A seal of truth that no central authority can ever fake... math truly protects individual dignity!"<br><span class="koma-char-name">[Ren]</span> "A giant stride toward a genuinely fair digital society immune to rogue authority!"</div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+
+    <!-- 小説本文 -->
+    <section class="novel-section">
+      <div class="section-title">
+        <h2>📖 小説本文</h2>
+      </div>
+      <div class="novel-body">
+        <p>初冬の澄んだ空気が満ちる放課後、青葉台高校の情報科学部室。橘葵がタブレットに表示された電子契約サービスの規約画面をスクロールしながら、素朴な疑問を口にした。</p>
+<p class="dialogue">「悠真先輩、この前習ったIDベース暗号って、暗号化だけじゃなくて『デジタル署名（電子サイン）』にも使えるんだよね？ メールアドレスを公開鍵にして、面倒な電子証明書の発行手続きなしに契約書にサインできる仕組み！」</p>
+<p class="dialogue">「ああ、IDベース署名（IBS: Identity-Based Signature）だね」</p>
+<p>城崎悠真がコーヒーカップを手に頷いた。</p>
+<p class="dialogue">「でもね」葵は画面の一文を指差した。「鍵を発行してくれる『鍵発行局（KGC: Key Generation Center）』って、システム全体のマスター秘密鍵を持ってるんでしょ？ ということは、もしKGCのサーバーが乗っ取られたり、悪意ある管理者がいたら……私のメールアドレスを使って、私が知らないうちに数千万円の借金の契約書にサインを偽造されちゃうんじゃないの！？」</p>
+<p>部室の空気が一瞬で引き締まった。</p>
+<p>神崎蓮が膝を打った。「葵先輩、まさにそれです！ それこそが暗号の世界で最も恐れられてきた**『キーエスクロー問題（Key Escrow Dilemma）』**です！」</p>
+<p>白石結衣がホワイトボードの前に歩み寄り、ペンを走らせた。</p>
+<p class="dialogue">「デジタル署名において最も重要な法的要件は、後から『私が署名したのではない』と言い逃れさせない、そして他人に偽造させない**『否認防止性（Non-repudiation）』**です。しかし従来のIDベース署名では、KGCが原理的に全ユーザーの秘密署名鍵を計算できてしまうため、裁判になった際に『これは本人がサインしたのか、それともKGCが偽造したのか』を技術的に区別することが不可能だったのです」</p>
+<p class="dialogue">「ええっ！？ 証明書が要らないのは便利だけど、裁判で『お前がサインしたんだろ』って濡れ衣を着せられるリスクがあるなんて怖すぎるよ……！」葵が目を丸くする。</p>
+<p class="dialogue">「さらに問題なのは」と蓮が付け加えた。「RSAや楕円曲線に基づいた初期の対策技術も、近い将来やってくる巨大な量子コンピュータの前には無力化してしまうということです」</p>
+<p class="dialogue">「その二重の難問を、美しいポスト量子格子理論で根本解決したのが、僕たちの所属する横浜国立大学SPIRALの**中村祐輝氏、原啓祐氏、佐藤慎悟准教授、四方順司教授（NexCrypt Lab長）ら**の研究なんだ」</p>
+<p>悠真が誇らしげにタブレットを操作し、2025年1月の暗号と情報セキュリティシンポジウム（SCIS 2025）で発表された最新論文を映し出した。</p>
+<p class="dialogue">「研究チームは、**『キーエスクロー問題に対応した格子に基づくIDベース署名』**を発表したんだ。耐量子暗号の主役である高次元格子上のShort Integer Solution（SIS）問題を数学的基盤に据えつつ、署名鍵の生成プロセスを巧みに分割（ブラインド化）したんだよ」</p>
+<p>結衣が論文のプロトコル図を熱心に読み解き、歓声をあげた。</p>
+<p class="dialogue">「……なんて見事なプロトコルでしょう！ ユーザー本人が手元で局所的な秘密ランダムベクトルを生成し、KGCはユーザーの秘密の全体像を知ることなく部分的な格子トラップドアパラメータだけを提供する。これにより、**KGCであってもユーザーの署名を偽造することが数学的に不可能**であることが厳密に証明されています！」</p>
+<p class="dialogue">「KGCでも偽造できない……！？」葵が身を乗り出す。</p>
+<p class="dialogue">「そうだ。相手のメールアドレスを指定するだけで一瞬で署名を検証できる『証明書レスの身軽さ』はそのままに、たとえ国家権力やクラウドのマスター管理者が裏切っても、絶対に他人のサインを捏造できない鉄壁の否認防止性を手に入れたんだ」</p>
+<p>蓮が実験用のマイコン端末で、格子署名の生成と検証デモを走らせた。</p>
+<p>画面に葵の部活IDが打ち込まれ、一瞬で電子サインが完了する。検証ログには「Valid Signature (Key-Escrow Free, Lattice-PQC Verified)」という誇らしい緑色の文字が刻まれた。</p>
+<p class="dialogue">「これなら、誰にも秘密を握られることなく、自分の意志を世界に証明できるね！」</p>
+<p>葵の顔に晴れやかな笑顔が咲いた。夕暮れの部室で、若きディフェンダーたちは、個人の自由と尊厳を支える暗号数学の崇高な使命を、胸の奥深くにしっかりと刻み込んでいた。</p>
+<p>---</p>
+      </div>
+    </section>
+
+    <!-- TikZ 技術構造図解 -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>📊 セキュリティ構造図解 (TikZ LuaLaTeX生成)</h2>
+        <span class="visual-badge">国家安全基準・工学図解</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/fig54_key_escrow_free_lattice_ibs.png" alt="第54話 セキュリティ構造図解" class="responsive-img">
+        <p class="caption">▲ 【技術構造図】IPAデジタルスキル標準・国際規格に準拠した仕組みのモデル化</p>
+      </div>
+    </section>
+
+    <!-- 深掘りコラム -->
+    <section class="column-section">
+      <div class="section-title">
+        <h2>💡 高校生のためのセキュリティ深掘りコラム ＆ 大学進路ガイド</h2>
+      </div>
+      
+    </section>
+
+    <!-- 前後ナビゲーション -->
+    <nav class="episode-nav">
+      <a href="ep53.html" class="nav-btn">← 第53話: 地平を照らす統合の星座 〜脅威インテ...</a>
+      <a href="../index.html" class="nav-btn center">目次に戻る</a>
+      <a href="ep55.html" class="nav-btn next">第55話: 見えざる宛名と量子の夜 〜耐量子匿名... →</a>
+    </nav>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 放課後サイバーディフェンス・ラボ (Cybersecurity Novel Library)</p>
+    <p>Repository: <a href="https://github.com/k518-2026/cybersecurity-novel" target="_blank" rel="noopener" style="color: var(--primary);">k518-2026/cybersecurity-novel</a></p>
+  </footer>
+
+</body>
+</html>

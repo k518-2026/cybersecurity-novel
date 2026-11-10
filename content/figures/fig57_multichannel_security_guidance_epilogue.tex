@@ -1,0 +1,48 @@
+\documentclass[border=12pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning, calc, fit, backgrounds}
+\usepackage{fontspec}
+\usepackage{amsmath}
+\setmainfont{DejaVu Sans}
+
+\begin{document}
+\begin{tikzpicture}[
+    font=\small,
+    >=Stealth,
+    node distance=1.2cm,
+    block/.style={rectangle, draw=blue!70!black, fill=blue!5, rounded corners=4pt, thick, align=center, inner sep=7pt},
+    alertblock/.style={rectangle, draw=red!70!black, fill=red!5, rounded corners=4pt, thick, align=center, inner sep=7pt},
+    greenblock/.style={rectangle, draw=green!60!black, fill=green!5, rounded corners=4pt, thick, align=center, inner sep=7pt},
+    amberblock/.style={rectangle, draw=orange!80!black, fill=orange!5, rounded corners=4pt, thick, align=center, inner sep=7pt},
+    groupbox/.style={draw=black!40, dashed, rounded corners=6pt, fill=black!2, inner sep=10pt}
+]
+
+    % Top: The Multi-Channel User Communication Ecosystem
+    \node[block, text width=11.6cm] (channels) {\textbf{The Complete Consumer IoT Security Guidance Architecture}\\Security guidance reaches consumers through four fragmented channels:\\Paper manuals, web management UIs, mobile companion apps, and cloud push alerts};
+
+    % Left: Research Insights
+    \node[amberblock, below left=1.2cm and 0.4cm of channels, text width=5.5cm] (insight) {\textbf{YNU Empirical Insights (SCIS 2025)}\\$\bullet$ Static manuals ignored ($>95\%$);\\$\bullet$ Web consoles rarely visited;\\$\bullet$ Companion apps need active nudges;\\$\bullet$ Automated cloud firmware updates};
+
+    % Right: Comprehensive Synthesis
+    \node[greenblock, below right=1.2cm and 0.4cm of channels, text width=5.5cm] (synthesis) {\textbf{Harmonized Ecosystem Design}\\$\bullet$ In-app dynamic onboarding checklists;\\$\bullet$ Mandatory password strength meters;\\$\bullet$ Visual security star ratings (JC-STAR);\\$\bullet$ Transparent background telemetry};
+
+    \draw[->, thick, orange!80!black] (channels) -| (insight);
+    \draw[->, thick, green!60!black] (channels) -| (synthesis);
+
+    % Middle: The Grand Synthesis
+    \node[block, below=1.2cm of $(insight)!0.5!(synthesis)$, text width=11.6cm] (grand) {\textbf{The Grand Cycle of Cyber Defense (57 Episodes Complete)}\\Fuses cutting-edge academic papers (YNU SPIRAL, NICT, NTT, Mitsubishi Electric)\\with relatable, educational storytelling to nurture future cyber defenders and engineers};
+
+    \draw[->, thick, orange!80!black] (insight) |- (grand);
+    \draw[->, thick, green!60!black] (synthesis) |- (grand);
+
+    % Bottom: Future Epilogue
+    \node[greenblock, below=1.2cm of grand, text width=11.6cm] (future) {\textbf{Guarding Tomorrow's Digital Society with Science, Intellect, and Empathy}\\From passwords and web protocols to post-quantum lattices, honeypots, and human-centric UX;\\Empowering high school students to step forward as the next generation of cybersecurity leaders};
+
+    \draw[->, thick, green!60!black] (grand) -- (future);
+
+    \begin{scope}[on background layer]
+        \node[groupbox, fit=(channels) (insight) (synthesis) (grand) (future), label={[anchor=north west, font=\footnotesize\bfseries, blue!80!black]north west:SCIS 2025 & Grand Finale: Multi-Channel Security Guidance & Cyber Defense Epilogue}] {};
+    \end{scope}
+
+\end{tikzpicture}
+\end{document}

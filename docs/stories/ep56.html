@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第56話 幾何学の架け橋と双方向の絆 〜同種写像に基づくプロキシ再暗号化〜 | 放課後サイバーディフェンス・ラボ</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Shippori+Mincho:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="story-header">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">トップ (目次)</a> &gt; <span>第56話</span>
+      </div>
+      <div class="story-ep-tag">Episode 56</div>
+      <h1 class="story-main-title">幾何学の架け橋と双方向の絆 〜同種写像に基づくプロキシ再暗号化〜</h1>
+      <div class="story-meta">
+        <span>📚 学習テーマ: <strong>横浜国大SPIRAL陳家偉氏・趙亨騄氏・佐藤慎悟准教授・四方順司教授（NexCrypt Lab長）、MobiSec 2024、超特異楕円曲線の同種写像（Isogeny）に基づく双方向プロキシ再暗号化（Bidirectional PRE）の構成と耐量子クラウドデータ共有の安全性証明</strong></span>
+        <span>🏫 登場人物: 城崎悠真（部長・高2）、橘葵（部員・高2）、芹沢涼香准教授（大学メンター）</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container story-container">
+
+    <!-- ストーリーイラスト (4コマ漫画) -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>🎨 4コマ漫画挿絵（文字なし）</h2>
+        <span class="visual-badge">AI高解像度生成</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/ep56_4koma.png" alt="第56話 ストーリーイラスト" class="responsive-img">
+        <p class="caption">▲ 【挿絵】青葉台高校 情報科学部＆帝都科学大学サイバーディフェンス・ラボでの実践シーン</p>
+      </div>
+    </section>
+
+    <!-- 4コマ漫画セリフ（日・英バイリンガル）※存在する場合 -->
+    
+            <div class="koma-script-box">
+              <div class="koma-script-header">
+                <h3>💬 4コマ漫画キャラクターセリフ (Story Dialogue Script)</h3>
+                <span class="lang-tag">日・英バイリンガル (JA / EN)</span>
+              </div>
+              <div class="koma-panels-list">
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">1コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">蓮がクラウドストレージを介して結衣と共同研究の医療・センサーデータを暗号共有しようとしている</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[蓮]</span>「クラウドサーバーに一度暗号化して保存したデータを、結衣に安全に共有したい。でも従来のプロキシ再暗号化（PRE）は離散対数問題に依存していて、将来の量子コンピュータで全部解読されちゃうんだ！」<br><span class="koma-char-name">[葵]</span>「クラウドの中身を盗み見されずに、耐量子暗号で別の相手宛てに変換できる魔法はないの！？」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Ren]</span> "I want to share encrypted telemetry with Yui via the cloud. But standard Proxy Re-Encryption relies on discrete logs, fully vulnerable to quantum Shor!"<br><span class="koma-char-name">[Aoi]</span> "Can't the cloud securely transform ciphertexts between users without learning keys under quantum math!?"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">2コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">結衣が黒板に美しい楕円曲線と同種写像（アイソジェニー）のグラフネットワークを描く</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[結衣]</span>「量子耐性を持つ幾何学のフロンティア『同種写像（Isogeny）』です！ 楕円曲線同士を結ぶ複雑な迷路（写像）の難しさを利用します！」<br><span class="koma-char-name">[蓮]</span>「しかも、アリスからボブへ、ボブからアリスへ、双方向に相互変換できる『双方向性（Bidirectional）』がクラウドには不可欠だ！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yui]</span> "Enter the frontier of quantum resilience: Elliptic Curve Isogenies! Utilizing hard graph walks between supersingular elliptic curves!"<br><span class="koma-char-name">[Ren]</span> "And the cloud desperately needs Bidirectionality ($A \leftrightarrow B$) for fluid mutual collaboration!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">3コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">悠真が国際学会MobiSec 2024で採択された四方研究室（陳・趙・佐藤・四方）の論文スライドを提示する</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[悠真]</span>「まさに世界で初めてそれを実現したのが、横浜国大SPIRALのMobiSec 2024研究だ！ 超特異楕円曲線の同種写像作用を用いて、双方向プロキシ再暗号化（PRE）の完全な安全性を証明したんだ」<br><span class="koma-char-name">[結衣]</span>「クラウドサーバーが共謀しても秘密鍵は絶対に漏洩せず、データは量子コンピュータに対しても永久に安全です！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yuma]</span> "Achieving that world-first is YNU SPIRAL's MobiSec 2024 paper! Proving bidirectional PRE based on supersingular isogeny group actions!"<br><span class="koma-char-name">[Yui]</span> "Even if the cloud colludes with attackers, secret keys remain impenetrable, and data is permanently quantum-proof!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">4コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">クラウド経由で蓮の暗号化データが、一瞬で結衣の端末で復号され、二人が笑顔でハイタッチ</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[葵]</span>「クラウドを信用しなくても、雲の上で信頼の架け橋が双方向に行き来できるんだね！」<br><span class="koma-char-name">[蓮]</span>「楕円曲線の幾何学が拓く、次世代クラウドの安心と絆だ！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Aoi]</span> "Even without trusting the cloud, mathematical bridges span both ways across the sky!"<br><span class="koma-char-name">[Ren]</span> "Elliptic curve geometry powering the next generation of trusted, quantum-safe cloud collaboration!"</div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+
+    <!-- 小説本文 -->
+    <section class="novel-section">
+      <div class="section-title">
+        <h2>📖 小説本文</h2>
+      </div>
+      <div class="novel-body">
+        <p>冬晴れの放課後、青葉台高校の情報科学部室。神崎蓮がノートPCの画面で、クラウドストレージ上の暗号化ファイル共有システムをテストしていた。</p>
+<p class="dialogue">「……葵先輩、たとえば僕が校舎裏のスマート農業ビニールハウスで収集した土壌の秘密データを、クラウドに暗号化したままアップロードしたとしますよね」</p>
+<p>蓮が画面を指差しながら橘葵に語りかけた。</p>
+<p class="dialogue">「そのデータを、後から共同研究者の白石結衣先輩に共有したくなったとします。どうすれば一番安全だと思いますか？」</p>
+<p class="dialogue">「え？ 蓮くんが一旦手元で暗号を解除（復号）して、結衣ちゃんの公開鍵で暗号化し直してもう一度アップロードすればいいんじゃない？」葵が答える。</p>
+<p class="dialogue">「葵先輩、それだとデータが何十ギガバイトもあったり、外出先でスマホの通信容量がカツカツだったり、僕の端末がオフラインだったときに共有が完全にストップしてしまいます」</p>
+<p class="dialogue">「あ、そっか！ じゃあ……クラウドサーバーに『結衣ちゃん宛てに変換して！』ってお願いしたら？」</p>
+<p>白石結衣が微笑みながら首を横に振った。</p>
+<p class="dialogue">「葵先輩、もしクラウドサーバーに蓮くんの秘密鍵を教えて復号させたら、クラウド事業者のエンジニアや、クラウドに侵入したサイバー攻撃者に大切な生データが丸見えになってしまいます。そこで現代のクラウドセキュリティでは、クラウドに平文を一切見せることなく、暗号文のままアリス宛てからボブ宛てへと再暗号化させる**『プロキシ再暗号化（PRE: Proxy Re-Encryption）』**という技術が使われてきました」</p>
+<p class="dialogue">「そう！ 映画を箱から出さずに、鍵穴だけを相手用に付け替えるような魔法だよね！」葵が思い出す。</p>
+<p class="dialogue">「しかし」と蓮が声のトーンを落とした。「従来のPRE方式（RSAやペアリング暗号）には、致命的な弱点がありました。それらはすべて『離散対数問題』という古典的な数学に依存しているため、将来巨大な量子コンピュータが実用化された瞬間、過去に保存されたすべての暗号化データが一斉に解読されてしまうのです」</p>
+<p class="dialogue">「耐量子暗号（PQC）への移行が急務とされる中で、格子暗号とは異なるもう一つの有力な幾何学的暗号パラダイム――それが**『同種写像暗号（Isogeny-based Cryptography）』**です」</p>
+<p>結衣が黒板に、無数の楕円曲線が線で結ばれた複雑なグラフネットワークを描き出した。</p>
+<p class="dialogue">「同種写像とは、ある楕円曲線から別の楕円曲線への代数的な写像（構造を保つ変換）のことです。超特異楕円曲線の同種写像グラフは極めて巨大かつランダムな迷路のようになっており、その間を結ぶ最短経路を見つけ出すことは、量子コンピュータをもってしても指数関数的な時間がかかります。鍵サイズが非常にコンパクトであることも大きな強みです」</p>
+<p class="dialogue">「だが、同種写像の数学的構造を使って、クラウド上でアリスからボブへ、そしてボブからアリスへと自由にデータを相互共有できる『双方向のプロキシ再暗号化』を構成することは、世界中の数学者にとって極めて困難な挑戦だったんだ」</p>
+<p>大学の講義を終えた城崎悠真が、いつもの頼もしい笑顔で部室に姿を現した。手には、2024年12月に国際会議『MobiSec 2024』で発表されたばかりの出来立ての論文が握られている。</p>
+<p class="dialogue">「その未踏の領域を切り拓いたのが、横浜国立大学SPIRALの**陳家偉氏、趙亨騄氏、佐藤慎悟准教授、四方順司教授（NexCrypt Lab長）ら**の研究チームなんだ。**『Bidirectional Proxy Re-Encryption based on Isogenies（同種写像に基づく双方向プロキシ再暗号化）』**を発表し、国際的な注目を集めたんだよ」</p>
+<p>悠真は論文のアーキテクチャ図をモニターに映し出した。</p>
+<p class="dialogue">「研究チームは、超特異楕円曲線の同種写像に対する可換な群作用（Group Actions）の美しい代数法則を活用したんだ。アリスとボブが互いに『再暗号化鍵』を生成してクラウドに預けると、クラウドは二人の秘密鍵を知ることなく、アリスの暗号文をボブの暗号文へ、そしてボブの暗号文をアリスの暗号文へと、**双方向（Bidirectional）**に自由自在に再暗号化変換できる。しかも、悪意あるクラウドと悪意ある第三者が共謀しても、利用者の秘密鍵が漏洩しないことが厳密に証明されたんだ」</p>
+<p>蓮が即座に、同種写像PREのシミュレータを走らせた。</p>
+<p>クラウド役のローカルサーバー上で、蓮の秘密データが一度も復号されることなく、瞬時に結衣の公開鍵構造へと同種写像の迷路を潜り抜けて変換される。結衣が手元の端末でワンタップすると、正確なテレメトリグラフが鮮やかに画面に描画された。</p>
+<p class="dialogue">「すごい……！ クラウドには1ミリも中身を見せていないのに、完全な耐量子性を持ったまま、僕たちの間で安全なデータの架け橋が開通した！」蓮が声を弾ませた。</p>
+<p class="dialogue">「誰かを信じ切るのではなく、数学の確かな架け橋によって、お互いの絆をより強く結び直す……。これこそが、未来のクラウドが目指すべきゼロトラストの姿ですね」</p>
+<p>結衣の優しい言葉に、葵も悠真も蓮も、温かい笑顔を交わし合った。夕暮れの空に浮かぶ白い雲を見上げながら、部室の四人は、幾何学の深遠な美しさが拓く次世代の安心に、確かな希望を感じ取っていた。</p>
+<p>---</p>
+      </div>
+    </section>
+
+    <!-- TikZ 技術構造図解 -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>📊 セキュリティ構造図解 (TikZ LuaLaTeX生成)</h2>
+        <span class="visual-badge">国家安全基準・工学図解</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/fig56_isogeny_proxy_re_encryption.png" alt="第56話 セキュリティ構造図解" class="responsive-img">
+        <p class="caption">▲ 【技術構造図】IPAデジタルスキル標準・国際規格に準拠した仕組みのモデル化</p>
+      </div>
+    </section>
+
+    <!-- 深掘りコラム -->
+    <section class="column-section">
+      <div class="section-title">
+        <h2>💡 高校生のためのセキュリティ深掘りコラム ＆ 大学進路ガイド</h2>
+      </div>
+      
+    </section>
+
+    <!-- 前後ナビゲーション -->
+    <nav class="episode-nav">
+      <a href="ep55.html" class="nav-btn">← 第55話: 見えざる宛名と量子の夜 〜耐量子匿名...</a>
+      <a href="../index.html" class="nav-btn center">目次に戻る</a>
+      <a href="ep57.html" class="nav-btn next">第57話: 響き合う警鐘と未来の門出 〜マルチチ... →</a>
+    </nav>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 放課後サイバーディフェンス・ラボ (Cybersecurity Novel Library)</p>
+    <p>Repository: <a href="https://github.com/k518-2026/cybersecurity-novel" target="_blank" rel="noopener" style="color: var(--primary);">k518-2026/cybersecurity-novel</a></p>
+  </footer>
+
+</body>
+</html>
