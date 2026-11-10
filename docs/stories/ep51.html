@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第51話 託されし中継と軽やかな絆 〜プロキシ再認証と通信圧縮の数理〜 | 放課後サイバーディフェンス・ラボ</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Shippori+Mincho:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="story-header">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">トップ (目次)</a> &gt; <span>第51話</span>
+      </div>
+      <div class="story-ep-tag">Episode 51</div>
+      <h1 class="story-main-title">託されし中継と軽やかな絆 〜プロキシ再認証と通信圧縮の数理〜</h1>
+      <div class="story-meta">
+        <span>📚 学習テーマ: <strong>横浜国大SPIRAL松岡耀志朗氏・知久奏斗氏・原啓祐氏・四方順司教授（NexCrypt Lab長）ら、NSS 2024、認証チャネル上での鍵サイズおよび通信量圧縮を実現する新暗号技術「プロキシ再認証（Proxy Re-Authentication: PRA）」の提案とゼロトラスト中継</strong></span>
+        <span>🏫 登場人物: 城崎悠真（部長・高2）、橘葵（部員・高2）、芹沢涼香准教授（大学メンター）</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container story-container">
+
+    <!-- ストーリーイラスト (4コマ漫画) -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>🎨 4コマ漫画挿絵（文字なし）</h2>
+        <span class="visual-badge">AI高解像度生成</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/ep51_4koma.png" alt="第51話 ストーリーイラスト" class="responsive-img">
+        <p class="caption">▲ 【挿絵】青葉台高校 情報科学部＆帝都科学大学サイバーディフェンス・ラボでの実践シーン</p>
+      </div>
+    </section>
+
+    <!-- 4コマ漫画セリフ（日・英バイリンガル）※存在する場合 -->
+    
+            <div class="koma-script-box">
+              <div class="koma-script-header">
+                <h3>💬 4コマ漫画キャラクターセリフ (Story Dialogue Script)</h3>
+                <span class="lang-tag">日・英バイリンガル (JA / EN)</span>
+              </div>
+              <div class="koma-panels-list">
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">1コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">蓮がドローンと地上局の間で中継衛星を介した認証パケットを測定する。パケットサイズが肥大化して通信が遅延</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[蓮]</span>「送信元Aの認証データを中継プロキシ（衛星や中継基地局）経由で受信者Bに届けるとき、署名を作り直すと秘密鍵を預けなきゃいけないし、再署名トークンをそのまま繋ぐとパケットが何倍にも膨らんじゃうよ！」<br><span class="koma-char-name">[葵]</span>「中継地点に秘密の鍵を渡すのは絶対危ないよね！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Ren]</span> "Relaying auth tokens through proxy satellites to receiver B either leaks private keys during re-signing, or blows up packet sizes linearly!"<br><span class="koma-char-name">[Aoi]</span> "Handing private signing keys to intermediate relays is super dangerous!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">2コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">結衣が暗号プロトコルの変換図を黒板に描く</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[結衣]</span>「中継局が送信者の秘密鍵を一切知ることなく、受信者B宛ての認証トークンへと数学的に変換（トランスフォーム）し、かつ公開鍵とトークンサイズを圧縮する仕組みが必要です！」<br><span class="koma-char-name">[蓮]</span>「プロキシ再暗号化（PRE）は有名だけど、認証（改ざん防止）の世界でそれが可能なの……？」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yui]</span> "We need a mechanism where the untrusted proxy translates auth tokens from A to B without learning any secrets, while compressing tokens and keys!"<br><span class="koma-char-name">[Ren]</span> "Proxy Re-Encryption (PRE) is famous, but can we do that for Authentication?"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">3コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">悠真が国際会議NSS 2024で発表された四方研究室の最新論文スライドを開く</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[悠真]</span>「それこそが横浜国大SPIRAL四方順司教授らの研究グループがNSS 2024で発表した『プロキシ再認証（Proxy Re-Authentication: PRA）』だ！ 鍵と通信量を同時に劇的圧縮する新体系なんだ」<br><span class="koma-char-name">[結衣]</span>「中継ノードが完全にハッキングされても偽造は不可能ですし、通信パケットが最大60%以上スリム化されます！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yuma]</span> "That's why YNU SPIRAL's Prof. Shikata published 'Proxy Re-Authentication (PRA)' at NSS 2024! Achieving simultaneous key and communication compression!"<br><span class="koma-char-name">[Yui]</span> "Even if the proxy is compromised, forgery is impossible, and wireless packet overhead shrinks by over 60%!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">4コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">ドローンの通信遅延が激減し、リアルタイムで軽快に認証が完了してガッツポーズ</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[葵]</span>「重たい荷物（鍵の山）を持たずに、信頼のバトンだけを身軽に中継局に渡せるんだね！」<br><span class="koma-char-name">[蓮]</span>「宇宙衛星通信からスマート農業まで、これからの分散ネットワークを支える真の翼だ！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Aoi]</span> "Passing the baton of trust smoothly through relays without carrying heavy key baggage!"<br><span class="koma-char-name">[Ren]</span> "From satellite meshes to smart agriculture, this gives true wings to distributed zero-trust networks!"</div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+
+    <!-- 小説本文 -->
+    <section class="novel-section">
+      <div class="section-title">
+        <h2>📖 小説本文</h2>
+      </div>
+      <div class="novel-body">
+        <p>初冬の冷たい風が吹き抜けるグラウンド。青葉台高校の屋上から、神崎蓮が手元のプロポで小型ドローンを旋回させていた。</p>
+<p class="dialogue">「よし、ドローンから中継アクセスポイントを経由して、部室のサーバーへフライトテレメトリデータを送信……っと。あれ？ またタイムアウトエラーだ！」</p>
+<p>部室のデスクで受信パケットを監視していた橘葵が、画面を見ながら声を張り上げた。</p>
+<p class="dialogue">「蓮くん、中継サーバーから送られてくる認証データがすっごく長くて、電波の弱いところだとパケットが途切れて届かないみたい！」</p>
+<p>白石結衣がパケット解析ツール（Wireshark）を展開しながら、原因を指摘した。</p>
+<p class="dialogue">「送信元であるドローンAが生成したメッセージ認証子（MAC）を、中継ノード（プロキシ）を経由して受信者Bへ渡す際、従来の仕組みでは『二重署名』や『証明書チェーンの連結』が必要でした。そのため、ホップ数が増えるたびに通信ヘッダと公開鍵データが雪だるま式に肥大化（パケット膨張）してしまうのです」</p>
+<p class="dialogue">「それなら」と葵が思いつく。「中継サーバーがドローンの代わりに新しい署名を作って送り直せばいいんじゃない？」</p>
+<p class="dialogue">「葵先輩、それは一番危険な禁じ手です！」蓮が身震いした。</p>
+<p class="dialogue">「中継サーバーに署名を作り直させるということは、ドローンの秘密鍵を中継サーバーに預ける（委託する）ことを意味します。もし山奥の中継ルーターやクラウドの中継サーバーがサイバー攻撃者にハッキングされたら、ドローンの名前で偽の命令やデータを世界中に撒き散らされてしまいます！」</p>
+<p class="dialogue">「うわあ……！ 秘密の鍵は絶対に誰にも渡せないし、かといって署名を全部くっつけて送ると重すぎて通信がパンクする……。まさに八方塞がりだね」</p>
+<p class="dialogue">「そのジレンマを、暗号理論の最先端数理で鮮やかに打ち破ったのが、僕たちが所属する横浜国立大学SPIRALの**松岡耀志朗氏、知久奏斗氏、原啓祐氏、そして四方順司教授（NexCrypt Lab長）ら**の研究なんだ」</p>
+<p>大学の暗号ゼミから戻ってきた城崎悠真が、ホワイトボードに新しい概念図を力強く描き出した。</p>
+<p class="dialogue">「研究チームは、2024年11月に開催された国際学会『The 18th International Conference on Network and System Security (NSS 2024)』において、**『How to Accomplish Key and Communication Compression Over Authentication Channels: Proxy Re-Authentication and its instantiations（認証チャネル上で鍵と通信量の圧縮を達成する方法：プロキシ再認証とその具現化）』**を発表したんだ」</p>
+<p class="dialogue">「プロキシ再認証……！？ 暗号文を中継局が他者宛てに変換する『プロキシ再暗号化（PRE）』なら聞いたことがあるけど、認証（改ざん防止）の世界でもそれができるの！？」蓮が目を見張った。</p>
+<p class="dialogue">「その通りだ、蓮くん」悠真が頷いた。</p>
+<p class="dialogue">「プロキシ再認証（PRA）では、中継ノード（プロキシ）に対して『再認証鍵（変換用トークン）』を渡す。この鍵を使えば、中継局は送信者Aの認証トークンを、受信者Bが検証できる認証トークンへと数学的に変換できる。しかも決定的なのは、**中継局は送信者Aの秘密鍵も、受信者Bの秘密鍵も一切知ることができない（ゼロ知識性）**という点だ」</p>
+<p class="dialogue">「中継局が乗っ取られても、新しい偽のメッセージを偽造することは数学的に絶対に不可能です！」結衣が補足した。</p>
+<p class="dialogue">「さらに驚異的なのは、この論文が達成した**『鍵サイズと通信量の同時圧縮（Compression）』**なんだ」と悠真は続けた。</p>
+<p class="dialogue">「従来の類似方式では、再認証を行うたびに検証用の公開鍵や認証トークンが長くなっていた。しかし研究チームは、双線形写像（ペアリング）の代数構造を巧みに設計することで、変換後の認証子と公開鍵のサイズを固定長に抑え込み、大幅な通信パケット削減を実証したんだ。ドローン通信や車載ネットワーク（V2X）、超小型衛星コンステレーションのような低帯域・高遅延な過酷環境でも、最大60%以上の通信量削減を叩き出せる」</p>
+<p>蓮はすぐさま、PRAの暗号ライブラリをドローンのファームウェアと中継局へコンパイルした。</p>
+<p>屋上から滑空してきたドローンが、風を切りながら高速でテレメトリを送信する。中継局を介して部室のモニターに届いたパケットは、驚くほどスリムに圧縮され、瞬きの間に「認証成功（Valid Signature）」の緑ランプを灯した。</p>
+<p class="dialogue">「やった！ 通信遅延がゼロに近い！ 映像もデータも全く途切れないよ！」</p>
+<p>蓮が操縦スティックを握りながら満面の笑顔を輝かせた。</p>
+<p class="dialogue">「誰にも秘密の鍵を預けず、中継のバトンを最も軽やかな羽に変えて届ける……。数理の美しさが、広大な空を翔ける通信を支えているんだね」</p>
+<p>葵の晴れやかな笑顔とともに、部室には冬の寒さを吹き飛ばす未来の風が心地よく吹き抜けていた。</p>
+<p>---</p>
+      </div>
+    </section>
+
+    <!-- TikZ 技術構造図解 -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>📊 セキュリティ構造図解 (TikZ LuaLaTeX生成)</h2>
+        <span class="visual-badge">国家安全基準・工学図解</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/fig51_proxy_re_authentication.png" alt="第51話 セキュリティ構造図解" class="responsive-img">
+        <p class="caption">▲ 【技術構造図】IPAデジタルスキル標準・国際規格に準拠した仕組みのモデル化</p>
+      </div>
+    </section>
+
+    <!-- 深掘りコラム -->
+    <section class="column-section">
+      <div class="section-title">
+        <h2>💡 高校生のためのセキュリティ深掘りコラム ＆ 大学進路ガイド</h2>
+      </div>
+      
+    </section>
+
+    <!-- 前後ナビゲーション -->
+    <nav class="episode-nav">
+      <a href="ep50.html" class="nav-btn">← 第50話: 複製不能の微粒子と光の指紋 〜ナノ人...</a>
+      <a href="../index.html" class="nav-btn center">目次に戻る</a>
+      <a href="ep52.html" class="nav-btn next">第52話: 幾何学の迷路と深層の眼 〜格子暗号判... →</a>
+    </nav>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 放課後サイバーディフェンス・ラボ (Cybersecurity Novel Library)</p>
+    <p>Repository: <a href="https://github.com/k518-2026/cybersecurity-novel" target="_blank" rel="noopener" style="color: var(--primary);">k518-2026/cybersecurity-novel</a></p>
+  </footer>
+
+</body>
+</html>

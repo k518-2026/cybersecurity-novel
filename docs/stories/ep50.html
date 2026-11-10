@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第50話 複製不能の微粒子と光の指紋 〜ナノ人工物メトリクスとフーリエスペクトルの奇跡〜 | 放課後サイバーディフェンス・ラボ</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Shippori+Mincho:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="story-header">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">トップ (目次)</a> &gt; <span>第50話</span>
+      </div>
+      <div class="story-ep-tag">Episode 50</div>
+      <h1 class="story-main-title">複製不能の微粒子と光の指紋 〜ナノ人工物メトリクスとフーリエスペクトルの奇跡〜</h1>
+      <div class="story-meta">
+        <span>📚 学習テーマ: <strong>横浜国大SPIRAL宮本岩麒氏・吉田直樹氏・吉岡克成教授・松本勉名誉教授ら、CSS 2024 学生論文賞、ナノスケールの微細構造（人工物メトリクス・PUF）を用いた物理的クローン検知、2次元フーリエ変換（空間周波数スペクトル）による高精度真贋判定</strong></span>
+        <span>🏫 登場人物: 城崎悠真（部長・高2）、橘葵（部員・高2）、芹沢涼香准教授（大学メンター）</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container story-container">
+
+    <!-- ストーリーイラスト (4コマ漫画) -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>🎨 4コマ漫画挿絵（文字なし）</h2>
+        <span class="visual-badge">AI高解像度生成</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/ep50_4koma.png" alt="第50話 ストーリーイラスト" class="responsive-img">
+        <p class="caption">▲ 【挿絵】青葉台高校 情報科学部＆帝都科学大学サイバーディフェンス・ラボでの実践シーン</p>
+      </div>
+    </section>
+
+    <!-- 4コマ漫画セリフ（日・英バイリンガル）※存在する場合 -->
+    
+            <div class="koma-script-box">
+              <div class="koma-script-header">
+                <h3>💬 4コマ漫画キャラクターセリフ (Story Dialogue Script)</h3>
+                <span class="lang-tag">日・英バイリンガル (JA / EN)</span>
+              </div>
+              <div class="koma-panels-list">
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">1コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">蓮が顕微鏡でセキュリティICチップの表面に吹き付けられた微細な金属粒子を観察している</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[蓮]</span>「どんなに電子暗号を固めても、物理的なチップそのものを精密3Dプリンタや超微細加工でクローン複製されたら終わりだ……！」<br><span class="koma-char-name">[葵]</span>「えっ、チップの中身も丸ごとコピーできる偽物が作れちゃうの！？」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Ren]</span> "No matter how strong our digital cryptography is, if attackers physically clone the chip via nanoscale 3D lithography, game over...!"<br><span class="koma-char-name">[Aoi]</span> "Wait, can counterfeiters really clone the entire physical hardware chip!?"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">2コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">結衣が光学顕微鏡の画像データをPCに映す。無作為に散らばるナノ粒子のランダム模様</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[結衣]</span>「製造過程で自然に生じる『ナノ人工物メトリクス（物質の指紋）』を利用すれば、製造者自身ですら二度と同じものを作れない唯一無二性を得られます！」<br><span class="koma-char-name">[蓮]</span>「でもカメラで撮影するとき、光の加減や角度が1ミリずれただけで画像が一致しなくなるよ……！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yui]</span> "Using naturally randomized 'Nano-Artifact Metrics' (physical fingerprints), not even the manufacturer can ever reproduce an identical clone!"<br><span class="koma-char-name">[Ren]</span> "True, but slight tilts or lighting jitters during microscope scans cause spatial matching to fail...!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">3コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">悠真が「2次元高速フーリエ変換（FFT）」のスペクトル変換画面を表示する</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[悠真]</span>「そこで横浜国大SPIRALのCSS 2024学生論文賞研究だ！ 画像を空間周波数領域（フーリエスペクトル）へ変換することで、傾きやノイズを無効化して真贋を1秒で判定するんだ」<br><span class="koma-char-name">[葵]</span>「わっ！ ぐちゃぐちゃだった粒子画像が、綺麗な幾何学の光の輪に変換されて一致した！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yuma]</span> "That's YNU SPIRAL's CSS 2024 award research! Converting microscopy images into 2D Fourier spectra renders tilt and noise harmless!"<br><span class="koma-char-name">[Aoi]</span> "Whoa! Chaotic micro-particle noise transformed into crystal-clear geometric rings of light matching perfectly!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">4コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">部室のみんなで最高強度のハードウェア認証トークンを完成させ、記念すべき第50話の達成を祝う</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[蓮]</span>「物理現象のランダム性と、フーリエ数理の融合……！ 絶対にコピーできない究極の鍵だ！」<br><span class="koma-char-name">[結衣]</span>「デジタルの極致は、物質そのものが宿す奇跡の数理と繋がっているのですね！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Ren]</span> "Physical randomness fused with Fourier mathematical elegance... an unconditionally unclonable key!"<br><span class="koma-char-name">[Yui]</span> "The pinnacle of digital defense converges with the wondrous physics of the material world!"</div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+
+    <!-- 小説本文 -->
+    <section class="novel-section">
+      <div class="section-title">
+        <h2>📖 小説本文</h2>
+      </div>
+      <div class="novel-body">
+        <p>冬晴れの陽光が差し込む青葉台高校の情報科学部室。中央の作業机には、大学の研究室から特別に持ち込まれた高倍率のデジタル金属顕微鏡が設置されていた。</p>
+<p class="dialogue">「……信じられないな。肉眼ではただの黒い樹脂に見えるICチップの表面に、こんな世界が広がっていたなんて」</p>
+<p>神崎蓮が顕微鏡のモニターを覗き込みながら感嘆の声を漏らす。画面には、特殊な樹脂塗料の中にランダムに混入されたナノメートルサイズの金属微粒子が、まるで満天の星空のように散りばめられていた。</p>
+<p class="dialogue">「わあ、すっごく綺麗！ まるで銀河の写真みたい！」橘葵が身を乗り出す。「蓮くん、これは何の研究なの？」</p>
+<p class="dialogue">「『偽造品（ハードウェアクローン）』を物理的に完全撲滅するための研究だよ、葵先輩」</p>
+<p>蓮が真剣な表情で説明を始めた。</p>
+<p class="dialogue">「現代の軍事システム、医療機器、パスポート、そして暗号通貨のハードウェアウォレットでは、偽のチップ（海賊版）が混入するサプライチェーン汚染が深刻な脅威になっている。攻撃者は最新の電子ビーム描画装置や超精密ナノ3Dプリンターを使って、本物と全く同じ回路パターンや外見を持つクローンチップを物理的に複製してしまうんだ」</p>
+<p class="dialogue">「ええっ！？ 回路も外見も寸分違わずコピーされたら、本物か偽物かなんて見分ける方法がないじゃない！」葵が青ざめる。</p>
+<p>白石結衣が、愛用の数理ノートを開きながら静かに口を開いた。</p>
+<p class="dialogue">「いいえ葵先輩、神ならぬ人間に、絶対に再現できない領域があります。それが**『ナノ人工物メトリクス（Nano-Artifact Metrics / PUF）』**です」</p>
+<p class="dialogue">「人工物メトリクス……？」</p>
+<p class="dialogue">「はい。樹脂が硬化する際の熱対流や、ナノ粒子の無作為なブラウン運動によって生じる超微細な凹凸や粒子配置は、完全な物理的ランダムネス（カオス）です。それは製品を作った製造メーカー自身であっても、二度と同じものを再現することは熱力学的に不可能です。すなわち、そのチップだけが持つ『世界で唯一無二の物質の指紋』になるのです」</p>
+<p class="dialogue">「なるほど！ その星空みたいな粒子の写真を撮って登録しておけば、偽物を一発で見破れるんだね！」葵が手を叩く。</p>
+<p>しかし、蓮が首を横に振った。</p>
+<p class="dialogue">「それが、そう簡単にはいかないんだよ。本物か偽物かを判定するとき、顕微鏡の焦点がほんの数マイクロメートルずれたり、照射するLEDの角度が1度傾いたり、手ブレしただけで、撮影される画像のピクセル値はガラリと変わってしまう。画像比較アルゴリズム（テンプレートマッチング）を使うと、本物なのに『一致度40%・偽物』と判定されてしまう誤不一致（False Reject）が多発するんだ」</p>
+<p class="dialogue">「物理のランダム性は偉大だが、それを読み取る現場の光学ノイズにどう打ち勝つか――これこそが長年の難問だったんだよ」</p>
+<p>背後から、温かい声が響いた。城崎悠真が誇らしげな笑みを浮かべて部室に入ってきた。</p>
+<p class="dialogue">「その長年の壁を、美しい数学の力で打ち破ったのが、横浜国立大学SPIRALの**宮本岩麒氏、吉田直樹氏、吉岡克成教授、そして人工物メトリクスの世界的権威である松本勉名誉教授ら**の研究チームなんだ。CSS 2024において**『ナノ人工物メトリクスにおけるフーリエスペクトルに基づくクローン検知』**を発表し、見事**学生論文賞**を受賞したんだよ」</p>
+<p class="dialogue">「フーリエ……！ あの数学のフーリエ変換ですか！？」結衣が瞳を輝かせる。</p>
+<p class="dialogue">「そうだ」悠真はプロジェクターに数式とスペクトル画像を映し出した。</p>
+<p class="dialogue">「研究チームは、撮影したナノ粒子の光学顕微鏡画像を、**『2次元高速フーリエ変換（2D-FFT）』**によって空間周波数領域へと写像したんだ。画像の座標（位置）で比較するのではなく、画像の周期性やパターン全体のエネルギー分布（フーリエスペクトル）を抽出する。すると、撮影時の位置ズレや微小な傾き、照明ムラといった現場の光学ノイズが数学的に相殺され、物質の真の幾何学的骨格だけが鮮明に浮かび上がるんだ」</p>
+<p>蓮が実験用PCにフーリエスペクトル解析プログラムをロードし、顕微鏡カメラの映像をリアルタイム変換した。</p>
+<p>画面上で、乱雑だった粒子の星空が一瞬にして同心円状の美しい干渉縞（スペクトルリング）へと変換される。わざと顕微鏡を揺らし、光の角度を変えても、その中心にあるスペクトルの特徴パターンはビクともせず、本物である確率「99.98%」を叩き出した。</p>
+<p class="dialogue">「すごい……！ ピクセルを見るんじゃなくて、光の周波数の調和を見ているんだ……！」葵が息を呑む。</p>
+<p class="dialogue">「さらに」と悠真が力説した。「この手法は、悪意ある攻撃者が顕微鏡写真の偽造パターンを印刷して貼り付けたような『高精度のクローン偽造品』であっても、立体的な微粒子の周波数散乱特性から瞬時にニセモノと見破ることができるんだ」</p>
+<p>蓮が大切そうに、認証をパスした小さなセキュリティチップを手のひらに乗せた。</p>
+<p class="dialogue">「目に見えないデジタルの暗号と、物質そのものが宿す奇跡のナノパターンが、数学の架け橋で一つになった……。これこそ、どんな量子コンピュータでも破れない究極の鍵だね」</p>
+<p class="dialogue">「ええ。記念すべき第50話にふさわしい、サイバーとフィジカルが融合した壮大な知の地平線ですね」</p>
+<p>結衣の微笑みに、葵も悠真も深く頷き合った。夕暮れの光の中で、顕微鏡のレンズが捉えた小さな小宇宙は、未来の世界を静かに守る揺るぎない確信に満ちて輝いていた。</p>
+<p>---</p>
+      </div>
+    </section>
+
+    <!-- TikZ 技術構造図解 -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>📊 セキュリティ構造図解 (TikZ LuaLaTeX生成)</h2>
+        <span class="visual-badge">国家安全基準・工学図解</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/fig50_nano_artifact_fourier_clone_detection.png" alt="第50話 セキュリティ構造図解" class="responsive-img">
+        <p class="caption">▲ 【技術構造図】IPAデジタルスキル標準・国際規格に準拠した仕組みのモデル化</p>
+      </div>
+    </section>
+
+    <!-- 深掘りコラム -->
+    <section class="column-section">
+      <div class="section-title">
+        <h2>💡 高校生のためのセキュリティ深掘りコラム ＆ 大学進路ガイド</h2>
+      </div>
+      
+    </section>
+
+    <!-- 前後ナビゲーション -->
+    <nav class="episode-nav">
+      <a href="ep49.html" class="nav-btn">← 第49話: 偽りの静寂と見破られた揺らぎ 〜LL...</a>
+      <a href="../index.html" class="nav-btn center">目次に戻る</a>
+      <a href="ep51.html" class="nav-btn next">第51話: 託されし中継と軽やかな絆 〜プロキシ... →</a>
+    </nav>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 放課後サイバーディフェンス・ラボ (Cybersecurity Novel Library)</p>
+    <p>Repository: <a href="https://github.com/k518-2026/cybersecurity-novel" target="_blank" rel="noopener" style="color: var(--primary);">k518-2026/cybersecurity-novel</a></p>
+  </footer>
+
+</body>
+</html>

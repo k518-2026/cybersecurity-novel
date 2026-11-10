@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第52話 幾何学の迷路と深層の眼 〜格子暗号判定問題とディープラーニングの挑戦〜 | 放課後サイバーディフェンス・ラボ</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Shippori+Mincho:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="story-header">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">トップ (目次)</a> &gt; <span>第52話</span>
+      </div>
+      <div class="story-ep-tag">Episode 52</div>
+      <h1 class="story-main-title">幾何学の迷路と深層の眼 〜格子暗号判定問題とディープラーニングの挑戦〜</h1>
+      <div class="story-meta">
+        <span>📚 学習テーマ: <strong>横浜国大SPIRAL山川恵太氏・四方順司教授（NexCrypt Lab長）、ISEC 2025、耐量子計算機暗号（PQC）の根幹を成す格子判定問題（LWE / Ring-LWE問題）に対する深層学習（機械学習攻撃）モデルの評価と安全パラメータ堅牢化</strong></span>
+        <span>🏫 登場人物: 城崎悠真（部長・高2）、橘葵（部員・高2）、芹沢涼香准教授（大学メンター）</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container story-container">
+
+    <!-- ストーリーイラスト (4コマ漫画) -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>🎨 4コマ漫画挿絵（文字なし）</h2>
+        <span class="visual-badge">AI高解像度生成</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/ep52_4koma.png" alt="第52話 ストーリーイラスト" class="responsive-img">
+        <p class="caption">▲ 【挿絵】青葉台高校 情報科学部＆帝都科学大学サイバーディフェンス・ラボでの実践シーン</p>
+      </div>
+    </section>
+
+    <!-- 4コマ漫画セリフ（日・英バイリンガル）※存在する場合 -->
+    
+            <div class="koma-script-box">
+              <div class="koma-script-header">
+                <h3>💬 4コマ漫画キャラクターセリフ (Story Dialogue Script)</h3>
+                <span class="lang-tag">日・英バイリンガル (JA / EN)</span>
+              </div>
+              <div class="koma-panels-list">
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">1コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">結衣が部室の大型黒板に高次元格子暗号の基底ベクトルと「LWE（誤差付き学習問題）」の数式を美しく描いている</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[結衣]</span>「量子コンピュータでも解けない新世代の標準暗号『格子暗号（PQC）』。その安全性は『高次元空間に散らばる格子点に、わずかなノイズ（誤差）を加えると、完全なランダムノイズと見分けがつかなくなる（判定LWE問題）』という数理の壁に守られています」<br><span class="koma-char-name">[葵]</span>「量子計算機ですら迷子になる数学の迷路なんだね！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yui]</span> "Next-gen Post-Quantum lattice cryptography is shielded by the Decision-LWE problem: adding tiny noise to high-dimensional lattice points makes them indistinguishable from uniform random noise!"<br><span class="koma-char-name">[Aoi]</span> "A mathematical labyrinth where even quantum computers get completely lost!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">2コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">蓮がGPUサーバーのファンを回しながら深層学習モデルを学習させている</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[蓮]</span>「でも、量子計算じゃなくて『深層学習（AI）』を使ったらどうなるんだろう？ 人間にはただの砂嵐（ノイズ）に見えるデータから、AIは微細な偏りを見つけ出すのが得意じゃないか……！？」<br><span class="koma-char-name">[葵]</span>「えっ、AIが暗号の迷路を解いちゃうかもしれないの！？」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Ren]</span> "What if we attack it not with quantum, but with Deep Learning? AI excels at discovering hidden patterns in noisy data that humans mistake for random static!"<br><span class="koma-char-name">[Aoi]</span> "Wait, could AI crack the unbreakable lattice labyrinth!?"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">3コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">悠真が横浜国大SPIRALのISEC 2025最新論文（山川・四方）の研究データを提示する</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[悠真]</span>「まさにその極限の境界を検証したのが、横浜国大SPIRAL山川恵太氏と四方順司教授の研究だ！ 疎なバイナリ秘密を持つLWE問題に対して深層学習モデルを構築し、どこまでAIが識別できるかを世界水準で定量解明したんだ」<br><span class="koma-char-name">[結衣]</span>「小さなパラメータではAIが高い識別率を示しましたが、現在の標準規格（ML-KEM等）が採用する高次元パラメータではAIも完全に識別不能であることが証明されました！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yuma]</span> "Testing that exact boundary is YNU SPIRAL's ISEC 2025 paper by Yamakawa & Prof. Shikata! Evaluating deep learning against sparse-secret LWE!"<br><span class="koma-char-name">[Yui]</span> "While AI distinguished small-scale sparse instances, it proved that standardized PQC dimensions remain unconditionally solid against AI!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">4コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">部室のみんなでAI暗号解読耐性マップを眺めながら安心と学問の深さを噛みしめる</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[葵]</span>「敵よりも先に自分たちの盾をAIで攻撃して、絶対に破られない安全マージンを確かめたんだね！」<br><span class="koma-char-name">[蓮]</span>「AIと量子計算機、両方の脅威に耐え抜く盤石の数学……これこそ真の耐量子暗号だ！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Aoi]</span> "Attacking our own shield with AI before adversaries do, proving its unbreakable safety margin!"<br><span class="koma-char-name">[Ren]</span> "Rock-solid math withstanding both AI and quantum threats... true post-quantum security!"</div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+
+    <!-- 小説本文 -->
+    <section class="novel-section">
+      <div class="section-title">
+        <h2>📖 小説本文</h2>
+      </div>
+      <div class="novel-body">
+        <p>初冬の冷気が張り詰める青葉台高校の情報科学部室。黒板には、白石結衣の手によって数百次元におよぶ高次元格子（Lattice）の幾何学的概念図と、直交基底ベクトルの数式が美しく並べられていた。</p>
+<p class="dialogue">「……第35話で触れたように、米国立標準技術研究所（NIST）が世界標準として選定したポスト量子暗号（PQC: Post-Quantum Cryptography）の主役は**『格子暗号（Lattice-based Cryptography）』**です」</p>
+<p>結衣がチョークを置き、葵と蓮を振り返った。</p>
+<p class="dialogue">「現在のRSA暗号や楕円曲線暗号は、巨大な量子コンピュータが実現すると『ショアのアルゴリズム』によって一瞬で解読されてしまいます。しかし、高次元格子空間における最短ベクトル問題（SVP）や、その応用である**『LWE問題（Learning With Errors: 誤差付き学習問題）』**は、量子コンピュータであっても多項式時間では解くことができないと信じられています」</p>
+<p>橘葵が目を丸くしながら黒板を見上げた。</p>
+<p class="dialogue">「量子コンピュータでも解けないって、具体的にどういう仕組みなの？」</p>
+<p class="dialogue">「直感的に言えば、**『砂嵐に隠された規則性』**です」結衣が微笑む。</p>
+<p class="dialogue">「格子点と呼ばれる規則正しい格子模様の座標に、正規分布に従うごくわずかな『誤差（ノイズ）』を足し合わせます。すると、そのデータは外から見ると『完全にデタラメなランダムノイズ』と寸分違わないように見えてしまうのです。これが**判定LWE問題（Decision-LWE）**であり、このランダム性と本物の格子データを見分けられないという数学的困難性が、暗号の安全性の強固な土台になっています」</p>
+<p>神崎蓮が、机の上に置かれた自作GPUワークステーションの電源を入れた。ファンが甲高い音を立てて回転を始める。</p>
+<p class="dialogue">「でも結衣先輩。もしそれを攻撃するのが、量子コンピュータではなく**『ディープラーニング（深層学習）』**だったらどうなるんですか？」</p>
+<p class="dialogue">「えっ……？ AIが暗号を解くの？」葵が驚いて蓮を見る。</p>
+<p class="dialogue">「はい。ディープラーニングの畳み込みニューラルネットワーク（CNN）やTransformerは、人間や従来の統計学では『ただのランダムなノイズ』にしか見えない微細な特徴量や確率分布の歪みを見つけ出すのが最も得意です。もしAIが、判定LWE問題のノイズの中から『あ、これはランダムじゃなくて本物の格子データだ！』と見分けることができてしまったら……世界中の耐量子暗号が崩壊してしまうんじゃないですか！？」</p>
+<p>部室に緊張が走った。蓮の問いは、世界の暗号界がまさに今、固唾を呑んで見守っている最先端の疑問そのものだった。</p>
+<p class="dialogue">「その疑問に対して、世界に先駆けて数理的・実験的なメスを入れたのが、僕たちが所属する横浜国立大学SPIRALの**山川恵太氏と四方順司教授（NexCrypt Lab長）**の研究なんだよ」</p>
+<p>城崎悠真が穏やかな声で割って入ってきた。手に持ったタブレットには、電子情報通信学会の情報セキュリティ研究会（ISEC）で発表された最新の学術論文が表示されている。</p>
+<p class="dialogue">「研究チームは、2025年3月の信学技報において**『格子判定問題に対する深層学習モデルの提案と評価』**を発表したんだ。耐量子暗号の実装において計算高速化のために用いられることがある『疎なバイナリ秘密（Sparse Binary Secrets）』を持つLWE問題やRing-LWE問題に対して、格子判定に特化した深層学習モデルを独自に設計し、AIによる識別攻撃の限界性能を徹底検証したんだ」</p>
+<p>結衣が身を乗り出してグラフを凝視した。</p>
+<p class="dialogue">「実験結果はどうだったのですか、悠真先輩！？」</p>
+<p class="dialogue">「非常に興味深い結果が出たよ」悠真がグラフを拡大した。</p>
+<p class="dialogue">「格子の次元数が小さく、秘密鍵の0と1の分布が極端に偏った（疎な）設定においては、深層学習モデルは従来の統計手法を遥かに上回る高い正解率で、ランダムノイズと格子暗号データを正確に見分けることに成功したんだ」</p>
+<p class="dialogue">「ええっ！？ AIが本当に格子暗号の秘密を見抜きかけたの！？」葵が息を呑んだ。</p>
+<p class="dialogue">「そうだ。だが、本当に重要なのはここからだ」と悠真は力強く語った。</p>
+<p class="dialogue">「研究チームは格子の次元数（$n$）とノイズの分散を段階的に引き上げながら、AIの識別限界を数学的・実験的にマッピングした。その結果、**現在NISTで標準化されている『ML-KEM（Kyber）』などの本番パラメータにおいては、深層学習モデルの正解率は完全に50%（ただのランダムな当てずっぽう）へと収束し、AIによる解読が一切通用しないこと**が客観的に証明されたんだ」</p>
+<p>蓮が深く息を吐き出し、胸を撫で下ろした。</p>
+<p class="dialogue">「なるほど……！ 攻撃者がAIを使って暗号を破ろうとする前に、防衛側の研究者が最先端のAIモデルを自ら開発して暗号にぶつけ、『ここまでパラメータを強化すればAIでも絶対に破れない』という安全マージン（防衛ライン）を科学的に確定させたんですね！」</p>
+<p class="dialogue">「その通りだ、蓮くん。未知の敵を恐れるのではなく、自らの手で最強のAI攻撃をシミュレートし、数理の盾を鍛え上げる。これこそが、次世代の社会基盤を守る暗号学者の誇りなんだよ」</p>
+<p>悠真の言葉に、結衣も葵も蓮も、熱い感動とともに深く頷いた。</p>
+<p>夕暮れの光の中で、黒板に描かれた幾何学の格子模様は、量子とAIの荒波をものともせず、未来のデジタル社会を永久に護り続ける絶対の砦として誇らしく佇んでいた。</p>
+<p>---</p>
+      </div>
+    </section>
+
+    <!-- TikZ 技術構造図解 -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>📊 セキュリティ構造図解 (TikZ LuaLaTeX生成)</h2>
+        <span class="visual-badge">国家安全基準・工学図解</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/fig52_lattice_decision_deep_learning.png" alt="第52話 セキュリティ構造図解" class="responsive-img">
+        <p class="caption">▲ 【技術構造図】IPAデジタルスキル標準・国際規格に準拠した仕組みのモデル化</p>
+      </div>
+    </section>
+
+    <!-- 深掘りコラム -->
+    <section class="column-section">
+      <div class="section-title">
+        <h2>💡 高校生のためのセキュリティ深掘りコラム ＆ 大学進路ガイド</h2>
+      </div>
+      
+    </section>
+
+    <!-- 前後ナビゲーション -->
+    <nav class="episode-nav">
+      <a href="ep51.html" class="nav-btn">← 第51話: 託されし中継と軽やかな絆 〜プロキシ...</a>
+      <a href="../index.html" class="nav-btn center">目次に戻る</a>
+      <a href="ep53.html" class="nav-btn next">第53話: 地平を照らす統合の星座 〜脅威インテ... →</a>
+    </nav>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 放課後サイバーディフェンス・ラボ (Cybersecurity Novel Library)</p>
+    <p>Repository: <a href="https://github.com/k518-2026/cybersecurity-novel" target="_blank" rel="noopener" style="color: var(--primary);">k518-2026/cybersecurity-novel</a></p>
+  </footer>
+
+</body>
+</html>
