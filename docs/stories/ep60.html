@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第60話 凝縮する鍵と群テストの妙手 〜耐量子有界共謀IDベース暗号（BC-IBE）の極致〜 | 放課後サイバーディフェンス・ラボ</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Shippori+Mincho:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="story-header">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">トップ (目次)</a> &gt; <span>第60話</span>
+      </div>
+      <div class="story-ep-tag">Episode 60</div>
+      <h1 class="story-main-title">凝縮する鍵と群テストの妙手 〜耐量子有界共謀IDベース暗号（BC-IBE）の極致〜</h1>
+      <div class="story-meta">
+        <span>📚 学習テーマ: <strong>横浜国大SPIRAL佐藤慎悟准教授・四方順司教授（NexCrypt Lab）、CANS 2024 / SCIS 2025、組合せ論的群テスト（Group Testing）と格子暗号（Lattice-based Cryptography）を融合したコンパクトな耐量子有界共謀IDベース暗号（BC-IBE）の構成</strong></span>
+        <span>🏫 登場人物: 城崎悠真（部長・高2）、橘葵（部員・高2）、芹沢涼香准教授（大学メンター）</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container story-container">
+
+    <!-- ストーリーイラスト (4コマ漫画) -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>🎨 4コマ漫画挿絵（文字なし）</h2>
+        <span class="visual-badge">AI高解像度生成</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/ep60_4koma.png" alt="第60話 ストーリーイラスト" class="responsive-img">
+        <p class="caption">▲ 【挿絵】青葉台高校 情報科学部＆帝都科学大学サイバーディフェンス・ラボでの実践シーン</p>
+      </div>
+    </section>
+
+    <!-- 4コマ漫画セリフ（日・英バイリンガル）※存在する場合 -->
+    
+            <div class="koma-script-box">
+              <div class="koma-script-header">
+                <h3>💬 4コマ漫画キャラクターセリフ (Story Dialogue Script)</h3>
+                <span class="lang-tag">日・英バイリンガル (JA / EN)</span>
+              </div>
+              <div class="koma-panels-list">
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">1コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">悠真が「メールアドレスを公開鍵として暗号化できるIDベース暗号（IBE）」の仕組みを提示する</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[葵]</span>「相手のメールアドレスや学籍番号をそのまま公開鍵にして暗号化できるなんて、証明書もいらなくて超便利じゃん！」<br><span class="koma-char-name">[悠真]</span>「でも耐量子（格子暗号）で完全なIBEを作ろうとすると、公開鍵やパラメータが爆発的に巨大化してしまうんだ」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Aoi]</span> "Identity-Based Encryption lets us use email addresses or student IDs directly as public keys without certificates! So convenient!"<br><span class="koma-char-name">[Yuma]</span> "Indeed, but constructing full lattice-based post-quantum IBE blows up the public parameters astronomically!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">2コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">蓮が「共謀ユーザー数 $k$ の上限（有界共謀）」を設けるBC-IBEのアイデアを出す</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[蓮]</span>「もし悪意のある結託ユーザー数 $k$ に上限がある現実的なモデル（有界共謀BC-IBE）なら、軽量化できるのでは！？」<br><span class="koma-char-name">[結衣]</span>「従来方式でも共謀数 $k$ に比例してマスター公開鍵が肥大化し、IoTや軽量デバイスには載りませんでした……」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Ren]</span> "What if we assume a realistic model bounding malicious colluders up to $k$ (Bounded-Collusion IBE) to slim it down!?"<br><span class="koma-char-name">[Yui]</span> "Even so, conventional schemes scaled linearly with $k$, remaining too heavy for IoT microcontrollers..."</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">3コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">結衣が「組合せ論的群テスト（Group Testing）」と格子暗号の融合数理を展開する</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[結衣]</span>「そこで横浜国大SPIRAL・佐藤准教授と四方教授のCANS 2024論文です！ 不良品検査の群テスト行列を格子LWEに統合し、鍵サイズを劇的に圧縮しました！」<br><span class="koma-char-name">[葵]</span>「何十人もの結託者を、たった数個の数理テストパターンで一網打尽に封じ込めるなんて、魔法のパズルみたい！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yui]</span> "Enter YNU SPIRAL's CANS 2024 paper by Assoc. Prof. Sato & Prof. Shikata! Integrating combinatorial group testing with lattice LWE drastically compresses parameters!"<br><span class="koma-char-name">[Aoi]</span> "Bounding dozens of colluders with just a handful of mathematical test patterns is pure combinatorial magic!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">4コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">手のひらサイズの超小型マイコン上で、コンパクトな耐量子IBEが瞬時に復号され、4人が歓喜する</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[蓮・結衣]</span>「理論暗号の洗練が、IoTと次世代ネットの境界を打ち破る！」<br><span class="koma-char-name">[全員]</span>「数理のコンパクト化が、未来のサイバーセキュリティを手のひらに届ける！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Ren & Yui]</span> "Theoretical cryptographic elegance shatters the boundaries of IoT and next-gen networks!"<br><span class="koma-char-name">[All]</span> "Mathematical compaction brings post-quantum security right into the palm of our hands!"</div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+
+    <!-- 小説本文 -->
+    <section class="novel-section">
+      <div class="section-title">
+        <h2>📖 小説本文</h2>
+      </div>
+      <div class="novel-body">
+        <p class="dialogue">「相手の公開鍵証明書（X.509）をCAからダウンロードして、失効リスト（CRL）を確認して……なんて面倒な手続き、全部すっ飛ばせないの？」</p>
+<p>橘葵が頬杖をつきながら呟いた。</p>
+<p class="dialogue">「葵先輩、それこそが1984年にアディ・シャミア（Adi Shamir）が夢見た**『IDベース暗号（Identity-Based Encryption: IBE）』**の神髄ですよ」</p>
+<p>白石結衣が微笑みながらノートPCの画面を向けた。
+「IBEでは、受信者のメールアドレス `alice@ynu.ac.jp` や社員番号といった文字列そのものが公開鍵になります。送信者は証明書を一切検証することなく暗号文を送ることができ、受信者は鍵生成センタ（PKG: Private Key Generator）から自分のIDに対応した秘密鍵を受け取るだけで復号できます」</p>
+<p class="dialogue">「それ、最高じゃん！」葵が身を乗り出す。「全人類がIBEを使えば、PKI（公開鍵基盤）の複雑なトラブルから解放されるよ！」</p>
+<p class="dialogue">「ところが、ポスト量子（耐量子）の世界になると、途端に分厚い壁が立ちはだかるんだ」</p>
+<p>大学の講義を終えて駆けつけた城崎悠真が、黒板に格子暗号のLWE（Learning With Errors）問題を書き連ねた。
+「従来のIBEはペアリング写像（楕円曲線の双線形写像）に依存していたけれど、ペアリングはショアの量子アルゴリズムで完全に破られてしまう。そこで格子暗号に基づく耐量子IBE（LWEベース）が研究されてきた。でも、完全な格子IBEはトラップドア生成行列や基底のサイズが巨大で、計算コストも膨大なんだ」</p>
+<p class="dialogue">「そこで登場したのが、**有界共謀耐性（Bounded-Collusion Resistance）**という実用的な割り切りなんだね」神崎蓮が指をパチンと鳴らした。</p>
+<p class="dialogue">「そう」悠真が頷く。「現実の社内ネットワークや組織において、100万人全員が結託して暗号系を攻撃することはまず考えにくい。せいぜい『悪意のある攻撃者が最大 $k$ 人の不正ユーザーの秘密鍵を買い集めて結託（Collusion）する』というシナリオを防げれば十分なケースが多い。これが**BC-IBE（Bounded-Collusion IBE）**だ。しかし……従来のBC-IBE方式でも、結託許容数 $k$ を大きくすると、マスター公開鍵（MPK）のサイズが $O(k)$ またはそれ以上に急拡大してしまうという致命的な弱点があった」</p>
+<p class="dialogue">「そのボトルネックを根底から覆したのが、横浜国立大学SPIRALの佐藤慎悟准教授と四方順司教授の国際会議論文（CANS 2024 / SCIS 2025）なんだ」</p>
+<p>---</p>
+      </div>
+    </section>
+
+    <!-- TikZ 技術構造図解 -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>📊 セキュリティ構造図解 (TikZ LuaLaTeX生成)</h2>
+        <span class="visual-badge">国家安全基準・工学図解</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/fig60_compact_bc_ibe_group_testing.png" alt="第60話 セキュリティ構造図解" class="responsive-img">
+        <p class="caption">▲ 【技術構造図】IPAデジタルスキル標準・国際規格に準拠した仕組みのモデル化</p>
+      </div>
+    </section>
+
+    <!-- 深掘りコラム -->
+    <section class="column-section">
+      <div class="section-title">
+        <h2>💡 高校生のためのセキュリティ深掘りコラム ＆ 大学進路ガイド</h2>
+      </div>
+      
+    </section>
+
+    <!-- 前後ナビゲーション -->
+    <nav class="episode-nav">
+      <a href="ep59.html" class="nav-btn">← 第59話: 幾何に潜む罠と連鎖の暴風 〜古典Mc...</a>
+      <a href="../index.html" class="nav-btn center">目次に戻る</a>
+      <a href="ep61.html" class="nav-btn next">第61話: 電波の揺らぎと量子の跳躍 〜物理層セ... →</a>
+    </nav>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 放課後サイバーディフェンス・ラボ (Cybersecurity Novel Library)</p>
+    <p>Repository: <a href="https://github.com/k518-2026/cybersecurity-novel" target="_blank" rel="noopener" style="color: var(--primary);">k518-2026/cybersecurity-novel</a></p>
+  </footer>
+
+</body>
+</html>

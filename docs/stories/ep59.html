@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第59話 幾何に潜む罠と連鎖の暴風 〜古典McEliece暗号におけるマルチユーザー・バックドア解析〜 | 放課後サイバーディフェンス・ラボ</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Shippori+Mincho:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="story-header">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">トップ (目次)</a> &gt; <span>第59話</span>
+      </div>
+      <div class="story-ep-tag">Episode 59</div>
+      <h1 class="story-main-title">幾何に潜む罠と連鎖の暴風 〜古典McEliece暗号におけるマルチユーザー・バックドア解析〜</h1>
+      <div class="story-meta">
+        <span>📚 学習テーマ: <strong>横浜国大SPIRAL三浦優樹氏・趙亨騄氏・佐藤慎悟准教授・四方順司教授（NexCrypt Lab）、MobiSec 2024、符号ベース暗号Classic McElieceにおけるバックドア埋め込みの可能性およびマルチユーザー環境下でのバックドア検出・解読脆弱性の数学的解析</strong></span>
+        <span>🏫 登場人物: 城崎悠真（部長・高2）、橘葵（部員・高2）、芹沢涼香准教授（大学メンター）</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container story-container">
+
+    <!-- ストーリーイラスト (4コマ漫画) -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>🎨 4コマ漫画挿絵（文字なし）</h2>
+        <span class="visual-badge">AI高解像度生成</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/ep59_4koma.png" alt="第59話 ストーリーイラスト" class="responsive-img">
+        <p class="caption">▲ 【挿絵】青葉台高校 情報科学部＆帝都科学大学サイバーディフェンス・ラボでの実践シーン</p>
+      </div>
+    </section>
+
+    <!-- 4コマ漫画セリフ（日・英バイリンガル）※存在する場合 -->
+    
+            <div class="koma-script-box">
+              <div class="koma-script-header">
+                <h3>💬 4コマ漫画キャラクターセリフ (Story Dialogue Script)</h3>
+                <span class="lang-tag">日・英バイリンガル (JA / EN)</span>
+              </div>
+              <div class="koma-panels-list">
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">1コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">結衣がホワイトボードに二元Goppa符号の生成行列 $G$ と置換行列 $P$、可逆行列 $S$ を書き連ねる</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[結衣]</span>「NIST耐量子標準化の最終候補『Classic McEliece』は、40年以上破られていない絶対の堅牢性を誇る符号暗号です！」<br><span class="koma-char-name">[葵]</span>「巨大な公開鍵行列の中にランダムな誤りを混ぜて暗号化するんだよね。これなら量子コンピュータでも絶対に破れないの？」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yui]</span> "A NIST post-quantum finalist, Classic McEliece, is a code-based cipher unbroken for over 40 years!"<br><span class="koma-char-name">[Aoi]</span> "It encrypts by mixing random error vectors into giant generator matrices. Is it truly impregnable even to quantum attacks?"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">2コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">悠真が不敵な笑みを浮かべ、行列のパラメータ生成アルゴリズムに赤ペンで印をつける</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[悠真]</span>「鍵生成器そのものに悪意の設計者が『秘密の数学的トラップドア（バックドア）』を仕込んでいたらどうなると思う？」<br><span class="koma-char-name">[蓮]</span>「えっ！？ 単一のユーザーならランダムに見えても、複数人の鍵が集まると法則が浮き彫りになる……！？」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yuma]</span> "What if a malicious designer secretly embedded a mathematical trapdoor inside the key generation algorithm itself?"<br><span class="koma-char-name">[Ren]</span> "Wait! Even if it looks pseudo-random for one user, does a hidden pattern emerge once multiple users' keys gather!?"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">3コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">結衣と悠真が「マルチユーザー線形代数攻撃」の連立方程式を導出し、バックドアを無力化する解を提示する</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[結衣]</span>「横浜国大SPIRALの三浦さん・四方教授たちのMobiSec 2024最新論文では、マルチユーザー環境におけるバックドアの相関性を数学的に暴いたのです！」<br><span class="koma-char-name">[葵]</span>「設計者がこっそり全ユーザーの鍵を覗き見しようとしても、数学のメスでその悪意をあぶり出せるんだ！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yui]</span> "YNU SPIRAL's MobiSec 2024 paper by Miura and Prof. Shikata mathematically exposes backdoor correlations in multi-user settings!"<br><span class="koma-char-name">[Aoi]</span> "Even if a rogue designer tries to spy on everyone, rigorous linear algebra exposes and neutralizes the hidden malice!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">4コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">4人が解読方程式を完成させ、ホワイトボードの前でハイタッチを交わす</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[蓮・結衣]</span>「ハードウェアや規格に潜む黒幕の罠すら、理論暗号の力で暴き出す！」<br><span class="koma-char-name">[全員]</span>「幾何と代数の真理を武器に、完全な信頼を築く未来へ進もう！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Ren & Yui]</span> "Even black-box hardware trapdoors can be laid bare by theoretical cryptography!"<br><span class="koma-char-name">[All]</span> "Armed with the truth of geometry and algebra, we build unbreakable trust for the post-quantum era!"</div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+
+    <!-- 小説本文 -->
+    <section class="novel-section">
+      <div class="section-title">
+        <h2>📖 小説本文</h2>
+      </div>
+      <div class="novel-body">
+        <p class="dialogue">「40年間、一度も破られたことがない……！？」</p>
+<p>橘葵が思わず身を乗り出した。青葉台高校情報科学部室のホワイトボードには、白石結衣の手によって縦横数百ビットにも及ぶ巨大な二元体上の行列が描かれていた。</p>
+<p class="dialogue">「はい、葵先輩」結衣が満足そうに頷く。「1978年にロバート・マックエリス（Robert McEliece）が提案した『McEliece暗号』は、二元Goppa符号（Binary Goppa Code）という誤り訂正符号の復号困難性を安全性の根拠にしています。RSA暗号や楕円曲線暗号がショアの量子アルゴリズムで壊滅するのに対し、符号ベース暗号は量子コンピュータを用いても指数時間の計算量を要するため、NIST（米国国立標準技術研究所）のPQC標準化でも極めて高い信頼を獲得しています」</p>
+<p class="dialogue">「格子暗号（Kyber）よりも歴史が古くて実績があるんだよね」神崎蓮が補足する。「公開鍵が数十万バイトから数メガバイトと巨大なのが唯一の欠点だけど、そのぶん暗号文サイズは小さくて、ハードウェアアクセラレータでの復号も爆速なんだ」</p>
+<p class="dialogue">「無敵じゃん！」葵が胸を張った。「これを使っていれば、量子コンピュータの時代が来ても100%安心ってことね！」</p>
+<p class="dialogue">「――もし、その暗号モジュールを作った国家やベンダが、最初から**『秘密の抜け穴（バックドア）』**を仕込んでいたらどうする？」</p>
+<p>部室のドアを開けて入ってきた城崎悠真が、静かに問いかけた。</p>
+<p class="dialogue">「え……バックドア？ でも、暗号アルゴリズムってオープンソースで数理的に公開されてるんじゃないの？」葵が瞬きする。</p>
+<p class="dialogue">「アルゴリズムの仕様書がオープンであっても、**パラメータ生成（鍵生成パラメータの選定）**のプロセスがブラックボックス化されていたら話は別なんだ」悠真がノートPCを開き、横浜国立大学SPIRAL・NexCrypt Lab（四方順司教授・佐藤慎悟准教授ら）の三浦優樹氏らの最新研究論文（MobiSec 2024）をプロジェクターに投影した。</p>
+<p class="dialogue">「タイトルは――**『Analysis of Backdoored (Classic) McEliece in a Multi-User Setting（マルチユーザー環境におけるバックドア付きClassic McElieceの解析）』**」</p>
+<p>結衣の瞳が、数理的な好奇心でキラリと輝いた。
+「McEliece暗号におけるバックドア……！ 設計者が鍵生成器の乱数種やGoppa多項式 $g(z)$ の選定規則に特定の代数幾何的関係性を忍ばせ、設計者だけが効率的に秘密鍵を復元できるようにする攻撃ですね！」</p>
+<p>---</p>
+      </div>
+    </section>
+
+    <!-- TikZ 技術構造図解 -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>📊 セキュリティ構造図解 (TikZ LuaLaTeX生成)</h2>
+        <span class="visual-badge">国家安全基準・工学図解</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/fig59_mceliece_multiuser_backdoor.png" alt="第59話 セキュリティ構造図解" class="responsive-img">
+        <p class="caption">▲ 【技術構造図】IPAデジタルスキル標準・国際規格に準拠した仕組みのモデル化</p>
+      </div>
+    </section>
+
+    <!-- 深掘りコラム -->
+    <section class="column-section">
+      <div class="section-title">
+        <h2>💡 高校生のためのセキュリティ深掘りコラム ＆ 大学進路ガイド</h2>
+      </div>
+      
+    </section>
+
+    <!-- 前後ナビゲーション -->
+    <nav class="episode-nav">
+      <a href="ep58.html" class="nav-btn">← 第58話: 影の潜入者と倫理の境界 〜Teleg...</a>
+      <a href="../index.html" class="nav-btn center">目次に戻る</a>
+      <a href="ep60.html" class="nav-btn next">第60話: 凝縮する鍵と群テストの妙手 〜耐量子... →</a>
+    </nav>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 放課後サイバーディフェンス・ラボ (Cybersecurity Novel Library)</p>
+    <p>Repository: <a href="https://github.com/k518-2026/cybersecurity-novel" target="_blank" rel="noopener" style="color: var(--primary);">k518-2026/cybersecurity-novel</a></p>
+  </footer>
+
+</body>
+</html>

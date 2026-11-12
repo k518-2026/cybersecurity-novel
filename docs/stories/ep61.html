@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第61話 電波の揺らぎと量子の跳躍 〜物理層セキュリティ（PLS）と秘密鍵共有アルゴリズム〜 | 放課後サイバーディフェンス・ラボ</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Shippori+Mincho:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="story-header">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">トップ (目次)</a> &gt; <span>第61話</span>
+      </div>
+      <div class="story-ep-tag">Episode 61</div>
+      <h1 class="story-main-title">電波の揺らぎと量子の跳躍 〜物理層セキュリティ（PLS）と秘密鍵共有アルゴリズム〜</h1>
+      <div class="story-meta">
+        <span>📚 学習テーマ: <strong>横浜国大SPIRAL松嶺大地氏・落合秀樹教授・四方順司教授、IEEE Access 2025、無線通信のフェージングチャネル特性を利用した物理層セキュリティ（PLS）における量子探索アルゴリズムの適用と秘密鍵共有容量（Secrecy Capacity）の極限解析</strong></span>
+        <span>🏫 登場人物: 城崎悠真（部長・高2）、橘葵（部員・高2）、芹沢涼香准教授（大学メンター）</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container story-container">
+
+    <!-- ストーリーイラスト (4コマ漫画) -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>🎨 4コマ漫画挿絵（文字なし）</h2>
+        <span class="visual-badge">AI高解像度生成</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/ep61_4koma.png" alt="第61話 ストーリーイラスト" class="responsive-img">
+        <p class="caption">▲ 【挿絵】青葉台高校 情報科学部＆帝都科学大学サイバーディフェンス・ラボでの実践シーン</p>
+      </div>
+    </section>
+
+    <!-- 4コマ漫画セリフ（日・英バイリンガル）※存在する場合 -->
+    
+            <div class="koma-script-box">
+              <div class="koma-script-header">
+                <h3>💬 4コマ漫画キャラクターセリフ (Story Dialogue Script)</h3>
+                <span class="lang-tag">日・英バイリンガル (JA / EN)</span>
+              </div>
+              <div class="koma-panels-list">
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">1コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">蓮がSDR（ソフトウェア無線機）とアンテナを構え、無線空間の電波スペクトラムを観察している</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[蓮]</span>「どんなに強固な暗号をかけても、無線通信は空中に電波をばら撒くから盗聴（Eavesdropping）のリスクが消えないよ……」<br><span class="koma-char-name">[悠真]</span>「それなら、無線電波そのものの『揺らぎ（フェージング）』を秘密鍵の材料にすればいいんだ！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Ren]</span> "No matter how strong the cipher, wireless broadcasts everywhere, so eavesdropping risk never disappears..."<br><span class="koma-char-name">[Yuma]</span> "Then why not harvest the physical 'fading' of radio waves themselves as entropy for secret keys!?"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">2コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">結衣が「物理層セキュリティ（PLS: Physical Layer Security）」と秘密容量（Secrecy Capacity）の定理を図解する</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[結衣]</span>「送信者と受信者の間の電波伝搬路特性は空間的に唯一無二！ 離れた盗聴者イブには絶対に同じ波形は観測できません！」<br><span class="koma-char-name">[葵]</span>「自然界の物理現象そのものが、絶対破られないワンタイムパッドの鍵になってくれるんだ！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yui]</span> "Multipath fading channels between Alice and Bob are spatially unique! Distant Eve can never observe the identical waveform!"<br><span class="koma-char-name">[Aoi]</span> "Mother nature's physical phenomenon itself becomes an unbreakable one-time pad key!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">3コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">悠真が横浜国大SPIRALのIEEE Access 2025最新論文を展開し、量子アルゴリズムによる最適ビームフォーミング探索を解説する</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[悠真]</span>「SPIRALの松嶺さん・落合教授・四方教授は、量子探索アルゴリズムで盗聴を完全遮断する最適ビーム形成パラメータを高速特定する数理を創出したんだ」<br><span class="koma-char-name">[蓮]</span>「量子計算が暗号を破る敵ではなく、物理層の盾を極限まで強化する味方になるんだね！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yuma]</span> "YNU SPIRAL's Matsumine, Prof. Ochiai, and Prof. Shikata utilized quantum search to rapidly optimize secrecy beamforming!"<br><span class="koma-char-name">[Ren]</span> "Quantum computing isn't just an encryption breaker; it becomes our greatest ally to harden physical shields!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">4コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">屋上アンテナから放たれる目に見えない電波の軌跡に、4人が晴れやかな笑顔でハイタッチを交わす</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[蓮・結衣]</span>「上空の電波から量子の微細世界まで、科学の全層でサイバー空間を防衛します！」<br><span class="koma-char-name">[全員]</span>「物理現象と数理の調和こそ、私たちが目指す真のセキュリティの地平だ！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Ren & Yui]</span> "From physical radio waves in the air to subatomic quantum realms, we defend every layer of cyberspace!"<br><span class="koma-char-name">[All]</span> "The harmony of physical reality and pure mathematics is the true horizon of cybersecurity!"</div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+
+    <!-- 小説本文 -->
+    <section class="novel-section">
+      <div class="section-title">
+        <h2>📖 小説本文</h2>
+      </div>
+      <div class="novel-body">
+        <p>冬晴れの澄み渡る空の下、青葉台高校の屋上。冷たい風の中、神崎蓮は銀色に輝くロッドアンテナと、手のひらサイズのSDR（Software Defined Radio: ソフトウェア無線）受信機を三脚に固定していた。</p>
+<p>手元のノートPCには、2.4GHz帯と5GHz帯の電波強度がウォーターフォール表示でリアルタイムに描かれている。</p>
+<p class="dialogue">「……やっぱり、Wi-FiもBluetoothも、電波である以上は誰にでも届いちゃうんだよね」蓮が息を白く吐きながら呟いた。「いくらWPA3やAES暗号を使っていても、電波そのものは盗聴者のアンテナにも飛び込んでくる。暗号鍵の交換プロトコルに万が一の脆弱性があったら、すべて傍受されてしまうんじゃないかって、無線を見てると時々怖くなるよ」</p>
+<p class="dialogue">「そんな蓮くんに、とっておきの科学の魔法を教えてあげよう」</p>
+<p>階段を上がってきた城崎悠真が、あたたかい缶ココアを蓮に手渡しながら笑った。後ろには、マフラーを巻いた橘葵と白石結衣も続いている。</p>
+<p class="dialogue">「魔法……？ 悠真先輩、電波を特定の人間以外に届かなくするステルス電波なんて作れるんですか？」</p>
+<p class="dialogue">「電波を消すんじゃない」悠真は屋上のフェンスに寄りかかり、広がる横浜の街並みを指差した。「**『電波が届いていても、盗聴者には絶対に解読できない情報理論的安全性（Information-Theoretic Security）』**を、暗号ソフトウェアではなく電波そのものの物理特性で実現するんだ。それが**『物理層セキュリティ（Physical Layer Security: PLS）』**だよ」</p>
+<p class="dialogue">「物理層セキュリティ……！」結衣の目が輝いた。「シャノン（Claude Shannon）の完全秘匿性理論や、ワイヤータップ・チャネル（Wyner&#x27;s Wiretap Channel）のモデルですね！」</p>
+<p class="dialogue">「さすが結衣ちゃん、話が早い」悠真がポケットから取り出したタブレットに、横浜国立大学SPIRALの最新論文を表示した。
+「横浜国大SPIRALの松嶺大地さん、落合秀樹教授、そして四方順司教授がIEEE Access 2025に発表した世界的快挙――**『Quantum Algorithms for Physical Layer Security in Wireless Communication（無線通信における物理層セキュリティのための量子探索アルゴリズム）』**だ」</p>
+<p>---</p>
+      </div>
+    </section>
+
+    <!-- TikZ 技術構造図解 -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>📊 セキュリティ構造図解 (TikZ LuaLaTeX生成)</h2>
+        <span class="visual-badge">国家安全基準・工学図解</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/fig61_quantum_physical_layer_security.png" alt="第61話 セキュリティ構造図解" class="responsive-img">
+        <p class="caption">▲ 【技術構造図】IPAデジタルスキル標準・国際規格に準拠した仕組みのモデル化</p>
+      </div>
+    </section>
+
+    <!-- 深掘りコラム -->
+    <section class="column-section">
+      <div class="section-title">
+        <h2>💡 高校生のためのセキュリティ深掘りコラム ＆ 大学進路ガイド</h2>
+      </div>
+      
+    </section>
+
+    <!-- 前後ナビゲーション -->
+    <nav class="episode-nav">
+      <a href="ep60.html" class="nav-btn">← 第60話: 凝縮する鍵と群テストの妙手 〜耐量子...</a>
+      <a href="../index.html" class="nav-btn center">目次に戻る</a>
+      <span class="nav-disabled">最新エピソード</span>
+    </nav>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 放課後サイバーディフェンス・ラボ (Cybersecurity Novel Library)</p>
+    <p>Repository: <a href="https://github.com/k518-2026/cybersecurity-novel" target="_blank" rel="noopener" style="color: var(--primary);">k518-2026/cybersecurity-novel</a></p>
+  </footer>
+
+</body>
+</html>

@@ -31,7 +31,7 @@
         高校生がサイバーセキュリティの面白さや重要性に触れ、将来の情報科学系・工学系大学への進学やセキュリティ専門職を目指すための入門ライトノベルです。<br>
         <strong>第1部（第1話〜第15話）</strong>：橘 葵＆城崎 悠真が、パスワード認証から暗号、クラウド、AI防御までの基礎原理を習得して大学進学へ。<br>
         <strong>第2部 先端編（第16話〜第20話）</strong>：新入生の神崎 蓮＆白石 結衣が、IoT、ゼロトラスト、ハードウェア解析、社会重要インフラ防御に挑む！<br>
-        <strong>第2部 横浜国大SPIRAL探訪編（第21話〜第57話・全編完結）</strong>：暗号数理（四方教授）、IoT・マルウェア解析（吉岡教授・イン特任准教授・佐々木准教授）、人工物メトリクス（松本名誉教授）、認知セキュリティ（NICT連携）、セキュリティUX（NTT連携）など最新研究論文の知見を高校生向けにストーリー化！
+        <strong>第2部 横浜国大SPIRAL探訪編（第21話〜第61話）</strong>：暗号数理（四方教授・佐藤准教授）、IoT・マルウェア解析（吉岡教授・イン特任准教授・佐々木准教授）、通信・物理層セキュリティ（落合教授）、人工物メトリクス（松本名誉教授）、認知セキュリティ（NICT連携）、セキュリティUX（NTT連携）など最新研究論文の知見を高校生向けにストーリー化！
       </p>
     </section>
 
@@ -41,7 +41,7 @@
         <!-- リアルタイム検索バー -->
         <div class="search-box-wrapper">
           <span class="search-icon">🔍</span>
-          <input type="search" id="searchInput" class="search-input" placeholder="キーワード検索 (例: 暗号, IoT, ルーター, 偽装, マルウェア, 第57話, INSITE)..." autocomplete="off">
+          <input type="search" id="searchInput" class="search-input" placeholder="キーワード検索 (例: 暗号, IoT, ルーター, 偽装, マルウェア, 第61話, INSITE)..." autocomplete="off">
         </div>
 
         <!-- 表示順序ソートセレクター -->
@@ -57,8 +57,8 @@
       <!-- シリーズ・編別フィルタータブ -->
       <div class="filter-tabs-row">
         <span class="filter-tab-label">シリーズ絞り込み:</span>
-        <button type="button" class="filter-btn active" data-filter="all">すべて (全57話・完結)</button>
-        <button type="button" class="filter-btn" data-filter="part2_spiral">SPIRAL論文探訪編 (第21〜57話)</button>
+        <button type="button" class="filter-btn active" data-filter="all">すべて (全61話)</button>
+        <button type="button" class="filter-btn" data-filter="part2_spiral">SPIRAL論文探訪編 (第21〜61話)</button>
         <button type="button" class="filter-btn" data-filter="part2_adv">先端セキュリティ編 (第16〜20話)</button>
         <button type="button" class="filter-btn" data-filter="part1">高校情報科学部編 (第1〜15話)</button>
       </div>
@@ -66,7 +66,7 @@
       <!-- 件数表示 & リセットボタン -->
       <div class="controls-status-row">
         <div>
-          該当件数: <span id="resultsCount" class="results-count-badge">57</span> 件 / 全57話中
+          該当件数: <span id="resultsCount" class="results-count-badge">61</span> 件 / 全61話中
         </div>
         <div>
           <button type="button" id="resetFiltersBtn" class="reset-filters-btn">検索・条件をリセット</button>
@@ -811,7 +811,7 @@
       </div>
     </div>
     
-    <div class="card" data-num="57" data-arc="part2_spiral" data-search="episode 57 第57話 響き合う警鐘と未来の門出 〜マルチチャネルセキュリティと守護者たちの誓い（完結）〜 横浜国大spiral佐々木貴之准教授・秋山満昭客員教授（ntt社会情報研究所）・吉岡克成教授ら、scis 2025、iot機器のセキュリティアドバイス提供に関する調査研究（マニュアル・web管理画面・スマホアプリ・クラウド通知のマルチチャネル統合分析）、ヒューマンファクターとセキュリティux（全57話シリーズ完結） 第2部: spiral編">
+    <div class="card" data-num="57" data-arc="part2_spiral" data-search="episode 57 第57話 響き合う警鐘と未来の門出 〜マルチチャネルセキュリティと守護者たちの誓い（完結）〜 横浜国大spiral佐々木貴之准教授・秋山満昭客員教授（ntt社会情報研究所）・吉岡克成教授ら、scis 2025、iot機器のセキュリティアドバイス提供に関する調査研究（マニュアル・web管理画面・スマホアプリ・クラウド通知のマルチチャネル統合分析）、ヒューマンファクターとセキュリティux 第2部: spiral編">
       <img src="assets/images/ep57_4koma.png" alt="第57話 挿絵" class="card-thumb" loading="lazy">
       <div class="card-body">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
@@ -819,8 +819,60 @@
           <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 0.15rem 0.5rem; border-radius: 9999px;">第2部: SPIRAL編</span>
         </div>
         <h2 class="card-title">響き合う警鐘と未来の門出 〜マルチチャネルセキュリティと守護者たちの誓い（完結）〜</h2>
-        <p class="card-theme"><strong>学習テーマ:</strong> 横浜国大SPIRAL佐々木貴之准教授・秋山満昭客員教授（NTT社会情報研究所）・吉岡克成教授ら、SCIS 2025、IoT機器のセキュリティアドバイス提供に関する調査研究（マニュアル・Web管理画面・スマホアプリ・クラウド通知のマルチチャネル統合分析）、ヒューマンファクターとセキュリティUX（全57話シリーズ完結）</p>
+        <p class="card-theme"><strong>学習テーマ:</strong> 横浜国大SPIRAL佐々木貴之准教授・秋山満昭客員教授（NTT社会情報研究所）・吉岡克成教授ら、SCIS 2025、IoT機器のセキュリティアドバイス提供に関する調査研究（マニュアル・Web管理画面・スマホアプリ・クラウド通知のマルチチャネル統合分析）、ヒューマンファクターとセキュリティUX</p>
         <a href="stories/ep57.html" class="card-btn">小説と図解を読む →</a>
+      </div>
+    </div>
+    
+    <div class="card" data-num="58" data-arc="part2_spiral" data-search="episode 58 第58話 影の潜入者と倫理の境界 〜telegram地下空間の脅威分析とインフォームド・コンセント〜 横浜国大spiral久保裕貴氏・長山裕平氏・イン・ブォン氏・森達哉教授（早大/nict）・吉岡克成教授、css 2025、メッセージングアプリ上のアンダーグラウンドコミュニティ調査における人的情報収集（humint）手法の倫理的検討とインフォームド・コンセントの設計 第2部: spiral編">
+      <img src="assets/images/ep58_4koma.png" alt="第58話 挿絵" class="card-thumb" loading="lazy">
+      <div class="card-body">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <div class="card-ep">Episode 58</div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 0.15rem 0.5rem; border-radius: 9999px;">第2部: SPIRAL編</span>
+        </div>
+        <h2 class="card-title">影の潜入者と倫理の境界 〜Telegram地下空間の脅威分析とインフォームド・コンセント〜</h2>
+        <p class="card-theme"><strong>学習テーマ:</strong> 横浜国大SPIRAL久保裕貴氏・長山裕平氏・イン・ブォン氏・森達哉教授（早大/NICT）・吉岡克成教授、CSS 2025、メッセージングアプリ上のアンダーグラウンドコミュニティ調査における人的情報収集（HUMINT）手法の倫理的検討とインフォームド・コンセントの設計</p>
+        <a href="stories/ep58.html" class="card-btn">小説と図解を読む →</a>
+      </div>
+    </div>
+    
+    <div class="card" data-num="59" data-arc="part2_spiral" data-search="episode 59 第59話 幾何に潜む罠と連鎖の暴風 〜古典mceliece暗号におけるマルチユーザー・バックドア解析〜 横浜国大spiral三浦優樹氏・趙亨騄氏・佐藤慎悟准教授・四方順司教授（nexcrypt lab）、mobisec 2024、符号ベース暗号classic mcelieceにおけるバックドア埋め込みの可能性およびマルチユーザー環境下でのバックドア検出・解読脆弱性の数学的解析 第2部: spiral編">
+      <img src="assets/images/ep59_4koma.png" alt="第59話 挿絵" class="card-thumb" loading="lazy">
+      <div class="card-body">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <div class="card-ep">Episode 59</div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 0.15rem 0.5rem; border-radius: 9999px;">第2部: SPIRAL編</span>
+        </div>
+        <h2 class="card-title">幾何に潜む罠と連鎖の暴風 〜古典McEliece暗号におけるマルチユーザー・バックドア解析〜</h2>
+        <p class="card-theme"><strong>学習テーマ:</strong> 横浜国大SPIRAL三浦優樹氏・趙亨騄氏・佐藤慎悟准教授・四方順司教授（NexCrypt Lab）、MobiSec 2024、符号ベース暗号Classic McElieceにおけるバックドア埋め込みの可能性およびマルチユーザー環境下でのバックドア検出・解読脆弱性の数学的解析</p>
+        <a href="stories/ep59.html" class="card-btn">小説と図解を読む →</a>
+      </div>
+    </div>
+    
+    <div class="card" data-num="60" data-arc="part2_spiral" data-search="episode 60 第60話 凝縮する鍵と群テストの妙手 〜耐量子有界共謀idベース暗号（bc-ibe）の極致〜 横浜国大spiral佐藤慎悟准教授・四方順司教授（nexcrypt lab）、cans 2024 / scis 2025、組合せ論的群テスト（group testing）と格子暗号（lattice-based cryptography）を融合したコンパクトな耐量子有界共謀idベース暗号（bc-ibe）の構成 第2部: spiral編">
+      <img src="assets/images/ep60_4koma.png" alt="第60話 挿絵" class="card-thumb" loading="lazy">
+      <div class="card-body">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <div class="card-ep">Episode 60</div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 0.15rem 0.5rem; border-radius: 9999px;">第2部: SPIRAL編</span>
+        </div>
+        <h2 class="card-title">凝縮する鍵と群テストの妙手 〜耐量子有界共謀IDベース暗号（BC-IBE）の極致〜</h2>
+        <p class="card-theme"><strong>学習テーマ:</strong> 横浜国大SPIRAL佐藤慎悟准教授・四方順司教授（NexCrypt Lab）、CANS 2024 / SCIS 2025、組合せ論的群テスト（Group Testing）と格子暗号（Lattice-based Cryptography）を融合したコンパクトな耐量子有界共謀IDベース暗号（BC-IBE）の構成</p>
+        <a href="stories/ep60.html" class="card-btn">小説と図解を読む →</a>
+      </div>
+    </div>
+    
+    <div class="card" data-num="61" data-arc="part2_spiral" data-search="episode 61 第61話 電波の揺らぎと量子の跳躍 〜物理層セキュリティ（pls）と秘密鍵共有アルゴリズム〜 横浜国大spiral松嶺大地氏・落合秀樹教授・四方順司教授、ieee access 2025、無線通信のフェージングチャネル特性を利用した物理層セキュリティ（pls）における量子探索アルゴリズムの適用と秘密鍵共有容量（secrecy capacity）の極限解析 第2部: spiral編">
+      <img src="assets/images/ep61_4koma.png" alt="第61話 挿絵" class="card-thumb" loading="lazy">
+      <div class="card-body">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <div class="card-ep">Episode 61</div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 0.15rem 0.5rem; border-radius: 9999px;">第2部: SPIRAL編</span>
+        </div>
+        <h2 class="card-title">電波の揺らぎと量子の跳躍 〜物理層セキュリティ（PLS）と秘密鍵共有アルゴリズム〜</h2>
+        <p class="card-theme"><strong>学習テーマ:</strong> 横浜国大SPIRAL松嶺大地氏・落合秀樹教授・四方順司教授、IEEE Access 2025、無線通信のフェージングチャネル特性を利用した物理層セキュリティ（PLS）における量子探索アルゴリズムの適用と秘密鍵共有容量（Secrecy Capacity）の極限解析</p>
+        <a href="stories/ep61.html" class="card-btn">小説と図解を読む →</a>
       </div>
     </div>
     

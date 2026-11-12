@@ -528,10 +528,46 @@ episodes = [
         "num": 57,
         "id": "ep57",
         "title": "響き合う警鐘と未来の門出 〜マルチチャネルセキュリティと守護者たちの誓い（完結）〜",
-        "theme": "横浜国大SPIRAL佐々木貴之准教授・秋山満昭客員教授（NTT社会情報研究所）・吉岡克成教授ら、SCIS 2025、IoT機器のセキュリティアドバイス提供に関する調査研究（マニュアル・Web管理画面・スマホアプリ・クラウド通知のマルチチャネル統合分析）、ヒューマンファクターとセキュリティUX（全57話シリーズ完結）",
+        "theme": "横浜国大SPIRAL佐々木貴之准教授・秋山満昭客員教授（NTT社会情報研究所）・吉岡克成教授ら、SCIS 2025、IoT機器のセキュリティアドバイス提供に関する調査研究（マニュアル・Web管理画面・スマホアプリ・クラウド通知のマルチチャネル統合分析）、ヒューマンファクターとセキュリティUX",
         "md_file": "2026-11-10_ep57_multichannel_security_guidance_epilogue.md",
         "illust": "ep57_4koma.png",
         "figure": "fig57_multichannel_security_guidance_epilogue.png"
+    },
+    {
+        "num": 58,
+        "id": "ep58",
+        "title": "影の潜入者と倫理の境界 〜Telegram地下空間の脅威分析とインフォームド・コンセント〜",
+        "theme": "横浜国大SPIRAL久保裕貴氏・長山裕平氏・イン・ブォン氏・森達哉教授（早大/NICT）・吉岡克成教授、CSS 2025、メッセージングアプリ上のアンダーグラウンドコミュニティ調査における人的情報収集（HUMINT）手法の倫理的検討とインフォームド・コンセントの設計",
+        "md_file": "2026-11-12_ep58_humint_telegram_informed_consent.md",
+        "illust": "ep58_4koma.png",
+        "figure": "fig58_telegram_humint_ethics.png"
+    },
+    {
+        "num": 59,
+        "id": "ep59",
+        "title": "幾何に潜む罠と連鎖の暴風 〜古典McEliece暗号におけるマルチユーザー・バックドア解析〜",
+        "theme": "横浜国大SPIRAL三浦優樹氏・趙亨騄氏・佐藤慎悟准教授・四方順司教授（NexCrypt Lab）、MobiSec 2024、符号ベース暗号Classic McElieceにおけるバックドア埋め込みの可能性およびマルチユーザー環境下でのバックドア検出・解読脆弱性の数学的解析",
+        "md_file": "2026-11-12_ep59_mceliece_multiuser_backdoor.md",
+        "illust": "ep59_4koma.png",
+        "figure": "fig59_mceliece_multiuser_backdoor.png"
+    },
+    {
+        "num": 60,
+        "id": "ep60",
+        "title": "凝縮する鍵と群テストの妙手 〜耐量子有界共謀IDベース暗号（BC-IBE）の極致〜",
+        "theme": "横浜国大SPIRAL佐藤慎悟准教授・四方順司教授（NexCrypt Lab）、CANS 2024 / SCIS 2025、組合せ論的群テスト（Group Testing）と格子暗号（Lattice-based Cryptography）を融合したコンパクトな耐量子有界共謀IDベース暗号（BC-IBE）の構成",
+        "md_file": "2026-11-12_ep60_compact_postquantum_bc_ibe.md",
+        "illust": "ep60_4koma.png",
+        "figure": "fig60_compact_bc_ibe_group_testing.png"
+    },
+    {
+        "num": 61,
+        "id": "ep61",
+        "title": "電波の揺らぎと量子の跳躍 〜物理層セキュリティ（PLS）と秘密鍵共有アルゴリズム〜",
+        "theme": "横浜国大SPIRAL松嶺大地氏・落合秀樹教授・四方順司教授、IEEE Access 2025、無線通信のフェージングチャネル特性を利用した物理層セキュリティ（PLS）における量子探索アルゴリズムの適用と秘密鍵共有容量（Secrecy Capacity）の極限解析",
+        "md_file": "2026-11-12_ep61_quantum_physical_layer_security.md",
+        "illust": "ep61_4koma.png",
+        "figure": "fig61_quantum_physical_layer_security.png"
     }
 ]
 
@@ -826,7 +862,7 @@ index_html = f"""<!DOCTYPE html>
         高校生がサイバーセキュリティの面白さや重要性に触れ、将来の情報科学系・工学系大学への進学やセキュリティ専門職を目指すための入門ライトノベルです。<br>
         <strong>第1部（第1話〜第15話）</strong>：橘 葵＆城崎 悠真が、パスワード認証から暗号、クラウド、AI防御までの基礎原理を習得して大学進学へ。<br>
         <strong>第2部 先端編（第16話〜第20話）</strong>：新入生の神崎 蓮＆白石 結衣が、IoT、ゼロトラスト、ハードウェア解析、社会重要インフラ防御に挑む！<br>
-        <strong>第2部 横浜国大SPIRAL探訪編（第21話〜第57話・全編完結）</strong>：暗号数理（四方教授）、IoT・マルウェア解析（吉岡教授・イン特任准教授・佐々木准教授）、人工物メトリクス（松本名誉教授）、認知セキュリティ（NICT連携）、セキュリティUX（NTT連携）など最新研究論文の知見を高校生向けにストーリー化！
+        <strong>第2部 横浜国大SPIRAL探訪編（第21話〜第61話）</strong>：暗号数理（四方教授・佐藤准教授）、IoT・マルウェア解析（吉岡教授・イン特任准教授・佐々木准教授）、通信・物理層セキュリティ（落合教授）、人工物メトリクス（松本名誉教授）、認知セキュリティ（NICT連携）、セキュリティUX（NTT連携）など最新研究論文の知見を高校生向けにストーリー化！
       </p>
     </section>
 
@@ -836,7 +872,7 @@ index_html = f"""<!DOCTYPE html>
         <!-- リアルタイム検索バー -->
         <div class="search-box-wrapper">
           <span class="search-icon">🔍</span>
-          <input type="search" id="searchInput" class="search-input" placeholder="キーワード検索 (例: 暗号, IoT, ルーター, 偽装, マルウェア, 第57話, INSITE)..." autocomplete="off">
+          <input type="search" id="searchInput" class="search-input" placeholder="キーワード検索 (例: 暗号, IoT, ルーター, 偽装, マルウェア, 第61話, INSITE)..." autocomplete="off">
         </div>
 
         <!-- 表示順序ソートセレクター -->
@@ -852,8 +888,8 @@ index_html = f"""<!DOCTYPE html>
       <!-- シリーズ・編別フィルタータブ -->
       <div class="filter-tabs-row">
         <span class="filter-tab-label">シリーズ絞り込み:</span>
-        <button type="button" class="filter-btn active" data-filter="all">すべて (全57話・完結)</button>
-        <button type="button" class="filter-btn" data-filter="part2_spiral">SPIRAL論文探訪編 (第21〜57話)</button>
+        <button type="button" class="filter-btn active" data-filter="all">すべて (全61話)</button>
+        <button type="button" class="filter-btn" data-filter="part2_spiral">SPIRAL論文探訪編 (第21〜61話)</button>
         <button type="button" class="filter-btn" data-filter="part2_adv">先端セキュリティ編 (第16〜20話)</button>
         <button type="button" class="filter-btn" data-filter="part1">高校情報科学部編 (第1〜15話)</button>
       </div>
@@ -861,7 +897,7 @@ index_html = f"""<!DOCTYPE html>
       <!-- 件数表示 & リセットボタン -->
       <div class="controls-status-row">
         <div>
-          該当件数: <span id="resultsCount" class="results-count-badge">57</span> 件 / 全57話中
+          該当件数: <span id="resultsCount" class="results-count-badge">61</span> 件 / 全61話中
         </div>
         <div>
           <button type="button" id="resetFiltersBtn" class="reset-filters-btn">検索・条件をリセット</button>
