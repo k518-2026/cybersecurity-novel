@@ -31,7 +31,7 @@
         高校生がサイバーセキュリティの面白さや重要性に触れ、将来の情報科学系・工学系大学への進学やセキュリティ専門職を目指すための入門ライトノベルです。<br>
         <strong>第1部（第1話〜第15話）</strong>：橘 葵＆城崎 悠真が、パスワード認証から暗号、クラウド、AI防御までの基礎原理を習得して大学進学へ。<br>
         <strong>第2部 先端編（第16話〜第20話）</strong>：新入生の神崎 蓮＆白石 結衣が、IoT、ゼロトラスト、ハードウェア解析、社会重要インフラ防御に挑む！<br>
-        <strong>第2部 横浜国大SPIRAL探訪編（第21話〜第61話）</strong>：暗号数理（四方教授・佐藤准教授）、IoT・マルウェア解析（吉岡教授・イン特任准教授・佐々木准教授）、通信・物理層セキュリティ（落合教授）、人工物メトリクス（松本名誉教授）、認知セキュリティ（NICT連携）、セキュリティUX（NTT連携）など最新研究論文の知見を高校生向けにストーリー化！
+        <strong>第2部 横浜国大SPIRAL探訪編（第21話〜第65話）</strong>：暗号数理（四方教授・佐藤准教授）、IoT・マルウェア解析・車載セキュリティ（吉岡教授・イン特任准教授・佐々木准教授）、通信・物理層セキュリティ・量子情報（落合教授）、人工物メトリクス（松本名誉教授）、認知セキュリティ（NICT連携）、セキュリティUX（NTT連携）など最新研究論文の知見を高校生向けにストーリー化！
       </p>
     </section>
 
@@ -41,7 +41,7 @@
         <!-- リアルタイム検索バー -->
         <div class="search-box-wrapper">
           <span class="search-icon">🔍</span>
-          <input type="search" id="searchInput" class="search-input" placeholder="キーワード検索 (例: 暗号, IoT, ルーター, 偽装, マルウェア, 第61話, INSITE)..." autocomplete="off">
+          <input type="search" id="searchInput" class="search-input" placeholder="キーワード検索 (例: 暗号, IoT, ルーター, 偽装, マルウェア, 第65話, INSITE)..." autocomplete="off">
         </div>
 
         <!-- 表示順序ソートセレクター -->
@@ -57,8 +57,8 @@
       <!-- シリーズ・編別フィルタータブ -->
       <div class="filter-tabs-row">
         <span class="filter-tab-label">シリーズ絞り込み:</span>
-        <button type="button" class="filter-btn active" data-filter="all">すべて (全61話)</button>
-        <button type="button" class="filter-btn" data-filter="part2_spiral">SPIRAL論文探訪編 (第21〜61話)</button>
+        <button type="button" class="filter-btn active" data-filter="all">すべて (全65話)</button>
+        <button type="button" class="filter-btn" data-filter="part2_spiral">SPIRAL論文探訪編 (第21〜65話)</button>
         <button type="button" class="filter-btn" data-filter="part2_adv">先端セキュリティ編 (第16〜20話)</button>
         <button type="button" class="filter-btn" data-filter="part1">高校情報科学部編 (第1〜15話)</button>
       </div>
@@ -66,7 +66,7 @@
       <!-- 件数表示 & リセットボタン -->
       <div class="controls-status-row">
         <div>
-          該当件数: <span id="resultsCount" class="results-count-badge">61</span> 件 / 全61話中
+          該当件数: <span id="resultsCount" class="results-count-badge">65</span> 件 / 全65話中
         </div>
         <div>
           <button type="button" id="resetFiltersBtn" class="reset-filters-btn">検索・条件をリセット</button>
@@ -873,6 +873,58 @@
         <h2 class="card-title">電波の揺らぎと量子の跳躍 〜物理層セキュリティ（PLS）と秘密鍵共有アルゴリズム〜</h2>
         <p class="card-theme"><strong>学習テーマ:</strong> 横浜国大SPIRAL松嶺大地氏・落合秀樹教授・四方順司教授、IEEE Access 2025、無線通信のフェージングチャネル特性を利用した物理層セキュリティ（PLS）における量子探索アルゴリズムの適用と秘密鍵共有容量（Secrecy Capacity）の極限解析</p>
         <a href="stories/ep61.html" class="card-btn">小説と図解を読む →</a>
+      </div>
+    </div>
+    
+    <div class="card" data-num="62" data-arc="part2_spiral" data-search="episode 62 第62話 脈打つ配線と沈黙の偽装 〜車載canバス侵入検知とタイミング異常解析〜 横浜国大spiral吉岡克成教授・佐々木貴之准教授ら、自動車サイバーセキュリティ、車載ネットワークcanにおける偽装メッセージ攻撃の検知、メッセージ周期性・送信時間間隔（iat）解析、および物理電圧特性に基づくecuフィンガープリンティング 第2部: spiral編">
+      <img src="assets/images/ep62_4koma.png" alt="第62話 挿絵" class="card-thumb" loading="lazy">
+      <div class="card-body">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <div class="card-ep">Episode 62</div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 0.15rem 0.5rem; border-radius: 9999px;">第2部: SPIRAL編</span>
+        </div>
+        <h2 class="card-title">脈打つ配線と沈黙の偽装 〜車載CANバス侵入検知とタイミング異常解析〜</h2>
+        <p class="card-theme"><strong>学習テーマ:</strong> 横浜国大SPIRAL吉岡克成教授・佐々木貴之准教授ら、自動車サイバーセキュリティ、車載ネットワークCANにおける偽装メッセージ攻撃の検知、メッセージ周期性・送信時間間隔（IAT）解析、および物理電圧特性に基づくECUフィンガープリンティング</p>
+        <a href="stories/ep62.html" class="card-btn">小説と図解を読む →</a>
+      </div>
+    </div>
+    
+    <div class="card" data-num="63" data-arc="part2_spiral" data-search="episode 63 第63話 濁流のマネーロンダリングと群の追跡 〜ダークウェブ暗号資産ミキサーのグラフクラスタリング〜 横浜国大spiral吉岡克成教授ら、サイバー犯罪エコシステム・暗号資産追跡、ダークウェブ上のマネーロンダリング技術（tumbling / mixer / peel chain）、utxoグラフ解析とマルチインプット・ヒューリスティクスによるアドレスクラスタリング 第2部: spiral編">
+      <img src="assets/images/ep63_4koma.png" alt="第63話 挿絵" class="card-thumb" loading="lazy">
+      <div class="card-body">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <div class="card-ep">Episode 63</div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 0.15rem 0.5rem; border-radius: 9999px;">第2部: SPIRAL編</span>
+        </div>
+        <h2 class="card-title">濁流のマネーロンダリングと群の追跡 〜ダークウェブ暗号資産ミキサーのグラフクラスタリング〜</h2>
+        <p class="card-theme"><strong>学習テーマ:</strong> 横浜国大SPIRAL吉岡克成教授ら、サイバー犯罪エコシステム・暗号資産追跡、ダークウェブ上のマネーロンダリング技術（Tumbling / Mixer / Peel Chain）、UTXOグラフ解析とマルチインプット・ヒューリスティクスによるアドレスクラスタリング</p>
+        <a href="stories/ep63.html" class="card-btn">小説と図解を読む →</a>
+      </div>
+    </div>
+    
+    <div class="card" data-num="64" data-arc="part2_spiral" data-search="episode 64 第64話 秘められた真実と格子の証明 〜耐量子非対話ゼロ知識証明（nizk）の極致〜 横浜国大spiral四方順司教授・佐藤慎悟准教授（nexcrypt lab）、耐量子暗号（pqc）、格子暗号、最短ベクトル問題（svp/sis/lwe）に基づく非対話ゼロ知識証明（nizk）および検証可能計算（verifiable computation） 第2部: spiral編">
+      <img src="assets/images/ep64_4koma.png" alt="第64話 挿絵" class="card-thumb" loading="lazy">
+      <div class="card-body">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <div class="card-ep">Episode 64</div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 0.15rem 0.5rem; border-radius: 9999px;">第2部: SPIRAL編</span>
+        </div>
+        <h2 class="card-title">秘められた真実と格子の証明 〜耐量子非対話ゼロ知識証明（NIZK）の極致〜</h2>
+        <p class="card-theme"><strong>学習テーマ:</strong> 横浜国大SPIRAL四方順司教授・佐藤慎悟准教授（NexCrypt Lab）、耐量子暗号（PQC）、格子暗号、最短ベクトル問題（SVP/SIS/LWE）に基づく非対話ゼロ知識証明（NIZK）および検証可能計算（Verifiable Computation）</p>
+        <a href="stories/ep64.html" class="card-btn">小説と図解を読む →</a>
+      </div>
+    </div>
+    
+    <div class="card" data-num="65" data-arc="part2_spiral" data-search="episode 65 第65話 光子の軌跡と崩壊の観測 〜量子鍵配送（qkd）と単一光子誤り訂正のフロンティア〜 横浜国大spiral落合秀樹教授・四方順司教授ら、量子情報科学・量子暗号、単一光子を用いた量子鍵配送（qkd）、bb84プロトコル・デコイ状態法、量子測定による状態収縮と盗聴検知、およびqber解析と情報理論的安全性 第2部: spiral編">
+      <img src="assets/images/ep65_4koma.png" alt="第65話 挿絵" class="card-thumb" loading="lazy">
+      <div class="card-body">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <div class="card-ep">Episode 65</div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 0.15rem 0.5rem; border-radius: 9999px;">第2部: SPIRAL編</span>
+        </div>
+        <h2 class="card-title">光子の軌跡と崩壊の観測 〜量子鍵配送（QKD）と単一光子誤り訂正のフロンティア〜</h2>
+        <p class="card-theme"><strong>学習テーマ:</strong> 横浜国大SPIRAL落合秀樹教授・四方順司教授ら、量子情報科学・量子暗号、単一光子を用いた量子鍵配送（QKD）、BB84プロトコル・デコイ状態法、量子測定による状態収縮と盗聴検知、およびQBER解析と情報理論的安全性</p>
+        <a href="stories/ep65.html" class="card-btn">小説と図解を読む →</a>
       </div>
     </div>
     

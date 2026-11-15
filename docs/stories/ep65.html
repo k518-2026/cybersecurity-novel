@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第65話 光子の軌跡と崩壊の観測 〜量子鍵配送（QKD）と単一光子誤り訂正のフロンティア〜 | 放課後サイバーディフェンス・ラボ</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Shippori+Mincho:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="story-header">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">トップ (目次)</a> &gt; <span>第65話</span>
+      </div>
+      <div class="story-ep-tag">Episode 65</div>
+      <h1 class="story-main-title">光子の軌跡と崩壊の観測 〜量子鍵配送（QKD）と単一光子誤り訂正のフロンティア〜</h1>
+      <div class="story-meta">
+        <span>📚 学習テーマ: <strong>横浜国大SPIRAL落合秀樹教授・四方順司教授ら、量子情報科学・量子暗号、単一光子を用いた量子鍵配送（QKD）、BB84プロトコル・デコイ状態法、量子測定による状態収縮と盗聴検知、およびQBER解析と情報理論的安全性</strong></span>
+        <span>🏫 登場人物: 城崎悠真（部長・高2）、橘葵（部員・高2）、芹沢涼香准教授（大学メンター）</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container story-container">
+
+    <!-- ストーリーイラスト (4コマ漫画) -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>🎨 4コマ漫画挿絵（文字なし）</h2>
+        <span class="visual-badge">AI高解像度生成</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/ep65_4koma.png" alt="第65話 ストーリーイラスト" class="responsive-img">
+        <p class="caption">▲ 【挿絵】青葉台高校 情報科学部＆帝都科学大学サイバーディフェンス・ラボでの実践シーン</p>
+      </div>
+    </section>
+
+    <!-- 4コマ漫画セリフ（日・英バイリンガル）※存在する場合 -->
+    
+            <div class="koma-script-box">
+              <div class="koma-script-header">
+                <h3>💬 4コマ漫画キャラクターセリフ (Story Dialogue Script)</h3>
+                <span class="lang-tag">日・英バイリンガル (JA / EN)</span>
+              </div>
+              <div class="koma-panels-list">
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">1コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">高校の物理光学実験室。光学ブレッドボードの上にレーザーダイオード、偏光板、光ファイバーケーブルが精密に並んでいる</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[葵]</span>「光ファイバーの中を飛んでいく『光の粒（光子）』1個1個に暗号鍵を乗せて送るなんて、SF映画の実験みたい！」<br><span class="koma-char-name">[蓮]</span>「光子の偏光方向（縦・横・斜め45度）をビットの0と1に対応させて、アリスからボブへ1光子ずつ送出するんだ」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Aoi]</span> "Encoding secret keys onto individual flying photons inside optical fibers feels like a sci-fi experiment!"<br><span class="koma-char-name">[Ren]</span> "We map photon polarization states to bits 0 and 1, transmitting single photons one by one from Alice to Bob!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">2コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">悠真が「量子鍵配送（QKD）」の金字塔・BB84プロトコルとデコイ状態法の原理を解説する</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[悠真]</span>「量子力学には『未知の量子状態は測定すると壊れる（状態の収縮）』という絶対の物理法則がある」<br><span class="koma-char-name">[葵]</span>「ってことは、途中で悪い盗聴者（イブ）が光子を盗み見しようとしたら、その瞬間に状態が壊れてバレちゃうの！？」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yuma]</span> "Quantum physics dictates an absolute law: measuring an unknown quantum state inevitably collapses it!"<br><span class="koma-char-name">[Aoi]</span> "Which means if an eavesdropper tries to intercept the photon, the measurement disturbs it and instantly exposes them!?"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">3コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">結衣が量子ビット誤り率（QBER）と誤り訂正・秘匿増強の数理限界式を導出する</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[結衣]</span>「まさにその通りです！ 盗聴者が割り込むとQBER（誤り率）が理論閾値11%を突破するため、即座に通信を破棄できます！」<br><span class="koma-char-name">[蓮]</span>「さらに光パルスの強度をランダムに変えるデコイ状態法を使えば、光子数分割攻撃（PNS攻撃）も完全に防げるんだね！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yui]</span> "Precisely! Eavesdropping pushes the QBER beyond the theoretical 11% threshold, triggering immediate abort!"<br><span class="koma-char-name">[Ren]</span> "And decoy-state methods with fluctuating pulse intensities completely neutralize photon-number-splitting attacks!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">4コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">画面に「SECURE QUANTUM KEY ESTABLISHED」のサインが灯り、4人が晴れやかな笑顔でハイタッチを交わす</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[蓮・結衣]</span>「計算量の限界ではなく、大自然の物理法則そのものが秘密を守り抜く！」<br><span class="koma-char-name">[全員]</span>「光子の軌跡が結ぶ無条件の安全性が、未来のサイバー空間を照らし出す！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Ren & Yui]</span> "Not bounded by computational limits, but shielded by the fundamental laws of mother nature!"<br><span class="koma-char-name">[All]</span> "Unconditional security woven by single photons lights the path for future cyberspace!"</div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+
+    <!-- 小説本文 -->
+    <section class="novel-section">
+      <div class="section-title">
+        <h2>📖 小説本文</h2>
+      </div>
+      <div class="novel-body">
+        <p>冬の夕暮れ、青葉台高校の物理実験室。遮光カーテンが引かれた暗がりの中、光学ブレッドボードの上に固定された極微弱なパルスレーザーが、光ファイバーのコネクタに向かって目に見えない赤外光パルスを打ち込んでいた。</p>
+<p>光学ベンチの端には、液体窒素で冷却された超伝導単一光子検出器（SSPD: Superconducting Nanowire Single-Photon Detector）と、ピコ秒単位の到達時刻を記録するタイム・デジタル・コンバータ（TDC）が静かに佇んでいる。</p>
+<p class="dialogue">「……葵先輩、覗いてみてください」</p>
+<p>神崎蓮がアライメント用の赤色ガイドレーザーを指差した。
+「この光ファイバーの中を、1パルスあたり平均0.1個という極めて希薄な『単一光子（Single Photon）』が走っています。これが、横浜国立大学SPIRAL（落合秀樹教授、四方順司教授ら）でも深く研究されている**『量子鍵配送（QKD: Quantum Key Distribution）』**の実験系です」</p>
+<p class="dialogue">「光の粒が1個ずつ……！」橘葵が息を潜めてモニターを見つめた。「普通の通信って、何億個もの光の波で『1』と『0』を送ってるんでしょ？ 1個だけの光子でどうやって暗号の鍵を送るの？」</p>
+<p class="dialogue">「光子の**偏光（Polarization）**や**位相（Phase）**という量子状態にビットを乗せるんだよ」</p>
+<p>白衣を着た城崎悠真が、偏光板のフィルターを手に取って説明を始めた。
+「1984年にチャールズ・ベネット（Charles Bennett）とジル・ブラッサール（Gilles Brassard）が考案した**『BB84プロトコル』**だ。送信者アリスは、2種類の測定基底――『十文字基底（水平・垂直）』と『斜め45度基底（斜め右・斜め左）』をランダムに選び、それぞれの向きに偏光させた単一光子を受信者ボブに送る」</p>
+<p>白石結衣がホワイトボードに量子力学のブラ・ケット記法を書き記した。
+「ボブもまた、2種類の基底をランダムに選んで光子を測定します。その後、アリスとボブは公衆回線（盗聴されても構わない通常のインターネット）を使って、『どの基底で測定したか』という基底の情報だけを照合するのです。基底が一致していたビットだけを手元に残せば、2人の間には完全にランダムで一致した秘密鍵ビット列が共有されます」</p>
+<p class="dialogue">「えっ、でも公衆回線でやり取りするなら、途中で盗聴者（イブ）が光子を盗み見して鍵をコピーしちゃったらどうなるの？」葵が心配そうに尋ねた。</p>
+<p>悠真が満面の笑みを浮かべた。
+「葵ちゃん、それこそが**『量子暗号が現代のいかなるスーパーコンピュータや量子コンピュータをもってしても絶対に破られない情報理論的安全性（Information-Theoretic Security）』**を誇る最大の理由なんだ」</p>
+<p>---</p>
+      </div>
+    </section>
+
+    <!-- TikZ 技術構造図解 -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>📊 セキュリティ構造図解 (TikZ LuaLaTeX生成)</h2>
+        <span class="visual-badge">国家安全基準・工学図解</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/fig65_qkd_bb84.png" alt="第65話 セキュリティ構造図解" class="responsive-img">
+        <p class="caption">▲ 【技術構造図】IPAデジタルスキル標準・国際規格に準拠した仕組みのモデル化</p>
+      </div>
+    </section>
+
+    <!-- 深掘りコラム -->
+    <section class="column-section">
+      <div class="section-title">
+        <h2>💡 高校生のためのセキュリティ深掘りコラム ＆ 大学進路ガイド</h2>
+      </div>
+      
+    </section>
+
+    <!-- 前後ナビゲーション -->
+    <nav class="episode-nav">
+      <a href="ep64.html" class="nav-btn">← 第64話: 秘められた真実と格子の証明 〜耐量子...</a>
+      <a href="../index.html" class="nav-btn center">目次に戻る</a>
+      <span class="nav-disabled">最新エピソード</span>
+    </nav>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 放課後サイバーディフェンス・ラボ (Cybersecurity Novel Library)</p>
+    <p>Repository: <a href="https://github.com/k518-2026/cybersecurity-novel" target="_blank" rel="noopener" style="color: var(--primary);">k518-2026/cybersecurity-novel</a></p>
+  </footer>
+
+</body>
+</html>

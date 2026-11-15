@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第62話 脈打つ配線と沈黙の偽装 〜車載CANバス侵入検知とタイミング異常解析〜 | 放課後サイバーディフェンス・ラボ</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Shippori+Mincho:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="story-header">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">トップ (目次)</a> &gt; <span>第62話</span>
+      </div>
+      <div class="story-ep-tag">Episode 62</div>
+      <h1 class="story-main-title">脈打つ配線と沈黙の偽装 〜車載CANバス侵入検知とタイミング異常解析〜</h1>
+      <div class="story-meta">
+        <span>📚 学習テーマ: <strong>横浜国大SPIRAL吉岡克成教授・佐々木貴之准教授ら、自動車サイバーセキュリティ、車載ネットワークCANにおける偽装メッセージ攻撃の検知、メッセージ周期性・送信時間間隔（IAT）解析、および物理電圧特性に基づくECUフィンガープリンティング</strong></span>
+        <span>🏫 登場人物: 城崎悠真（部長・高2）、橘葵（部員・高2）、芹沢涼香准教授（大学メンター）</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container story-container">
+
+    <!-- ストーリーイラスト (4コマ漫画) -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>🎨 4コマ漫画挿絵（文字なし）</h2>
+        <span class="visual-badge">AI高解像度生成</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/ep62_4koma.png" alt="第62話 ストーリーイラスト" class="responsive-img">
+        <p class="caption">▲ 【挿絵】青葉台高校 情報科学部＆帝都科学大学サイバーディフェンス・ラボでの実践シーン</p>
+      </div>
+    </section>
+
+    <!-- 4コマ漫画セリフ（日・英バイリンガル）※存在する場合 -->
+    
+            <div class="koma-script-box">
+              <div class="koma-script-header">
+                <h3>💬 4コマ漫画キャラクターセリフ (Story Dialogue Script)</h3>
+                <span class="lang-tag">日・英バイリンガル (JA / EN)</span>
+              </div>
+              <div class="koma-panels-list">
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">1コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">部室の作業台の上に広げられた実車CANバスワイヤーハーネスとオシロスコープ。メーターパネルのランプが激しく点滅している</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[蓮]</span>「現代の自動車は走る巨大コンピュータ！ ブレーキもステアリングもCANバスの通信パケットで制御されてるんだ」<br><span class="koma-char-name">[葵]</span>「もし悪意のあるハッカーが偽装パケットを送り込んだら、勝手に急ブレーキがかかっちゃうの！？」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Ren]</span> "Modern cars are rolling computers! Brakes and steering are commanded entirely by CAN bus packets!"<br><span class="koma-char-name">[Aoi]</span> "If a hacker injects spoofed frames into the harness, could they violently trigger phantom emergency braking!?"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">2コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">結衣がCANメッセージのヘッダ構造をホワイトボードに示し、暗号認証の欠如を指摘する</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[結衣]</span>「標準のCANプロトコルには送信元認証や暗号化がありません。どのECUもIDを名乗ってフレームを同報送信できてしまいます」<br><span class="koma-char-name">[悠真]</span>「だからこそ、攻撃者は正当なエンジン制御ECUになりすまして偽命令を割り込ませるんだ」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yui]</span> "Legacy CAN buses lack sender authentication and encryption; any ECU can broadcast arbitrary ID frames!"<br><span class="koma-char-name">[Yuma]</span> "That allows attackers to impersonate authentic powertrain ECUs and inject unauthorized overrides!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">3コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">蓮と結衣が画面上のパケット到達間隔（IAT: Inter-Arrival Time）ヒストグラムと電圧波形を提示する</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[蓮]</span>「でもCANの通信周期は極めて精密！ 偽フレームが混入すればマイクロ秒単位の周期の揺らぎ（ジッター）が生じる！」<br><span class="koma-char-name">[結衣]</span>「さらにトランシーバーの微小な物理電圧特性（物理層指紋）を照合すれば、どのポートからの不正注入かも特定可能です！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Ren]</span> "Yet authentic cyclic packets are precise to microseconds; injection creates unmistakable jitter in arrival intervals!"<br><span class="koma-char-name">[Yui]</span> "By fingerprinting the transceivers' analog voltage signatures, we even pinpoint the rogue injection port!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">4コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">不正パケットがリアルタイムIDSによって完璧に遮断され、ダッシュボードの警告灯が緑の正常点灯に戻る</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[葵]</span>「走る命を守るための見えない防壁！ 車の心臓部にもセキュリティサイエンスが息づいてるんだね！」<br><span class="koma-char-name">[全員]</span>「物理と情報の二重防御で、自動運転とモビリティの未来を守り抜こう！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Aoi]</span> "An invisible shield guarding human lives on the road! Security science pulses at the very heart of automobiles!"<br><span class="koma-char-name">[All]</span> "With dual cyber-physical defenses, we safeguard the future of autonomous mobility!"</div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+
+    <!-- 小説本文 -->
+    <section class="novel-section">
+      <div class="section-title">
+        <h2>📖 小説本文</h2>
+      </div>
+      <div class="novel-body">
+        <p>冬の気配が深まる夕暮れの青葉台高校・情報科学部室。中央の大型作業台には、黒と白のツイストペア線が張り巡らされた巨大な車載ネットワークの実験ベンチが鎮座していた。</p>
+<p>メーターパネルの速度計とタコメーターが並び、その横にはCAN（Controller Area Network）バスの信号を直接読み取るオシロスコープとCANアナライザーが規則的なビープ音を刻んでいる。</p>
+<p class="dialogue">「……蓮くん、これって本物の車から取り出した配線なの？」</p>
+<p>橘葵が興味津々で身を乗り出した。ツイストペア線に接続された小型の金属ボックス群――ECU（Electronic Control Unit: 電子制御ユニット）が、カチカチとリレーの作動音を響かせている。</p>
+<p class="dialogue">「はい、葵先輩」神崎蓮がオシロスコープのプローブを端子に当てながら答えた。「最近のコネクテッドカーや自動運転車には、1台あたり100個以上のECUが搭載されていて、エンジン、ブレーキ、ステアリング、エアバッグから車載インフォテインメント（IVI）までが、すべてこの『CANバス』という共有ネットワーク線で繋がっているんです」</p>
+<p class="dialogue">「えっ、全部同じ電線で繋がってるの？」葵が目を見張る。「じゃあ、もしハッカーが車載Wi-FiやOBD-IIポートから侵入したら、ブレーキのECUにも命令を送れちゃうの？」</p>
+<p class="dialogue">「まさにそれが、現代の自動車セキュリティにおける最大の脅威なんだよ」</p>
+<p>ドアを開けて入ってきた大学1年生の城崎悠真が、温かいお茶のペットボトルを部員たちに手渡しながら頷いた。
+「1980年代にボッシュ社が開発したCANプロトコルは、堅牢性とリアルタイム性を最優先に設計されたため、**送信元の認証（Authentication）や暗号化（Encryption）の仕組みがプロトコル標準に存在しない**んだ。つまり、バスに接続されたすべてのECUが同じブロードキャスト通信を受信し、誰でも任意のIDを名乗ってフレームを送信できてしまう」</p>
+<p>白石結衣がノートPCの画面にCANフレームの構造図を投影した。
+「メッセージには『ID（識別子）』『データ長（DLC）』『データフィールド（最大8バイト）』しかありません。『誰が送ったか』を証明するデジタル署名もメッセージ認証コード（MAC）も付いていないのです。マイコンの計算リソースやCANの通信帯域（最大1Mbps）の制約から、すべての通信に重厚な公開鍵暗号を施すのは極めて困難です」</p>
+<p class="dialogue">「じゃあ、悪いハッカーが『ブレーキを踏め！』とか『アクセル全開！』っていうパケットを勝手に流したら、車は騙されちゃうの？」葵が息を呑む。</p>
+<p class="dialogue">「そこで登場するのが、横浜国立大学SPIRALの研究チーム（吉岡克成教授、佐々木貴之准教授ら）も追究している**『車載CAN侵入検知システム（CAN-IDS）』**なんだ」悠真がホワイトボードに数式とグラフを描き始めた。</p>
+<p>---</p>
+      </div>
+    </section>
+
+    <!-- TikZ 技術構造図解 -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>📊 セキュリティ構造図解 (TikZ LuaLaTeX生成)</h2>
+        <span class="visual-badge">国家安全基準・工学図解</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/fig62_can_bus_ids.png" alt="第62話 セキュリティ構造図解" class="responsive-img">
+        <p class="caption">▲ 【技術構造図】IPAデジタルスキル標準・国際規格に準拠した仕組みのモデル化</p>
+      </div>
+    </section>
+
+    <!-- 深掘りコラム -->
+    <section class="column-section">
+      <div class="section-title">
+        <h2>💡 高校生のためのセキュリティ深掘りコラム ＆ 大学進路ガイド</h2>
+      </div>
+      
+    </section>
+
+    <!-- 前後ナビゲーション -->
+    <nav class="episode-nav">
+      <a href="ep61.html" class="nav-btn">← 第61話: 電波の揺らぎと量子の跳躍 〜物理層セ...</a>
+      <a href="../index.html" class="nav-btn center">目次に戻る</a>
+      <a href="ep63.html" class="nav-btn next">第63話: 濁流のマネーロンダリングと群の追跡 ... →</a>
+    </nav>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 放課後サイバーディフェンス・ラボ (Cybersecurity Novel Library)</p>
+    <p>Repository: <a href="https://github.com/k518-2026/cybersecurity-novel" target="_blank" rel="noopener" style="color: var(--primary);">k518-2026/cybersecurity-novel</a></p>
+  </footer>
+
+</body>
+</html>

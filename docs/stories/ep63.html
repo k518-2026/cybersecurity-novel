@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第63話 濁流のマネーロンダリングと群の追跡 〜ダークウェブ暗号資産ミキサーのグラフクラスタリング〜 | 放課後サイバーディフェンス・ラボ</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Shippori+Mincho:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="story-header">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">トップ (目次)</a> &gt; <span>第63話</span>
+      </div>
+      <div class="story-ep-tag">Episode 63</div>
+      <h1 class="story-main-title">濁流のマネーロンダリングと群の追跡 〜ダークウェブ暗号資産ミキサーのグラフクラスタリング〜</h1>
+      <div class="story-meta">
+        <span>📚 学習テーマ: <strong>横浜国大SPIRAL吉岡克成教授ら、サイバー犯罪エコシステム・暗号資産追跡、ダークウェブ上のマネーロンダリング技術（Tumbling / Mixer / Peel Chain）、UTXOグラフ解析とマルチインプット・ヒューリスティクスによるアドレスクラスタリング</strong></span>
+        <span>🏫 登場人物: 城崎悠真（部長・高2）、橘葵（部員・高2）、芹沢涼香准教授（大学メンター）</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container story-container">
+
+    <!-- ストーリーイラスト (4コマ漫画) -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>🎨 4コマ漫画挿絵（文字なし）</h2>
+        <span class="visual-badge">AI高解像度生成</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/ep63_4koma.png" alt="第63話 ストーリーイラスト" class="responsive-img">
+        <p class="caption">▲ 【挿絵】青葉台高校 情報科学部＆帝都科学大学サイバーディフェンス・ラボでの実践シーン</p>
+      </div>
+    </section>
+
+    <!-- 4コマ漫画セリフ（日・英バイリンガル）※存在する場合 -->
+    
+            <div class="koma-script-box">
+              <div class="koma-script-header">
+                <h3>💬 4コマ漫画キャラクターセリフ (Story Dialogue Script)</h3>
+                <span class="lang-tag">日・英バイリンガル (JA / EN)</span>
+              </div>
+              <div class="koma-panels-list">
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">1コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">部室のモニタにランサムウェア身代金のビットコイン受取アドレスと、そこから枝分かれする複雑な送金経路が表示されている</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[葵]</span>「ランサムウェアの身代金で支払われたビットコイン、一瞬で数百個の未知アドレスに分散されて消えちゃった！」<br><span class="koma-char-name">[蓮]</span>「これぞダークウェブ名物の暗号資産ミキサー（タンブラー）！ 資金の足取りを濁流に紛れ込ませてロンダリングしてるんだ」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Aoi]</span> "The ransom paid in Bitcoin split into hundreds of anonymous addresses in seconds and vanished!"<br><span class="koma-char-name">[Ren]</span> "That's the infamous darknet cryptocurrency mixer! They dilute tainted funds into a whirlpool to launder them!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">2コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">悠真がミキサーのプール構造とピールチェーン（Peel Chain）の仕組みを解説する</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[悠真]</span>「ミキサーは他人のクリーンな資金と犯罪資金を細切れにしてシャッフルし、匿名化を試みるんだ」<br><span class="koma-char-name">[葵]</span>「ブロックチェーンは誰でも閲覧できる公開台帳なのに、そんなにバラバラにされたらもう二度と追跡できないの！？」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yuma]</span> "Mixers chop dirty and clean coins into micro-slices, shuffling them to break linkability."<br><span class="koma-char-name">[Aoi]</span> "Even with a public blockchain ledger, once shredded, is it impossible to ever trace the money back!?"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">3コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">結衣がグラフ理論（共通入力所有ヒューリスティクス）とトランザクションの時間・金額相関アルゴリズムを展開する</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[結衣]</span>「いいえ！ 複数入力トランザクションを同一所有者と判定するクラスタリングや、お釣りアドレスの特定数理を使えば網羅できます！」<br><span class="koma-char-name">[蓮]</span>「送金の手数料パターンや時間的遅延の相関をグラフ解析すれば、ミキサーの出口アドレスを再結合できるんだね！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yui]</span> "No! Multi-input heuristics and change-address mathematical filters reconstruct cluster ownership!"<br><span class="koma-char-name">[Ren]</span> "By analyzing fee patterns and temporal latency correlations, we re-link the mixer's exit endpoints!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">4コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">画面上で散乱していたノード群が一つの巨大な犯罪者ウォレットクラスタに再集結し、4人が笑顔でガッツポーズ</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[葵]</span>「どんなに巧妙に濁流に隠しても、数学とグラフ理論の網からは逃れられない！」<br><span class="koma-char-name">[全員]</span>「ブロックチェーンの透明性と科学の追跡眼で、悪質な資金洗浄を暴き出せ！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Aoi]</span> "No matter how deep the whirlpool, they can't escape the net of mathematics and graph theory!"<br><span class="koma-char-name">[All]</span> "With blockchain transparency and scientific forensics, we lay bare illicit money laundering!"</div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+
+    <!-- 小説本文 -->
+    <section class="novel-section">
+      <div class="section-title">
+        <h2>📖 小説本文</h2>
+      </div>
+      <div class="novel-body">
+        <p>冬晴れの放課後、青葉台高校の情報科学部室。大型ディスプレイに映し出されていたのは、蜘蛛の巣のように無数の線で結ばれたノードの群れ――ビットコイン（Bitcoin）のブロックチェーン上で観測された、数十万件に及ぶトランザクションの有向グラフ（Directed Graph）だった。</p>
+<p class="dialogue">「……うわあ、目が回りそう！」</p>
+<p>橘葵がディスプレイを指差しながら声を上げた。画面左端にある一つのアドレス――某医療機関を襲ったランサムウェア攻撃で指定された身代金受取アドレスから、幾重にも分岐した送金矢印が、まるで煙のように霧散している。</p>
+<p class="dialogue">「これ、第53話で学んだ横浜国大SPIRALの脅威インテリジェンス分析プラットフォーム（INSITE）でも追跡対象になっている暗号資産のロンダリングフローだよ」</p>
+<p>城崎悠真がコーヒーカップを置きながら説明する。
+「サイバー犯罪者は、身代金として脅し取った暗号資産をそのまま取引所で現金化しようとすると、KYC（本人確認）で即座に身元が割れてしまう。そこで彼らが頼るのが、ダークウェブ上で提供されている**『暗号資産ミキサー（Cryptocurrency Mixer / Tumbler）』**や**『コインジョイン（CoinJoin）』**という資金洗浄サービスなんだ」</p>
+<p>神崎蓮がホワイトボードにミキサーの概念図を描いた。
+「仕組みはこうです。ミキサーのプールには、世界中から集まった数千人のユーザーのビットコインが投入されます。ミキサーはそれらの資金を一度大きなプールに混ぜ合わせ、ランダムな時間差（ディレイ）と手数料を差し引いて、細切れにした別のクリーンなコインを犯罪者の指定する別のアドレスへと払い出すんです」</p>
+<p class="dialogue">「泥水と真水をひとつの巨大なタンクに入れてかき混ぜてから、別の蛇口から出すようなものね！」葵が納得したように手を叩く。「それじゃあ、どのコインが誰のものだったか、完全に分からなくなっちゃうんじゃない？」</p>
+<p class="dialogue">「一見すると完全な匿名化に見えます」白石結衣が眼鏡を押し上げ、静かに微笑んだ。「しかし、ビットコインのブロックチェーンは、すべての取引履歴が永久に改ざん不能な形で記録される公開台帳（Public Ledger）です。暗号資産フォレンジックとグラフアルゴリズムを駆使すれば、どんなにシャッフルされた濁流であっても、隠された相関関係を数学的に浮かび上がらせることができるのです」</p>
+<p>---</p>
+      </div>
+    </section>
+
+    <!-- TikZ 技術構造図解 -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>📊 セキュリティ構造図解 (TikZ LuaLaTeX生成)</h2>
+        <span class="visual-badge">国家安全基準・工学図解</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/fig63_crypto_mixer_tracking.png" alt="第63話 セキュリティ構造図解" class="responsive-img">
+        <p class="caption">▲ 【技術構造図】IPAデジタルスキル標準・国際規格に準拠した仕組みのモデル化</p>
+      </div>
+    </section>
+
+    <!-- 深掘りコラム -->
+    <section class="column-section">
+      <div class="section-title">
+        <h2>💡 高校生のためのセキュリティ深掘りコラム ＆ 大学進路ガイド</h2>
+      </div>
+      
+    </section>
+
+    <!-- 前後ナビゲーション -->
+    <nav class="episode-nav">
+      <a href="ep62.html" class="nav-btn">← 第62話: 脈打つ配線と沈黙の偽装 〜車載CAN...</a>
+      <a href="../index.html" class="nav-btn center">目次に戻る</a>
+      <a href="ep64.html" class="nav-btn next">第64話: 秘められた真実と格子の証明 〜耐量子... →</a>
+    </nav>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 放課後サイバーディフェンス・ラボ (Cybersecurity Novel Library)</p>
+    <p>Repository: <a href="https://github.com/k518-2026/cybersecurity-novel" target="_blank" rel="noopener" style="color: var(--primary);">k518-2026/cybersecurity-novel</a></p>
+  </footer>
+
+</body>
+</html>
