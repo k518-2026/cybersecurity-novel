@@ -604,6 +604,42 @@ episodes = [
         "md_file": "2026-11-15_ep65_qkd_bb84.md",
         "illust": "ep65_4koma.png",
         "figure": "fig65_qkd_bb84.png"
+    },
+    {
+        "num": 66,
+        "id": "ep66",
+        "title": "揺らぎのヴェールと共有の盾 〜サイバー脅威インテリジェンスの差分プライバシー〜",
+        "theme": "横浜国大SPIRAL吉岡克成教授・佐々木貴之准教授ら、サイバーセキュリティ情報共有（CTI）、組織間での攻撃統計の安全な共有、差分プライバシー（Differential Privacy）、ラプラス機構および局所差分プライバシー（LDP）の適用",
+        "md_file": "2026-11-16_ep66_differential_privacy_cti.md",
+        "illust": "ep66_4koma.png",
+        "figure": "fig66_differential_privacy_cti.png"
+    },
+    {
+        "num": 67,
+        "id": "ep67",
+        "title": "漏れ出る電流と隠蔽の仮面 〜耐量子格子暗号ハードウェアと相関電力解析（CPA）〜",
+        "theme": "横浜国大SPIRAL四方順司教授・松本勉名誉教授ら、ハードウェアセキュリティ、サイドチャネル攻撃、耐量子暗号（ML-KEM / Kyber）のFPGA/ASIC実装に対する相関電力解析（CPA）、数論変換（NTT）乗算の漏洩とマスキング対策",
+        "md_file": "2026-11-16_ep67_lattice_cpa_masking.md",
+        "illust": "ep67_4koma.png",
+        "figure": "fig67_lattice_cpa_masking.png"
+    },
+    {
+        "num": 68,
+        "id": "ep68",
+        "title": "分割された鍵と合意の輪 〜秘密分散と閾値署名（MPC）のWeb3資産防衛〜",
+        "theme": "横浜国大SPIRAL四方順司教授・佐藤慎悟准教授（NexCrypt Lab）、暗号数理・情報セキュリティ、セキュアマルチパーティ計算（MPC）、シャミアの秘密分散法、および閾値ECDSA/EdDSA署名による分散資産カストディ",
+        "md_file": "2026-11-16_ep68_mpc_threshold_signatures.md",
+        "illust": "ep68_4koma.png",
+        "figure": "fig68_mpc_threshold_signatures.png"
+    },
+    {
+        "num": 69,
+        "id": "ep69",
+        "title": "暴走するポインタと所有権の規律 〜レガシーC言語デーモンのメモリ安全化（Rust）革命〜",
+        "theme": "横浜国大SPIRAL吉岡克成教授ら、システムソフトウェアセキュリティ、メモリ安全性、バッファオーバーフロー・Use-After-Free脆弱性の根絶、C/C++製インフラネットワークデーモンのRust言語による再設計と形式検証",
+        "md_file": "2026-11-16_ep69_memory_safety_rust.md",
+        "illust": "ep69_4koma.png",
+        "figure": "fig69_memory_safety_rust.png"
     }
 ]
 
@@ -898,7 +934,7 @@ index_html = f"""<!DOCTYPE html>
         高校生がサイバーセキュリティの面白さや重要性に触れ、将来の情報科学系・工学系大学への進学やセキュリティ専門職を目指すための入門ライトノベルです。<br>
         <strong>第1部（第1話〜第15話）</strong>：橘 葵＆城崎 悠真が、パスワード認証から暗号、クラウド、AI防御までの基礎原理を習得して大学進学へ。<br>
         <strong>第2部 先端編（第16話〜第20話）</strong>：新入生の神崎 蓮＆白石 結衣が、IoT、ゼロトラスト、ハードウェア解析、社会重要インフラ防御に挑む！<br>
-        <strong>第2部 横浜国大SPIRAL探訪編（第21話〜第65話）</strong>：暗号数理（四方教授・佐藤准教授）、IoT・マルウェア解析・車載セキュリティ（吉岡教授・イン特任准教授・佐々木准教授）、通信・物理層セキュリティ・量子情報（落合教授）、人工物メトリクス（松本名誉教授）、認知セキュリティ（NICT連携）、セキュリティUX（NTT連携）など最新研究論文の知見を高校生向けにストーリー化！
+        <strong>第2部 横浜国大SPIRAL探訪編（第21話〜第69話）</strong>：暗号数理（四方教授・佐藤准教授）、IoT・マルウェア解析・車載セキュリティ（吉岡教授・イン特任准教授・佐々木准教授）、通信・物理層セキュリティ・量子情報（落合教授）、ハードウェア・人工物メトリクス（松本名誉教授）、認知セキュリティ（NICT連携）、セキュリティUX（NTT連携）など最新研究論文の知見を高校生向けにストーリー化！
       </p>
     </section>
 
@@ -908,7 +944,7 @@ index_html = f"""<!DOCTYPE html>
         <!-- リアルタイム検索バー -->
         <div class="search-box-wrapper">
           <span class="search-icon">🔍</span>
-          <input type="search" id="searchInput" class="search-input" placeholder="キーワード検索 (例: 暗号, IoT, ルーター, 偽装, マルウェア, 第65話, INSITE)..." autocomplete="off">
+          <input type="search" id="searchInput" class="search-input" placeholder="キーワード検索 (例: 暗号, IoT, ルーター, 偽装, マルウェア, 第69話, INSITE)..." autocomplete="off">
         </div>
 
         <!-- 表示順序ソートセレクター -->
@@ -924,8 +960,8 @@ index_html = f"""<!DOCTYPE html>
       <!-- シリーズ・編別フィルタータブ -->
       <div class="filter-tabs-row">
         <span class="filter-tab-label">シリーズ絞り込み:</span>
-        <button type="button" class="filter-btn active" data-filter="all">すべて (全65話)</button>
-        <button type="button" class="filter-btn" data-filter="part2_spiral">SPIRAL論文探訪編 (第21〜65話)</button>
+        <button type="button" class="filter-btn active" data-filter="all">すべて (全69話)</button>
+        <button type="button" class="filter-btn" data-filter="part2_spiral">SPIRAL論文探訪編 (第21〜69話)</button>
         <button type="button" class="filter-btn" data-filter="part2_adv">先端セキュリティ編 (第16〜20話)</button>
         <button type="button" class="filter-btn" data-filter="part1">高校情報科学部編 (第1〜15話)</button>
       </div>
@@ -933,7 +969,7 @@ index_html = f"""<!DOCTYPE html>
       <!-- 件数表示 & リセットボタン -->
       <div class="controls-status-row">
         <div>
-          該当件数: <span id="resultsCount" class="results-count-badge">65</span> 件 / 全65話中
+          該当件数: <span id="resultsCount" class="results-count-badge">69</span> 件 / 全69話中
         </div>
         <div>
           <button type="button" id="resetFiltersBtn" class="reset-filters-btn">検索・条件をリセット</button>

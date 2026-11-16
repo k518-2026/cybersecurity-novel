@@ -1,0 +1,33 @@
+\documentclass[border=12pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning, calc, fit, backgrounds}
+\usepackage{fontspec}
+\usepackage{amsmath,amssymb}
+\setmainfont{DejaVu Sans}
+
+\begin{document}
+\begin{tikzpicture}[
+    font=\small,
+    >=Stealth,
+    node distance=1.2cm,
+    block/.style={rectangle, draw=blue!70!black, fill=blue!5, rounded corners=4pt, thick, align=center, inner sep=7pt},
+    alertblock/.style={rectangle, draw=red!70!black, fill=red!5, rounded corners=4pt, thick, align=center, inner sep=7pt},
+    greenblock/.style={rectangle, draw=green!60!black, fill=green!5, rounded corners=4pt, thick, align=center, inner sep=7pt},
+    amberblock/.style={rectangle, draw=orange!80!black, fill=orange!5, rounded corners=4pt, thick, align=center, inner sep=7pt}
+]
+
+\node[block, text width=12cm] (top) {\textbf{Web3 Asset Custody: Eliminating Single Points of Failure}\\Seed phrases and single private keys create catastrophic theft risks};
+
+\node[amberblock, below left=1.2cm and 0.4cm of top, text width=5.6cm] (shamir) {\textbf{Shamir $(t, n)$ Secret Sharing}\\$\bullet$ Key split into $n$ polynomial shares\\$\bullet$ Any $t$ shares reconstruct secret $S$\\$\bullet$ $t-1$ shares leak zero information};
+
+\node[greenblock, below right=1.2cm and 0.4cm of top, text width=5.6cm] (mpc) {\textbf{Threshold MPC Signatures}\\$\bullet$ Cooperatively sign without restoring key\\$\bullet$ Private key never assembled in memory\\$\bullet$ Distributed nonces and partial shares};
+
+\node[block, below=2.8cm of top, text width=12cm] (bottom) {\textbf{Decentralized Mathematical Consensus for Institutional Asset Defense}\\Resilient against node compromises, phishing, and insider theft across distributed clouds};
+
+\draw[->, thick, orange!80!black] (top) -| (shamir);
+\draw[->, thick, green!60!black] (top) -| (mpc);
+\draw[->, thick, blue!70!black] (shamir) |- (bottom);
+\draw[->, thick, blue!70!black] (mpc) |- (bottom);
+
+\end{tikzpicture}
+\end{document}

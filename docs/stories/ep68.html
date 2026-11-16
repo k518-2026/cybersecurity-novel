@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第68話 分割された鍵と合意の輪 〜秘密分散と閾値署名（MPC）のWeb3資産防衛〜 | 放課後サイバーディフェンス・ラボ</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Shippori+Mincho:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="story-header">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">トップ (目次)</a> &gt; <span>第68話</span>
+      </div>
+      <div class="story-ep-tag">Episode 68</div>
+      <h1 class="story-main-title">分割された鍵と合意の輪 〜秘密分散と閾値署名（MPC）のWeb3資産防衛〜</h1>
+      <div class="story-meta">
+        <span>📚 学習テーマ: <strong>横浜国大SPIRAL四方順司教授・佐藤慎悟准教授（NexCrypt Lab）、暗号数理・情報セキュリティ、セキュアマルチパーティ計算（MPC）、シャミアの秘密分散法、および閾値ECDSA/EdDSA署名による分散資産カストディ</strong></span>
+        <span>🏫 登場人物: 城崎悠真（部長・高2）、橘葵（部員・高2）、芹沢涼香准教授（大学メンター）</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container story-container">
+
+    <!-- ストーリーイラスト (4コマ漫画) -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>🎨 4コマ漫画挿絵（文字なし）</h2>
+        <span class="visual-badge">AI高解像度生成</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/ep68_4koma.png" alt="第68話 ストーリーイラスト" class="responsive-img">
+        <p class="caption">▲ 【挿絵】青葉台高校 情報科学部＆帝都科学大学サイバーディフェンス・ラボでの実践シーン</p>
+      </div>
+    </section>
+
+    <!-- 4コマ漫画セリフ（日・英バイリンガル）※存在する場合 -->
+    
+            <div class="koma-script-box">
+              <div class="koma-script-header">
+                <h3>💬 4コマ漫画キャラクターセリフ (Story Dialogue Script)</h3>
+                <span class="lang-tag">日・英バイリンガル (JA / EN)</span>
+              </div>
+              <div class="koma-panels-list">
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">1コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">葵が暗号資産ウォレットのシードフレーズ（12個の英単語）が書かれた紙を握りしめ、怯えている</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[葵]</span>「億単位のデジタル資産を動かす秘密鍵が、この紙切れ1枚に依存してるなんて怖すぎる！ 紛失しても盗まれても人生終了じゃん！」<br><span class="koma-char-name">[蓮]</span>「従来のウォレットは単一障害点（SPOF: Single Point of Failure）の塊なんだよね」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Aoi]</span> "Controlling millions in crypto assets relies on this single paper seed phrase!? If lost or stolen, it's instant game over!"<br><span class="koma-char-name">[Ren]</span> "Conventional wallets are essentially one massive Single Point of Failure!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">2コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">結衣が「シャミアの秘密分散法」の多項式幾何学を黒板に描き、鍵の破片化を提示する</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[結衣]</span>「鍵をそのまま1箇所に保管するから危険なのです！ $(t, n)$ 閾値秘密分散を用いれば、$n$ 個に分割した断片を世界中に分散保管できます！」<br><span class="koma-char-name">[葵]</span>「3個の断片のうち、任意の2個が集まれば鍵が復元できるけど、1個だけ盗まれても情報は完全にゼロなんだ！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yui]</span> "Storing keys intact in one place is the flaw! Using $(t, n)$-threshold sharing, key shards are scattered securely!"<br><span class="koma-char-name">[Aoi]</span> "Any 2 of 3 shards reconstruct the key, yet a thief with 1 shard gains literally zero information!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">3コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">悠真が「セキュアマルチパーティ計算（MPC）」による閾値ECDSA署名プロトコルを展開する</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[悠真]</span>「さらに最新のMPCウォレットなら、秘密鍵を『一度も合体させず』に、断片を持ったノード同士の通信だけで正当な署名を生成できるんだ」<br><span class="koma-char-name">[蓮]</span>「鍵そのものが世界のどこにも実体として存在しないのに、送金トランザクションだけが承認されるんだね！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yuma]</span> "With cutting-edge MPC, nodes cooperatively forge signatures without ever reassembling the private key!"<br><span class="koma-char-name">[Ren]</span> "The full key never physically exists anywhere in memory, yet the transfer transaction is securely validated!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">4コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">3台の端末が光のネットワークで繋がり、安全にトランザクションが承認され、4人が歓喜する</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[蓮・結衣]</span>「単一の絶対者を信じるのではなく、数理の合意によって安全を紡ぎ出す！」<br><span class="koma-char-name">[全員]</span>「分散型社会の真の守護神、マルチパーティ計算の魔法で未来を拓こう！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Ren & Yui]</span> "Not trusting a single absolute point, but weaving safety through mathematical consensus!"<br><span class="koma-char-name">[All]</span> "The true guardian of decentralized society: forging tomorrow with the magic of MPC!"</div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+
+    <!-- 小説本文 -->
+    <section class="novel-section">
+      <div class="section-title">
+        <h2>📖 小説本文</h2>
+      </div>
+      <div class="novel-body">
+        <p>初冬の冷たい風が吹き抜ける放課後、青葉台高校の情報科学部室。橘葵は、机の上に置かれた金属製のプレートと、そこに刻印された12個の英単語――暗号資産ウォレットのリカバリーフレーズ（BIP-39ニーモニック）を前に、頭を抱えていた。</p>
+<p class="dialogue">「……ねえ悠真先輩、これ、プレッシャーで胃が痛くなるよ」</p>
+<p>葵が机に突っ伏した。
+「情報科学部の共有プロジェクトで管理してる暗号資産テストネットの鍵なんだけど、もしこの金属プレートを部室で失くしたり、誰かにスマホでパシャって盗撮されたら、すべての資産が一瞬で盗まれちゃうんでしょ？ 銀行なら窓口で再発行してくれるのに、ブロックチェーンは秘密鍵を失ったら自己責任の自己破産なんて、怖すぎて夜も眠れないよ！」</p>
+<p>神崎蓮が頷きながらタブレットを操作した。
+「まさにそれが、暗号資産業界で毎年何千億円もの盗難被害を出している**単一障害点（SPOF: Single Point of Failure）**の問題ですね。取引所がハッキングされたり、CEOが急死してコールドウォレットの秘密鍵が誰にも分からなくなったり、PCに感染したインフォスティーラー（情報窃取マルウェア）に鍵ファイルを抜かれたり……」</p>
+<p class="dialogue">「その絶望的な脆弱性を根本から打ち破る暗号理論の切り札があるんだ」</p>
+<p>城崎悠真が立ち上がり、黒板に綺麗な2次曲線の放物線を描き始めた。
+「鍵を『1つの場所』に置くから危険なんだ。鍵を数学的に粉々に砕き、世界中の異なるサーバやスマートフォンに分散して持たせる。そして、**いざ送金するときですら、秘密鍵を一度も元の形に復元することなく署名だけを完成させる**。それが、横浜国立大学SPIRALのNexCrypt Lab（四方順司教授・佐藤慎悟准教授ら）も追究する**『セキュアマルチパーティ計算（MPC: Secure Multi-Party Computation）』**と**『閾値署名（Threshold Signature）』**の神髄だよ」</p>
+<p>白石結衣の目が生き生きと輝いた。
+「1979年にアディ・シャミア（Adi Shamir）が考案した**『シャミアの秘密分散法（Shamir&#x27;s Secret Sharing）』**と、現代の分散合意プロトコルの融合ですね！」</p>
+<p>---</p>
+      </div>
+    </section>
+
+    <!-- TikZ 技術構造図解 -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>📊 セキュリティ構造図解 (TikZ LuaLaTeX生成)</h2>
+        <span class="visual-badge">国家安全基準・工学図解</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/fig68_mpc_threshold_signatures.png" alt="第68話 セキュリティ構造図解" class="responsive-img">
+        <p class="caption">▲ 【技術構造図】IPAデジタルスキル標準・国際規格に準拠した仕組みのモデル化</p>
+      </div>
+    </section>
+
+    <!-- 深掘りコラム -->
+    <section class="column-section">
+      <div class="section-title">
+        <h2>💡 高校生のためのセキュリティ深掘りコラム ＆ 大学進路ガイド</h2>
+      </div>
+      
+    </section>
+
+    <!-- 前後ナビゲーション -->
+    <nav class="episode-nav">
+      <a href="ep67.html" class="nav-btn">← 第67話: 漏れ出る電流と隠蔽の仮面 〜耐量子格...</a>
+      <a href="../index.html" class="nav-btn center">目次に戻る</a>
+      <a href="ep69.html" class="nav-btn next">第69話: 暴走するポインタと所有権の規律 〜レ... →</a>
+    </nav>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 放課後サイバーディフェンス・ラボ (Cybersecurity Novel Library)</p>
+    <p>Repository: <a href="https://github.com/k518-2026/cybersecurity-novel" target="_blank" rel="noopener" style="color: var(--primary);">k518-2026/cybersecurity-novel</a></p>
+  </footer>
+
+</body>
+</html>
