@@ -22,12 +22,12 @@
 
 \node[greenblock, below right=1.2cm and 0.4cm of top, text width=5.6cm] (quantum) {\textbf{Quantum Search Optimization}\\$\bullet$ Massive MIMO secrecy beamforming\\$\bullet$ Grover adaptive quantum search $O(\sqrt{N})$\\$\bullet$ Rapid convergence in dynamic channels};
 
-\node[block, below=2.8cm of top, text width=12cm] (bottom) {\textbf{YNU SPIRAL Quantum PLS Framework (IEEE Access 2025)}\\Secrecy capacity $C_s = \max [C_M - C_W, 0]$ is maximized to guarantee zero eavesdropping leakage};
+\node[block, below=1.0cm of $(channel.south)!0.5!(quantum.south)$, text width=12cm] (bottom) {\textbf{YNU SPIRAL Quantum PLS Framework (IEEE Access 2025)}\\Secrecy capacity $C_s = \max [C_M - C_W, 0]$ is maximized to guarantee zero eavesdropping leakage};
 
 \draw[->, thick, blue!70!black] (top) -| (channel);
 \draw[->, thick, green!60!black] (top) -| (quantum);
-\draw[->, thick, blue!70!black] (channel) |- (bottom);
-\draw[->, thick, blue!70!black] (quantum) |- (bottom);
+\draw[->, thick, blue!70!black] (channel.south) -- ++(0,-0.45) -| ([xshift=-2.5cm]bottom.north);
+\draw[->, thick, blue!70!black] (quantum.south) -- ++(0,-0.45) -| ([xshift=2.5cm]bottom.north);
 
 \end{tikzpicture}
 \end{document}

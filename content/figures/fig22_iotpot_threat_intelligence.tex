@@ -17,7 +17,7 @@
 
   % Attacker (Left)
   \node[draw=botred, fill=red!8, rounded corners=6pt, line width=1.3pt, minimum width=4.8cm, minimum height=5.8cm, align=center] at (-7.5, 3.2) {
-    \textbf{\color{botred} 👾 攻撃者・感染IoT機器}\\[6pt]
+    \textbf{\color{botred} 攻撃者・感染IoT機器}\\[6pt]
     \footnotesize ・無差別Telnetスキャン\\
     \footnotesize ・ルータ / 防犯カメラ標的\\[8pt]
     \textbf{【多様なCPUアーキテクチャ】}\\
@@ -28,21 +28,20 @@
   };
 
   % Middle: IoTPOT (Frontend + Sandbox IoTBOX)
-  \node[draw=honeydark, fill=orange!4, rounded corners=8pt, line width=1.5pt, minimum width=6.8cm, minimum height=5.8cm, align=center] at (0, 3.2) {
-    \textbf{\color{honeydark!90!black} 🍯 IoTPOT フロントエンド}\\[4pt]
-    \footnotesize 仮想IoTデバイスとしてTelnet対話を模倣\\[6pt]
-    \draw[->, thick, honeydark] (-2.2, 0) -- (2.2, 0) node[midway, above, font=\scriptsize] {検体転送};
-    \\[6pt]
-    \textbf{\color{intelblue} 📦 IoTBOX 動的サンドボックス}\\[4pt]
+  \node[draw=honeydark, fill=orange!4, rounded corners=8pt, line width=1.5pt, minimum width=6.8cm, minimum height=5.8cm, align=center] (iotpot) at (0, 3.2) {
+    \textbf{\color{honeydark!90!black} IoTPOT フロントエンド}\\[4pt]
+    \footnotesize 仮想IoTデバイスとしてTelnet対話を模倣\\[18pt]
+    \textbf{\color{intelblue} IoTBOX 動的サンドボックス}\\[4pt]
     \footnotesize ・QEMU仮想環境で各種CPUを実行\\
     \footnotesize ・マルウェアの通信先（C2サーバー）\\
     \footnotesize 　およびDDoS攻撃命令を安全に記録\\
     \footnotesize ・ハッシュ値とシグネチャの自動生成
   };
+  \draw[->, thick, honeydark] (-2.2, 3.3) -- (2.2, 3.3) node[midway, above, font=\scriptsize] {検体転送};
 
   % Right: Global Threat Intelligence
   \node[draw=intelblue, fill=blue!5, rounded corners=6pt, line width=1.3pt, minimum width=5.2cm, minimum height=5.8cm, align=center] at (7.5, 3.2) {
-    \textbf{\color{intelblue} 🌐 観測インテリジェンス}\\[6pt]
+    \textbf{\color{intelblue} 観測インテリジェンス}\\[6pt]
     \footnotesize 1. \textbf{Miraiの起源と進化の特定}\\
     \footnotesize 　世界初のIoTマルウェア長期観測\\[6pt]
     \footnotesize 2. \textbf{産官学連携・国際共有}\\

@@ -22,12 +22,12 @@
 
 \node[greenblock, below right=1.2cm and 0.4cm of top, text width=5.6cm] (dual_llm) {\textbf{Dual-LLM Privileged Separation}\\$\bullet$ Quarantined LLM: parses raw data (no tools)\\$\bullet$ Privileged LLM: user instructions \& tool APIs\\$\bullet$ Strict JSON schema structured validation};
 
-\node[block, below=2.8cm of top, text width=12cm] (bottom) {\textbf{Architectural Least-Privilege Guardrails for Autonomous Agents}\\Treating untrusted natural language strictly as passive data rather than executable code};
+\node[block, below=1.0cm of $(injection.south)!0.5!(dual_llm.south)$, text width=12cm] (bottom) {\textbf{Architectural Least-Privilege Guardrails for Autonomous Agents}\\Treating untrusted natural language strictly as passive data rather than executable code};
 
 \draw[->, thick, red!70!black] (top) -| (injection);
 \draw[->, thick, green!60!black] (top) -| (dual_llm);
-\draw[->, thick, blue!70!black] (injection) |- (bottom);
-\draw[->, thick, blue!70!black] (dual_llm) |- (bottom);
+\draw[->, thick, blue!70!black] (injection.south) -- ++(0,-0.45) -| ([xshift=-2.5cm]bottom.north);
+\draw[->, thick, blue!70!black] (dual_llm.south) -- ++(0,-0.45) -| ([xshift=2.5cm]bottom.north);
 
 \end{tikzpicture}
 \end{document}

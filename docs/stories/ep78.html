@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第78話 偽りの蜜壺と目覚める罠 〜暗号学的ハニートークンと能動的欺瞞（ディセプション）防御〜 | 放課後サイバーディフェンス・ラボ</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Shippori+Mincho:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="story-header">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">トップ (目次)</a> &gt; <span>第78話</span>
+      </div>
+      <div class="story-ep-tag">Episode 78</div>
+      <h1 class="story-main-title">偽りの蜜壺と目覚める罠 〜暗号学的ハニートークンと能動的欺瞞（ディセプション）防御〜</h1>
+      <div class="story-meta">
+        <span>📚 学習テーマ: <strong>横浜国大SPIRAL吉岡克成教授ら、サイバー欺瞞技術（Cyber Deception Technology）、ハニーポット・ハニートークン（Honeytokens）、クラウド環境（AWS/GCP/GitHub）における暗号学的偽装認証情報の配置、攻撃者の侵入偵察行動のゼロ遅延検知、および能動的インシデントレスポンス</strong></span>
+        <span>🏫 登場人物: 城崎悠真（部長・高2）、橘葵（部員・高2）、芹沢涼香准教授（大学メンター）</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container story-container">
+
+    <!-- ストーリーイラスト (4コマ漫画) -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>🎨 4コマ漫画挿絵（文字なし）</h2>
+        <span class="visual-badge">AI高解像度生成</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/ep78_4koma.png" alt="第78話 ストーリーイラスト" class="responsive-img">
+        <p class="caption">▲ 【挿絵】青葉台高校 情報科学部＆帝都科学大学サイバーディフェンス・ラボでの実践シーン</p>
+      </div>
+    </section>
+
+    <!-- 4コマ漫画セリフ（日・英バイリンガル）※存在する場合 -->
+    
+            <div class="koma-script-box">
+              <div class="koma-script-header">
+                <h3>💬 4コマ漫画キャラクターセリフ (Story Dialogue Script)</h3>
+                <span class="lang-tag">日・英バイリンガル (JA / EN)</span>
+              </div>
+              <div class="koma-panels-list">
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">1コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">部室のモニタにクラウドのリポジトリや社内サーバのファイル構成図が表示されている</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[葵]</span>「毎日何百万件も届くセキュリティ警告……。本物のハッカーの侵入なのか誤報（False Positive）なのか、見分けるだけで疲れ果てちゃうよ！」<br><span class="koma-char-name">[蓮]</span>「侵入検知システム（IDS）のアラート疲れは、世界中のセキュリティ担当者の最大の悩みだね」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Aoi]</span> "Millions of daily security alerts... distinguishing real hacker break-ins from false alarms is utterly exhausting!"<br><span class="koma-char-name">[Ren]</span> "Alert fatigue from detection systems is indeed the single biggest headache for defenders worldwide!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">2コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">悠真が甘い蜜の入った壺と、光り輝く偽のAWSアクセスキーを取り出して微笑む</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[悠真]</span>「それなら、ハッカーが思わず盗みたくなる『偽の宝物（ハニートークン）』をわざと部屋の片隅に置いておけばいいんだ」<br><span class="koma-char-name">[葵]</span>「えっ！？ 泥棒のために偽の合鍵を置いておくの！？ それでどうして侵入が防げるの！？」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yuma]</span> "Then simply plant enticing 'decoy treasures' (honeytokens)—like fake AWS keys—quietly in the dark corners!"<br><span class="koma-char-name">[Aoi]</span> "What!? Leaving fake keys for thieves on purpose!? How does that protect our systems!?"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">3コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">結衣が「暗号学的ハニートークン」のトラップワイヤー（罠線）の仕組みを展開する</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[結衣]</span>「正規の社員は誰も触らない偽のAPIキーです！ ハッカーがそれを1回でも使った瞬間、誤報ゼロ（100%確定）で警報が炸裂します！」<br><span class="koma-char-name">[蓮]</span>「使われた瞬間に攻撃者のIP、使用ツール、偵察経路が丸裸になってクラウド側で即座に遮断できるんだね！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yui]</span> "Legitimate employees never touch these decoy keys! The microsecond a hacker exercises one, a 100% true-positive alarm detonates!"<br><span class="koma-char-name">[Ren]</span> "Instantly exposing the intruder's IP, tooling, and lateral path, triggering immediate cloud isolation!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">4コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">画面のサイレンランプが点滅し、罠にかかった攻撃者が瞬時に隔離（隔離サンドボックス行き）されて4人が会心の笑顔</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[葵]</span>「守る側が待ち伏せて罠を仕掛ける！ これが受動から能動へと進化する『ディセプション防御』なんだね！」<br><span class="koma-char-name">[全員]</span>「欺瞞の知恵で攻撃者を出し抜き、私たちはサイバー空間の主導権を奪還する！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Aoi]</span> "Defenders turning the tables with active ambushes! That is the power of 'Cyber Deception'!"<br><span class="koma-char-name">[All]</span> "Outsmarting adversaries with strategic deception, we reclaim total control of cyberspace!"</div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+
+    <!-- 小説本文 -->
+    <section class="novel-section">
+      <div class="section-title">
+        <h2>📖 小説本文</h2>
+      </div>
+      <div class="novel-body">
+        <p>冬の静かな放課後、青葉台高校の情報科学部室。大型ディスプレイには、部室のローカルサーバとクラウド環境に日々押し寄せる何万件ものログイベントが、滝のような勢いで流れていた。</p>
+<p>赤い「WARNING」や黄色の「CAUTION」の文字が画面を埋め尽くしている。</p>
+<p class="dialogue">「……うう、もう目がチカチカする！」</p>
+<p>橘葵が頭を抱えて椅子にもたれかかった。
+「毎日何千件もアラートが鳴るけど、その99%はただのクローラーのスキャンだったり、部員の打ち間違いだったりするじゃない。どれが『本物のハッカーの侵入』なのか、アラートを1件ずつ調べるだけで日が暮れちゃうよ！」</p>
+<p class="dialogue">「それが、現代のSOC（セキュリティ監視センタ）を苦しめている**『アラート疲弊（Alert Fatigue）』**ですよ、葵先輩」</p>
+<p>神崎蓮がログ解析ツールを見ながら溜息をついた。
+「どんなに高価な侵入検知システム（IDS）やSIEMを入れても、誤検知（False Positive）の山に埋もれてしまい、肝心の巧妙な標的型攻撃やランサムウェアの潜入を見落としてしまう……。守る側は常に数万の扉をすべて完璧に見張らなければならないのに、攻める側はどこか1つの隙間をこじ開ければ勝てるなんて、不公平すぎます！」</p>
+<p class="dialogue">「なら、その非対称な関係を逆転させてみようか」</p>
+<p>ドアを開けて入ってきた城崎悠真が、あたたかいカフェオレを置きながら不敵な笑みを浮かべた。
+「泥棒が入ってくるのをビクビク待つのはやめだ。**『侵入者が絶対に我慢できずに手を伸ばしてしまう偽の鍵（宝物）』**を、社内サーバやGitリポジトリの片隅にわざと撒き餌として置いておくんだ。それが、横浜国立大学SPIRAL（吉岡克成教授ら）のハニーポット研究の系譜を受け継ぐ先端技術――**『サイバー欺瞞（Cyber Deception）と暗号学的ハニートークン（Honeytokens）』**だよ」</p>
+<p>白石結衣がホワイトボードに鮮やかな罠のフローチャートを描き始めた。
+「守備側が攻撃者を能動的に騙し、心理的トラップにかけるディセプション技術ですね！」</p>
+<p>---</p>
+      </div>
+    </section>
+
+    <!-- TikZ 技術構造図解 -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>📊 セキュリティ構造図解 (TikZ LuaLaTeX生成)</h2>
+        <span class="visual-badge">国家安全基準・工学図解</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/fig78_honeytoken_deception.png" alt="第78話 セキュリティ構造図解" class="responsive-img">
+        <p class="caption">▲ 【技術構造図】IPAデジタルスキル標準・国際規格に準拠した仕組みのモデル化</p>
+      </div>
+    </section>
+
+    <!-- 深掘りコラム -->
+    <section class="column-section">
+      <div class="section-title">
+        <h2>💡 高校生のためのセキュリティ深掘りコラム ＆ 大学進路ガイド</h2>
+      </div>
+      
+    </section>
+
+    <!-- 前後ナビゲーション -->
+    <nav class="episode-nav">
+      <a href="ep77.html" class="nav-btn">← 第77話: 虚空の反射と調和の鍵 〜再構成可能イ...</a>
+      <a href="../index.html" class="nav-btn center">目次に戻る</a>
+      <span class="nav-disabled">最新エピソード</span>
+    </nav>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 放課後サイバーディフェンス・ラボ (Cybersecurity Novel Library)</p>
+    <p>Repository: <a href="https://github.com/k518-2026/cybersecurity-novel" target="_blank" rel="noopener" style="color: var(--primary);">k518-2026/cybersecurity-novel</a></p>
+  </footer>
+
+</body>
+</html>

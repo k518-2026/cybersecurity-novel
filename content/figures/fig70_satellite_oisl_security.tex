@@ -22,12 +22,12 @@
 
 \node[greenblock, below right=1.2cm and 0.4cm of top, text width=5.6cm] (oisl) {\textbf{Optical Inter-Satellite Links (OISL)}\\$\bullet$ 1550nm laser with micro-radian divergence\\$\bullet$ Pointing, Acquisition, Tracking (PAT)\\$\bullet$ Physical line-of-sight eavesdropping immunity};
 
-\node[block, below=2.8cm of top, text width=12cm] (bottom) {\textbf{Orbital Laser Mesh Routing with Post-Quantum Security}\\Direct inter-satellite laser handoffs bypass terrestrial compromised hops with zero RF leakage};
+\node[block, below=1.0cm of $(rf.south)!0.5!(oisl.south)$, text width=12cm] (bottom) {\textbf{Orbital Laser Mesh Routing with Post-Quantum Security}\\Direct inter-satellite laser handoffs bypass terrestrial compromised hops with zero RF leakage};
 
 \draw[->, thick, red!70!black] (top) -| (rf);
 \draw[->, thick, green!60!black] (top) -| (oisl);
-\draw[->, thick, blue!70!black] (rf) |- (bottom);
-\draw[->, thick, blue!70!black] (oisl) |- (bottom);
+\draw[->, thick, blue!70!black] (rf.south) -- ++(0,-0.45) -| ([xshift=-2.5cm]bottom.north);
+\draw[->, thick, blue!70!black] (oisl.south) -- ++(0,-0.45) -| ([xshift=2.5cm]bottom.north);
 
 \end{tikzpicture}
 \end{document}

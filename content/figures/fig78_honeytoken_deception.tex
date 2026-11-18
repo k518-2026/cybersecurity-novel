@@ -1,0 +1,33 @@
+\documentclass[border=12pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning, calc, fit, backgrounds}
+\usepackage{fontspec}
+\usepackage{amsmath,amssymb}
+\setmainfont{DejaVu Sans}
+
+\begin{document}
+\begin{tikzpicture}[
+    font=\small,
+    >=Stealth,
+    node distance=1.2cm,
+    block/.style={rectangle, draw=blue!70!black, fill=blue!5, rounded corners=4pt, thick, align=center, inner sep=7pt},
+    alertblock/.style={rectangle, draw=red!70!black, fill=red!5, rounded corners=4pt, thick, align=center, inner sep=7pt},
+    greenblock/.style={rectangle, draw=green!60!black, fill=green!5, rounded corners=4pt, thick, align=center, inner sep=7pt},
+    amberblock/.style={rectangle, draw=orange!80!black, fill=orange!5, rounded corners=4pt, thick, align=center, inner sep=7pt}
+]
+
+\node[block, text width=12cm] (top) {\textbf{Active Cyber Deception: Turning the Tables on Intruders}\\Moving beyond noisy passive detection by embedding targeted tripwires};
+
+\node[alertblock, below left=1.2cm and 0.4cm of top, text width=5.6cm] (alert_fatigue) {\textbf{The Alert Fatigue Crisis}\\$\bullet$ Millions of noisy daily SIEM/IDS events\\$\bullet$ High false positive rates blind defenders\\$\bullet$ Living-off-the-Land (LotL) evasion};
+
+\node[greenblock, below right=1.2cm and 0.4cm of top, text width=5.6cm] (honeytoken) {\textbf{Cryptographic Honeytokens}\\$\bullet$ Decoy AWS/GCP IAM keys in code/repos\\$\bullet$ Fake canary database credentials\\$\bullet$ Zero false positives: any access = breach};
+
+\node[block, below=1.0cm of $(alert_fatigue.south)!0.5!(honeytoken.south)$, text width=12cm] (bottom) {\textbf{Automated Zero-Delay Incident Response via Deception Traps}\\Instantaneous adversary IP unmasking, host isolation, and redirection into decoy sandboxes};
+
+\draw[->, thick, red!70!black] (top) -| (alert_fatigue);
+\draw[->, thick, green!60!black] (top) -| (honeytoken);
+\draw[->, thick, blue!70!black] (alert_fatigue.south) -- ++(0,-0.45) -| ([xshift=-2.5cm]bottom.north);
+\draw[->, thick, blue!70!black] (honeytoken.south) -- ++(0,-0.45) -| ([xshift=2.5cm]bottom.north);
+
+\end{tikzpicture}
+\end{document}

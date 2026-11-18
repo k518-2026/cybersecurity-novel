@@ -22,12 +22,12 @@
 
 \node[greenblock, below right=1.2cm and 0.4cm of top, text width=5.6cm] (graph) {\textbf{Graph Clustering Heuristics}\\$\bullet$ Multi-input common spending heuristic\\$\bullet$ Change-address mathematical identification\\$\bullet$ Temporal window and fee-volume matching};
 
-\node[block, below=2.8cm of top, text width=12cm] (bottom) {\textbf{De-anonymizing Illicit Financial Flows on Public Ledgers}\\Reconstructing entity clusters and cash-out endpoints via graph analytics to assist legal enforcement};
+\node[block, below=1.0cm of $(mixer.south)!0.5!(graph.south)$, text width=12cm] (bottom) {\textbf{De-anonymizing Illicit Financial Flows on Public Ledgers}\\Reconstructing entity clusters and cash-out endpoints via graph analytics to assist legal enforcement};
 
 \draw[->, thick, red!70!black] (top) -| (mixer);
 \draw[->, thick, green!60!black] (top) -| (graph);
-\draw[->, thick, blue!70!black] (mixer) |- (bottom);
-\draw[->, thick, blue!70!black] (graph) |- (bottom);
+\draw[->, thick, blue!70!black] (mixer.south) -- ++(0,-0.45) -| ([xshift=-2.5cm]bottom.north);
+\draw[->, thick, blue!70!black] (graph.south) -- ++(0,-0.45) -| ([xshift=2.5cm]bottom.north);
 
 \end{tikzpicture}
 \end{document}

@@ -22,12 +22,12 @@
 
 \node[greenblock, below right=1.2cm and 0.4cm of top, text width=5.6cm] (masking) {\textbf{Algorithmic Masking Defenses}\\$\bullet$ Random arithmetic/boolean shares $x_1, x_2$\\$\bullet$ Independent computation channels\\$\bullet$ Correlation drops to zero noise floor};
 
-\node[block, below=2.8cm of top, text width=12cm] (bottom) {\textbf{Unified Mathematical and Semiconductor Circuit Hardening}\\Protecting post-quantum cryptographic accelerators against physical side-channel exploitation};
+\node[block, below=1.0cm of $(cpa.south)!0.5!(masking.south)$, text width=12cm] (bottom) {\textbf{Unified Mathematical and Semiconductor Circuit Hardening}\\Protecting post-quantum cryptographic accelerators against physical side-channel exploitation};
 
 \draw[->, thick, red!70!black] (top) -| (cpa);
 \draw[->, thick, green!60!black] (top) -| (masking);
-\draw[->, thick, blue!70!black] (cpa) |- (bottom);
-\draw[->, thick, blue!70!black] (masking) |- (bottom);
+\draw[->, thick, blue!70!black] (cpa.south) -- ++(0,-0.45) -| ([xshift=-2.5cm]bottom.north);
+\draw[->, thick, blue!70!black] (masking.south) -- ++(0,-0.45) -| ([xshift=2.5cm]bottom.north);
 
 \end{tikzpicture}
 \end{document}

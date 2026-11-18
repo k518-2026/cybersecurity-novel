@@ -22,12 +22,12 @@
 
 \node[greenblock, below right=1.2cm and 0.4cm of top, text width=5.6cm] (grouptest) {\textbf{Combinatorial Group Testing}\\$\bullet$ $d$-disjunct test matrix $M \in \{0, 1\}^{t \times N}$\\$\bullet$ Identify colluders with logarithmic tests\\$\bullet$ LWE component matrix sharing};
 
-\node[block, below=2.8cm of top, text width=12cm] (bottom) {\textbf{YNU SPIRAL Compact BC-IBE (CANS 2024 / SCIS 2025)}\\Group testing drastically compresses MPK size, enabling post-quantum IBE on constrained IoT devices};
+\node[block, below=1.0cm of $(bottleneck.south)!0.5!(grouptest.south)$, text width=12cm] (bottom) {\textbf{YNU SPIRAL Compact BC-IBE (CANS 2024 / SCIS 2025)}\\Group testing drastically compresses MPK size, enabling post-quantum IBE on constrained IoT devices};
 
 \draw[->, thick, orange!80!black] (top) -| (bottleneck);
 \draw[->, thick, green!60!black] (top) -| (grouptest);
-\draw[->, thick, blue!70!black] (bottleneck) |- (bottom);
-\draw[->, thick, blue!70!black] (grouptest) |- (bottom);
+\draw[->, thick, blue!70!black] (bottleneck.south) -- ++(0,-0.45) -| ([xshift=-2.5cm]bottom.north);
+\draw[->, thick, blue!70!black] (grouptest.south) -- ++(0,-0.45) -| ([xshift=2.5cm]bottom.north);
 
 \end{tikzpicture}
 \end{document}

@@ -22,12 +22,12 @@
 
 \node[greenblock, below right=1.2cm and 0.4cm of top, text width=5.6cm] (dp) {\textbf{Differential Privacy ($\epsilon$-DP)}\\$\bullet$ Laplace Mechanism: noise $Y \sim \text{Lap}(\Delta f / \epsilon)$\\$\bullet$ Neighboring database query invariance\\$\bullet$ Rigorous mathematical privacy budget};
 
-\node[block, below=2.8cm of top, text width=12cm] (bottom) {\textbf{Collective Cyber Defense Alliance with Formal Privacy Guarantees}\\Macro threat trends are crystal clear while individual corporate identities remain 100\% unidentifiable};
+\node[block, below=1.0cm of $(dilemma.south)!0.5!(dp.south)$, text width=12cm] (bottom) {\textbf{Collective Cyber Defense Alliance with Formal Privacy Guarantees}\\Macro threat trends are crystal clear while individual corporate identities remain 100\% unidentifiable};
 
 \draw[->, thick, red!70!black] (top) -| (dilemma);
 \draw[->, thick, green!60!black] (top) -| (dp);
-\draw[->, thick, blue!70!black] (dilemma) |- (bottom);
-\draw[->, thick, blue!70!black] (dp) |- (bottom);
+\draw[->, thick, blue!70!black] (dilemma.south) -- ++(0,-0.45) -| ([xshift=-2.5cm]bottom.north);
+\draw[->, thick, blue!70!black] (dp.south) -- ++(0,-0.45) -| ([xshift=2.5cm]bottom.north);
 
 \end{tikzpicture}
 \end{document}

@@ -22,12 +22,12 @@
 
 \node[greenblock, below right=1.2cm and 0.4cm of top, text width=5.6cm] (rust) {\textbf{Rust Memory Safety Invariants}\\$\bullet$ Compile-time Borrow Checker\\$\bullet$ Ownership and Move semantics\\$\bullet$ Aliasing XOR Mutability (Zero GC)};
 
-\node[block, below=2.8cm of top, text width=12cm] (bottom) {\textbf{Memory-Safe Systems Re-Engineering for Core Infrastructure}\\Uncompromising bare-metal execution speed combined with formal compile-time safety guarantees};
+\node[block, below=1.0cm of $(c_bugs.south)!0.5!(rust.south)$, text width=12cm] (bottom) {\textbf{Memory-Safe Systems Re-Engineering for Core Infrastructure}\\Uncompromising bare-metal execution speed combined with formal compile-time safety guarantees};
 
 \draw[->, thick, red!70!black] (top) -| (c_bugs);
 \draw[->, thick, green!60!black] (top) -| (rust);
-\draw[->, thick, blue!70!black] (c_bugs) |- (bottom);
-\draw[->, thick, blue!70!black] (rust) |- (bottom);
+\draw[->, thick, blue!70!black] (c_bugs.south) -- ++(0,-0.45) -| ([xshift=-2.5cm]bottom.north);
+\draw[->, thick, blue!70!black] (rust.south) -- ++(0,-0.45) -| ([xshift=2.5cm]bottom.north);
 
 \end{tikzpicture}
 \end{document}

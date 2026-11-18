@@ -22,12 +22,12 @@
 
 \node[greenblock, below right=1.2cm and 0.4cm of top, text width=5.6cm] (multi) {\textbf{Multi-User Correlation Exposure}\\$\bullet$ Multiple user public keys $\{G^{(1)}, \dots, G^{(u)}\}$\\$\bullet$ Cross-term algebraic dependencies emerge\\$\bullet$ Bilinear analysis exposes the backdoor!};
 
-\node[block, below=2.8cm of top, text width=12cm] (bottom) {\textbf{YNU SPIRAL Backdoor Analysis (MobiSec 2024)}\\Solving bilinear equations reveals the designer's backdoor, neutralizing black-box hardware trapdoors};
+\node[block, below=1.0cm of $(single.south)!0.5!(multi.south)$, text width=12cm] (bottom) {\textbf{YNU SPIRAL Backdoor Analysis (MobiSec 2024)}\\Solving bilinear equations reveals the designer's backdoor, neutralizing black-box hardware trapdoors};
 
 \draw[->, thick, red!70!black] (top) -| (single);
 \draw[->, thick, green!60!black] (top) -| (multi);
-\draw[->, thick, blue!70!black] (single) |- (bottom);
-\draw[->, thick, blue!70!black] (multi) |- (bottom);
+\draw[->, thick, blue!70!black] (single.south) -- ++(0,-0.45) -| ([xshift=-2.5cm]bottom.north);
+\draw[->, thick, blue!70!black] (multi.south) -- ++(0,-0.45) -| ([xshift=2.5cm]bottom.north);
 
 \end{tikzpicture}
 \end{document}

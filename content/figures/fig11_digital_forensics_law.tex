@@ -1,0 +1,64 @@
+\documentclass[tikz,border=18pt]{standalone}
+\usepackage{luatexja}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric,arrows.meta,positioning,calc}
+
+\definecolor{lawnavy}{RGB}{20, 60, 130}
+\definecolor{auditgreen}{RGB}{25, 125, 50}
+\definecolor{alertred}{RGB}{190, 30, 30}
+
+\begin{document}
+\begin{tikzpicture}[>=Stealth, font=\small]
+
+  % -------------------------------------------------------------
+  % 上段：インシデント発生時の証拠保全（デジタル・フォレンジックの黄金律）
+  % -------------------------------------------------------------
+  \node[draw=lawnavy, fill=blue!6, rounded corners=8pt, line width=1.5pt, minimum width=20.0cm, minimum height=3.8cm, align=left] (forensics_box) at (0, 3.8) {};
+  
+  \node[above right, font=\large\bfseries, text=lawnavy] at (-9.8, 5.1) {【技術】デジタル・フォレンジック（電子鑑識）：サイバー空間の現場検証};
+
+  \node[draw=alertred, fill=red!15, rounded corners=6pt, thick, align=center, minimum width=5.2cm, minimum height=1.6cm] (step1) at (-6.5, 3.2) {
+    \textbf{① 証拠の保全（書き込み禁止）}\\[2pt]
+    \footnotesize ライトブロッカー経由で接続\\
+    \footnotesize 電源を切らず揮発性メモリ(RAM)も回収
+  };
+
+  \node[draw=lawnavy, fill=white, rounded corners=6pt, thick, align=center, minimum width=5.2cm, minimum height=1.6cm] (step2) at (0.0, 3.2) {
+    \textbf{② ビット単位の完全複製（Image）}\\[2pt]
+    \footnotesize オリジナルを触らずクローンを作成\\
+    \footnotesize SHA-256ハッシュ値で同一性を証明
+  };
+
+  \node[draw=auditgreen, fill=green!15, rounded corners=6pt, very thick, align=center, minimum width=5.2cm, minimum height=1.6cm] (step3) at (6.5, 3.2) {
+    \textbf{\large ③ タイムライン復元・解析}\\[2pt]
+    \footnotesize 削除された痕跡や通信ログを復元\\
+    \footnotesize 不正侵入の経路と時刻を完全特定！
+  };
+
+  \draw[->, very thick, lawnavy] (step1.east) -- (step2.west);
+  \draw[->, very thick, lawnavy] (step2.east) -- (step3.west);
+
+  % -------------------------------------------------------------
+  % 下段：不正アクセス禁止法と法執行・キャリア
+  % -------------------------------------------------------------
+  \node[draw=auditgreen, fill=green!6, rounded corners=8pt, line width=1.5pt, minimum width=20.0cm, minimum height=3.8cm, align=left] (law_box) at (0, -1.4) {};
+  
+  \node[above right, font=\large\bfseries, text=auditgreen] at (-9.8, -0.1) {【法律・職業】不正アクセス禁止法（第3条）とサイバー鑑識官・セキュリティ捜査官};
+
+  \node[draw=lawnavy, fill=blue!15, rounded corners=6pt, thick, align=center, minimum width=9.0cm, minimum height=1.8cm] (law_def) at (-4.8, -2.0) {
+    \textbf{\large 不正アクセス行為の3大類型}\\[3pt]
+    \footnotesize ① 他人のパスワード・識別符号を無断入力する行為\\
+    \footnotesize ② セキュリティホールを突いて制限を免れる行為\\
+    \footnotesize ③ 他人のパスワードを不正に取得・提供する行為
+  };
+
+  \node[draw=auditgreen, fill=green!20, rounded corners=6pt, very thick, align=center, minimum width=9.0cm, minimum height=1.8cm] (career) at (4.8, -2.0) {
+    \textbf{\Large 未来の仕事：デジタル捜査官＆CSIRT}\\[3pt]
+    \footnotesize 警察サイバー犯罪対策課・民間インシデント対応チーム\\
+    \small \textbf{\textcolor{lawnavy}{数学・PCアーキテクチャ・法律を駆使して社会の正義を守る！}}
+  };
+
+  \draw[->, very thick, auditgreen] (law_def.east) -- (career.west);
+
+\end{tikzpicture}
+\end{document}

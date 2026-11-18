@@ -22,12 +22,12 @@
 
 \node[greenblock, below right=1.2cm and 0.4cm of top, text width=5.6cm] (qber) {\textbf{QBER \& Information Theory}\\$\bullet$ Quantum Bit Error Rate threshold $< 11\%$\\$\bullet$ Decoy-state method stops PNS attacks\\$\bullet$ Privacy amplification wipes Eve's info};
 
-\node[block, below=2.8cm of top, text width=12cm] (bottom) {\textbf{Information-Theoretic Security Woven by the Laws of Nature}\\Guaranteed unbreakable regardless of computational power, securing future quantum-resilient communications};
+\node[block, below=1.0cm of $(physics.south)!0.5!(qber.south)$, text width=12cm] (bottom) {\textbf{Information-Theoretic Security Woven by the Laws of Nature}\\Guaranteed unbreakable regardless of computational power, securing future quantum-resilient communications};
 
 \draw[->, thick, green!60!black] (top) -| (physics);
 \draw[->, thick, green!60!black] (top) -| (qber);
-\draw[->, thick, blue!70!black] (physics) |- (bottom);
-\draw[->, thick, blue!70!black] (qber) |- (bottom);
+\draw[->, thick, blue!70!black] (physics.south) -- ++(0,-0.45) -| ([xshift=-2.5cm]bottom.north);
+\draw[->, thick, blue!70!black] (qber.south) -- ++(0,-0.45) -| ([xshift=2.5cm]bottom.north);
 
 \end{tikzpicture}
 \end{document}

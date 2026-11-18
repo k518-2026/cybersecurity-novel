@@ -1,0 +1,77 @@
+\documentclass[tikz,border=18pt]{standalone}
+\usepackage{luatexja}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric,arrows.meta,positioning,calc}
+
+\definecolor{privgreen}{RGB}{30, 130, 60}
+\definecolor{pubblue}{RGB}{20, 80, 160}
+\definecolor{routerorange}{RGB}{215, 110, 20}
+
+\begin{document}
+\begin{tikzpicture}[>=Stealth, font=\small]
+
+  % -------------------------------------------------------------
+  % 左側：家庭・学校のプライベートLAN
+  % -------------------------------------------------------------
+  \node[draw=privgreen, fill=green!6, rounded corners=8pt, line width=1.5pt, minimum width=8.8cm, minimum height=7.2cm, align=center] (lan_box) at (-5.4, 2.0) {};
+  \node[above, font=\large\bfseries, text=privgreen] at (-5.4, 4.8) {【プライベートLAN】学校・自宅のネットワーク};
+
+  \node[draw=privgreen, fill=white, rounded corners=4pt, thick, align=center, minimum width=7.2cm, minimum height=1.3cm] (lan_pc) at (-5.4, 3.8) {
+    \textbf{高校生パソコン (DHCPで自動割当)}\\[2pt]
+    \footnotesize IP: \texttt{192.168.1.15} / MAC: \texttt{00:1A:2B:...}
+  };
+
+  \node[draw=privgreen, fill=white, rounded corners=4pt, thick, align=center, minimum width=7.2cm, minimum height=1.3cm] (lan_phone) at (-5.4, 2.0) {
+    \textbf{高校生スマホ}\\[2pt]
+    \footnotesize IP: \texttt{192.168.1.24}
+  };
+
+  \node[draw=black!70, fill=yellow!15, rounded corners=4pt, align=center, minimum width=7.2cm, minimum height=1.5cm] (lan_dns) at (-5.4, 0.0) {
+    \textbf{DNSキャッシュサーバー}\\[2pt]
+    \footnotesize \texttt{www.example.com} $\rightarrow$ \texttt{203.0.113.80}\\
+    \scriptsize ドメイン名をIPアドレスに電話帳のように変換！
+  };
+
+  % -------------------------------------------------------------
+  % 中央：ルーター（NAT / NAPT：ポート番号で振り分け）
+  % -------------------------------------------------------------
+  \node[draw=routerorange, fill=orange!20, rounded corners=8pt, line width=2pt, align=center, minimum width=4.0cm, minimum height=4.2cm] (router) at (0.0, 2.0) {
+    \textbf{\Large ルーター}\\[4pt]
+    \textbf{\large (NAT / NAPT)}\\[4pt]
+    \footnotesize プライベートIP と\\
+    \footnotesize グローバルIP を\\
+    \footnotesize 相互変換！\\[3pt]
+    \scriptsize 内外を遮断する\\
+    \scriptsize 最初のファイアウォール
+  };
+
+  % -------------------------------------------------------------
+  % 右側：グローバルインターネット
+  % -------------------------------------------------------------
+  \node[draw=pubblue, fill=blue!6, rounded corners=8pt, line width=1.5pt, minimum width=8.8cm, minimum height=7.2cm, align=center] (wan_box) at (5.4, 2.0) {};
+  \node[above, font=\large\bfseries, text=pubblue] at (5.4, 4.8) {【グローバルWAN】世界中のインターネット};
+
+  \node[draw=pubblue, fill=white, rounded corners=4pt, thick, align=center, minimum width=7.2cm, minimum height=1.5cm] (pub_ip) at (5.4, 3.6) {
+    \textbf{契約プロバイダ割当のグローバルIP}\\[2pt]
+    \footnotesize IP: \texttt{198.51.100.42} (世界で唯一の宛先)
+  };
+
+  \node[draw=pubblue, fill=blue!15, rounded corners=4pt, very thick, align=center, minimum width=7.2cm, minimum height=2.2cm] (web_srv) at (5.4, 0.8) {
+    \textbf{\large 目的のWebサーバー}\\[3pt]
+    \footnotesize IP: \texttt{203.0.113.80} (Port: 443 HTTPS)\\[2pt]
+    \scriptsize パケットがルーターを経由してバケツリレーで届く！
+  };
+
+  \draw[->, very thick, privgreen] (lan_pc.east) -- (router.west |- lan_pc.east);
+  \draw[->, very thick, privgreen] (lan_phone.east) -- (router.west |- lan_phone.east);
+  \draw[->, very thick, pubblue] (router.east) -- (pub_ip.west);
+  \draw[->, very thick, pubblue] (pub_ip.south) -- (web_srv.north);
+
+  % 下部まとめ
+  \node[draw=black!70, fill=green!20, rounded corners=6pt, line width=1.2pt, align=center, minimum width=20.0cm, inner sep=6pt] at (0, -2.4) {
+    \textbf{\Large ★ ネットワークが分かるとセキュリティの「どこを守るべきか」が見えてくる！}\\[3pt]
+    \small IPアドレス（住所）、MACアドレス（機器識別）、ポート番号（部屋番号）、DNS（案内所）の連携がインターネットの基礎！
+  };
+
+\end{tikzpicture}
+\end{document}

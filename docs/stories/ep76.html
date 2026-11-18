@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第76話 盗まれる知性と数理の透かし 〜AIモデル抽出攻撃と知的財産ウォーターマーキング〜 | 放課後サイバーディフェンス・ラボ</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Shippori+Mincho:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="story-header">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">トップ (目次)</a> &gt; <span>第76話</span>
+      </div>
+      <div class="story-ep-tag">Episode 76</div>
+      <h1 class="story-main-title">盗まれる知性と数理の透かし 〜AIモデル抽出攻撃と知的財産ウォーターマーキング〜</h1>
+      <div class="story-meta">
+        <span>📚 学習テーマ: <strong>横浜国大SPIRAL四方順司教授・吉岡克成教授ら、AI・機械学習セキュリティ（Adversarial AI）、APIクエリを介した機械学習モデル盗難・モデル抽出（Model Extraction / Model Stealing）攻撃の脅威、知的財産保護のための暗号学的電子透かし（Model Watermarking）、およびバックドア埋め込み型所有権証明アルゴリズム</strong></span>
+        <span>🏫 登場人物: 城崎悠真（部長・高2）、橘葵（部員・高2）、芹沢涼香准教授（大学メンター）</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container story-container">
+
+    <!-- ストーリーイラスト (4コマ漫画) -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>🎨 4コマ漫画挿絵（文字なし）</h2>
+        <span class="visual-badge">AI高解像度生成</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/ep76_4koma.png" alt="第76話 ストーリーイラスト" class="responsive-img">
+        <p class="caption">▲ 【挿絵】青葉台高校 情報科学部＆帝都科学大学サイバーディフェンス・ラボでの実践シーン</p>
+      </div>
+    </section>
+
+    <!-- 4コマ漫画セリフ（日・英バイリンガル）※存在する場合 -->
+    
+            <div class="koma-script-box">
+              <div class="koma-script-header">
+                <h3>💬 4コマ漫画キャラクターセリフ (Story Dialogue Script)</h3>
+                <span class="lang-tag">日・英バイリンガル (JA / EN)</span>
+              </div>
+              <div class="koma-panels-list">
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">1コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">部室で葵が自慢げに「情報科学部特製の超高精度AI判定モデル」のAPI画面を見せている</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[葵]</span>「数ヶ月かけて膨大なデータを集めて学習させた部活秘伝の最高性能AIだよ！ クラウドAPIとして公開したから大人気間違いなし！」<br><span class="koma-char-name">[蓮]</span>「数千万円規模の計算資源を投じる企業でも、AIモデルそのものは最高の知的財産ですね！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Aoi]</span> "Our club's masterwork AI model, trained on massive datasets over months! Now deployed as a public API, it'll be a massive hit!"<br><span class="koma-char-name">[Ren]</span> "Indeed! For tech firms spending millions on compute, the trained model weights are their crowning intellectual property!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">2コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">蓮がサーバのAPIアクセスログを見て、特定のIPから大量の機械的クエリが連続送信されている異常を発見する</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[蓮]</span>「葵先輩、大変です！ 海外の不審なIPがAPIに何十万回も問い合わせて、AIの回答確率（ソフトラベル）を丸ごと吸い出しています！」<br><span class="koma-char-name">[葵]</span>「ええっ！？ モデルの中身を直接ハッキングしなくても、APIの外側からAIの知能を丸パクリできちゃうの！？」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Ren]</span> "Aoi, red alert! A rogue client is firing hundreds of thousands of automated queries, harvesting our AI's prediction probabilities!"<br><span class="koma-char-name">[Aoi]</span> "What!? Without breaching the server, they can clone our entire model just through the front door API!?"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">3コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">結衣が「暗号学的モデル電子透かし（Watermarking）」の秘密の署名トリガーを提示する</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[結衣]</span>「これが『モデル抽出攻撃』です！ でも安心してください、学習時に特定のノイズ画像に対してだけ合言葉を出力する『暗号透かし』を焼き込んであります！」<br><span class="koma-char-name">[悠真]</span>「海賊版AIが作られても、その秘密のクエリを投げれば『これは我々の盗難モデルだ』と数学的に100%立証できるんだ」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yui]</span> "This is a Model Extraction attack! But fear not: we embedded a cryptographic trigger watermark during training that responds only to secret keys!"<br><span class="koma-char-name">[Yuma]</span> "Even if they clone it, probing the pirate AI with our key mathematically proves intellectual property theft in any court!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">4コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">秘密の検証クエリを投げると、海賊版AIが白石結衣の指定した透かし署名を出力し、不正コピーを完全摘発。4人が笑顔で勝利のハイタッチ</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[葵]</span>「外側から盗まれても、モデル自身のDNAが泥棒を告発する！ 数学の透かしって本当に頼もしいね！」<br><span class="koma-char-name">[全員]</span>「知能の権利を暗号で護り抜き、私たちは次世代AIエコシステムの正義を拓く！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Aoi]</span> "Even if cloned from the outside, the AI's internal DNA exposes the thief! Cryptographic watermarks are brilliant!"<br><span class="koma-char-name">[All]</span> "Safeguarding intellectual ownership with rigorous cryptography, we champion integrity in the AI era!"</div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+
+    <!-- 小説本文 -->
+    <section class="novel-section">
+      <div class="section-title">
+        <h2>📖 小説本文</h2>
+      </div>
+      <div class="novel-body">
+        <p>冬晴れの放課後、青葉台高校の情報科学部室。大型モニターには、葵が誇らしげに腕組みをしながら立ち、その隣で神崎蓮が真剣な表情でネットワークトラフィックを監視していた。</p>
+<p class="dialogue">「見てよ蓮くん！ 私たちが半年間かけて収集した膨大なサイバー脅威ログとマルウェアサンプルを学習させた、情報科学部特製の『高精度マルウェア判定AI』よ！ クラウドAPIとして試験公開したら、世界中からアクセスが集まってるの！」</p>
+<p class="dialogue">「確かに素晴らしい精度です、葵先輩。ROC曲線のAUCも0.998を記録していますし、商用のセキュリティベンダーの検知エンジンにも匹敵します。何億・何十億円ものGPU投資を行って独自の大規模モデルを開発する現代のテック企業にとって、**『訓練済みモデルの重み（Weights &amp; Architecture）』**こそが企業の生命線であり、最も価値ある知的財産（IP: Intellectual Property）ですからね」</p>
+<p>蓮が感心したように頷いたその直後、モニターのAPIリクエスト流量グラフが突如として垂直に跳ね上がった。</p>
+<p>警告アラートが激しく点滅する。</p>
+<p>`[HIGH QUERY RATE] 15,000 req/sec from Client IP 203.0.113.88`</p>
+<p class="dialogue">「……ん？ なんだか急にリクエストが激増したよ？ 大ヒットしたのかな！？」葵が目を丸くする。</p>
+<p class="dialogue">「違います！ これは正規の利用者のアクセスじゃありません！」蓮がキーボードを叩き、送信されているペイロードをターミナルに表示させた。「ランダムな合成入力や摂動を加えたデータを、毎秒何万件も規則的に送りつけ、モデルが出力する予測クラスと確率分布ベクトル（ソフトラベル）を全件記録しています……！ 葵先輩、これは**『モデル抽出（Model Extraction / Model Stealing）攻撃』**です！」</p>
+<p class="dialogue">「モデル……抽出！？ サーバーがハッキングされて、モデルファイルが盗まれちゃったの！？」</p>
+<p class="dialogue">「いいえ、サーバーのOSやデータベースには一切侵入されていません」</p>
+<p>背後から静かに入ってきた城崎悠真が、温かいほうじ茶の湯気を揺らしながら告げた。
+「それが、API時代における最も狡猾な知財侵害なんだ。攻撃者はサーバーのセキュリティホールを突く必要すらない。正規に公開されているAPIの入力と出力（入出力ペア）を大量にサンプリングし、それを教師データ（擬似ラベル）として自分の手元にある空っぽのニューラルネットワークを蒸留（Distillation）学習させるんだ。これによって、莫大なコストをかけて開発した本家のモデルと全く同じ知能を持つ『完全なクローン（海賊版モデル）』を、わずか数万円のAPI利用料だけでタダ同然に複製できてしまうんだよ」</p>
+<p class="dialogue">「そんなのズルいよ！」葵が机を叩いた。「半年間必死にデータを集めて徹夜でチューニングした私たちの努力が、外側からAPIを叩くだけで丸パクリされちゃうなんて！」</p>
+<p class="dialogue">「ご安心ください、葵先輩」</p>
+<p>白石結衣がホワイトボードの前に立ち、優雅にペンを走らせた。
+「その盗難をあらかじめ見越して、学習プロセスの段階で**『暗号学的モデル電子透かし（DNN Watermarking）』**を埋め込んであります」</p>
+<p>---</p>
+      </div>
+    </section>
+
+    <!-- TikZ 技術構造図解 -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>📊 セキュリティ構造図解 (TikZ LuaLaTeX生成)</h2>
+        <span class="visual-badge">国家安全基準・工学図解</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/fig76_model_extraction_watermarking.png" alt="第76話 セキュリティ構造図解" class="responsive-img">
+        <p class="caption">▲ 【技術構造図】IPAデジタルスキル標準・国際規格に準拠した仕組みのモデル化</p>
+      </div>
+    </section>
+
+    <!-- 深掘りコラム -->
+    <section class="column-section">
+      <div class="section-title">
+        <h2>💡 高校生のためのセキュリティ深掘りコラム ＆ 大学進路ガイド</h2>
+      </div>
+      
+    </section>
+
+    <!-- 前後ナビゲーション -->
+    <nav class="episode-nav">
+      <a href="ep75.html" class="nav-btn">← 第75話: 螺旋の記録と生命の暗号 〜DNAスト...</a>
+      <a href="../index.html" class="nav-btn center">目次に戻る</a>
+      <a href="ep77.html" class="nav-btn next">第77話: 虚空の反射と調和の鍵 〜再構成可能イ... →</a>
+    </nav>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 放課後サイバーディフェンス・ラボ (Cybersecurity Novel Library)</p>
+    <p>Repository: <a href="https://github.com/k518-2026/cybersecurity-novel" target="_blank" rel="noopener" style="color: var(--primary);">k518-2026/cybersecurity-novel</a></p>
+  </footer>
+
+</body>
+</html>

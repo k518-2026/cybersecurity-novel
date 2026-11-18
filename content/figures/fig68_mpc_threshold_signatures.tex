@@ -22,12 +22,12 @@
 
 \node[greenblock, below right=1.2cm and 0.4cm of top, text width=5.6cm] (mpc) {\textbf{Threshold MPC Signatures}\\$\bullet$ Cooperatively sign without restoring key\\$\bullet$ Private key never assembled in memory\\$\bullet$ Distributed nonces and partial shares};
 
-\node[block, below=2.8cm of top, text width=12cm] (bottom) {\textbf{Decentralized Mathematical Consensus for Institutional Asset Defense}\\Resilient against node compromises, phishing, and insider theft across distributed clouds};
+\node[block, below=1.0cm of $(shamir.south)!0.5!(mpc.south)$, text width=12cm] (bottom) {\textbf{Decentralized Mathematical Consensus for Institutional Asset Defense}\\Resilient against node compromises, phishing, and insider theft across distributed clouds};
 
 \draw[->, thick, orange!80!black] (top) -| (shamir);
 \draw[->, thick, green!60!black] (top) -| (mpc);
-\draw[->, thick, blue!70!black] (shamir) |- (bottom);
-\draw[->, thick, blue!70!black] (mpc) |- (bottom);
+\draw[->, thick, blue!70!black] (shamir.south) -- ++(0,-0.45) -| ([xshift=-2.5cm]bottom.north);
+\draw[->, thick, blue!70!black] (mpc.south) -- ++(0,-0.45) -| ([xshift=2.5cm]bottom.north);
 
 \end{tikzpicture}
 \end{document}

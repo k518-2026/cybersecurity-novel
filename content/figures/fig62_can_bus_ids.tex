@@ -22,12 +22,12 @@
 
 \node[greenblock, below right=1.2cm and 0.4cm of top, text width=5.6cm] (ids) {\textbf{Dual Cyber-Physical CAN-IDS}\\$\bullet$ Inter-Arrival Time (IAT) microsecond jitter\\$\bullet$ CUSUM and entropy anomaly detection\\$\bullet$ Physical layer voltage level fingerprinting};
 
-\node[block, below=2.8cm of top, text width=12cm] (bottom) {\textbf{Real-Time Intrusion Prevention on Microcontrollers}\\Detects malicious message injection within milliseconds without modifying legacy hardware specifications};
+\node[block, below=1.0cm of $(threat.south)!0.5!(ids.south)$, text width=12cm] (bottom) {\textbf{Real-Time Intrusion Prevention on Microcontrollers}\\Detects malicious message injection within milliseconds without modifying legacy hardware specifications};
 
 \draw[->, thick, red!70!black] (top) -| (threat);
 \draw[->, thick, green!60!black] (top) -| (ids);
-\draw[->, thick, blue!70!black] (threat) |- (bottom);
-\draw[->, thick, blue!70!black] (ids) |- (bottom);
+\draw[->, thick, blue!70!black] (threat.south) -- ++(0,-0.45) -| ([xshift=-2.5cm]bottom.north);
+\draw[->, thick, blue!70!black] (ids.south) -- ++(0,-0.45) -| ([xshift=2.5cm]bottom.north);
 
 \end{tikzpicture}
 \end{document}

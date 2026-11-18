@@ -22,12 +22,12 @@
 
 \node[greenblock, below right=1.2cm and 0.4cm of top, text width=5.6cm] (lattice) {\textbf{Post-Quantum Lattice NIZK}\\$\bullet$ Hardness of Shortest Vector (SIS/LWE)\\$\bullet$ Fiat-Shamir non-interactive transform\\$\bullet$ Rejection sampling for perfect ZK};
 
-\node[block, below=2.8cm of top, text width=12cm] (bottom) {\textbf{Compact Verifiable Privacy for the Post-Quantum Era}\\Enabling verifiable zero-knowledge identity, rollup rollouts, and anonymous credentials against quantum computers};
+\node[block, below=1.0cm of $(legacy.south)!0.5!(lattice.south)$, text width=12cm] (bottom) {\textbf{Compact Verifiable Privacy for the Post-Quantum Era}\\Enabling verifiable zero-knowledge identity, rollup rollouts, and anonymous credentials against quantum computers};
 
 \draw[->, thick, red!70!black] (top) -| (legacy);
 \draw[->, thick, green!60!black] (top) -| (lattice);
-\draw[->, thick, blue!70!black] (legacy) |- (bottom);
-\draw[->, thick, blue!70!black] (lattice) |- (bottom);
+\draw[->, thick, blue!70!black] (legacy.south) -- ++(0,-0.45) -| ([xshift=-2.5cm]bottom.north);
+\draw[->, thick, blue!70!black] (lattice.south) -- ++(0,-0.45) -| ([xshift=2.5cm]bottom.north);
 
 \end{tikzpicture}
 \end{document}

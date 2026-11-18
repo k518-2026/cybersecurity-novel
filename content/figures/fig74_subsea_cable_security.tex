@@ -22,12 +22,12 @@
 
 \node[greenblock, below right=1.2cm and 0.4cm of top, text width=5.6cm] (das) {\textbf{Distributed Acoustic Sensing (DAS)}\\$\bullet$ Coherent OTDR laser pulse injection\\$\bullet$ Rayleigh backscatter nanoscale phase shift\\$\bullet$ Pinpointing acoustic disturbances in meters};
 
-\node[block, below=2.8cm of top, text width=12cm] (bottom) {\textbf{Quantum-Repeater Optical Mesh with Automated Subsea Failover}\\Transforming transoceanic fiber cables into giant acoustic sensors and auto-rerouting compromised paths};
+\node[block, below=1.0cm of $(threat.south)!0.5!(das.south)$, text width=12cm] (bottom) {\textbf{Quantum-Repeater Optical Mesh with Automated Subsea Failover}\\Transforming transoceanic fiber cables into giant acoustic sensors and auto-rerouting compromised paths};
 
 \draw[->, thick, red!70!black] (top) -| (threat);
 \draw[->, thick, green!60!black] (top) -| (das);
-\draw[->, thick, blue!70!black] (threat) |- (bottom);
-\draw[->, thick, blue!70!black] (das) |- (bottom);
+\draw[->, thick, blue!70!black] (threat.south) -- ++(0,-0.45) -| ([xshift=-2.5cm]bottom.north);
+\draw[->, thick, blue!70!black] (das.south) -- ++(0,-0.45) -| ([xshift=2.5cm]bottom.north);
 
 \end{tikzpicture}
 \end{document}

@@ -22,12 +22,12 @@
 
 \node[greenblock, below right=1.2cm and 0.4cm of top, text width=5.6cm] (framework) {\textbf{YNU SPIRAL Harm-Minimization}\\$\bullet$ Strict passive observation only\\$\bullet$ Immediate PII redaction and masking\\$\bullet$ $k$-anonymity and differential privacy};
 
-\node[block, below=2.8cm of top, text width=12cm] (bottom) {\textbf{Rigorous Cyber Defense with Uncompromising Research Integrity}\\Technology and ethics advance together to build societal trust without overstepping legal boundaries};
+\node[block, below=1.0cm of $(dilemma.south)!0.5!(framework.south)$, text width=12cm] (bottom) {\textbf{Rigorous Cyber Defense with Uncompromising Research Integrity}\\Technology and ethics advance together to build societal trust without overstepping legal boundaries};
 
 \draw[->, thick, red!70!black] (top) -| (dilemma);
 \draw[->, thick, green!60!black] (top) -| (framework);
-\draw[->, thick, blue!70!black] (dilemma) |- (bottom);
-\draw[->, thick, blue!70!black] (framework) |- (bottom);
+\draw[->, thick, blue!70!black] (dilemma.south) -- ++(0,-0.45) -| ([xshift=-2.5cm]bottom.north);
+\draw[->, thick, blue!70!black] (framework.south) -- ++(0,-0.45) -| ([xshift=2.5cm]bottom.north);
 
 \end{tikzpicture}
 \end{document}

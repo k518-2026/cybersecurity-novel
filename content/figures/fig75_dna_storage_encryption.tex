@@ -22,12 +22,12 @@
 
 \node[greenblock, below right=1.2cm and 0.4cm of top, text width=5.6cm] (coding) {\textbf{DNA Cryptography \& Fountain Codes}\\$\bullet$ Post-quantum ML-KEM/AES pre-encryption\\$\bullet$ Luby Transform (LT) error-free droplets\\$\bullet$ Biological watermarking for verification};
 
-\node[block, below=2.8cm of top, text width=12cm] (bottom) {\textbf{Preserving Humanity's Digital Heritage with Unconditional Integrity}\\Bridging computer science, coding theory, and molecular biology to guarantee millennium-long storage};
+\node[block, below=1.0cm of $(biohazard.south)!0.5!(coding.south)$, text width=12cm] (bottom) {\textbf{Preserving Humanity's Digital Heritage with Unconditional Integrity}\\Bridging computer science, coding theory, and molecular biology to guarantee millennium-long storage};
 
 \draw[->, thick, red!70!black] (top) -| (biohazard);
 \draw[->, thick, green!60!black] (top) -| (coding);
-\draw[->, thick, blue!70!black] (biohazard) |- (bottom);
-\draw[->, thick, blue!70!black] (coding) |- (bottom);
+\draw[->, thick, blue!70!black] (biohazard.south) -- ++(0,-0.45) -| ([xshift=-2.5cm]bottom.north);
+\draw[->, thick, blue!70!black] (coding.south) -- ++(0,-0.45) -| ([xshift=2.5cm]bottom.north);
 
 \end{tikzpicture}
 \end{document}

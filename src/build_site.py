@@ -694,6 +694,33 @@ episodes = [
         "md_file": "2026-11-18_ep75_dna_storage_encryption.md",
         "illust": "ep75_4koma.png",
         "figure": "fig75_dna_storage_encryption.png"
+    },
+    {
+        "num": 76,
+        "id": "ep76",
+        "title": "盗まれる知性と数理の透かし 〜AIモデル抽出攻撃と知的財産ウォーターマーキング〜",
+        "theme": "横浜国大SPIRAL四方順司教授・吉岡克成教授ら、AI・機械学習セキュリティ（Adversarial AI）、APIクエリを介した機械学習モデル盗難・モデル抽出（Model Extraction / Model Stealing）攻撃の脅威、知的財産保護のための暗号学的電子透かし（Model Watermarking）、およびバックドア埋め込み型所有権証明アルゴリズム",
+        "md_file": "2026-11-18_ep76_model_extraction_watermarking.md",
+        "illust": "ep76_4koma.png",
+        "figure": "fig76_model_extraction_watermarking.png"
+    },
+    {
+        "num": 77,
+        "id": "ep77",
+        "title": "虚空の反射と調和の鍵 〜再構成可能インテリジェントサーフェス（RIS）と物理層秘密鍵共有〜",
+        "theme": "横浜国大SPIRAL落合秀樹教授・四方順司教授ら、次世代ワイヤレス通信（6G / Beyond 5G）、物理層セキュリティ（PLS）、再構成可能インテリジェントサーフェス（RIS / メタサーフェス反射板）、電波伝搬路の能動制御による秘密容量最大化、およびチャネル状態情報（CSI）の人工的ランダム化による秘密鍵共有",
+        "md_file": "2026-11-18_ep77_ris_physical_layer_security.md",
+        "illust": "ep77_4koma.png",
+        "figure": "fig77_ris_physical_layer_security.png"
+    },
+    {
+        "num": 78,
+        "id": "ep78",
+        "title": "偽りの蜜壺と目覚める罠 〜暗号学的ハニートークンと能動的欺瞞（ディセプション）防御〜",
+        "theme": "横浜国大SPIRAL吉岡克成教授ら、サイバー欺瞞技術（Cyber Deception Technology）、ハニーポット・ハニートークン（Honeytokens）、クラウド環境（AWS/GCP/GitHub）における暗号学的偽装認証情報の配置、攻撃者の侵入偵察行動のゼロ遅延検知、および能動的インシデントレスポンス",
+        "md_file": "2026-11-18_ep78_honeytoken_deception.md",
+        "illust": "ep78_4koma.png",
+        "figure": "fig78_honeytoken_deception.png"
     }
 ]
 

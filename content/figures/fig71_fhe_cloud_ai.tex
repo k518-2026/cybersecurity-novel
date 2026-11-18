@@ -22,12 +22,12 @@
 
 \node[greenblock, below right=1.2cm and 0.4cm of top, text width=5.6cm] (bootstrapping) {\textbf{Gentry's Bootstrapping}\\$\bullet$ Homomorphic evaluation of decryption circuit\\$\bullet$ Refreshes accumulated noise mid-flight\\$\bullet$ Enables arbitrary computation depth};
 
-\node[block, below=2.8cm of top, text width=12cm] (bottom) {\textbf{Privacy-Preserving Cloud AI \& Confidential Analytics (CKKS/TFHE)}\\Zero plaintext exposure to cloud providers while delivering full neural network inference};
+\node[block, below=1.0cm of $(noise.south)!0.5!(bootstrapping.south)$, text width=12cm] (bottom) {\textbf{Privacy-Preserving Cloud AI \& Confidential Analytics (CKKS/TFHE)}\\Zero plaintext exposure to cloud providers while delivering full neural network inference};
 
 \draw[->, thick, orange!80!black] (top) -| (noise);
 \draw[->, thick, green!60!black] (top) -| (bootstrapping);
-\draw[->, thick, blue!70!black] (noise) |- (bottom);
-\draw[->, thick, blue!70!black] (bootstrapping) |- (bottom);
+\draw[->, thick, blue!70!black] (noise.south) -- ++(0,-0.45) -| ([xshift=-2.5cm]bottom.north);
+\draw[->, thick, blue!70!black] (bootstrapping.south) -- ++(0,-0.45) -| ([xshift=2.5cm]bottom.north);
 
 \end{tikzpicture}
 \end{document}

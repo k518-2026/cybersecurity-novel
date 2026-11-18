@@ -22,12 +22,12 @@
 
 \node[greenblock, below right=1.2cm and 0.4cm of top, text width=5.6cm] (zerotrust) {\textbf{In-Hospital Micro-Segmentation}\\$\bullet$ Passive traffic baseline profiling\\$\bullet$ Dynamic L2/L3 switch isolation per device\\$\bullet$ Immediate lateral movement containment};
 
-\node[block, below=2.8cm of top, text width=12cm] (bottom) {\textbf{Non-Invasive Zero-Trust Defense Protecting Critical Patient Lives}\\Zero modifications required on certified medical hardware while halting ransomware spread at the switch};
+\node[block, below=1.0cm of $(dilemma.south)!0.5!(zerotrust.south)$, text width=12cm] (bottom) {\textbf{Non-Invasive Zero-Trust Defense Protecting Critical Patient Lives}\\Zero modifications required on certified medical hardware while halting ransomware spread at the switch};
 
 \draw[->, thick, red!70!black] (top) -| (dilemma);
 \draw[->, thick, green!60!black] (top) -| (zerotrust);
-\draw[->, thick, blue!70!black] (dilemma) |- (bottom);
-\draw[->, thick, blue!70!black] (zerotrust) |- (bottom);
+\draw[->, thick, blue!70!black] (dilemma.south) -- ++(0,-0.45) -| ([xshift=-2.5cm]bottom.north);
+\draw[->, thick, blue!70!black] (zerotrust.south) -- ++(0,-0.45) -| ([xshift=2.5cm]bottom.north);
 
 \end{tikzpicture}
 \end{document}

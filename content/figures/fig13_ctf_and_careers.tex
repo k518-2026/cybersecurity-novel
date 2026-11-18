@@ -1,0 +1,79 @@
+\documentclass[tikz,border=18pt]{standalone}
+\usepackage{luatexja}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric,arrows.meta,positioning,calc}
+
+\definecolor{ctfgold}{RGB}{210, 130, 20}
+\definecolor{ctfblue}{RGB}{20, 80, 160}
+\definecolor{ctfgreen}{RGB}{25, 125, 50}
+
+\begin{document}
+\begin{tikzpicture}[>=Stealth, font=\small]
+
+  % -------------------------------------------------------------
+  % 上段：CTF（Capture The Flag）競技の主要5大ジャンル
+  % -------------------------------------------------------------
+  \node[draw=ctfgold, fill=orange!6, rounded corners=8pt, line width=1.5pt, minimum width=20.0cm, minimum height=3.8cm, align=left] (ctf_box) at (0, 3.8) {};
+  
+  \node[above right, font=\large\bfseries, text=ctfgold] at (-9.8, 5.1) {【競技】サイバーセキュリティ競技 CTF（Capture The Flag）の主要ジャンル};
+
+  \node[draw=ctfblue, fill=blue!10, rounded corners=4pt, thick, align=center, minimum width=3.5cm, minimum height=1.6cm] (c1) at (-7.2, 3.2) {
+    \textbf{\large Web}\\[2pt]
+    \footnotesize SQLi, XSS, 認証回避\\
+    \tiny Webアプリの欠陥を突く
+  };
+
+  \node[draw=ctfblue, fill=blue!10, rounded corners=4pt, thick, align=center, minimum width=3.5cm, minimum height=1.6cm] (c2) at (-3.6, 3.2) {
+    \textbf{\large Crypto}\\[2pt]
+    \footnotesize RSA暗号, 共通鍵\\
+    \tiny 暗号の数学的弱点を解読
+  };
+
+  \node[draw=ctfblue, fill=blue!10, rounded corners=4pt, thick, align=center, minimum width=3.5cm, minimum height=1.6cm] (c3) at (0.0, 3.2) {
+    \textbf{\large Reversing}\\[2pt]
+    \footnotesize 逆アセンブル, 逆コンパイル\\
+    \tiny バイナリプログラムを解析
+  };
+
+  \node[draw=ctfblue, fill=blue!10, rounded corners=4pt, thick, align=center, minimum width=3.5cm, minimum height=1.6cm] (c4) at (3.6, 3.2) {
+    \textbf{\large Forensics}\\[2pt]
+    \footnotesize パケット解析, 隠しデータ\\
+    \tiny 消された痕跡から旗を探す
+  };
+
+  \node[draw=ctfblue, fill=blue!10, rounded corners=4pt, thick, align=center, minimum width=3.5cm, minimum height=1.6cm] (c5) at (7.2, 3.2) {
+    \textbf{\large Pwn}\\[2pt]
+    \footnotesize メモリ破壊, バッファ溢れ\\
+    \tiny システムの制御権を奪取
+  };
+
+  % -------------------------------------------------------------
+  % 下段：大学進学とセキュリティプロフェッショナルの輝く未来
+  % -------------------------------------------------------------
+  \node[draw=ctfgreen, fill=green!6, rounded corners=8pt, line width=1.5pt, minimum width=20.0cm, minimum height=3.8cm, align=left] (career_box) at (0, -1.4) {};
+  
+  \node[above right, font=\large\bfseries, text=ctfgreen] at (-9.8, -0.1) {【進路】大学情報学部での高度研究から広がるサイバーセキュリティのキャリア};
+
+  \node[draw=ctfgreen, fill=white, rounded corners=6pt, thick, align=center, minimum width=6.0cm, minimum height=1.8cm] (car1) at (-6.2, -2.0) {
+    \textbf{\large セキュリティエンジニア}\\[2pt]
+    \footnotesize 堅牢なクラウド・Webを設計\\
+    \footnotesize 守りのアーキテクトとして活躍！
+  };
+
+  \node[draw=ctfgold, fill=orange!15, rounded corners=6pt, thick, align=center, minimum width=6.0cm, minimum height=1.8cm] (car2) at (0.0, -2.0) {
+    \textbf{\large ホワイトハッカー / ペンテスター}\\[2pt]
+    \footnotesize 模擬攻撃で企業の弱点を診断\\
+    \footnotesize 悪用される前に社会を守る！
+  };
+
+  \node[draw=ctfblue, fill=blue!15, rounded corners=6pt, thick, align=center, minimum width=6.0cm, minimum height=1.8cm] (car3) at (6.2, -2.0) {
+    \textbf{\large セキュリティアナリスト / CISO}\\[2pt]
+    \footnotesize 組織全体の危機管理と戦略立案\\
+    \footnotesize 国家・企業のデジタル信頼を指揮！
+  };
+
+  \draw[->, very thick, ctfgreen] (car1.east) -- (car2.west);
+  \draw[->, very thick, ctfgreen] (car2.east) -- (car3.west);
+
+\end{tikzpicture}
+\end{document}
