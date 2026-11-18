@@ -1,0 +1,33 @@
+\documentclass[border=12pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning, calc, fit, backgrounds}
+\usepackage{fontspec}
+\usepackage{amsmath,amssymb}
+\setmainfont{DejaVu Sans}
+
+\begin{document}
+\begin{tikzpicture}[
+    font=\small,
+    >=Stealth,
+    node distance=1.2cm,
+    block/.style={rectangle, draw=blue!70!black, fill=blue!5, rounded corners=4pt, thick, align=center, inner sep=7pt},
+    alertblock/.style={rectangle, draw=red!70!black, fill=red!5, rounded corners=4pt, thick, align=center, inner sep=7pt},
+    greenblock/.style={rectangle, draw=green!60!black, fill=green!5, rounded corners=4pt, thick, align=center, inner sep=7pt},
+    amberblock/.style={rectangle, draw=orange!80!black, fill=orange!5, rounded corners=4pt, thick, align=center, inner sep=7pt}
+]
+
+\node[block, text width=12cm] (top) {\textbf{Medical IoMT Security: Bedside Device Protection Architecture}\\Smart infusion pumps, ECG monitors, and imaging modalities on hospital Wi-Fi networks};
+
+\node[alertblock, below left=1.2cm and 0.4cm of top, text width=5.6cm] (dilemma) {\textbf{Healthcare Dilemma: Unpatchable}\\$\bullet$ 24/7 non-stop clinical operation\\$\bullet$ FDA/regulatory recertification hurdles\\$\bullet$ Legacy embedded OS cannot be updated};
+
+\node[greenblock, below right=1.2cm and 0.4cm of top, text width=5.6cm] (zerotrust) {\textbf{In-Hospital Micro-Segmentation}\\$\bullet$ Passive traffic baseline profiling\\$\bullet$ Dynamic L2/L3 switch isolation per device\\$\bullet$ Immediate lateral movement containment};
+
+\node[block, below=2.8cm of top, text width=12cm] (bottom) {\textbf{Non-Invasive Zero-Trust Defense Protecting Critical Patient Lives}\\Zero modifications required on certified medical hardware while halting ransomware spread at the switch};
+
+\draw[->, thick, red!70!black] (top) -| (dilemma);
+\draw[->, thick, green!60!black] (top) -| (zerotrust);
+\draw[->, thick, blue!70!black] (dilemma) |- (bottom);
+\draw[->, thick, blue!70!black] (zerotrust) |- (bottom);
+
+\end{tikzpicture}
+\end{document}

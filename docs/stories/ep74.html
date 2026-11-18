@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第74話 深海の脈動と光の反響 〜海底光ファイバーケーブルと分布型音響センシング（DAS）〜 | 放課後サイバーディフェンス・ラボ</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Shippori+Mincho:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="story-header">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">トップ (目次)</a> &gt; <span>第74話</span>
+      </div>
+      <div class="story-ep-tag">Episode 74</div>
+      <h1 class="story-main-title">深海の脈動と光の反響 〜海底光ファイバーケーブルと分布型音響センシング（DAS）〜</h1>
+      <div class="story-meta">
+        <span>📚 学習テーマ: <strong>横浜国大SPIRAL落合秀樹教授・四方順司教授ら、重要インフラセキュリティ、国際通信の99%を担う海底光ファイバーケーブルの物理防衛、分布型光ファイバー音響センシング（DAS）、OTDR、および量子暗号中継による深海物理盗聴検知</strong></span>
+        <span>🏫 登場人物: 城崎悠真（部長・高2）、橘葵（部員・高2）、芹沢涼香准教授（大学メンター）</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container story-container">
+
+    <!-- ストーリーイラスト (4コマ漫画) -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>🎨 4コマ漫画挿絵（文字なし）</h2>
+        <span class="visual-badge">AI高解像度生成</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/ep74_4koma.png" alt="第74話 ストーリーイラスト" class="responsive-img">
+        <p class="caption">▲ 【挿絵】青葉台高校 情報科学部＆帝都科学大学サイバーディフェンス・ラボでの実践シーン</p>
+      </div>
+    </section>
+
+    <!-- 4コマ漫画セリフ（日・英バイリンガル）※存在する場合 -->
+    
+            <div class="koma-script-box">
+              <div class="koma-script-header">
+                <h3>💬 4コマ漫画キャラクターセリフ (Story Dialogue Script)</h3>
+                <span class="lang-tag">日・英バイリンガル (JA / EN)</span>
+              </div>
+              <div class="koma-panels-list">
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">1コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">部室の大画面に世界中の大陸を結ぶ海底ケーブルマップが青く光っている</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[葵]</span>「インターネットの国際通信って、全部宇宙の衛星を経由してるんだと思ってた！」<br><span class="koma-char-name">[蓮]</span>「実は国際データの99%以上は、太平洋や大西洋の海底数千メートルに沈められた光ファイバーケーブルが運んでるんだよ！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Aoi]</span> "I assumed international internet traffic went entirely through space satellites!"<br><span class="koma-char-name">[Ren]</span> "Actually, over 99% of global data travels through submarine fiber-optic cables resting thousands of meters deep on the seabed!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">2コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">悠真が深海での「物理的タッピング（光漏洩盗聴）」と「錨による切断破壊」のリスクを解説する</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[悠真]</span>「特殊潜航艇で海底ケーブルを曲げて光を漏洩させる光タッピングや、意図的な切断破壊が地政学的脅威になっている」<br><span class="koma-char-name">[葵]</span>「深海数千メートルの暗闇でこっそり線を曲げられたら、地上からは絶対に見えないじゃん！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yuma]</span> "Hostile submersibles bending cables to tap leaking photons or sever lines pose severe geopolitical threats!"<br><span class="koma-char-name">[Aoi]</span> "If someone stealthily bends a cable thousands of meters underwater, how could anyone on land ever detect it!?"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">3コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">結衣が「分布型音響センシング（DAS）」とレイリー後方散乱の数理を展開する</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[結衣]</span>「そこで横浜国大SPIRALの光波通信物理です！ ファイバー内にテスト光パルスを打ち込み、微細な歪みによるレイリー散乱の位相変化を観測します！」<br><span class="koma-char-name">[蓮]</span>「ケーブル自身が何千キロにも及ぶ巨大な水中マイクになり、接触や振動の発生位置を数メートル単位で特定できるんだ！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Yui]</span> "Enter YNU SPIRAL's optical wave physics! By pulsing test photons, we measure Rayleigh backscatter phase shifts from nanoscale fiber strain!"<br><span class="koma-char-name">[Ren]</span> "The cable itself becomes a thousand-kilometer seismic acoustic sensor, pinpointing physical tampering down to meters!"</div>
+                  </div>
+                </div>
+                
+                <div class="koma-panel-item">
+                  <div class="koma-panel-badge">4コマ目</div>
+                  <div class="koma-panel-body">
+                    <div class="koma-situation">画面の深海波形にアラートが立ち、量子暗号光中継器が瞬時にフェイルオーバーして通信を完全保護。4人が歓喜する</div>
+                    <div class="koma-dialogue-ja">🗣️ <span class="koma-char-name">[蓮・結衣]</span>「深海の底から世界のサイバー動脈を守る、光の物理学と暗号の結晶です！」<br><span class="koma-char-name">[全員]</span>「地球を一周する光の脈動を、私たちは決して途切れさせない！」</div>
+                    <div class="koma-dialogue-en">🌐 <span class="koma-char-name">[Ren & Yui]</span> "Guarding the global cyber artery at the bottom of the ocean through optical physics and cryptography!"<br><span class="koma-char-name">[All]</span> "We will never let the global pulse of light encircling the Earth be severed!"</div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+
+    <!-- 小説本文 -->
+    <section class="novel-section">
+      <div class="section-title">
+        <h2>📖 小説本文</h2>
+      </div>
+      <div class="novel-body">
+        <p>冬の夕闇が迫る青葉台高校の情報科学部室。中央の大型ディスプレイには、太平洋と大西洋を取り囲むように、幾千もの色鮮やかな線が蜘蛛の巣のように張り巡らされた地球儀が映し出されていた。</p>
+<p class="dialogue">「……葵先輩、この無数のライン、何だと思いますか？」</p>
+<p>神崎蓮が手元の光ファイバーコードを指先に巻きながら尋ねた。</p>
+<p class="dialogue">「えっ？ 国際線の飛行機の航路……じゃなくて、宇宙の衛星軌道？」橘葵が小首をかしげる。</p>
+<p class="dialogue">「全部、海の底に沈んでいる『海底光ファイバーケーブル』ですよ」</p>
+<p class="dialogue">「ええっ！？ 海の底！？」葵が目を丸くしてディスプレイに顔を近づけた。「国際電話とか海外のWebサイトを見るのって、宇宙の衛星が電波で中継してるんじゃないの！？」</p>
+<p class="dialogue">「衛星通信が担っているのは全体の1%未満に過ぎないんだよ」</p>
+<p>ドアを開けて入ってきた城崎悠真が、あたたかい緑茶の缶を配りながら説明を引き継いだ。
+「現代の地球規模のインターネット、クラウドデータ、金融決済（毎秒何十兆円もの国際送金）の**99%以上**は、水深数千メートルの深海底に敷設された光ファイバーケーブルの中を、光の速度で駆け巡っているんだ。まさに現代文明の最も重要で、最も脆い大動脈（Critical Infrastructure）だね」</p>
+<p>白石結衣がノートPCを操作し、海底ケーブルの断面図を投影した。
+「外径はわずか2〜3cm程度。高圧電流を送る銅管と鋼鉄ワイヤーの保護層の中に、人間の髪の毛ほどの細さの光ファイバーが数ペア入っているだけです。そして今、この海底ケーブルに対する**『深海物理サイバー攻撃』**が、国際安全保障の最大の焦点になっています」</p>
+<p>---</p>
+      </div>
+    </section>
+
+    <!-- TikZ 技術構造図解 -->
+    <section class="visual-card">
+      <div class="visual-header">
+        <h2>📊 セキュリティ構造図解 (TikZ LuaLaTeX生成)</h2>
+        <span class="visual-badge">国家安全基準・工学図解</span>
+      </div>
+      <div class="visual-body">
+        <img src="../assets/images/fig74_subsea_cable_security.png" alt="第74話 セキュリティ構造図解" class="responsive-img">
+        <p class="caption">▲ 【技術構造図】IPAデジタルスキル標準・国際規格に準拠した仕組みのモデル化</p>
+      </div>
+    </section>
+
+    <!-- 深掘りコラム -->
+    <section class="column-section">
+      <div class="section-title">
+        <h2>💡 高校生のためのセキュリティ深掘りコラム ＆ 大学進路ガイド</h2>
+      </div>
+      
+    </section>
+
+    <!-- 前後ナビゲーション -->
+    <nav class="episode-nav">
+      <a href="ep73.html" class="nav-btn">← 第73話: 命を刻む脈動と隔離の回廊 〜医療Io...</a>
+      <a href="../index.html" class="nav-btn center">目次に戻る</a>
+      <a href="ep75.html" class="nav-btn next">第75話: 螺旋の記録と生命の暗号 〜DNAスト... →</a>
+    </nav>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 放課後サイバーディフェンス・ラボ (Cybersecurity Novel Library)</p>
+    <p>Repository: <a href="https://github.com/k518-2026/cybersecurity-novel" target="_blank" rel="noopener" style="color: var(--primary);">k518-2026/cybersecurity-novel</a></p>
+  </footer>
+
+</body>
+</html>
