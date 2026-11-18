@@ -1,0 +1,33 @@
+\documentclass[border=12pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning, calc, fit, backgrounds}
+\usepackage{fontspec}
+\usepackage{amsmath,amssymb}
+\setmainfont{DejaVu Sans}
+
+\begin{document}
+\begin{tikzpicture}[
+    font=\small,
+    >=Stealth,
+    node distance=1.2cm,
+    block/.style={rectangle, draw=blue!70!black, fill=blue!5, rounded corners=4pt, thick, align=center, inner sep=7pt},
+    alertblock/.style={rectangle, draw=red!70!black, fill=red!5, rounded corners=4pt, thick, align=center, inner sep=7pt},
+    greenblock/.style={rectangle, draw=green!60!black, fill=green!5, rounded corners=4pt, thick, align=center, inner sep=7pt},
+    amberblock/.style={rectangle, draw=orange!80!black, fill=orange!5, rounded corners=4pt, thick, align=center, inner sep=7pt}
+]
+
+\node[block, text width=12cm] (top) {\textbf{Autonomous AI Agent Threat: Indirect Prompt Injection}\\Untrusted web data hijacking LLM attention to exfiltrate private user tokens};
+
+\node[alertblock, below left=1.2cm and 0.4cm of top, text width=5.6cm] (injection) {\textbf{Indirect Injection Vectors}\\$\bullet$ Invisible CSS white text on webpages\\$\bullet$ Metadata in PDFs and images\\$\bullet$ "Ignore previous instructions" jailbreaks};
+
+\node[greenblock, below right=1.2cm and 0.4cm of top, text width=5.6cm] (dual_llm) {\textbf{Dual-LLM Privileged Separation}\\$\bullet$ Quarantined LLM: parses raw data (no tools)\\$\bullet$ Privileged LLM: user instructions \& tool APIs\\$\bullet$ Strict JSON schema structured validation};
+
+\node[block, below=2.8cm of top, text width=12cm] (bottom) {\textbf{Architectural Least-Privilege Guardrails for Autonomous Agents}\\Treating untrusted natural language strictly as passive data rather than executable code};
+
+\draw[->, thick, red!70!black] (top) -| (injection);
+\draw[->, thick, green!60!black] (top) -| (dual_llm);
+\draw[->, thick, blue!70!black] (injection) |- (bottom);
+\draw[->, thick, blue!70!black] (dual_llm) |- (bottom);
+
+\end{tikzpicture}
+\end{document}

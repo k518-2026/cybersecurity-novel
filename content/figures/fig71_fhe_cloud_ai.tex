@@ -1,0 +1,33 @@
+\documentclass[border=12pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning, calc, fit, backgrounds}
+\usepackage{fontspec}
+\usepackage{amsmath,amssymb}
+\setmainfont{DejaVu Sans}
+
+\begin{document}
+\begin{tikzpicture}[
+    font=\small,
+    >=Stealth,
+    node distance=1.2cm,
+    block/.style={rectangle, draw=blue!70!black, fill=blue!5, rounded corners=4pt, thick, align=center, inner sep=7pt},
+    alertblock/.style={rectangle, draw=red!70!black, fill=red!5, rounded corners=4pt, thick, align=center, inner sep=7pt},
+    greenblock/.style={rectangle, draw=green!60!black, fill=green!5, rounded corners=4pt, thick, align=center, inner sep=7pt},
+    amberblock/.style={rectangle, draw=orange!80!black, fill=orange!5, rounded corners=4pt, thick, align=center, inner sep=7pt}
+]
+
+\node[block, text width=12cm] (top) {\textbf{Fully Homomorphic Encryption (FHE): Computing without Decrypting}\\Executing complex arithmetic directly on encrypted data in untrusted cloud environments};
+
+\node[amberblock, below left=1.2cm and 0.4cm of top, text width=5.6cm] (noise) {\textbf{Lattice LWE Noise Growth}\\$\bullet$ Addition adds error noise linearly\\$\bullet$ Multiplication squares error noise\\$\bullet$ Exceeding threshold $q/2$ corrupts plaintext};
+
+\node[greenblock, below right=1.2cm and 0.4cm of top, text width=5.6cm] (bootstrapping) {\textbf{Gentry's Bootstrapping}\\$\bullet$ Homomorphic evaluation of decryption circuit\\$\bullet$ Refreshes accumulated noise mid-flight\\$\bullet$ Enables arbitrary computation depth};
+
+\node[block, below=2.8cm of top, text width=12cm] (bottom) {\textbf{Privacy-Preserving Cloud AI \& Confidential Analytics (CKKS/TFHE)}\\Zero plaintext exposure to cloud providers while delivering full neural network inference};
+
+\draw[->, thick, orange!80!black] (top) -| (noise);
+\draw[->, thick, green!60!black] (top) -| (bootstrapping);
+\draw[->, thick, blue!70!black] (noise) |- (bottom);
+\draw[->, thick, blue!70!black] (bootstrapping) |- (bottom);
+
+\end{tikzpicture}
+\end{document}

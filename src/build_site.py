@@ -640,6 +640,33 @@ episodes = [
         "md_file": "2026-11-16_ep69_memory_safety_rust.md",
         "illust": "ep69_4koma.png",
         "figure": "fig69_memory_safety_rust.png"
+    },
+    {
+        "num": 70,
+        "id": "ep70",
+        "title": "宙を駆ける光条と軌道の防壁 〜低軌道衛星コンステレーション光ISL通信防御〜",
+        "theme": "横浜国大SPIRAL落合秀樹教授・四方順司教授ら、宇宙サイバーセキュリティ、低軌道（LEO）衛星コンステレーションにおける光衛星間通信（OISL）、ドップラーシフト補償、および軌道上での量子暗号鍵配送と指向性ビーム追尾防衛",
+        "md_file": "2026-11-18_ep70_satellite_oisl_security.md",
+        "illust": "ep70_4koma.png",
+        "figure": "fig70_satellite_oisl_security.png"
+    },
+    {
+        "num": 71,
+        "id": "ep71",
+        "title": "封じられた演算と数理の奇跡 〜完全準同型暗号（FHE）とプライバシー保護クラウドAI〜",
+        "theme": "横浜国大SPIRAL四方順司教授・佐藤慎悟准教授（NexCrypt Lab）、格子暗号・完全準同型暗号（FHE）、CKKS / TFHEスキーム、クラウド上での暗号化生体データ・ゲノム情報の非復号AI推論、ブートストラッピングによるノイズ成長制御",
+        "md_file": "2026-11-18_ep71_fhe_cloud_ai.md",
+        "illust": "ep71_4koma.png",
+        "figure": "fig71_fhe_cloud_ai.png"
+    },
+    {
+        "num": 72,
+        "id": "ep72",
+        "title": "囁く悪意と二重の防壁 〜自律型AIエージェントのプロンプトインジェクション防御〜",
+        "theme": "横浜国大SPIRAL吉岡克成教授ら、AI・機械学習セキュリティ、自律型LLMエージェントに対する間接的プロンプトインジェクション攻撃の脅威、特権分離（Privileged vs. Quarantined）に基づくDual-LLMガードレールアーキテクチャ、およびツール実行の形式的アクセス制御",
+        "md_file": "2026-11-18_ep72_dual_llm_guardrail.md",
+        "illust": "ep72_4koma.png",
+        "figure": "fig72_dual_llm_guardrail.png"
     }
 ]
 
@@ -934,7 +961,7 @@ index_html = f"""<!DOCTYPE html>
         高校生がサイバーセキュリティの面白さや重要性に触れ、将来の情報科学系・工学系大学への進学やセキュリティ専門職を目指すための入門ライトノベルです。<br>
         <strong>第1部（第1話〜第15話）</strong>：橘 葵＆城崎 悠真が、パスワード認証から暗号、クラウド、AI防御までの基礎原理を習得して大学進学へ。<br>
         <strong>第2部 先端編（第16話〜第20話）</strong>：新入生の神崎 蓮＆白石 結衣が、IoT、ゼロトラスト、ハードウェア解析、社会重要インフラ防御に挑む！<br>
-        <strong>第2部 横浜国大SPIRAL探訪編（第21話〜第69話）</strong>：暗号数理（四方教授・佐藤准教授）、IoT・マルウェア解析・車載セキュリティ（吉岡教授・イン特任准教授・佐々木准教授）、通信・物理層セキュリティ・量子情報（落合教授）、ハードウェア・人工物メトリクス（松本名誉教授）、認知セキュリティ（NICT連携）、セキュリティUX（NTT連携）など最新研究論文の知見を高校生向けにストーリー化！
+        <strong>第2部 横浜国大SPIRAL探訪編（第21話〜第72話）</strong>：暗号数理・FHE（四方教授・佐藤准教授）、IoT・マルウェア解析・車載・AIエージェントセキュリティ（吉岡教授・イン特任准教授・佐々木准教授）、通信・物理層セキュリティ・宇宙光通信（落合教授）、ハードウェア・人工物メトリクス（松本名誉教授）、認知セキュリティ（NICT連携）、セキュリティUX（NTT連携）など最新研究論文の知見を高校生向けにストーリー化！
       </p>
     </section>
 
@@ -944,7 +971,7 @@ index_html = f"""<!DOCTYPE html>
         <!-- リアルタイム検索バー -->
         <div class="search-box-wrapper">
           <span class="search-icon">🔍</span>
-          <input type="search" id="searchInput" class="search-input" placeholder="キーワード検索 (例: 暗号, IoT, ルーター, 偽装, マルウェア, 第69話, INSITE)..." autocomplete="off">
+          <input type="search" id="searchInput" class="search-input" placeholder="キーワード検索 (例: 暗号, IoT, ルーター, 偽装, マルウェア, 第72話, INSITE)..." autocomplete="off">
         </div>
 
         <!-- 表示順序ソートセレクター -->
@@ -960,8 +987,8 @@ index_html = f"""<!DOCTYPE html>
       <!-- シリーズ・編別フィルタータブ -->
       <div class="filter-tabs-row">
         <span class="filter-tab-label">シリーズ絞り込み:</span>
-        <button type="button" class="filter-btn active" data-filter="all">すべて (全69話)</button>
-        <button type="button" class="filter-btn" data-filter="part2_spiral">SPIRAL論文探訪編 (第21〜69話)</button>
+        <button type="button" class="filter-btn active" data-filter="all">すべて (全72話)</button>
+        <button type="button" class="filter-btn" data-filter="part2_spiral">SPIRAL論文探訪編 (第21〜72話)</button>
         <button type="button" class="filter-btn" data-filter="part2_adv">先端セキュリティ編 (第16〜20話)</button>
         <button type="button" class="filter-btn" data-filter="part1">高校情報科学部編 (第1〜15話)</button>
       </div>
@@ -969,7 +996,7 @@ index_html = f"""<!DOCTYPE html>
       <!-- 件数表示 & リセットボタン -->
       <div class="controls-status-row">
         <div>
-          該当件数: <span id="resultsCount" class="results-count-badge">69</span> 件 / 全69話中
+          該当件数: <span id="resultsCount" class="results-count-badge">72</span> 件 / 全72話中
         </div>
         <div>
           <button type="button" id="resetFiltersBtn" class="reset-filters-btn">検索・条件をリセット</button>
