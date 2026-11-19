@@ -721,6 +721,33 @@ episodes = [
         "md_file": "2026-11-18_ep78_honeytoken_deception.md",
         "illust": "ep78_4koma.png",
         "figure": "fig78_honeytoken_deception.png"
+    },
+    {
+        "num": 79,
+        "id": "ep79",
+        "title": "シリコンの鼓動と偽らざる指紋 〜ハードウェア・トロイの木馬検出とPUF物理複製困難関数〜",
+        "theme": "半導体サプライチェーンセキュリティ、非信頼ファウンドリ、ハードウェア型トロイの木馬（Hardware Trojan）、製造ばらつきを利用した物理複製困難関数（PUF: Physical Unclonable Function）、SRAM PUF、ヘルパーデータとFuzzy Extractorによる暗号鍵生成、サイドチャネル過渡電流解析",
+        "md_file": "2026-11-20_ep79_hardware_trojan_puf.md",
+        "illust": "ep79_4koma.png",
+        "figure": "fig79_hardware_trojan_puf.png"
+    },
+    {
+        "num": 80,
+        "id": "ep80",
+        "title": "量子を超克する盲目計算 〜ブラインド量子計算（BQC）と遠隔検証プロトコル〜",
+        "theme": "量子クラウドセキュリティ、ブラインド量子計算（BQC: Blind Quantum Computation）、測定型量子計算（MBQC: Measurement-Based Quantum Computing）、クラスタ状態、トラップ量子ビット、検証可能BQC（Verifiable BQC）、クライアントデータの情報理論的安全秘匿",
+        "md_file": "2026-11-20_ep80_blind_quantum_computation.md",
+        "illust": "ep80_4koma.png",
+        "figure": "fig80_blind_quantum_computation.png"
+    },
+    {
+        "num": 81,
+        "id": "ep81",
+        "title": "深層モデルの遺却証明 〜機械学習アンラーニング（Machine Unlearning）と忘却の数学的保証〜",
+        "theme": "プライバシー保護AI、忘れられる権利（Right to be Forgotten / GDPR Article 17）、機械学習アンラーニング（Machine Unlearning）、メンバーシップ推論攻撃（MIA）、Influence Function（影響関数）、SISAアーキテクチャ、サーティファイド・アンラーニング、差分プライバシー忘却保証",
+        "md_file": "2026-11-20_ep81_machine_unlearning.md",
+        "illust": "ep81_4koma.png",
+        "figure": "fig81_machine_unlearning.png"
     }
 ]
 
