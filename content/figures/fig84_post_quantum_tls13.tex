@@ -1,0 +1,33 @@
+\documentclass[border=12pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning, calc, fit, backgrounds}
+\usepackage{fontspec}
+\usepackage{amsmath,amssymb}
+\setmainfont{DejaVu Sans}
+
+\begin{document}
+\begin{tikzpicture}[
+    font=\small,
+    >=Stealth,
+    node distance=1.2cm,
+    block/.style={rectangle, draw=blue!70!black, fill=blue!5, rounded corners=4pt, thick, align=center, inner sep=7pt},
+    alertblock/.style={rectangle, draw=red!70!black, fill=red!5, rounded corners=4pt, thick, align=center, inner sep=7pt},
+    greenblock/.style={rectangle, draw=green!60!black, fill=green!5, rounded corners=4pt, thick, align=center, inner sep=7pt},
+    amberblock/.style={rectangle, draw=orange!80!black, fill=orange!5, rounded corners=4pt, thick, align=center, inner sep=7pt}
+]
+
+\node[block, text width=12cm] (top) {\textbf{Post-Quantum TLS 1.3 \& ML-KEM Hybrid Key Exchange}\\Neutralizing the Store-Now-Decrypt-Later (SNDL) threat to Internet communications};
+
+\node[alertblock, below left=1.2cm and 0.4cm of top, text width=5.6cm] (quantum_threat) {\textbf{Harvest-Now-Decrypt-Later Threat}\\$\bullet$ Adversaries record encrypted TLS sessions today\\$\bullet$ Shor's algorithm on CRQC breaks RSA/ECC\\$\bullet$ Long-term confidentiality irreversibly broken};
+
+\node[greenblock, below right=1.2cm and 0.4cm of top, text width=5.6cm] (pqc_hybrid) {\textbf{Dual Hybrid Key Encapsulation}\\$\bullet$ Classical ECDH (X25519) for proven safety\\$\bullet$ Lattice-based ML-KEM-768 (Kyber)\\$\bullet$ Joint shared secret derivation: $K = \text{HKDF}(K_{\text{ec}} \parallel K_{\text{pq}})$};
+
+\node[block, below=1.0cm of $(quantum_threat.south)!0.5!(pqc_hybrid.south)$, text width=12cm] (bottom) {\textbf{Seamless Transition to Quantum-Resilient Web Communications}\\Preserves compliance and performance while establishing unbreakable post-quantum confidentiality};
+
+\draw[->, thick, red!70!black] (top) -| (quantum_threat);
+\draw[->, thick, green!60!black] (top) -| (pqc_hybrid);
+\draw[->, thick, blue!70!black] (quantum_threat.south) -- ++(0,-0.45) -| ([xshift=-2.5cm]bottom.north);
+\draw[->, thick, blue!70!black] (pqc_hybrid.south) -- ++(0,-0.45) -| ([xshift=2.5cm]bottom.north);
+
+\end{tikzpicture}
+\end{document}

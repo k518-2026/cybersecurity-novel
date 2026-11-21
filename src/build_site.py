@@ -748,6 +748,33 @@ episodes = [
         "md_file": "2026-11-20_ep81_machine_unlearning.md",
         "illust": "ep81_4koma.png",
         "figure": "fig81_machine_unlearning.png"
+    },
+    {
+        "num": 82,
+        "id": "ep82",
+        "title": "閉ざされた要塞と遠隔の信憑 〜コンフィデンシャル・コンピューティングとリモートアテステーション〜",
+        "theme": "コンフィデンシャル・コンピューティング（Confidential Computing）、ハードウェア信頼実行環境（TEE: Trusted Execution Environment）、Intel SGX / AMD SEV-SNP / Intel TDX、エンクレーブ暗号化メモリ、非信頼クラウドハイパーバイザー・ホストOSからの完全防御、リモートアテステーション（遠隔署名検証）、ECDSA/EPID引用署名",
+        "md_file": "2026-11-22_ep82_confidential_computing_tee.md",
+        "illust": "ep82_4koma.png",
+        "figure": "fig82_confidential_computing_tee.png"
+    },
+    {
+        "num": 83,
+        "id": "ep83",
+        "title": "潜航する影とカーネルの守護瞳 〜eBPFによるゼロオーバーヘッド監視とルートキット検知〜",
+        "theme": "Linuxカーネルセキュリティ、ステルス・ルートキット（Rootkit）、システムコール改ざん（sys_call_tableフック）、Direct Kernel Object Manipulation (DKOM)、eBPF（extended Berkeley Packet Filter）、静的JITベリファイア、kprobe / tracepointによるインカーネル監視、ゼロオーバーヘッドの脅威遮断",
+        "md_file": "2026-11-22_ep83_ebpf_kernel_security.md",
+        "illust": "ep83_4koma.png",
+        "figure": "fig83_ebpf_kernel_security.png"
+    },
+    {
+        "num": 84,
+        "id": "ep84",
+        "title": "格子の盾と新時代の握手 〜耐量子TLS 1.3とML-KEMハイブリッド鍵交換〜",
+        "theme": "耐量子計算機暗号（PQC: Post-Quantum Cryptography）、NIST FIPS 203標準（ML-KEM / CRYSTALS-Kyber）、TLS 1.3ハンドシェイク、古典楕円曲線（X25519）と格子暗号のハイブリッド鍵交換（X25519MLKEM768）、Store-Now-Decrypt-Later（SNDL）盗聴脅威の根絶",
+        "md_file": "2026-11-22_ep84_post_quantum_tls13.md",
+        "illust": "ep84_4koma.png",
+        "figure": "fig84_post_quantum_tls13.png"
     }
 ]
 

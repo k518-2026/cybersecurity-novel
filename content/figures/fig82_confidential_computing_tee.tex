@@ -1,0 +1,33 @@
+\documentclass[border=12pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning, calc, fit, backgrounds}
+\usepackage{fontspec}
+\usepackage{amsmath,amssymb}
+\setmainfont{DejaVu Sans}
+
+\begin{document}
+\begin{tikzpicture}[
+    font=\small,
+    >=Stealth,
+    node distance=1.2cm,
+    block/.style={rectangle, draw=blue!70!black, fill=blue!5, rounded corners=4pt, thick, align=center, inner sep=7pt},
+    alertblock/.style={rectangle, draw=red!70!black, fill=red!5, rounded corners=4pt, thick, align=center, inner sep=7pt},
+    greenblock/.style={rectangle, draw=green!60!black, fill=green!5, rounded corners=4pt, thick, align=center, inner sep=7pt},
+    amberblock/.style={rectangle, draw=orange!80!black, fill=orange!5, rounded corners=4pt, thick, align=center, inner sep=7pt}
+]
+
+\node[block, text width=12cm] (top) {\textbf{Confidential Computing \& Hardware-Enforced TEE}\\Protecting data in-use from untrusted cloud infrastructure, rogue hypervisors, and privileged admins};
+
+\node[alertblock, below left=1.2cm and 0.4cm of top, text width=5.6cm] (cloud_threat) {\textbf{Untrusted Host \& Hypervisor Risks}\\$\bullet$ Cold boot attacks / memory sniffing\\$\bullet$ Compromised Ring 0 kernel / root access\\$\bullet$ Malicious VM snapshotting \& introspection};
+
+\node[greenblock, below right=1.2cm and 0.4cm of top, text width=5.6cm] (tee_attestation) {\textbf{Hardware Enclave \& Attestation}\\$\bullet$ AES-128/256 memory encryption (Intel SGX/TDX)\\$\bullet$ CPU hardware-rooted enclave measurement\\$\bullet$ Remote quote signing with ECDSA/EPID};
+
+\node[block, below=1.0cm of $(cloud_threat.south)!0.5!(tee_attestation.south)$, text width=12cm] (bottom) {\textbf{Cryptographically Verifiable Zero-Trust Execution in the Cloud}\\Client verifies hardware signature before injecting secret keys into isolated enclave memory};
+
+\draw[->, thick, red!70!black] (top) -| (cloud_threat);
+\draw[->, thick, green!60!black] (top) -| (tee_attestation);
+\draw[->, thick, blue!70!black] (cloud_threat.south) -- ++(0,-0.45) -| ([xshift=-2.5cm]bottom.north);
+\draw[->, thick, blue!70!black] (tee_attestation.south) -- ++(0,-0.45) -| ([xshift=2.5cm]bottom.north);
+
+\end{tikzpicture}
+\end{document}
