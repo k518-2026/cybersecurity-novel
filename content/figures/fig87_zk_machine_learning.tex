@@ -1,0 +1,33 @@
+\documentclass[border=12pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning, calc, fit, backgrounds}
+\usepackage{fontspec}
+\usepackage{amsmath,amssymb}
+\setmainfont{DejaVu Sans}
+
+\begin{document}
+\begin{tikzpicture}[
+    font=\small,
+    >=Stealth,
+    node distance=1.2cm,
+    block/.style={rectangle, draw=blue!70!black, fill=blue!5, rounded corners=4pt, thick, align=center, inner sep=7pt},
+    alertblock/.style={rectangle, draw=red!70!black, fill=red!5, rounded corners=4pt, thick, align=center, inner sep=7pt},
+    greenblock/.style={rectangle, draw=green!60!black, fill=green!5, rounded corners=4pt, thick, align=center, inner sep=7pt},
+    amberblock/.style={rectangle, draw=orange!80!black, fill=orange!5, rounded corners=4pt, thick, align=center, inner sep=7pt}
+]
+
+\node[block, text width=12cm] (top) {\textbf{Zero-Knowledge Machine Learning (ZK-ML) Verifiable Inference}\\Proving correct computation of deep neural networks without disclosing models or private inputs};
+
+\node[alertblock, below left=1.2cm and 0.4cm of top, text width=5.6cm] (zkml_threat) {\textbf{Trust Deficits in Black-Box AI}\\$\bullet$ Silent substitution of lower-tier AI models\\$\bullet$ Tampered diagnostic results / biased inference\\$\bullet$ Leakage of proprietary multi-billion model weights};
+
+\node[greenblock, below right=1.2cm and 0.4cm of top, text width=5.6cm] (zkml_defense) {\textbf{Arithmetic Circuits \& zk-SNARKs}\\$\bullet$ Model quantization to finite field $\mathbb{F}_p$\\$\bullet$ PlonKish / Halo2 non-interactive arguments\\$\bullet$ Succinct mathematical proof of inference output};
+
+\node[block, below=1.0cm of $(zkml_threat.south)!0.5!(zkml_defense.south)$, text width=12cm] (bottom) {\textbf{Verifiable, Trustless, and Privacy-Preserving AI Everywhere}\\Client verifies cryptographic proof in milliseconds while model weights remain fully confidential};
+
+\draw[->, thick, red!70!black] (top) -| (zkml_threat);
+\draw[->, thick, green!60!black] (top) -| (zkml_defense);
+\draw[->, thick, blue!70!black] (zkml_threat.south) -- ++(0,-0.45) -| ([xshift=-2.5cm]bottom.north);
+\draw[->, thick, blue!70!black] (zkml_defense.south) -- ++(0,-0.45) -| ([xshift=2.5cm]bottom.north);
+
+\end{tikzpicture}
+\end{document}

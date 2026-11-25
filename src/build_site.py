@@ -775,6 +775,33 @@ episodes = [
         "md_file": "2026-11-22_ep84_post_quantum_tls13.md",
         "illust": "ep84_4koma.png",
         "figure": "fig84_post_quantum_tls13.png"
+    },
+    {
+        "num": 85,
+        "id": "ep85",
+        "title": "操られる知性と自律の檻 〜AIエージェントのツール悪用攻撃と権限サンドボックス〜",
+        "theme": "自律型AIエージェントセキュリティ、Tool Calling / Function Calling、Model Context Protocol（MCP）、間接プロンプトインジェクション（Indirect Prompt Injection）、不正シェル実行・API乱用、ケーパビリティベースド・サンドボックス、デュアルLLMによる意図検証とHuman-in-the-Loop承認",
+        "md_file": "2026-11-25_ep85_ai_agent_security_sandbox.md",
+        "illust": "ep85_4koma.png",
+        "figure": "fig85_ai_agent_security_sandbox.png"
+    },
+    {
+        "num": 86,
+        "id": "ep86",
+        "title": "インフラを蝕む見えざる系譜 〜産業制御システム（OT/ICS）ファームウェアと暗号学的SBOM〜",
+        "theme": "重要インフラセキュリティ、産業制御システム（ICS/SCADA）、プログラマブルロジックコントローラ（PLC）ファームウェア、サプライチェーン攻撃、ソフトウェア部品表（SBOM: Software Bill of Materials）、CycloneDX / SPDX、in-totoサプライチェーン暗号学的証明、マークル木（Merkle Tree）ハッシュ検証",
+        "md_file": "2026-11-25_ep86_ics_firmware_sbom.md",
+        "illust": "ep86_4koma.png",
+        "figure": "fig86_ics_firmware_sbom.png"
+    },
+    {
+        "num": 87,
+        "id": "ep87",
+        "title": "秘匿の数理と推論の確証 〜ゼロ知識機械学習（ZK-ML）と検証可能AI〜",
+        "theme": "ゼロ知識機械学習（ZK-ML: Zero-Knowledge Machine Learning）、検証可能計算（Verifiable Computation）、zk-SNARKs / PlonKish / Halo2、算術回路（Arithmetic Circuit）変換、有限体量子化、AIモデル重みと患者生体データの完全秘匿、推論結果の数学的完全性証明",
+        "md_file": "2026-11-25_ep87_zk_machine_learning.md",
+        "illust": "ep87_4koma.png",
+        "figure": "fig87_zk_machine_learning.png"
     }
 ]
 
