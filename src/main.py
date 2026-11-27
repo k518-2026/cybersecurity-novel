@@ -77,26 +77,49 @@ def resolve_draw_things() -> Tuple[Optional[str], str]:
     return None, ""
 
 
-def call_ollama_chat(host: str, model: str, system_prompt: str, user_prompt: str, temperature: float = 0.7, num_predict: int = 3500) -> str:
-    payload = {
+def call_ollama_chat(
+    host: str,
+    model: str,
+    system_prompt: str,
+    user_prompt: str,
+    temperature: float = 0.7,
+    num_predict: int = 3500,
+    response_format: Optional[Any] = None,
+) -> str:
+    payload: Dict[str, Any] = {
         "model": model,
         "messages": [
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_prompt},
         ],
         "stream": False,
+        "think": False,
         "options": {
             "temperature": temperature,
             "num_predict": num_predict,
             "num_ctx": 8192,
+            "repeat_penalty": 1.1,
         },
     }
+    if response_format is not None:
+        payload["format"] = response_format
     data = json.dumps(payload).encode("utf-8")
-    req = urllib.request.Request(f"{host}/api/chat", data=data, headers={"Content-Type": "application/json"}, method="POST")
-    with urllib.request.urlopen(req, timeout=600) as resp:
-        body = json.loads(resp.read().decode("utf-8", errors="ignore"))
-        content = body.get("message", {}).get("content", "")
-        return re.sub(r"<think>.*?</think>", "", content, flags=re.DOTALL).strip()
+    last_err: Optional[Exception] = None
+    for attempt in range(1, 4):
+        try:
+            req = urllib.request.Request(f"{host}/api/chat", data=data, headers={"Content-Type": "application/json"}, method="POST")
+            with urllib.request.urlopen(req, timeout=600) as resp:
+                body = json.loads(resp.read().decode("utf-8", errors="ignore"))
+                content = (body.get("message", {}).get("content") or "").strip()
+                cleaned = re.sub(r"<think>.*?</think>", "", content, flags=re.DOTALL).strip()
+                if cleaned:
+                    return cleaned
+                raise RuntimeError(f"Empty response from Ollama ({model})")
+        except Exception as e:
+            last_err = e
+            logger.warning(f"Ollama call ({model}) attempt {attempt}/3 failed: {e}")
+            time.sleep(3 * attempt)
+    raise RuntimeError(f"Ollama call ({model}) failed after 3 attempts: {last_err}")
 
 
 def scan_existing_episodes(base_dir: Path) -> List[Dict[str, Any]]:
@@ -333,53 +356,64 @@ def generate_4koma_illustration(dt_host: str, prompts: List[str], out_png: Path,
 
 
 def plan_new_episodes(ollama_host: str, planner_model: str, existing_eps: List[Dict[str, Any]], count: int) -> List[Dict[str, Any]]:
-    next_num = (max([e["num"] for e in existing_eps]) + 1) if existing_eps else 1
-    recent_themes = "\n".join([f"- 第{e['num']}話: {e['title']} ({e['theme'][:60]})" for e in existing_eps[-25:]])
-    user_prompt = f"""『放課後サイバーディフェンス・ラボ』（登場人物：城崎悠真・橘葵・神崎蓮・白石結衣）の新作エピソード企画を **{count} 話分**（第{next_num}話〜第{next_num + count - 1}話）作成し、純粋なJSON配列のみで出力してください。
+    base_num = max([e["num"] for e in existing_eps], default=0)
+    plan_schema = {
+        "type": "object",
+        "properties": {
+            "slug": {"type": "string"},
+            "category": {"type": "string"},
+            "title": {"type": "string"},
+            "theme": {"type": "string"},
+            "panel_prompts": {"type": "array", "items": {"type": "string"}},
+            "diagram_nodes": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "title": {"type": "string"},
+                        "desc": {"type": "string"},
+                    },
+                    "required": ["title", "desc"],
+                },
+            },
+        },
+        "required": ["slug", "category", "title", "theme", "panel_prompts", "diagram_nodes"],
+    }
 
-【既存エピソード（これらと重複しない最新・高度なサイバーセキュリティ／暗号数理／AI・クラウド・ハードウェア防衛テーマを選ぶこと）】
+    planned: List[Dict[str, Any]] = []
+    for idx in range(count):
+        ep_n = base_num + idx + 1
+        combined_recent = [f"- 第{e['num']}話: {e['title']} ({e['theme'][:60]})" for e in existing_eps[-25:]] + [
+            f"- 第{p['episode_num']}話: {p['title']} ({p['theme'][:60]})" for p in planned
+        ]
+        recent_themes = "\n".join(combined_recent)
+        user_prompt = f"""『放課後サイバーディフェンス・ラボ』（登場人物：城崎悠真・橘葵・神崎蓮・白石結衣）の新作エピソード企画を **1話分（第{ep_n}話）** 作成し、JSONオブジェクトで出力してください。
+
+【既存エピソード（重複厳禁）】
 {recent_themes}
 
-【出力JSONスキーマ（配列のみ出力・前後の説明不要）】
-[
-  {{
-    "episode_num": {next_num},
-    "slug": "english_snake_case_slug",
-    "category": "ai_security または crypto または cloud_security または network_security または hardware_security",
-    "title": "詩的な副題 〜具体的なセキュリティ技術名〜",
-    "theme": "扱う主要技術キーワード5〜7個（カンマ区切り）",
-    "panel_prompts": [
-      "Panel 1 English scene description:葵 and 結衣 looking at a security alert monitor in a sunlit university lab",
-      "Panel 2 English scene description:悠真 explaining cryptographic or security architecture on a glowing holographic display",
-      "Panel 3 English scene description:蓮 and 結衣 running defense verification code with green checkmarks on screen",
-      "Panel 4 English scene description:All four club members smiling warmly together in celebration in the bright lab"
-    ],
-    "diagram_nodes": [
-      {{"title": "1. 脅威・攻撃手法", "desc": "具体的な攻撃メカニズムの要約（45文字以内）"}},
-      {{"title": "2. 検知・境界検証", "desc": "異常検知・ポリシー制御の要約（45文字以内）"}},
-      {{"title": "3. 暗号・防御コア技術", "desc": "中核となる数理・システム防御技術（45文字以内）"}},
-      {{"title": "4. 安全性の保証・運用", "desc": "検証完了とゼロトラスト運用の効果（45文字以内）"}}
-    ]
-  }}
-]"""
-    raw = call_ollama_chat(
-        host=ollama_host,
-        model=planner_model,
-        system_prompt="You output strictly valid JSON arrays only. No markdown code fences.",
-        user_prompt=user_prompt,
-        temperature=0.7,
-        num_predict=2800,
-    )
-    m = re.search(r"\[\s*\{.*\}\s*\]", raw, flags=re.DOTALL)
-    cleaned = m.group(0) if m else raw
-    items = json.loads(cleaned, strict=False)
-    planned: List[Dict[str, Any]] = []
-    for idx, it in enumerate(items[:count]):
-        ep_n = next_num + idx
+【必須ルール】
+1. `slug` は英小文字とアンダースコアのみ（例: `confidential_wasm_enclave`）。
+2. `category` は `ai_security`, `crypto`, `cloud_security`, `network_security`, `hardware_security` のいずれか。
+3. `title` は「詩的な副題 〜具体的なセキュリティ技術名〜」（第{ep_n}話は付けない）。
+4. `panel_prompts` は英語で4要素（1コマ目〜4コマ目の明るい研究室・情報科学部メンバーの情景描写、文字や吹き出しなし）。
+5. `diagram_nodes` は日本語で4要素（1.脅威、2.検知・境界、3.暗号・防御コア、4.安全性保証、各 `desc` は45文字以内）。"""
+
+        raw = call_ollama_chat(
+            host=ollama_host,
+            model=planner_model,
+            system_prompt="Output a single valid JSON object matching the schema.",
+            user_prompt=user_prompt,
+            temperature=0.72,
+            num_predict=1400,
+            response_format=plan_schema,
+        )
+        it = json.loads(raw, strict=False)
         slug = re.sub(r"[^a-z0-9_]+", "_", str(it.get("slug", f"cyber_defense_{ep_n}")).lower()).strip("_") or f"cyber_defense_{ep_n}"
         it["episode_num"] = ep_n
         it["slug"] = slug
         planned.append(it)
+        logger.info(f"  -> Planned Episode #{ep_n:02d}: {slug} | {it.get('title')}")
     return planned
 
 
