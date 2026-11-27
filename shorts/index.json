@@ -18,5 +18,25 @@
     "thumbnail_rel_path": "shorts/ep01_passwords_and_authentication/thumbnail.jpg",
     "description_rel_path": "shorts/ep01_passwords_and_authentication/description.md",
     "archived_at": "2026-11-27 09:51:35"
+  },
+  {
+    "work_id": "ep02_phishing_and_social_engineering",
+    "work_no": 2,
+    "work_title": "偽りの手紙と本物の目印",
+    "hook_title": "URLの罠を見破れ！",
+    "field_cat": "ネットワーク・Web・クラウド",
+    "video_id": "78c48f081790b23a",
+    "youtube_title": "【サイバー防衛】フィッシング詐欺の巧妙な手口を暴け！ #サイバーセキュリティ #Shorts",
+    "youtube_description": "宅配便を装ったSMSの罠…！URLの階層構造やHTTPSの真実を知り、自分と大切な資産を守るための知識を身につけよう。 \n\nWeb本編はこちら：https://k518-2026.github.io/cybersecurity-novel/",
+    "duration_sec": 44.1,
+    "scenes_count": 3,
+    "file_size": 9673963,
+    "voice": "ja-JP-NanamiNeural",
+    "with_se": true,
+    "with_bgm": true,
+    "video_rel_path": "shorts/ep02_phishing_and_social_engineering/video.mp4",
+    "thumbnail_rel_path": "shorts/ep02_phishing_and_social_engineering/thumbnail.jpg",
+    "description_rel_path": "shorts/ep02_phishing_and_social_engineering/description.md",
+    "archived_at": "2026-11-27 19:33:29"
   }
 ]
