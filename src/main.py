@@ -550,8 +550,8 @@ def main() -> None:
     if args.stock_count > 0:
         if args.push:
             git_env = {**os.environ, "GIT_EDITOR": "true"}
-        subprocess.run(["git", "fetch", "origin", "main"], cwd=str(base_dir), check=False, env=git_env)
-        subprocess.run(["git", "merge", "--no-edit", "-X", "ours", "origin/main"], cwd=str(base_dir), check=False, env=git_env)
+            subprocess.run(["git", "fetch", "origin", "main"], cwd=str(base_dir), check=False, env=git_env)
+            subprocess.run(["git", "merge", "--no-edit", "-X", "ours", "origin/main"], cwd=str(base_dir), check=False, env=git_env)
 
         ollama_host, models = resolve_ollama()
         if not ollama_host:
