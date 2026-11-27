@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.env
+content/figures/*.aux
+content/figures/*.log
+content/figures/*.pdf
+content/illustrations/_panels_tmp/

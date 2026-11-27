@@ -805,6 +805,40 @@ episodes = [
     }
 ]
 
+# Auto-discover any newly generated episodes in content/ beyond the static catalog above
+_known_nums = {ep["num"] for ep in episodes}
+for _md_path in sorted(glob.glob(os.path.join(CONTENT_DIR, "*_ep*.md"))):
+    _md_name = os.path.basename(_md_path)
+    _m_ep = re.search(r"_ep(\d+)_", _md_name)
+    if not _m_ep:
+        continue
+    _ep_num = int(_m_ep.group(1))
+    if _ep_num in _known_nums:
+        continue
+    with open(_md_path, "r", encoding="utf-8") as _fp:
+        _raw = _fp.read()
+    _parts = _raw.split("---")
+    _fm = _parts[1] if len(_parts) >= 3 else ""
+    _t_m = re.search(r'^title:\s*"?([^"\n]+)"?', _fm, re.MULTILINE)
+    _raw_title = _t_m.group(1).strip() if _t_m else f"第{_ep_num}話"
+    _clean_title = re.sub(r"^第\s*\d+\s*話\s*", "", _raw_title).strip()
+    _th_m = re.search(r'^theme:\s*"?([^"\n]+)"?', _fm, re.MULTILINE)
+    _theme = _th_m.group(1).strip() if _th_m else "先端サイバーセキュリティ技術"
+    _cov_m = re.search(r'^cover_image:\s*"?([^"\n]+)"?', _fm, re.MULTILINE)
+    _fig_m = re.search(r'^figure_image:\s*"?([^"\n]+)"?', _fm, re.MULTILINE)
+    episodes.append({
+        "num": _ep_num,
+        "id": f"ep{_ep_num:02d}",
+        "title": _clean_title,
+        "theme": _theme,
+        "md_file": _md_name,
+        "illust": _cov_m.group(1).strip() if _cov_m else f"ep{_ep_num:02d}_4koma.png",
+        "figure": _fig_m.group(1).strip() if _fig_m else f"fig{_ep_num:02d}_diagram.png",
+    })
+    _known_nums.add(_ep_num)
+
+episodes.sort(key=lambda x: x["num"])
+
 def parse_markdown_to_html(md_path):
     with open(md_path, "r", encoding="utf-8") as f:
         content = f.read()
@@ -866,7 +900,13 @@ def parse_markdown_to_html(md_path):
 
     # Extract novel
     novel_match = re.search(r"## 📖 小説本文\s*\n(.*?)(?=\n## |\Z)", body, re.DOTALL)
-    novel_raw = novel_match.group(1).strip() if novel_match else ""
+    if novel_match:
+        novel_raw = novel_match.group(1).strip()
+    else:
+        # Fallback for episodes structured directly with ### headings
+        fallback_body = re.sub(r"## 💬 4コマ漫画キャラクターセリフ.*?(?=\n## |\Z)", "", body, flags=re.DOTALL)
+        fallback_body = re.sub(r"## 💡 高校生のためのセキュリティ深掘りコラム.*?(?=\n## |\Z)", "", fallback_body, flags=re.DOTALL)
+        novel_raw = fallback_body.strip()
 
     # Extract column
     column_match = re.search(r"## 💡 高校生のためのセキュリティ深掘りコラム\s*\n(.*?)(?=\n## |\Z)", body, re.DOTALL)
