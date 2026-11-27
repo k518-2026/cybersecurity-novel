@@ -1,0 +1,20 @@
+{
+  "work_id": "ep03_free_wifi_and_encryption",
+  "work_no": 3,
+  "work_title": "街角の電波は誰のもの？",
+  "hook_title": "街角のWi-Fiに潜む罠",
+  "field_cat": "暗号・耐量子・ゼロ知識",
+  "video_id": "ffd538882c8685d5",
+  "youtube_title": "【衝撃】無料Wi-Fiの正体は？HTTPSの魔法で守れ！ #サイバーセキュリティ #Shorts",
+  "youtube_description": "カフェの無料Wi-Fiに潜む『中間者攻撃』の恐怖を知っていますか？なぜHTTPSやVPNが必要なのか、その裏にある数学の美学を解説。 \n\n本編Webサイト：https://k518-2026.github.io/cybersecurity-novel/",
+  "duration_sec": 41.1,
+  "scenes_count": 4,
+  "file_size": 11042035,
+  "voice": "ja-JP-NanamiNeural",
+  "with_se": true,
+  "with_bgm": true,
+  "video_rel_path": "shorts/ep03_free_wifi_and_encryption/video.mp4",
+  "thumbnail_rel_path": "shorts/ep03_free_wifi_and_encryption/thumbnail.jpg",
+  "description_rel_path": "shorts/ep03_free_wifi_and_encryption/description.md",
+  "archived_at": "2026-11-27 19:41:03"
+}
